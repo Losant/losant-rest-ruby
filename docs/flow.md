@@ -135,8 +135,8 @@ client.flow.get_log_entries(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | flowId | string | Y | ID associated with the flow |
-| limit | string | N | undefined |
-| since | string | N | undefined |
+| limit | string | N |  |
+| since | string | N |  |
 
 #### Responses
 

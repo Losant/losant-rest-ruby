@@ -17,13 +17,13 @@ client.dashboards.get(params)
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| sortField | string | N | undefined |
-| sortDirection | string | N | undefined |
-| page | string | N | undefined |
-| perPage | string | N | undefined |
-| filterField | string | N | undefined |
-| filter | string | N | undefined |
-| orgId | string | N | undefined |
+| sortField | string | N |  |
+| sortDirection | string | N |  |
+| page | string | N |  |
+| perPage | string | N |  |
+| filterField | string | N |  |
+| filter | string | N |  |
+| orgId | string | N |  |
 
 #### Responses
 

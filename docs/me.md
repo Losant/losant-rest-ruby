@@ -252,8 +252,8 @@ client.me.fetch_recent_items(params)
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| parentId | string | N | undefined |
-| itemType | undefined | N | undefined |
+| parentId | string | N |  |
+| itemType | undefined | N |  |
 
 #### Responses
 

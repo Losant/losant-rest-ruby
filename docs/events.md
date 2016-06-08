@@ -20,13 +20,13 @@ client.events.get(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
-| sortField | string | N | undefined |
-| sortDirection | string | N | undefined |
-| page | string | N | undefined |
-| perPage | string | N | undefined |
-| filterField | string | N | undefined |
-| filter | string | N | undefined |
-| state | string | N | undefined |
+| sortField | string | N |  |
+| sortDirection | string | N |  |
+| page | string | N |  |
+| perPage | string | N |  |
+| filterField | string | N |  |
+| filter | string | N |  |
+| state | string | N |  |
 
 #### Responses
 
@@ -82,9 +82,9 @@ client.events.patch(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
-| filterField | string | N | undefined |
-| filter | string | N | undefined |
-| state | string | N | undefined |
+| filterField | string | N |  |
+| filter | string | N |  |
+| state | string | N |  |
 | updates | [eventPatch](_schemas.md#eventpatch) | Y | Object containing updated information for the events |
 
 #### Responses
@@ -113,7 +113,7 @@ client.events.most_recent_by_severity(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
-| filter | string | N | undefined |
+| filter | string | N |  |
 
 #### Responses
 

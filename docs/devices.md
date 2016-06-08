@@ -19,12 +19,12 @@ client.devices.get(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
-| sortField | string | N | undefined |
-| sortDirection | string | N | undefined |
-| page | string | N | undefined |
-| perPage | string | N | undefined |
-| filterField | string | N | undefined |
-| filter | string | N | undefined |
+| sortField | string | N |  |
+| sortDirection | string | N |  |
+| page | string | N |  |
+| perPage | string | N |  |
+| filterField | string | N |  |
+| filter | string | N |  |
 | tagFilter | [deviceTagFilter](_schemas.md#devicetagfilter) | N | Array of tag pairs to filter by |
 
 #### Responses

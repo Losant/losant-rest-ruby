@@ -108,8 +108,8 @@ client.device.get_state(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | deviceId | string | Y | ID associated with the device |
-| limit | string | N | undefined |
-| since | string | N | undefined |
+| limit | string | N |  |
+| since | string | N |  |
 
 #### Responses
 
@@ -166,8 +166,8 @@ client.device.get_command(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | deviceId | string | Y | ID associated with the device |
-| limit | string | N | undefined |
-| since | string | N | undefined |
+| limit | string | N |  |
+| since | string | N |  |
 
 #### Responses
 
@@ -224,8 +224,8 @@ client.device.get_log_entries(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | deviceId | string | Y | ID associated with the device |
-| limit | string | N | undefined |
-| since | string | N | undefined |
+| limit | string | N |  |
+| since | string | N |  |
 
 #### Responses
 
