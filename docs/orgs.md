@@ -23,9 +23,6 @@ client.orgs.get(params)
 | perPage | string | N | undefined |
 | filterField | string | N | undefined |
 | filter | string | N | undefined |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -51,9 +48,6 @@ client.orgs.post(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | organization | [orgPost](_schemas.md#orgpost) | Y | New organization information |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 

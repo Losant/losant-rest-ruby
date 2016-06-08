@@ -19,9 +19,6 @@ client.dashboard.get(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | dashboardId | string | Y | ID of the associated dashboard |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -49,9 +46,6 @@ client.dashboard.patch(params)
 | ---- | ---- | -------- | ----------- |
 | dashboardId | string | Y | ID of the associated dashboard |
 | dashboard | [dashboardPatch](_schemas.md#dashboardpatch) | Y | Object containing new dashboard properties |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -79,9 +73,6 @@ client.dashboard.delete(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | dashboardId | string | Y | ID of the associated dashboard |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 

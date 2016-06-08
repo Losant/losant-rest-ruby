@@ -24,9 +24,6 @@ client.org.get(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | orgId | string | Y | ID associated with the organization |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -54,9 +51,6 @@ client.org.patch(params)
 | ---- | ---- | -------- | ----------- |
 | orgId | string | Y | ID associated with the organization |
 | organization | [orgPatch](_schemas.md#orgpatch) | Y | Object containing new organization properties |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -84,9 +78,6 @@ client.org.delete(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | orgId | string | Y | ID associated with the organization |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -113,9 +104,6 @@ client.org.pending_invites(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | orgId | string | Y | ID associated with the organization |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -143,9 +131,6 @@ client.org.invite_member(params)
 | ---- | ---- | -------- | ----------- |
 | orgId | string | Y | ID associated with the organization |
 | invite | [orgInvitePost](_schemas.md#orginvitepost) | Y | Object containing new invite info |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -174,9 +159,6 @@ client.org.revoke_invite(params)
 | ---- | ---- | -------- | ----------- |
 | orgId | string | Y | ID associated with the organization |
 | inviteId | string | Y | Id of invite to revoke |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -205,9 +187,6 @@ client.org.modify_member(params)
 | ---- | ---- | -------- | ----------- |
 | orgId | string | Y | ID associated with the organization |
 | member | [orgMemberPatch](_schemas.md#orgmemberpatch) | Y | Object containing new member pair |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -236,9 +215,6 @@ client.org.remove_member(params)
 | ---- | ---- | -------- | ----------- |
 | orgId | string | Y | ID associated with the organization |
 | userId | string | Y | Id of user to remove |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 

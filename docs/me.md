@@ -26,9 +26,6 @@ client.me.get(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | includeRecent | undefined | N | Should the user include recent app/dashboard info |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -54,9 +51,6 @@ client.me.patch(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | user | [mePatch](_schemas.md#mepatch) | Y | Object containing new user properties |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -83,9 +77,6 @@ client.me.delete(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | credentials | [userCredentials](_schemas.md#usercredentials) | Y | User authentication credentials |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -104,16 +95,12 @@ client.me.delete(params)
 Sends and email verification to the user
 
 ```ruby
-client.me.verify_email(params)
+client.me.verify_email
 ```
 
 #### Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
+No parameters needed for this call.
 
 #### Responses
 
@@ -140,9 +127,6 @@ client.me.enable_two_factor_auth(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | data | [enableTwoFactorAuth](_schemas.md#enabletwofactorauth) | Y | Object containing two factor auth properties |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -169,9 +153,6 @@ client.me.disable_two_factor_auth(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | data | [disableTwoFactorAuth](_schemas.md#disabletwofactorauth) | Y | Object containing two factor auth properties |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -190,16 +171,12 @@ client.me.disable_two_factor_auth(params)
 Disconnects the user from Github
 
 ```ruby
-client.me.disconnect_github(params)
+client.me.disconnect_github
 ```
 
 #### Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
+No parameters needed for this call.
 
 #### Responses
 
@@ -218,16 +195,12 @@ client.me.disconnect_github(params)
 Disconnects the user from Twitter
 
 ```ruby
-client.me.disconnect_twitter(params)
+client.me.disconnect_twitter
 ```
 
 #### Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
+No parameters needed for this call.
 
 #### Responses
 
@@ -254,9 +227,6 @@ client.me.add_recent_item(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | data | [recentItem](_schemas.md#recentitem) | Y | Object containing recent item info |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -284,9 +254,6 @@ client.me.fetch_recent_items(params)
 | ---- | ---- | -------- | ----------- |
 | parentId | string | N | undefined |
 | itemType | undefined | N | undefined |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 

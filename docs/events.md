@@ -27,9 +27,6 @@ client.events.get(params)
 | filterField | string | N | undefined |
 | filter | string | N | undefined |
 | state | string | N | undefined |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -57,9 +54,6 @@ client.events.post(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | event | [eventPost](_schemas.md#eventpost) | Y | New event information |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -92,9 +86,6 @@ client.events.patch(params)
 | filter | string | N | undefined |
 | state | string | N | undefined |
 | updates | [eventPatch](_schemas.md#eventpatch) | Y | Object containing updated information for the events |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -123,9 +114,6 @@ client.events.most_recent_by_severity(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | filter | string | N | undefined |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 

@@ -19,9 +19,6 @@ client.access_token.get(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | accessTokenId | string | Y | ID associated with the accessToken |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -49,9 +46,6 @@ client.access_token.patch(params)
 | ---- | ---- | -------- | ----------- |
 | accessTokenId | string | Y | ID associated with the accessToken |
 | accessToken | [accessTokenPatch](_schemas.md#accesstokenpatch) | Y | Object containing new properties of the accessToken |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -79,9 +73,6 @@ client.access_token.delete(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | accessTokenId | string | Y | ID associated with the accessToken |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 

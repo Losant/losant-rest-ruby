@@ -25,9 +25,6 @@ client.flow.get(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | flowId | string | Y | ID associated with the flow |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -56,9 +53,6 @@ client.flow.patch(params)
 | applicationId | string | Y | ID associated with the application |
 | flowId | string | Y | ID associated with the flow |
 | flow | [flowPatch](_schemas.md#flowpatch) | Y | Object containing new properties of the flow |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -87,9 +81,6 @@ client.flow.delete(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | flowId | string | Y | ID associated with the flow |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -117,9 +108,6 @@ client.flow.debug(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | flowId | string | Y | ID associated with the flow |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -149,9 +137,6 @@ client.flow.get_log_entries(params)
 | flowId | string | Y | ID associated with the flow |
 | limit | string | N | undefined |
 | since | string | N | undefined |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -180,9 +165,6 @@ client.flow.press_virtual_button(params)
 | applicationId | string | Y | ID associated with the application |
 | flowId | string | Y | ID associated with the flow |
 | button | [virtualButtonPress](_schemas.md#virtualbuttonpress) | Y | Object containing button key and payload |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -210,9 +192,6 @@ client.flow.get_storage_entries(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | flowId | string | Y | ID associated with the flow |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -241,9 +220,6 @@ client.flow.set_storage_entry(params)
 | applicationId | string | Y | ID associated with the application |
 | flowId | string | Y | ID associated with the flow |
 | entry | [flowStorageEntry](_schemas.md#flowstorageentry) | Y | Object containing storage entry |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 

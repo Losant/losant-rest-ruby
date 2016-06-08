@@ -24,9 +24,6 @@ client.device_recipes.get(params)
 | perPage | string | N | undefined |
 | filterField | string | N | undefined |
 | filter | string | N | undefined |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -54,9 +51,6 @@ client.device_recipes.post(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | deviceRecipe | [deviceRecipePost](_schemas.md#devicerecipepost) | Y | New device recipe information |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 

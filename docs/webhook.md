@@ -20,9 +20,6 @@ client.webhook.get(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | webhookId | string | Y | ID associated with the webhook |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -51,9 +48,6 @@ client.webhook.patch(params)
 | applicationId | string | Y | ID associated with the application |
 | webhookId | string | Y | ID associated with the webhook |
 | webhook | [webhookPatch](_schemas.md#webhookpatch) | Y | Object containing new properties of the webhook |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -82,9 +76,6 @@ client.webhook.delete(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | webhookId | string | Y | ID associated with the webhook |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 

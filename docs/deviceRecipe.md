@@ -21,9 +21,6 @@ client.device_recipe.get(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | deviceRecipeId | string | Y | ID associated with the device recipe |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -52,9 +49,6 @@ client.device_recipe.patch(params)
 | applicationId | string | Y | ID associated with the application |
 | deviceRecipeId | string | Y | ID associated with the device recipe |
 | deviceRecipe | [deviceRecipePatch](_schemas.md#devicerecipepatch) | Y | Object containing new properties of the device recipe |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -83,9 +77,6 @@ client.device_recipe.delete(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | deviceRecipeId | string | Y | ID associated with the device recipe |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -114,9 +105,6 @@ client.device_recipe.bulk_create(params)
 | applicationId | string | Y | ID associated with the application |
 | deviceRecipeId | string | Y | ID associated with the device recipe |
 | bulkInfo | [deviceRecipeBulkCreatePost](_schemas.md#devicerecipebulkcreatepost) | Y | Object containing bulk creation info |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 

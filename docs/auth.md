@@ -19,9 +19,6 @@ client.auth.authenticate_user(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | credentials | [userCredentials](_schemas.md#usercredentials) | Y | User authentication credentials |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -49,9 +46,6 @@ client.auth.authenticate_user_github(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | oauth | [githubLogin](_schemas.md#githublogin) | Y | User authentication credentials (access token) |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -79,9 +73,6 @@ client.auth.authenticate_device(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | credentials | [deviceCredentials](_schemas.md#devicecredentials) | Y | Device authentication credentials |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 

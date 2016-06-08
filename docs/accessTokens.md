@@ -10,16 +10,12 @@
 Returns the accessTokens for a user
 
 ```ruby
-client.access_tokens.get(params)
+client.access_tokens.get
 ```
 
 #### Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
+No parameters needed for this call.
 
 #### Responses
 
@@ -45,9 +41,6 @@ client.access_tokens.post(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | accessToken | [accessToken](_schemas.md#accesstoken) | Y | AccessToken information |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 

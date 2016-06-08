@@ -20,9 +20,6 @@ client.event.get(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | eventId | string | Y | ID associated with the event |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -51,9 +48,6 @@ client.event.patch(params)
 | applicationId | string | Y | ID associated with the application |
 | eventId | string | Y | ID associated with the event |
 | event | [eventPatch](_schemas.md#eventpatch) | Y | Object containing new properties of the event |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -82,9 +76,6 @@ client.event.delete(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | eventId | string | Y | ID associated with the event |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 

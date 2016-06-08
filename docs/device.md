@@ -25,9 +25,6 @@ client.device.get(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | deviceId | string | Y | ID associated with the device |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -56,9 +53,6 @@ client.device.patch(params)
 | applicationId | string | Y | ID associated with the application |
 | deviceId | string | Y | ID associated with the device |
 | device | [devicePatch](_schemas.md#devicepatch) | Y | Object containing new properties of the device |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -87,9 +81,6 @@ client.device.delete(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | deviceId | string | Y | ID associated with the device |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -119,9 +110,6 @@ client.device.get_state(params)
 | deviceId | string | Y | ID associated with the device |
 | limit | string | N | undefined |
 | since | string | N | undefined |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -150,9 +138,6 @@ client.device.send_state(params)
 | applicationId | string | Y | ID associated with the application |
 | deviceId | string | Y | ID associated with the device |
 | deviceState | [deviceState](_schemas.md#devicestate) | Y | Object containing the current state of the device |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -183,9 +168,6 @@ client.device.get_command(params)
 | deviceId | string | Y | ID associated with the device |
 | limit | string | N | undefined |
 | since | string | N | undefined |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -214,9 +196,6 @@ client.device.send_command(params)
 | applicationId | string | Y | ID associated with the application |
 | deviceId | string | Y | ID associated with the device |
 | deviceCommand | [deviceCommand](_schemas.md#devicecommand) | Y | Command to send to the device |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -247,9 +226,6 @@ client.device.get_log_entries(params)
 | deviceId | string | Y | ID associated with the device |
 | limit | string | N | undefined |
 | since | string | N | undefined |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 

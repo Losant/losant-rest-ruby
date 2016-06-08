@@ -24,9 +24,6 @@ client.applications.get(params)
 | filterField | string | N | undefined |
 | filter | string | N | undefined |
 | orgId | string | N | undefined |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -52,9 +49,6 @@ client.applications.post(params)
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | application | [applicationPost](_schemas.md#applicationpost) | Y | New application information |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 

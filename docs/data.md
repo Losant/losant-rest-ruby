@@ -19,9 +19,6 @@ client.data.time_series_query(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | query | [timeSeriesQuery](_schemas.md#timeseriesquery) | Y | The query parameters |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
@@ -49,9 +46,6 @@ client.data.last_value_query(params)
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | query | [lastValueQuery](_schemas.md#lastvaluequery) | Y | The query parameters |
-| _actions | boolean | N | Return resource actions in response |
-| _links | boolean | N | Return resource link in response |
-| _embedded | boolean | N | Return embedded resources in response |
 
 #### Responses
 
