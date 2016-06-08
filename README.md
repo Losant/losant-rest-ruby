@@ -28,14 +28,15 @@ creds = {
   secret: "my-app-access-secret" }
 response = client.auth.authenticate_device(credentials: creds)
 
-client.access_token = response["token"]
+client.auth_token = response["token"]
 app_id = response["applicationId"]
 
-state = { temperature: AnalogSensor.read }
+state = { data: { temperature: AnalogSensor.read } }
 response = client.device.send_state(deviceId: "my-device-id",
   applicationId: app_id, deviceState: state)
 
 puts response
+# { "success" => true }
 ```
 
 ## API Documentation
