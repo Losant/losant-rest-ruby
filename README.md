@@ -75,13 +75,13 @@ through this accessor.
 #### Resources
 
 *   [application_key](docs/applicationKey.md)  
-Resource wrapper for actions that are preformed on a single Application Key.
+Resource wrapper for actions that are performed on a single Application Key.
 
 *   [application_keys](docs/applicationKeys.md)  
 Resource wrapper for actions that are performed on Application Key collections.
 
 *   [application](docs/application.md)  
-Resource wrapper for actions that are preformed on a single Application.
+Resource wrapper for actions that are performed on a single Application.
 
 *   [applications](docs/applications.md)  
 Resource wrapper for actions that are performed on Application collections.
@@ -90,7 +90,7 @@ Resource wrapper for actions that are performed on Application collections.
 Resource wrapper for the actions to authenticate as a User or as a Device.
 
 *   [dashboard](docs/dashboard.md)  
-Resource wrapper for actions that are preformed on a single Dashboard.
+Resource wrapper for actions that are performed on a single Dashboard.
 
 *   [dashboards](docs/dashboards.md)  
 Resource wrapper for actions that are performed on Dashboard collections.
@@ -99,25 +99,25 @@ Resource wrapper for actions that are performed on Dashboard collections.
 Resource wrapper for querying historical data across an Application.
 
 *   [device](docs/device.md)  
-Resource wrapper for actions that are preformed on a single Device.
+Resource wrapper for actions that are performed on a single Device.
 
 *   [devices](docs/devices.md)  
 Resource wrapper for actions that are performed on Device collections.
 
 *   [device_recipe](docs/deviceRecipe.md)  
-Resource wrapper for actions that are preformed on a single Device Recipe.
+Resource wrapper for actions that are performed on a single Device Recipe.
 
 *   [device_recipes](docs/deviceRecipes.md)  
 Resource wrapper for actions that are performed on Device Recipe collections.
 
 *   [event](docs/event.md)  
-Resource wrapper for actions that are preformed on a Event collections.
+Resource wrapper for actions that are performed on a single Event.
 
 *   [events](docs/events.md)  
-Resource wrapper for actions that are preformed on a Event collections.
+Resource wrapper for actions that are performed on Event collections.
 
 *   [flow](docs/flow.md)  
-Resource wrapper for actions that are preformed on a single Workflow.
+Resource wrapper for actions that are performed on a single Workflow.
 
 *   [flows](docs/flows.md)  
 Resource wrapper for actions that are performed on Workflow collections.
@@ -126,13 +126,13 @@ Resource wrapper for actions that are performed on Workflow collections.
 Resource wrapper for actions are performed on the currently authenticated user.
 
 *   [org](docs/org.md)  
-Resource wrapper for actions that are preformed on a single Organization.
+Resource wrapper for actions that are performed on a single Organization.
 
 *   [orgs](docs/orgs.md)  
 Resource wrapper for actions that are performed on Organization collections.
 
 *   [webhook](docs/webhook.md)  
-Resource wrapper for actions that are preformed on a single Webhook.
+Resource wrapper for actions that are performed on a single Webhook.
 
 *   [webhooks](docs/webhooks.md)  
 Resource wrapper for actions that are performed on Webhook collections.
