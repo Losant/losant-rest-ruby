@@ -194,7 +194,7 @@ to an Application - such as listing the webhooks or creating a new webhook.
 
 ### LosantRest::ResponseError
 
-When the Losant API returns a unsucessful response, an instance of ResponseError
+When the Losant API returns a unsuccessful response, an instance of ResponseError
 is thrown.
 
 #### Accessors
