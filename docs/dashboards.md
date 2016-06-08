@@ -1,11 +1,17 @@
-# Dashboards
+# Dashboards Actions
 
-## Actions
+Details on the various actions that can be performed on the
+Dashboards resource, including the expected
+parameters and the potential responses.
+
+##### Contents
 
 *   [Get](#get)
 *   [Post](#post)
 
-### Get
+<br/>
+
+## Get
 
 Returns the dashboards owned by the current user
 
@@ -13,7 +19,7 @@ Returns the dashboards owned by the current user
 client.dashboards.get(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -25,18 +31,20 @@ client.dashboards.get(params)
 | filter | string | N |  |
 | orgId | string | N |  |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [dashboards](_schemas.md#dashboards) | Collection of dashboards |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 
-### Post
+<br/>
+
+## Post
 
 Create a new dasboard owned by the current user
 
@@ -44,19 +52,19 @@ Create a new dasboard owned by the current user
 client.dashboards.post(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | dashboard | [dashboardPost](_schemas.md#dashboardpost) | Y | New dashboard information |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 201 | [dashboard](_schemas.md#dashboard) | Successfully created dashboard |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |

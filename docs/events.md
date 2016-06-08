@@ -1,13 +1,19 @@
-# Events
+# Events Actions
 
-## Actions
+Details on the various actions that can be performed on the
+Events resource, including the expected
+parameters and the potential responses.
+
+##### Contents
 
 *   [Get](#get)
 *   [Post](#post)
 *   [Patch](#patch)
 *   [Most Recent by Severity](#most-recent-by-severity)
 
-### Get
+<br/>
+
+## Get
 
 Returns the events for an application
 
@@ -15,7 +21,7 @@ Returns the events for an application
 client.events.get(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -28,19 +34,21 @@ client.events.get(params)
 | filter | string | N |  |
 | state | string | N |  |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [events](_schemas.md#events) | Collection of events |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if application was not found |
 
-### Post
+<br/>
+
+## Post
 
 Create a new event for an application
 
@@ -48,20 +56,20 @@ Create a new event for an application
 client.events.post(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | event | [eventPost](_schemas.md#eventpost) | Y | New event information |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 201 | [event](_schemas.md#event) | Successfully created event |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
@@ -69,7 +77,9 @@ client.events.post(params)
 | 404 | [error](_schemas.md#error) | Error if application was not found |
 | 429 | [error](_schemas.md#error) | Error if event creation rate limit exceeded |
 
-### Patch
+<br/>
+
+## Patch
 
 Updates information for matching events by subject and/or current state
 
@@ -77,7 +87,7 @@ Updates information for matching events by subject and/or current state
 client.events.patch(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -87,20 +97,22 @@ client.events.patch(params)
 | state | string | N |  |
 | updates | [eventPatch](_schemas.md#eventpatch) | Y | Object containing updated information for the events |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [success](_schemas.md#success) | If updates were successfully applied |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 | 404 | [error](_schemas.md#error) | Error if application is not found |
 
-### Most Recent by Severity
+<br/>
+
+## Most Recent by Severity
 
 Returns the first new event ordered by severity and then creation
 
@@ -108,20 +120,20 @@ Returns the first new event ordered by severity and then creation
 client.events.most_recent_by_severity(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | filter | string | N |  |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | undefined | The event, plus count of currently new events |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |

@@ -1,12 +1,18 @@
-# Webhook
+# Webhook Actions
 
-## Actions
+Details on the various actions that can be performed on the
+Webhook resource, including the expected
+parameters and the potential responses.
+
+##### Contents
 
 *   [Get](#get)
 *   [Patch](#patch)
 *   [Delete](#delete)
 
-### Get
+<br/>
+
+## Get
 
 Retrieves information on an webhook
 
@@ -14,26 +20,28 @@ Retrieves information on an webhook
 client.webhook.get(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | webhookId | string | Y | ID associated with the webhook |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [webhook](_schemas.md#webhook) | Webhook information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if webhook was not found |
 
-### Patch
+<br/>
+
+## Patch
 
 Updates information about a webhook
 
@@ -41,7 +49,7 @@ Updates information about a webhook
 client.webhook.patch(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -49,20 +57,22 @@ client.webhook.patch(params)
 | webhookId | string | Y | ID associated with the webhook |
 | webhook | [webhookPatch](_schemas.md#webhookpatch) | Y | Object containing new properties of the webhook |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [webhook](_schemas.md#webhook) | Updated webhook information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 | 404 | [error](_schemas.md#error) | Error if webhook was not found |
 
-### Delete
+<br/>
+
+## Delete
 
 Deletes a webhook
 
@@ -70,20 +80,20 @@ Deletes a webhook
 client.webhook.delete(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | webhookId | string | Y | ID associated with the webhook |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [success](_schemas.md#success) | If webhook was successfully deleted |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |

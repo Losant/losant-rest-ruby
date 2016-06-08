@@ -1,12 +1,18 @@
-# Dashboard
+# Dashboard Actions
 
-## Actions
+Details on the various actions that can be performed on the
+Dashboard resource, including the expected
+parameters and the potential responses.
+
+##### Contents
 
 *   [Get](#get)
 *   [Patch](#patch)
 *   [Delete](#delete)
 
-### Get
+<br/>
+
+## Get
 
 Retrieves information on an dashboard
 
@@ -14,25 +20,27 @@ Retrieves information on an dashboard
 client.dashboard.get(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | dashboardId | string | Y | ID of the associated dashboard |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [dashboard](_schemas.md#dashboard) | Dashboard information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if dashboard was not found |
 
-### Patch
+<br/>
+
+## Patch
 
 Updates information about a dashboard
 
@@ -40,27 +48,29 @@ Updates information about a dashboard
 client.dashboard.patch(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | dashboardId | string | Y | ID of the associated dashboard |
 | dashboard | [dashboardPatch](_schemas.md#dashboardpatch) | Y | Object containing new dashboard properties |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [dashboard](_schemas.md#dashboard) | Update dashboard information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 | 404 | [error](_schemas.md#error) | Error if dashboard was not found |
 
-### Delete
+<br/>
+
+## Delete
 
 Deletes an dashboard
 
@@ -68,19 +78,19 @@ Deletes an dashboard
 client.dashboard.delete(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | dashboardId | string | Y | ID of the associated dashboard |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [success](_schemas.md#success) | If dashboard was successfully deleted |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |

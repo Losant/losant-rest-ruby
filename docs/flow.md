@@ -1,6 +1,10 @@
-# Flow
+# Flow Actions
 
-## Actions
+Details on the various actions that can be performed on the
+Flow resource, including the expected
+parameters and the potential responses.
+
+##### Contents
 
 *   [Get](#get)
 *   [Patch](#patch)
@@ -11,7 +15,9 @@
 *   [Get Storage Entries](#get-storage-entries)
 *   [Set Storage Entry](#set-storage-entry)
 
-### Get
+<br/>
+
+## Get
 
 Retrieves information on an flow
 
@@ -19,26 +25,28 @@ Retrieves information on an flow
 client.flow.get(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | flowId | string | Y | ID associated with the flow |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [flow](_schemas.md#flow) | Flow information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if flow was not found |
 
-### Patch
+<br/>
+
+## Patch
 
 Updates information about a flow
 
@@ -46,7 +54,7 @@ Updates information about a flow
 client.flow.patch(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -54,20 +62,22 @@ client.flow.patch(params)
 | flowId | string | Y | ID associated with the flow |
 | flow | [flowPatch](_schemas.md#flowpatch) | Y | Object containing new properties of the flow |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [flow](_schemas.md#flow) | Updated flow information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 | 404 | [error](_schemas.md#error) | Error if flow is not found |
 
-### Delete
+<br/>
+
+## Delete
 
 Deletes a flow
 
@@ -75,26 +85,28 @@ Deletes a flow
 client.flow.delete(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | flowId | string | Y | ID associated with the flow |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [success](_schemas.md#success) | If flow was successfully deleted |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if flow was not found |
 
-### Debug
+<br/>
+
+## Debug
 
 Streams real time flow debug events using SSE
 
@@ -102,26 +114,28 @@ Streams real time flow debug events using SSE
 client.flow.debug(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | flowId | string | Y | ID associated with the flow |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | undefined | Stream of flow debug events |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if flow was not found |
 
-### Get Log Entries
+<br/>
+
+## Get Log Entries
 
 Retrieve the recent log entries about the flows
 
@@ -129,7 +143,7 @@ Retrieve the recent log entries about the flows
 client.flow.get_log_entries(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -138,19 +152,21 @@ client.flow.get_log_entries(params)
 | limit | string | N |  |
 | since | string | N |  |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | undefined | Recent log entries |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if device was not found |
 
-### Press Virtual Button
+<br/>
+
+## Press Virtual Button
 
 Presses the specified virtual button on the flow
 
@@ -158,7 +174,7 @@ Presses the specified virtual button on the flow
 client.flow.press_virtual_button(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -166,19 +182,21 @@ client.flow.press_virtual_button(params)
 | flowId | string | Y | ID associated with the flow |
 | button | [virtualButtonPress](_schemas.md#virtualbuttonpress) | Y | Object containing button key and payload |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [success](_schemas.md#success) | Virtual button was pressed |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if flow was not found |
 
-### Get Storage Entries
+<br/>
+
+## Get Storage Entries
 
 Gets the current values in persistent storage
 
@@ -186,26 +204,28 @@ Gets the current values in persistent storage
 client.flow.get_storage_entries(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | flowId | string | Y | ID associated with the flow |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | undefined | The stored values |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if flow was not found |
 
-### Set Storage Entry
+<br/>
+
+## Set Storage Entry
 
 Sets a storage value
 
@@ -213,7 +233,7 @@ Sets a storage value
 client.flow.set_storage_entry(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -221,13 +241,13 @@ client.flow.set_storage_entry(params)
 | flowId | string | Y | ID associated with the flow |
 | entry | [flowStorageEntry](_schemas.md#flowstorageentry) | Y | Object containing storage entry |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [success](_schemas.md#success) | Value was successfully stored |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |

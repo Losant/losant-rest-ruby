@@ -1,6 +1,10 @@
-# Org
+# Org Actions
 
-## Actions
+Details on the various actions that can be performed on the
+Org resource, including the expected
+parameters and the potential responses.
+
+##### Contents
 
 *   [Get](#get)
 *   [Patch](#patch)
@@ -11,7 +15,9 @@
 *   [Modify Member](#modify-member)
 *   [Remove Member](#remove-member)
 
-### Get
+<br/>
+
+## Get
 
 Retrieves information on an organization
 
@@ -19,25 +25,27 @@ Retrieves information on an organization
 client.org.get(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | orgId | string | Y | ID associated with the organization |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [org](_schemas.md#org) | Organization information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if organization not found |
 
-### Patch
+<br/>
+
+## Patch
 
 Updates information about an organization
 
@@ -45,27 +53,29 @@ Updates information about an organization
 client.org.patch(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | orgId | string | Y | ID associated with the organization |
 | organization | [orgPatch](_schemas.md#orgpatch) | Y | Object containing new organization properties |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [org](_schemas.md#org) | Updated organization information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 | 404 | [error](_schemas.md#error) | Error if organization was not found |
 
-### Delete
+<br/>
+
+## Delete
 
 Deletes an organization
 
@@ -73,25 +83,27 @@ Deletes an organization
 client.org.delete(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | orgId | string | Y | ID associated with the organization |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [success](_schemas.md#success) | If organization was successfully deleted |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if organization was not found |
 
-### Pending Invites
+<br/>
+
+## Pending Invites
 
 Gets the current pending invites
 
@@ -99,25 +111,27 @@ Gets the current pending invites
 client.org.pending_invites(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | orgId | string | Y | ID associated with the organization |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [orgInvites](_schemas.md#orginvites) | Invitation information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if organization not found |
 
-### Invite Member
+<br/>
+
+## Invite Member
 
 Invites a person to an organization
 
@@ -125,27 +139,29 @@ Invites a person to an organization
 client.org.invite_member(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | orgId | string | Y | ID associated with the organization |
 | invite | [orgInvitePost](_schemas.md#orginvitepost) | Y | Object containing new invite info |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [orgInvites](_schemas.md#orginvites) | Invitation information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 | 404 | [error](_schemas.md#error) | Error if organization not found |
 
-### Revoke Invite
+<br/>
+
+## Revoke Invite
 
 Revokes an existing invite
 
@@ -153,27 +169,29 @@ Revokes an existing invite
 client.org.revoke_invite(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | orgId | string | Y | ID associated with the organization |
 | inviteId | string | Y | Id of invite to revoke |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [orgInvites](_schemas.md#orginvites) | Invitation information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 | 404 | [error](_schemas.md#error) | Error if organization not found |
 
-### Modify Member
+<br/>
+
+## Modify Member
 
 Modifies a current org member&#x27;s role
 
@@ -181,27 +199,29 @@ Modifies a current org member&#x27;s role
 client.org.modify_member(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | orgId | string | Y | ID associated with the organization |
 | member | [orgMemberPatch](_schemas.md#orgmemberpatch) | Y | Object containing new member pair |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [org](_schemas.md#org) | Updated organization information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 | 404 | [error](_schemas.md#error) | Error if organization not found |
 
-### Remove Member
+<br/>
+
+## Remove Member
 
 Modifies a current org member&#x27;s role
 
@@ -209,20 +229,20 @@ Modifies a current org member&#x27;s role
 client.org.remove_member(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | orgId | string | Y | ID associated with the organization |
 | userId | string | Y | Id of user to remove |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [org](_schemas.md#org) | Updated organization information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |

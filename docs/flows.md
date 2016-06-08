@@ -1,11 +1,17 @@
-# Flows
+# Flows Actions
 
-## Actions
+Details on the various actions that can be performed on the
+Flows resource, including the expected
+parameters and the potential responses.
+
+##### Contents
 
 *   [Get](#get)
 *   [Post](#post)
 
-### Get
+<br/>
+
+## Get
 
 Returns the flows for an application
 
@@ -13,7 +19,7 @@ Returns the flows for an application
 client.flows.get(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -25,19 +31,21 @@ client.flows.get(params)
 | filterField | string | N |  |
 | filter | string | N |  |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [flows](_schemas.md#flows) | Collection of flows |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if application was not found |
 
-### Post
+<br/>
+
+## Post
 
 Create a new flow for an application
 
@@ -45,20 +53,20 @@ Create a new flow for an application
 client.flows.post(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | flow | [flowPost](_schemas.md#flowpost) | Y | New flow information |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 201 | [flow](_schemas.md#flow) | Successfully created flow |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |

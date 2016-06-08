@@ -1,12 +1,18 @@
-# Application Key
+# Application Key Actions
 
-## Actions
+Details on the various actions that can be performed on the
+Application Key resource, including the expected
+parameters and the potential responses.
+
+##### Contents
 
 *   [Get](#get)
 *   [Patch](#patch)
 *   [Delete](#delete)
 
-### Get
+<br/>
+
+## Get
 
 Retrieves information on an applicationKey
 
@@ -14,26 +20,28 @@ Retrieves information on an applicationKey
 client.application_key.get(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | applicationKeyId | string | Y | ID associated with the applicationKey |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [applicationKey](_schemas.md#applicationkey) | applicationKey information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if applicationKey was not found |
 
-### Patch
+<br/>
+
+## Patch
 
 Updates information about an applicationKey
 
@@ -41,7 +49,7 @@ Updates information about an applicationKey
 client.application_key.patch(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -49,20 +57,22 @@ client.application_key.patch(params)
 | applicationKeyId | string | Y | ID associated with the applicationKey |
 | applicationKey | [applicationKeyPatch](_schemas.md#applicationkeypatch) | Y | Object containing new properties of the applicationKey |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [applicationKey](_schemas.md#applicationkey) | Updated applicationKey information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 | 404 | [error](_schemas.md#error) | Error if applicationKey was not found |
 
-### Delete
+<br/>
+
+## Delete
 
 Deletes an applicationKey
 
@@ -70,20 +80,20 @@ Deletes an applicationKey
 client.application_key.delete(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | applicationKeyId | string | Y | ID associated with the applicationKey |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [success](_schemas.md#success) | If applicationKey was successfully deleted |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |

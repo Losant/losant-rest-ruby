@@ -1,6 +1,10 @@
-# Me
+# Me Actions
 
-## Actions
+Details on the various actions that can be performed on the
+Me resource, including the expected
+parameters and the potential responses.
+
+##### Contents
 
 *   [Get](#get)
 *   [Patch](#patch)
@@ -13,7 +17,9 @@
 *   [Add Recent Item](#add-recent-item)
 *   [Fetch Recent Items](#fetch-recent-items)
 
-### Get
+<br/>
+
+## Get
 
 Retrieves information on the current user
 
@@ -21,24 +27,26 @@ Retrieves information on the current user
 client.me.get(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | includeRecent | undefined | N | Should the user include recent app/dashboard info |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [me](_schemas.md#me) | Current user information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 
-### Patch
+<br/>
+
+## Patch
 
 Updates information about the current user
 
@@ -46,25 +54,27 @@ Updates information about the current user
 client.me.patch(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | user | [mePatch](_schemas.md#mepatch) | Y | Object containing new user properties |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [me](_schemas.md#me) | Updated user information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 
-### Delete
+<br/>
+
+## Delete
 
 Deletes the current user
 
@@ -72,25 +82,27 @@ Deletes the current user
 client.me.delete(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | credentials | [userCredentials](_schemas.md#usercredentials) | Y | User authentication credentials |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [success](_schemas.md#success) | If the user was successfully deleted |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 
-### Verify Email
+<br/>
+
+## Verify Email
 
 Sends and email verification to the user
 
@@ -98,23 +110,25 @@ Sends and email verification to the user
 client.me.verify_email
 ```
 
-#### Parameters
+#### Available Parameters
 
 No parameters needed for this call.
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [success](_schemas.md#success) | If email verification was successfully sent |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 
-### Enable Two Factor Auth
+<br/>
+
+## Enable Two Factor Auth
 
 Enables two factor auth for the current user
 
@@ -122,25 +136,27 @@ Enables two factor auth for the current user
 client.me.enable_two_factor_auth(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | data | [enableTwoFactorAuth](_schemas.md#enabletwofactorauth) | Y | Object containing two factor auth properties |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [me](_schemas.md#me) | Updated user information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 
-### Disable Two Factor Auth
+<br/>
+
+## Disable Two Factor Auth
 
 Disables two factor auth for the current user
 
@@ -148,25 +164,27 @@ Disables two factor auth for the current user
 client.me.disable_two_factor_auth(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | data | [disableTwoFactorAuth](_schemas.md#disabletwofactorauth) | Y | Object containing two factor auth properties |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [me](_schemas.md#me) | Updated user information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 
-### Disconnect Github
+<br/>
+
+## Disconnect Github
 
 Disconnects the user from Github
 
@@ -174,23 +192,25 @@ Disconnects the user from Github
 client.me.disconnect_github
 ```
 
-#### Parameters
+#### Available Parameters
 
 No parameters needed for this call.
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [me](_schemas.md#me) | Updated user information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 
-### Disconnect Twitter
+<br/>
+
+## Disconnect Twitter
 
 Disconnects the user from Twitter
 
@@ -198,23 +218,25 @@ Disconnects the user from Twitter
 client.me.disconnect_twitter
 ```
 
-#### Parameters
+#### Available Parameters
 
 No parameters needed for this call.
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [me](_schemas.md#me) | Updated user information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 
-### Add Recent Item
+<br/>
+
+## Add Recent Item
 
 Adds an item to a recent item list
 
@@ -222,25 +244,27 @@ Adds an item to a recent item list
 client.me.add_recent_item(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | data | [recentItem](_schemas.md#recentitem) | Y | Object containing recent item info |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [recentItemList](_schemas.md#recentitemlist) | Updated recent item list |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 
-### Fetch Recent Items
+<br/>
+
+## Fetch Recent Items
 
 Gets a recent item list
 
@@ -248,20 +272,20 @@ Gets a recent item list
 client.me.fetch_recent_items(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | parentId | string | N |  |
 | itemType | undefined | N |  |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [recentItemList](_schemas.md#recentitemlist) | Recent item list |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |

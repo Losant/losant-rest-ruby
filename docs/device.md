@@ -1,6 +1,10 @@
-# Device
+# Device Actions
 
-## Actions
+Details on the various actions that can be performed on the
+Device resource, including the expected
+parameters and the potential responses.
+
+##### Contents
 
 *   [Get](#get)
 *   [Patch](#patch)
@@ -11,7 +15,9 @@
 *   [Send Command](#send-command)
 *   [Get Log Entries](#get-log-entries)
 
-### Get
+<br/>
+
+## Get
 
 Retrieves information on an device
 
@@ -19,26 +25,28 @@ Retrieves information on an device
 client.device.get(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | deviceId | string | Y | ID associated with the device |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [device](_schemas.md#device) | Device information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if device was not found |
 
-### Patch
+<br/>
+
+## Patch
 
 Updates information about a device
 
@@ -46,7 +54,7 @@ Updates information about a device
 client.device.patch(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -54,20 +62,22 @@ client.device.patch(params)
 | deviceId | string | Y | ID associated with the device |
 | device | [devicePatch](_schemas.md#devicepatch) | Y | Object containing new properties of the device |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [device](_schemas.md#device) | Updated device information |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 | 404 | [error](_schemas.md#error) | Error if device was not found |
 
-### Delete
+<br/>
+
+## Delete
 
 Deletes a device
 
@@ -75,26 +85,28 @@ Deletes a device
 client.device.delete(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | deviceId | string | Y | ID associated with the device |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [success](_schemas.md#success) | If device was successfully deleted |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if device was not found |
 
-### Get State
+<br/>
+
+## Get State
 
 Retrieve the last known state(s) of the device
 
@@ -102,7 +114,7 @@ Retrieve the last known state(s) of the device
 client.device.get_state(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -111,19 +123,21 @@ client.device.get_state(params)
 | limit | string | N |  |
 | since | string | N |  |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [deviceStates](_schemas.md#devicestates) | Recent device states |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if device was not found |
 
-### Send State
+<br/>
+
+## Send State
 
 Send the current state of the device
 
@@ -131,7 +145,7 @@ Send the current state of the device
 client.device.send_state(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -139,20 +153,22 @@ client.device.send_state(params)
 | deviceId | string | Y | ID associated with the device |
 | deviceState | [deviceState](_schemas.md#devicestate) | Y | Object containing the current state of the device |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [success](_schemas.md#success) | If state was successfully received |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 | 404 | [error](_schemas.md#error) | Error if device was not found |
 
-### Get Command
+<br/>
+
+## Get Command
 
 Retrieve the last known commands(s) sent to the device
 
@@ -160,7 +176,7 @@ Retrieve the last known commands(s) sent to the device
 client.device.get_command(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -169,19 +185,21 @@ client.device.get_command(params)
 | limit | string | N |  |
 | since | string | N |  |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [deviceCommands](_schemas.md#devicecommands) | Recent device commands |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if device was not found |
 
-### Send Command
+<br/>
+
+## Send Command
 
 Send a command to a device
 
@@ -189,7 +207,7 @@ Send a command to a device
 client.device.send_command(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -197,20 +215,22 @@ client.device.send_command(params)
 | deviceId | string | Y | ID associated with the device |
 | deviceCommand | [deviceCommand](_schemas.md#devicecommand) | Y | Command to send to the device |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [success](_schemas.md#success) | If command was successfully sent |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 | 404 | [error](_schemas.md#error) | Error if device was not found |
 
-### Get Log Entries
+<br/>
+
+## Get Log Entries
 
 Retrieve the recent log entries about the device
 
@@ -218,7 +238,7 @@ Retrieve the recent log entries about the device
 client.device.get_log_entries(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -227,13 +247,13 @@ client.device.get_log_entries(params)
 | limit | string | N |  |
 | since | string | N |  |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | undefined | Recent log entries |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |

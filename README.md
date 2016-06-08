@@ -5,6 +5,9 @@ use the comprehensive Losant API.  You can authenticate either as a Losant
 device or with your user account, and have access to all the functionality
 of the Losant platform.
 
+<br/>
+
+
 ## Installation
 
 The latest stable version is available in RubyGems and can be installed using
@@ -12,6 +15,8 @@ The latest stable version is available in RubyGems and can be installed using
 ```bash
 gem install losant_rest
 ```
+
+<br/>
 
 ## Example
 
@@ -38,6 +43,8 @@ puts response
 # { "success" => true }
 ```
 
+<br/>
+
 ## API Documentation
 
 ### LosantRest
@@ -46,6 +53,8 @@ LosantRest is the wrapping module, but it also acts as a singleton [Client](#los
 instance.  So if you only need a single client instance, you do not need to
 instantiate one yourself - the LosantRest module will act exactly like an instance of
 of LosantRest::Client.
+
+<br/>
 
 ### LosantRest::Client
 
@@ -192,6 +201,8 @@ Contains all the actions that can be performed against the collection of
 [Webhooks](https://docs.losant.com/applications/webhooks/) belonging
 to an Application - such as listing the webhooks or creating a new webhook.
 
+<br/>
+
 ### LosantRest::ResponseError
 
 When the Losant API returns a unsuccessful response, an instance of ResponseError
@@ -206,7 +217,11 @@ The status code returned from the Losant API.
 The type of error that occured, such as "Validation" or "Authorization".
 
 *   message  
-A more detailed message about the particulars of the error.  
+A more detailed message about the particulars of the error.
+
+<br/>
+
+*****
 
 Copyright (c) 2016 Losant IoT, Inc
 

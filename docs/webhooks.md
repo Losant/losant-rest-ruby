@@ -1,11 +1,17 @@
-# Webhooks
+# Webhooks Actions
 
-## Actions
+Details on the various actions that can be performed on the
+Webhooks resource, including the expected
+parameters and the potential responses.
+
+##### Contents
 
 *   [Get](#get)
 *   [Post](#post)
 
-### Get
+<br/>
+
+## Get
 
 Returns the webhooks for an application
 
@@ -13,7 +19,7 @@ Returns the webhooks for an application
 client.webhooks.get(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -25,19 +31,21 @@ client.webhooks.get(params)
 | filterField | string | N |  |
 | filter | string | N |  |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [webhooks](_schemas.md#webhooks) | Collection of webhooks |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if application was not found |
 
-### Post
+<br/>
+
+## Post
 
 Create a new webhook for an application
 
@@ -45,20 +53,20 @@ Create a new webhook for an application
 client.webhooks.post(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | webhook | [webhookPost](_schemas.md#webhookpost) | Y | New webhook information |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 201 | [webhook](_schemas.md#webhook) | Successfully created webhook |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |

@@ -1,11 +1,17 @@
-# Applications
+# Applications Actions
 
-## Actions
+Details on the various actions that can be performed on the
+Applications resource, including the expected
+parameters and the potential responses.
+
+##### Contents
 
 *   [Get](#get)
 *   [Post](#post)
 
-### Get
+<br/>
+
+## Get
 
 Returns the applications owned by the current user
 
@@ -13,7 +19,7 @@ Returns the applications owned by the current user
 client.applications.get(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -25,18 +31,20 @@ client.applications.get(params)
 | filter | string | N |  |
 | orgId | string | N |  |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [applications](_schemas.md#applications) | Collection of applications |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 
-### Post
+<br/>
+
+## Post
 
 Create a new application owned by the current user
 
@@ -44,19 +52,19 @@ Create a new application owned by the current user
 client.applications.post(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | application | [applicationPost](_schemas.md#applicationpost) | Y | New application information |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 201 | [application](_schemas.md#application) | Successfully created application |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |

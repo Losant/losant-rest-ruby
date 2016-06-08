@@ -1,11 +1,17 @@
-# Orgs
+# Orgs Actions
 
-## Actions
+Details on the various actions that can be performed on the
+Orgs resource, including the expected
+parameters and the potential responses.
+
+##### Contents
 
 *   [Get](#get)
 *   [Post](#post)
 
-### Get
+<br/>
+
+## Get
 
 Returns the organizations associated with the current user
 
@@ -13,7 +19,7 @@ Returns the organizations associated with the current user
 client.orgs.get(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -24,18 +30,20 @@ client.orgs.get(params)
 | filterField | string | N |  |
 | filter | string | N |  |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [orgs](_schemas.md#orgs) | Collection of organizations |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 
-### Post
+<br/>
+
+## Post
 
 Create a new organization
 
@@ -43,19 +51,19 @@ Create a new organization
 client.orgs.post(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | organization | [orgPost](_schemas.md#orgpost) | Y | New organization information |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 201 | [org](_schemas.md#org) | Successfully created organization |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |

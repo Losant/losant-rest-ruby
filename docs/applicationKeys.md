@@ -1,11 +1,17 @@
-# Application Keys
+# Application Keys Actions
 
-## Actions
+Details on the various actions that can be performed on the
+Application Keys resource, including the expected
+parameters and the potential responses.
+
+##### Contents
 
 *   [Get](#get)
 *   [Post](#post)
 
-### Get
+<br/>
+
+## Get
 
 Returns the applicationKeys for an application
 
@@ -13,7 +19,7 @@ Returns the applicationKeys for an application
 client.application_keys.get(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -25,19 +31,21 @@ client.application_keys.get(params)
 | filterField | string | N |  |
 | filter | string | N |  |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [applicationKeys](_schemas.md#applicationkeys) | Collection of applicationKeys |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if application was not found |
 
-### Post
+<br/>
+
+## Post
 
 Create a new applicationKey for an application
 
@@ -45,20 +53,20 @@ Create a new applicationKey for an application
 client.application_keys.post(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | applicationKey | [applicationKeyPost](_schemas.md#applicationkeypost) | Y | ApplicationKey information |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 201 | [applicationKey](_schemas.md#applicationkey) | Successfully created applicationKey |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |

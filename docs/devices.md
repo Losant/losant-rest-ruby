@@ -1,12 +1,18 @@
-# Devices
+# Devices Actions
 
-## Actions
+Details on the various actions that can be performed on the
+Devices resource, including the expected
+parameters and the potential responses.
+
+##### Contents
 
 *   [Get](#get)
 *   [Post](#post)
 *   [Send Command](#send-command)
 
-### Get
+<br/>
+
+## Get
 
 Returns the devices for an application
 
@@ -14,7 +20,7 @@ Returns the devices for an application
 client.devices.get(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
@@ -27,19 +33,21 @@ client.devices.get(params)
 | filter | string | N |  |
 | tagFilter | [deviceTagFilter](_schemas.md#devicetagfilter) | N | Array of tag pairs to filter by |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [devices](_schemas.md#devices) | Collection of devices |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 404 | [error](_schemas.md#error) | Error if application was not found |
 
-### Post
+<br/>
+
+## Post
 
 Create a new device for an application
 
@@ -47,27 +55,29 @@ Create a new device for an application
 client.devices.post(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | device | [devicePost](_schemas.md#devicepost) | Y | New device information |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 201 | [device](_schemas.md#device) | Successfully created device |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [error](_schemas.md#error) | Error if malformed request |
 | 404 | [error](_schemas.md#error) | Error if application was not found |
 
-### Send Command
+<br/>
+
+## Send Command
 
 Send a command to multiple devices
 
@@ -75,20 +85,20 @@ Send a command to multiple devices
 client.devices.send_command(params)
 ```
 
-#### Parameters
+#### Available Parameters
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | applicationId | string | Y | ID associated with the application |
 | multiDeviceCommand | [multiDeviceCommand](_schemas.md#multidevicecommand) | Y | Command to send to the device |
 
-#### Responses
+#### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [success](_schemas.md#success) | If command was successfully sent |
 
-#### Errors
+#### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
