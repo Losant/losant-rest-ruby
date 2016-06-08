@@ -11,7 +11,7 @@
 Retrieves information on an dashboard
 
 ```ruby
-  client.dashboard.get(params)
+client.dashboard.get(params)
 ```
 
 #### Parameters
@@ -40,7 +40,7 @@ Retrieves information on an dashboard
 Updates information about a dashboard
 
 ```ruby
-  client.dashboard.patch(params)
+client.dashboard.patch(params)
 ```
 
 #### Parameters
@@ -71,7 +71,7 @@ Updates information about a dashboard
 Deletes an dashboard
 
 ```ruby
-  client.dashboard.delete(params)
+client.dashboard.delete(params)
 ```
 
 #### Parameters

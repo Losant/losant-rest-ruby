@@ -12,7 +12,7 @@
 Retrieves information on an application
 
 ```ruby
-  client.application.get(params)
+client.application.get(params)
 ```
 
 #### Parameters
@@ -41,7 +41,7 @@ Retrieves information on an application
 Updates information about an application
 
 ```ruby
-  client.application.patch(params)
+client.application.patch(params)
 ```
 
 #### Parameters
@@ -72,7 +72,7 @@ Updates information about an application
 Deletes an application
 
 ```ruby
-  client.application.delete(params)
+client.application.delete(params)
 ```
 
 #### Parameters
@@ -101,7 +101,7 @@ Deletes an application
 Streams real time application debug events using SSE
 
 ```ruby
-  client.application.debug(params)
+client.application.debug(params)
 ```
 
 #### Parameters

@@ -11,7 +11,7 @@
 Retrieves information on an applicationKey
 
 ```ruby
-  client.application_key.get(params)
+client.application_key.get(params)
 ```
 
 #### Parameters
@@ -41,7 +41,7 @@ Retrieves information on an applicationKey
 Updates information about an applicationKey
 
 ```ruby
-  client.application_key.patch(params)
+client.application_key.patch(params)
 ```
 
 #### Parameters
@@ -73,7 +73,7 @@ Updates information about an applicationKey
 Deletes an applicationKey
 
 ```ruby
-  client.application_key.delete(params)
+client.application_key.delete(params)
 ```
 
 #### Parameters

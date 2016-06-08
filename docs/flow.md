@@ -16,7 +16,7 @@
 Retrieves information on an flow
 
 ```ruby
-  client.flow.get(params)
+client.flow.get(params)
 ```
 
 #### Parameters
@@ -46,7 +46,7 @@ Retrieves information on an flow
 Updates information about a flow
 
 ```ruby
-  client.flow.patch(params)
+client.flow.patch(params)
 ```
 
 #### Parameters
@@ -78,7 +78,7 @@ Updates information about a flow
 Deletes a flow
 
 ```ruby
-  client.flow.delete(params)
+client.flow.delete(params)
 ```
 
 #### Parameters
@@ -108,7 +108,7 @@ Deletes a flow
 Streams real time flow debug events using SSE
 
 ```ruby
-  client.flow.debug(params)
+client.flow.debug(params)
 ```
 
 #### Parameters
@@ -138,7 +138,7 @@ Streams real time flow debug events using SSE
 Retrieve the recent log entries about the flows
 
 ```ruby
-  client.flow.get_log_entries(params)
+client.flow.get_log_entries(params)
 ```
 
 #### Parameters
@@ -170,7 +170,7 @@ Retrieve the recent log entries about the flows
 Presses the specified virtual button on the flow
 
 ```ruby
-  client.flow.press_virtual_button(params)
+client.flow.press_virtual_button(params)
 ```
 
 #### Parameters
@@ -201,7 +201,7 @@ Presses the specified virtual button on the flow
 Gets the current values in persistent storage
 
 ```ruby
-  client.flow.get_storage_entries(params)
+client.flow.get_storage_entries(params)
 ```
 
 #### Parameters
@@ -231,7 +231,7 @@ Gets the current values in persistent storage
 Sets a storage value
 
 ```ruby
-  client.flow.set_storage_entry(params)
+client.flow.set_storage_entry(params)
 ```
 
 #### Parameters

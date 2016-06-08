@@ -16,7 +16,7 @@
 Retrieves information on an device
 
 ```ruby
-  client.device.get(params)
+client.device.get(params)
 ```
 
 #### Parameters
@@ -46,7 +46,7 @@ Retrieves information on an device
 Updates information about a device
 
 ```ruby
-  client.device.patch(params)
+client.device.patch(params)
 ```
 
 #### Parameters
@@ -78,7 +78,7 @@ Updates information about a device
 Deletes a device
 
 ```ruby
-  client.device.delete(params)
+client.device.delete(params)
 ```
 
 #### Parameters
@@ -108,7 +108,7 @@ Deletes a device
 Retrieve the last known state(s) of the device
 
 ```ruby
-  client.device.get_state(params)
+client.device.get_state(params)
 ```
 
 #### Parameters
@@ -140,7 +140,7 @@ Retrieve the last known state(s) of the device
 Send the current state of the device
 
 ```ruby
-  client.device.send_state(params)
+client.device.send_state(params)
 ```
 
 #### Parameters
@@ -172,7 +172,7 @@ Send the current state of the device
 Retrieve the last known commands(s) sent to the device
 
 ```ruby
-  client.device.get_command(params)
+client.device.get_command(params)
 ```
 
 #### Parameters
@@ -204,7 +204,7 @@ Retrieve the last known commands(s) sent to the device
 Send a command to a device
 
 ```ruby
-  client.device.send_command(params)
+client.device.send_command(params)
 ```
 
 #### Parameters
@@ -236,7 +236,7 @@ Send a command to a device
 Retrieve the recent log entries about the device
 
 ```ruby
-  client.device.get_log_entries(params)
+client.device.get_log_entries(params)
 ```
 
 #### Parameters

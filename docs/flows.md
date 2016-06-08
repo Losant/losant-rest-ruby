@@ -10,7 +10,7 @@
 Returns the flows for an application
 
 ```ruby
-  client.flows.get(params)
+client.flows.get(params)
 ```
 
 #### Parameters
@@ -45,7 +45,7 @@ Returns the flows for an application
 Create a new flow for an application
 
 ```ruby
-  client.flows.post(params)
+client.flows.post(params)
 ```
 
 #### Parameters

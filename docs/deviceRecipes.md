@@ -10,7 +10,7 @@
 Returns the device recipes for an application
 
 ```ruby
-  client.device_recipes.get(params)
+client.device_recipes.get(params)
 ```
 
 #### Parameters
@@ -45,7 +45,7 @@ Returns the device recipes for an application
 Create a new device recipe for an application
 
 ```ruby
-  client.device_recipes.post(params)
+client.device_recipes.post(params)
 ```
 
 #### Parameters

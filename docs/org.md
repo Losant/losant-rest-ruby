@@ -16,7 +16,7 @@
 Retrieves information on an organization
 
 ```ruby
-  client.org.get(params)
+client.org.get(params)
 ```
 
 #### Parameters
@@ -45,7 +45,7 @@ Retrieves information on an organization
 Updates information about an organization
 
 ```ruby
-  client.org.patch(params)
+client.org.patch(params)
 ```
 
 #### Parameters
@@ -76,7 +76,7 @@ Updates information about an organization
 Deletes an organization
 
 ```ruby
-  client.org.delete(params)
+client.org.delete(params)
 ```
 
 #### Parameters
@@ -105,7 +105,7 @@ Deletes an organization
 Gets the current pending invites
 
 ```ruby
-  client.org.pending_invites(params)
+client.org.pending_invites(params)
 ```
 
 #### Parameters
@@ -134,7 +134,7 @@ Gets the current pending invites
 Invites a person to an organization
 
 ```ruby
-  client.org.invite_member(params)
+client.org.invite_member(params)
 ```
 
 #### Parameters
@@ -165,7 +165,7 @@ Invites a person to an organization
 Revokes an existing invite
 
 ```ruby
-  client.org.revoke_invite(params)
+client.org.revoke_invite(params)
 ```
 
 #### Parameters
@@ -196,7 +196,7 @@ Revokes an existing invite
 Modifies a current org member&#x27;s role
 
 ```ruby
-  client.org.modify_member(params)
+client.org.modify_member(params)
 ```
 
 #### Parameters
@@ -227,7 +227,7 @@ Modifies a current org member&#x27;s role
 Modifies a current org member&#x27;s role
 
 ```ruby
-  client.org.remove_member(params)
+client.org.remove_member(params)
 ```
 
 #### Parameters

@@ -10,7 +10,7 @@
 Returns the applications owned by the current user
 
 ```ruby
-  client.applications.get(params)
+client.applications.get(params)
 ```
 
 #### Parameters
@@ -44,7 +44,7 @@ Returns the applications owned by the current user
 Create a new application owned by the current user
 
 ```ruby
-  client.applications.post(params)
+client.applications.post(params)
 ```
 
 #### Parameters

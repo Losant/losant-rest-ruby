@@ -10,7 +10,7 @@
 Returns the applicationKeys for an application
 
 ```ruby
-  client.application_keys.get(params)
+client.application_keys.get(params)
 ```
 
 #### Parameters
@@ -45,7 +45,7 @@ Returns the applicationKeys for an application
 Create a new applicationKey for an application
 
 ```ruby
-  client.application_keys.post(params)
+client.application_keys.post(params)
 ```
 
 #### Parameters

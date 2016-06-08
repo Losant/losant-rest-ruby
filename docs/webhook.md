@@ -11,7 +11,7 @@
 Retrieves information on an webhook
 
 ```ruby
-  client.webhook.get(params)
+client.webhook.get(params)
 ```
 
 #### Parameters
@@ -41,7 +41,7 @@ Retrieves information on an webhook
 Updates information about a webhook
 
 ```ruby
-  client.webhook.patch(params)
+client.webhook.patch(params)
 ```
 
 #### Parameters
@@ -73,7 +73,7 @@ Updates information about a webhook
 Deletes a webhook
 
 ```ruby
-  client.webhook.delete(params)
+client.webhook.delete(params)
 ```
 
 #### Parameters

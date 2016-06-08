@@ -10,7 +10,7 @@
 Returns the accessTokens for a user
 
 ```ruby
-  client.access_tokens.get(params)
+client.access_tokens.get(params)
 ```
 
 #### Parameters
@@ -37,7 +37,7 @@ Returns the accessTokens for a user
 Create a new accessKey for a user
 
 ```ruby
-  client.access_tokens.post(params)
+client.access_tokens.post(params)
 ```
 
 #### Parameters

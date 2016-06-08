@@ -10,7 +10,7 @@
 Returns the data for the given query
 
 ```ruby
-  client.data.time_series_query(params)
+client.data.time_series_query(params)
 ```
 
 #### Parameters
@@ -40,7 +40,7 @@ Returns the data for the given query
 Returns the last known data for the given attribute
 
 ```ruby
-  client.data.last_value_query(params)
+client.data.last_value_query(params)
 ```
 
 #### Parameters

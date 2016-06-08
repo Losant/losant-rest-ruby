@@ -12,7 +12,7 @@
 Retrieves information on a device recipe
 
 ```ruby
-  client.device_recipe.get(params)
+client.device_recipe.get(params)
 ```
 
 #### Parameters
@@ -42,7 +42,7 @@ Retrieves information on a device recipe
 Updates information about a device recipe
 
 ```ruby
-  client.device_recipe.patch(params)
+client.device_recipe.patch(params)
 ```
 
 #### Parameters
@@ -74,7 +74,7 @@ Updates information about a device recipe
 Deletes a device recipe
 
 ```ruby
-  client.device_recipe.delete(params)
+client.device_recipe.delete(params)
 ```
 
 #### Parameters
@@ -104,7 +104,7 @@ Deletes a device recipe
 Bulk creates devices using this recipe from a CSV
 
 ```ruby
-  client.device_recipe.bulk_create(params)
+client.device_recipe.bulk_create(params)
 ```
 
 #### Parameters

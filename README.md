@@ -7,8 +7,7 @@ of the Losant platform.
 
 ## Installation
 
-The latest stable version is available in the RubyGems
-and can be installed using
+The latest stable version is available in RubyGems and can be installed using
 
 ```bash
 gem install losant_rest
@@ -20,23 +19,23 @@ Below is a high-level example of using the Losant Ruby REST API client to
 authenticate against the Losant Platform and report state for a device.
 
 ```ruby
-    require "losant_rest"
+require "losant_rest"
 
-    client = LosantRest::Client.new()
-    creds = {
-      deviceId: "my-device-id",
-      key: "my-app-access-key",
-      secret: "my-app-access-secret" }
-    response = client.auth.authenticate_device(credentials: creds)
+client = LosantRest::Client.new
+creds = {
+  deviceId: "my-device-id",
+  key: "my-app-access-key",
+  secret: "my-app-access-secret" }
+response = client.auth.authenticate_device(credentials: creds)
 
-    client.access_token = response["token"]
-    app_id = response["applicationId"]
+client.access_token = response["token"]
+app_id = response["applicationId"]
 
-    state = { temperature: Analog.read() }
-    response = client.device.send_state(deviceId: "my-device-id",
-        applicationId: app_id, deviceState: state)
+state = { temperature: AnalogSensor.read }
+response = client.device.send_state(deviceId: "my-device-id",
+  applicationId: app_id, deviceState: state)
 
-    puts response
+puts response
 ```
 
 ## API Documentation
@@ -46,13 +45,13 @@ authenticate against the Losant Platform and report state for a device.
 A client is a single api instance.  By default, it is unauthenticated, but can
 be given an access token to perform authenticated requests.
 
-#### Constructor
+#### Initializer
 
 ```ruby
-  Client.new(auth_token: nil, url: "https://api.losant.com")
+Client.new(auth_token: nil, url: "https://api.losant.com")
 ```
 
-The ``Client()`` constructor takes the following arguments:
+The ``Client()`` initializer takes the following arguments:
 
 *   auth_token  
 The access token to be used for authentication - by default there is no

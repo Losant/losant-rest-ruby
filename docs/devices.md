@@ -11,7 +11,7 @@
 Returns the devices for an application
 
 ```ruby
-  client.devices.get(params)
+client.devices.get(params)
 ```
 
 #### Parameters
@@ -47,7 +47,7 @@ Returns the devices for an application
 Create a new device for an application
 
 ```ruby
-  client.devices.post(params)
+client.devices.post(params)
 ```
 
 #### Parameters
@@ -78,7 +78,7 @@ Create a new device for an application
 Send a command to multiple devices
 
 ```ruby
-  client.devices.send_command(params)
+client.devices.send_command(params)
 ```
 
 #### Parameters

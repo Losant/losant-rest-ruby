@@ -10,7 +10,7 @@
 Returns the webhooks for an application
 
 ```ruby
-  client.webhooks.get(params)
+client.webhooks.get(params)
 ```
 
 #### Parameters
@@ -45,7 +45,7 @@ Returns the webhooks for an application
 Create a new webhook for an application
 
 ```ruby
-  client.webhooks.post(params)
+client.webhooks.post(params)
 ```
 
 #### Parameters

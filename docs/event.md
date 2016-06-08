@@ -11,7 +11,7 @@
 Retrieves information on an event
 
 ```ruby
-  client.event.get(params)
+client.event.get(params)
 ```
 
 #### Parameters
@@ -41,7 +41,7 @@ Retrieves information on an event
 Updates information about an event
 
 ```ruby
-  client.event.patch(params)
+client.event.patch(params)
 ```
 
 #### Parameters
@@ -73,7 +73,7 @@ Updates information about an event
 Deletes an event
 
 ```ruby
-  client.event.delete(params)
+client.event.delete(params)
 ```
 
 #### Parameters

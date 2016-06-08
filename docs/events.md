@@ -12,7 +12,7 @@
 Returns the events for an application
 
 ```ruby
-  client.events.get(params)
+client.events.get(params)
 ```
 
 #### Parameters
@@ -48,7 +48,7 @@ Returns the events for an application
 Create a new event for an application
 
 ```ruby
-  client.events.post(params)
+client.events.post(params)
 ```
 
 #### Parameters
@@ -80,7 +80,7 @@ Create a new event for an application
 Updates information for matching events by subject and/or current state
 
 ```ruby
-  client.events.patch(params)
+client.events.patch(params)
 ```
 
 #### Parameters
@@ -114,7 +114,7 @@ Updates information for matching events by subject and/or current state
 Returns the first new event ordered by severity and then creation
 
 ```ruby
-  client.events.most_recent_by_severity(params)
+client.events.most_recent_by_severity(params)
 ```
 
 #### Parameters

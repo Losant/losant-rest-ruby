@@ -18,7 +18,7 @@
 Retrieves information on the current user
 
 ```ruby
-  client.me.get(params)
+client.me.get(params)
 ```
 
 #### Parameters
@@ -46,7 +46,7 @@ Retrieves information on the current user
 Updates information about the current user
 
 ```ruby
-  client.me.patch(params)
+client.me.patch(params)
 ```
 
 #### Parameters
@@ -75,7 +75,7 @@ Updates information about the current user
 Deletes the current user
 
 ```ruby
-  client.me.delete(params)
+client.me.delete(params)
 ```
 
 #### Parameters
@@ -104,7 +104,7 @@ Deletes the current user
 Sends and email verification to the user
 
 ```ruby
-  client.me.verify_email(params)
+client.me.verify_email(params)
 ```
 
 #### Parameters
@@ -132,7 +132,7 @@ Sends and email verification to the user
 Enables two factor auth for the current user
 
 ```ruby
-  client.me.enable_two_factor_auth(params)
+client.me.enable_two_factor_auth(params)
 ```
 
 #### Parameters
@@ -161,7 +161,7 @@ Enables two factor auth for the current user
 Disables two factor auth for the current user
 
 ```ruby
-  client.me.disable_two_factor_auth(params)
+client.me.disable_two_factor_auth(params)
 ```
 
 #### Parameters
@@ -190,7 +190,7 @@ Disables two factor auth for the current user
 Disconnects the user from Github
 
 ```ruby
-  client.me.disconnect_github(params)
+client.me.disconnect_github(params)
 ```
 
 #### Parameters
@@ -218,7 +218,7 @@ Disconnects the user from Github
 Disconnects the user from Twitter
 
 ```ruby
-  client.me.disconnect_twitter(params)
+client.me.disconnect_twitter(params)
 ```
 
 #### Parameters
@@ -246,7 +246,7 @@ Disconnects the user from Twitter
 Adds an item to a recent item list
 
 ```ruby
-  client.me.add_recent_item(params)
+client.me.add_recent_item(params)
 ```
 
 #### Parameters
@@ -275,7 +275,7 @@ Adds an item to a recent item list
 Gets a recent item list
 
 ```ruby
-  client.me.fetch_recent_items(params)
+client.me.fetch_recent_items(params)
 ```
 
 #### Parameters

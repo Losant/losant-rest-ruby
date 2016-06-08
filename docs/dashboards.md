@@ -10,7 +10,7 @@
 Returns the dashboards owned by the current user
 
 ```ruby
-  client.dashboards.get(params)
+client.dashboards.get(params)
 ```
 
 #### Parameters
@@ -44,7 +44,7 @@ Returns the dashboards owned by the current user
 Create a new dasboard owned by the current user
 
 ```ruby
-  client.dashboards.post(params)
+client.dashboards.post(params)
 ```
 
 #### Parameters

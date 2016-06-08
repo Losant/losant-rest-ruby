@@ -10,7 +10,7 @@
 Returns the organizations associated with the current user
 
 ```ruby
-  client.orgs.get(params)
+client.orgs.get(params)
 ```
 
 #### Parameters
@@ -43,7 +43,7 @@ Returns the organizations associated with the current user
 Create a new organization
 
 ```ruby
-  client.orgs.post(params)
+client.orgs.post(params)
 ```
 
 #### Parameters

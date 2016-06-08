@@ -11,7 +11,7 @@
 Retrieves information on an accessToken
 
 ```ruby
-  client.access_token.get(params)
+client.access_token.get(params)
 ```
 
 #### Parameters
@@ -40,7 +40,7 @@ Retrieves information on an accessToken
 Updates information about a accessToken
 
 ```ruby
-  client.access_token.patch(params)
+client.access_token.patch(params)
 ```
 
 #### Parameters
@@ -71,7 +71,7 @@ Updates information about a accessToken
 Deletes a accessToken
 
 ```ruby
-  client.access_token.delete(params)
+client.access_token.delete(params)
 ```
 
 #### Parameters
