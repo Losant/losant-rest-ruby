@@ -84,13 +84,13 @@ Contains all of the actions that can be performed against the collection of
 [Application Keys](https://docs.losant.com/applications/access-keys/) belonging
 to an Application - such as listing all keys or creating a new key.
 
-*   [application](docs/application.md)
+*   [application](docs/application.md)  
 Contains all of the actions that can be performed against a single
 [Application](https://docs.losant.com/applications/overview/),
 which include things like getting info on an application or
 modifying an application.
 
-*   [applications](docs/applications.md)
+*   [applications](docs/applications.md)  
 Contains all of the actions that can be performed against the set of
 [Applications](https://docs.losant.com/applications/overview/) that the
 currently authenticated user has access to - such as
