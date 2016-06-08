@@ -19,40 +19,17 @@ module LosantRest
     #
     # Errors:
     def get(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
 
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
       path = "/access-tokens"
-      path = path % path_params unless path_params.empty?
 
       @client.request(
         method: :get,
@@ -76,49 +53,19 @@ module LosantRest
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     def post(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("accessToken")      
-        "accessToken"      
-      elsif params.has_key?(:"accessToken")      
-        :"accessToken"      
-      else      
-        nil      
-      end      
-      body = params[param_key] if param_key
+      raise ArgumentError.new("accessToken is required") unless params.has_key?(:accessToken)
 
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
+      body = params[:accessToken] if params.has_key?(:accessToken)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
       path = "/access-tokens"
-      path = path % path_params unless path_params.empty?
 
       @client.request(
         method: :post,

@@ -30,7 +30,7 @@ class BasicTest < MiniTest::Test
 
       client = LosantRest::Client.new(auth_token: 'my token')
 
-      response = client.applications.get()
+      response = client.applications.get
       assert_equal response, { "count" => 0, "items" => [] }
     end
 
@@ -49,6 +49,20 @@ class BasicTest < MiniTest::Test
         { key: 'key1', value: 'value1' },
         { value: 'value2' },
       ])
+      assert_equal response, { "count" => 0, "items" => [] }
+    end
+
+    it "should correctly make a call with the singleton" do
+      stub_request(:get,
+        "https://api.losant.com/applications?_actions=false&_embedded=true&_links=true")
+        .with(headers: {'Accept' => 'application/json',
+          'Accept-Version' => '^1.3.8', 'Authorization' => 'Bearer my token'}).
+        to_return(body: '{ "count": 0, "items": [] }',
+          status: 200, headers: { 'Content-Type': 'application/json' });
+
+      LosantRest.client.auth_token = 'my token'
+
+      response = LosantRest.applications.get
       assert_equal response, { "count" => 0, "items" => [] }
     end
 

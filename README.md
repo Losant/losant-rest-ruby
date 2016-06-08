@@ -21,18 +21,17 @@ authenticate against the Losant Platform and report state for a device.
 ```ruby
 require "losant_rest"
 
-client = LosantRest::Client.new
-creds = {
+response = LosantRest.auth.authenticate_device(credentials: {
   deviceId: "my-device-id",
   key: "my-app-access-key",
-  secret: "my-app-access-secret" }
-response = client.auth.authenticate_device(credentials: creds)
+  secret: "my-app-access-secret"
+})
 
-client.auth_token = response["token"]
+LosantRest.auth_token = response["token"]
 app_id = response["applicationId"]
 
 state = { data: { temperature: AnalogSensor.read } }
-response = client.device.send_state(deviceId: "my-device-id",
+response = LosantRest.device.send_state(deviceId: "my-device-id",
   applicationId: app_id, deviceState: state)
 
 puts response
@@ -41,7 +40,14 @@ puts response
 
 ## API Documentation
 
-### Client
+### LosantRest
+
+LosantRest is the wrapping module, but it also acts as a singleton [Client](#client)
+instance.  So if you only need a single client instance, you do not need to
+instantiate one yourself - the LosantRest module will act exactly like an instance of
+of LosantRest::Client.
+
+### LosantRest::Client
 
 A client is a single api instance.  By default, it is unauthenticated, but can
 be given an access token to perform authenticated requests.
@@ -49,7 +55,7 @@ be given an access token to perform authenticated requests.
 #### Initializer
 
 ```ruby
-Client.new(auth_token: nil, url: "https://api.losant.com")
+LosantRest::Client.new(auth_token: nil, url: "https://api.losant.com")
 ```
 
 The ``Client()`` initializer takes the following arguments:
@@ -185,6 +191,22 @@ modifying the verification settings or removing the webhook.
 Contains all the actions that can be performed against the collection of
 [Webhooks](https://docs.losant.com/applications/webhooks/) belonging
 to an Application - such as listing the webhooks or creating a new webhook.
+
+### LosantRest::ResponseError
+
+When the Losant API returns a unsucessful response, an instance of ResponseError
+is thrown.
+
+#### Accessors
+
+*   code  
+The status code returned from the Losant API.
+
+*   type  
+The type of error that occured, such as "Validation" or "Authorization".
+
+*   message  
+A more detailed message about the particulars of the error.
 
 Copyright (c) 2016 Losant IoT, Inc
 

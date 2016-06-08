@@ -22,58 +22,19 @@ module LosantRest
     # Errors:
     # *  404 - Error if device recipe was not found (https://api.losant.com/#/definitions/error)
     def get(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("applicationId")      
-        "applicationId"      
-      elsif params.has_key?(:"applicationId")      
-        :"applicationId"      
-      else      
-        nil      
-      end      
-      path_params[:"applicationId"] = params[param_key] if param_key
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("deviceRecipeId is required") unless params.has_key?(:deviceRecipeId)
 
-      param_key = if params.has_key?("deviceRecipeId")      
-        "deviceRecipeId"      
-      elsif params.has_key?(:"deviceRecipeId")      
-        :"deviceRecipeId"      
-      else      
-        nil      
-      end      
-      path_params[:"deviceRecipeId"] = params[param_key] if param_key
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
-
-      path = "/applications/%{applicationId}/device-recipes/%{deviceRecipeId}"
-      path = path % path_params unless path_params.empty?
+      path = "/applications/#{params[:applicationId]}/device-recipes/#{params[:deviceRecipeId]}"
 
       @client.request(
         method: :get,
@@ -100,67 +61,21 @@ module LosantRest
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if device recipe was not found (https://api.losant.com/#/definitions/error)
     def patch(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("applicationId")      
-        "applicationId"      
-      elsif params.has_key?(:"applicationId")      
-        :"applicationId"      
-      else      
-        nil      
-      end      
-      path_params[:"applicationId"] = params[param_key] if param_key
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("deviceRecipeId is required") unless params.has_key?(:deviceRecipeId)
+      raise ArgumentError.new("deviceRecipe is required") unless params.has_key?(:deviceRecipe)
 
-      param_key = if params.has_key?("deviceRecipeId")      
-        "deviceRecipeId"      
-      elsif params.has_key?(:"deviceRecipeId")      
-        :"deviceRecipeId"      
-      else      
-        nil      
-      end      
-      path_params[:"deviceRecipeId"] = params[param_key] if param_key
+      body = params[:deviceRecipe] if params.has_key?(:deviceRecipe)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      param_key = if params.has_key?("deviceRecipe")      
-        "deviceRecipe"      
-      elsif params.has_key?(:"deviceRecipe")      
-        :"deviceRecipe"      
-      else      
-        nil      
-      end      
-      body = params[param_key] if param_key
-
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
-
-      path = "/applications/%{applicationId}/device-recipes/%{deviceRecipeId}"
-      path = path % path_params unless path_params.empty?
+      path = "/applications/#{params[:applicationId]}/device-recipes/#{params[:deviceRecipeId]}"
 
       @client.request(
         method: :patch,
@@ -185,58 +100,19 @@ module LosantRest
     # Errors:
     # *  404 - Error if device recipe was not found (https://api.losant.com/#/definitions/error)
     def delete(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("applicationId")      
-        "applicationId"      
-      elsif params.has_key?(:"applicationId")      
-        :"applicationId"      
-      else      
-        nil      
-      end      
-      path_params[:"applicationId"] = params[param_key] if param_key
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("deviceRecipeId is required") unless params.has_key?(:deviceRecipeId)
 
-      param_key = if params.has_key?("deviceRecipeId")      
-        "deviceRecipeId"      
-      elsif params.has_key?(:"deviceRecipeId")      
-        :"deviceRecipeId"      
-      else      
-        nil      
-      end      
-      path_params[:"deviceRecipeId"] = params[param_key] if param_key
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
-
-      path = "/applications/%{applicationId}/device-recipes/%{deviceRecipeId}"
-      path = path % path_params unless path_params.empty?
+      path = "/applications/#{params[:applicationId]}/device-recipes/#{params[:deviceRecipeId]}"
 
       @client.request(
         method: :delete,
@@ -262,67 +138,21 @@ module LosantRest
     # Errors:
     # *  404 - Error if device recipe was not found (https://api.losant.com/#/definitions/error)
     def bulk_create(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("applicationId")      
-        "applicationId"      
-      elsif params.has_key?(:"applicationId")      
-        :"applicationId"      
-      else      
-        nil      
-      end      
-      path_params[:"applicationId"] = params[param_key] if param_key
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("deviceRecipeId is required") unless params.has_key?(:deviceRecipeId)
+      raise ArgumentError.new("bulkInfo is required") unless params.has_key?(:bulkInfo)
 
-      param_key = if params.has_key?("deviceRecipeId")      
-        "deviceRecipeId"      
-      elsif params.has_key?(:"deviceRecipeId")      
-        :"deviceRecipeId"      
-      else      
-        nil      
-      end      
-      path_params[:"deviceRecipeId"] = params[param_key] if param_key
+      body = params[:bulkInfo] if params.has_key?(:bulkInfo)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      param_key = if params.has_key?("bulkInfo")      
-        "bulkInfo"      
-      elsif params.has_key?(:"bulkInfo")      
-        :"bulkInfo"      
-      else      
-        nil      
-      end      
-      body = params[param_key] if param_key
-
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
-
-      path = "/applications/%{applicationId}/device-recipes/%{deviceRecipeId}/bulkCreate"
-      path = path % path_params unless path_params.empty?
+      path = "/applications/#{params[:applicationId]}/device-recipes/#{params[:deviceRecipeId]}/bulkCreate"
 
       @client.request(
         method: :post,

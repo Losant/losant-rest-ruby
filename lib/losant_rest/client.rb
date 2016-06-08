@@ -15,97 +15,96 @@ module LosantRest
     end
 
     def access_token
-      return @access_token ||= AccessToken.new(self)
+      @access_token ||= AccessToken.new(self)
     end
 
     def access_tokens
-      return @access_tokens ||= AccessTokens.new(self)
+      @access_tokens ||= AccessTokens.new(self)
     end
 
     def application_key
-      return @application_key ||= ApplicationKey.new(self)
+      @application_key ||= ApplicationKey.new(self)
     end
 
     def application_keys
-      return @application_keys ||= ApplicationKeys.new(self)
+      @application_keys ||= ApplicationKeys.new(self)
     end
 
     def application
-      return @application ||= Application.new(self)
+      @application ||= Application.new(self)
     end
 
     def applications
-      return @applications ||= Applications.new(self)
+      @applications ||= Applications.new(self)
     end
 
     def auth
-      return @auth ||= Auth.new(self)
+      @auth ||= Auth.new(self)
     end
 
     def dashboard
-      return @dashboard ||= Dashboard.new(self)
+      @dashboard ||= Dashboard.new(self)
     end
 
     def dashboards
-      return @dashboards ||= Dashboards.new(self)
+      @dashboards ||= Dashboards.new(self)
     end
 
     def data
-      return @data ||= Data.new(self)
+      @data ||= Data.new(self)
     end
 
     def device
-      return @device ||= Device.new(self)
+      @device ||= Device.new(self)
     end
 
     def devices
-      return @devices ||= Devices.new(self)
+      @devices ||= Devices.new(self)
     end
 
     def device_recipe
-      return @device_recipe ||= DeviceRecipe.new(self)
+      @device_recipe ||= DeviceRecipe.new(self)
     end
 
     def device_recipes
-      return @device_recipes ||= DeviceRecipes.new(self)
+      @device_recipes ||= DeviceRecipes.new(self)
     end
 
     def event
-      return @event ||= Event.new(self)
+      @event ||= Event.new(self)
     end
 
     def events
-      return @events ||= Events.new(self)
+      @events ||= Events.new(self)
     end
 
     def flow
-      return @flow ||= Flow.new(self)
+      @flow ||= Flow.new(self)
     end
 
     def flows
-      return @flows ||= Flows.new(self)
+      @flows ||= Flows.new(self)
     end
 
     def me
-      return @me ||= Me.new(self)
+      @me ||= Me.new(self)
     end
 
     def org
-      return @org ||= Org.new(self)
+      @org ||= Org.new(self)
     end
 
     def orgs
-      return @orgs ||= Orgs.new(self)
+      @orgs ||= Orgs.new(self)
     end
 
     def webhook
-      return @webhook ||= Webhook.new(self)
+      @webhook ||= Webhook.new(self)
     end
 
     def webhooks
-      return @webhooks ||= Webhooks.new(self)
+      @webhooks ||= Webhooks.new(self)
     end
-
 
     def request(options = {})
       headers = options.fetch(:headers, {})
@@ -118,7 +117,7 @@ module LosantRest
       path = self.url + options.fetch(:path, "")
 
       response = HTTParty.send(method, path,
-        query: fix_query_arrays(options[:query]),
+        query: Utils.fix_query_arrays(options[:query]),
         body: options[:body] && options[:body].to_json(),
         headers: headers)
 
@@ -128,21 +127,6 @@ module LosantRest
       end
 
       result
-    end
-
-    def fix_query_arrays(value)
-      if value.respond_to?(:to_ary)
-        value = value.to_ary.map.with_index.to_a.to_h.invert
-      end
-
-      if value.respond_to?(:to_hash)
-        value = value.to_hash
-        value.each do |k, v|
-          value[k] = fix_query_arrays(v)
-        end
-      end
-
-      value
     end
   end
 end

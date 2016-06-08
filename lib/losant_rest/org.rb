@@ -21,49 +21,18 @@ module LosantRest
     # Errors:
     # *  404 - Error if organization not found (https://api.losant.com/#/definitions/error)
     def get(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("orgId")      
-        "orgId"      
-      elsif params.has_key?(:"orgId")      
-        :"orgId"      
-      else      
-        nil      
-      end      
-      path_params[:"orgId"] = params[param_key] if param_key
+      raise ArgumentError.new("orgId is required") unless params.has_key?(:orgId)
 
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
-
-      path = "/orgs/%{orgId}"
-      path = path % path_params unless path_params.empty?
+      path = "/orgs/#{params[:orgId]}"
 
       @client.request(
         method: :get,
@@ -89,58 +58,20 @@ module LosantRest
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if organization was not found (https://api.losant.com/#/definitions/error)
     def patch(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("orgId")      
-        "orgId"      
-      elsif params.has_key?(:"orgId")      
-        :"orgId"      
-      else      
-        nil      
-      end      
-      path_params[:"orgId"] = params[param_key] if param_key
+      raise ArgumentError.new("orgId is required") unless params.has_key?(:orgId)
+      raise ArgumentError.new("organization is required") unless params.has_key?(:organization)
 
-      param_key = if params.has_key?("organization")      
-        "organization"      
-      elsif params.has_key?(:"organization")      
-        :"organization"      
-      else      
-        nil      
-      end      
-      body = params[param_key] if param_key
+      body = params[:organization] if params.has_key?(:organization)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
-
-      path = "/orgs/%{orgId}"
-      path = path % path_params unless path_params.empty?
+      path = "/orgs/#{params[:orgId]}"
 
       @client.request(
         method: :patch,
@@ -164,49 +95,18 @@ module LosantRest
     # Errors:
     # *  404 - Error if organization was not found (https://api.losant.com/#/definitions/error)
     def delete(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("orgId")      
-        "orgId"      
-      elsif params.has_key?(:"orgId")      
-        :"orgId"      
-      else      
-        nil      
-      end      
-      path_params[:"orgId"] = params[param_key] if param_key
+      raise ArgumentError.new("orgId is required") unless params.has_key?(:orgId)
 
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
-
-      path = "/orgs/%{orgId}"
-      path = path % path_params unless path_params.empty?
+      path = "/orgs/#{params[:orgId]}"
 
       @client.request(
         method: :delete,
@@ -230,49 +130,18 @@ module LosantRest
     # Errors:
     # *  404 - Error if organization not found (https://api.losant.com/#/definitions/error)
     def pending_invites(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("orgId")      
-        "orgId"      
-      elsif params.has_key?(:"orgId")      
-        :"orgId"      
-      else      
-        nil      
-      end      
-      path_params[:"orgId"] = params[param_key] if param_key
+      raise ArgumentError.new("orgId is required") unless params.has_key?(:orgId)
 
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
-
-      path = "/orgs/%{orgId}/invites"
-      path = path % path_params unless path_params.empty?
+      path = "/orgs/#{params[:orgId]}/invites"
 
       @client.request(
         method: :get,
@@ -298,58 +167,20 @@ module LosantRest
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if organization not found (https://api.losant.com/#/definitions/error)
     def invite_member(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("orgId")      
-        "orgId"      
-      elsif params.has_key?(:"orgId")      
-        :"orgId"      
-      else      
-        nil      
-      end      
-      path_params[:"orgId"] = params[param_key] if param_key
+      raise ArgumentError.new("orgId is required") unless params.has_key?(:orgId)
+      raise ArgumentError.new("invite is required") unless params.has_key?(:invite)
 
-      param_key = if params.has_key?("invite")      
-        "invite"      
-      elsif params.has_key?(:"invite")      
-        :"invite"      
-      else      
-        nil      
-      end      
-      body = params[param_key] if param_key
+      body = params[:invite] if params.has_key?(:invite)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
-
-      path = "/orgs/%{orgId}/invites"
-      path = path % path_params unless path_params.empty?
+      path = "/orgs/#{params[:orgId]}/invites"
 
       @client.request(
         method: :post,
@@ -375,58 +206,20 @@ module LosantRest
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if organization not found (https://api.losant.com/#/definitions/error)
     def revoke_invite(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("orgId")      
-        "orgId"      
-      elsif params.has_key?(:"orgId")      
-        :"orgId"      
-      else      
-        nil      
-      end      
-      path_params[:"orgId"] = params[param_key] if param_key
+      raise ArgumentError.new("orgId is required") unless params.has_key?(:orgId)
+      raise ArgumentError.new("inviteId is required") unless params.has_key?(:inviteId)
 
-      param_key = if params.has_key?("inviteId")      
-        "inviteId"      
-      elsif params.has_key?(:"inviteId")      
-        :"inviteId"      
-      else      
-        nil      
-      end      
-      query_params[:"inviteId"] = params[param_key] if param_key
+      query_params[:inviteId] = params[:inviteId] if params.has_key?(:inviteId)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
-
-      path = "/orgs/%{orgId}/invites"
-      path = path % path_params unless path_params.empty?
+      path = "/orgs/#{params[:orgId]}/invites"
 
       @client.request(
         method: :delete,
@@ -452,58 +245,20 @@ module LosantRest
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if organization not found (https://api.losant.com/#/definitions/error)
     def modify_member(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("orgId")      
-        "orgId"      
-      elsif params.has_key?(:"orgId")      
-        :"orgId"      
-      else      
-        nil      
-      end      
-      path_params[:"orgId"] = params[param_key] if param_key
+      raise ArgumentError.new("orgId is required") unless params.has_key?(:orgId)
+      raise ArgumentError.new("member is required") unless params.has_key?(:member)
 
-      param_key = if params.has_key?("member")      
-        "member"      
-      elsif params.has_key?(:"member")      
-        :"member"      
-      else      
-        nil      
-      end      
-      body = params[param_key] if param_key
+      body = params[:member] if params.has_key?(:member)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
-
-      path = "/orgs/%{orgId}/member"
-      path = path % path_params unless path_params.empty?
+      path = "/orgs/#{params[:orgId]}/member"
 
       @client.request(
         method: :patch,
@@ -529,58 +284,20 @@ module LosantRest
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if organization not found (https://api.losant.com/#/definitions/error)
     def remove_member(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("orgId")      
-        "orgId"      
-      elsif params.has_key?(:"orgId")      
-        :"orgId"      
-      else      
-        nil      
-      end      
-      path_params[:"orgId"] = params[param_key] if param_key
+      raise ArgumentError.new("orgId is required") unless params.has_key?(:orgId)
+      raise ArgumentError.new("userId is required") unless params.has_key?(:userId)
 
-      param_key = if params.has_key?("userId")      
-        "userId"      
-      elsif params.has_key?(:"userId")      
-        :"userId"      
-      else      
-        nil      
-      end      
-      query_params[:"userId"] = params[param_key] if param_key
+      query_params[:userId] = params[:userId] if params.has_key?(:userId)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
-
-      path = "/orgs/%{orgId}/member"
-      path = path % path_params unless path_params.empty?
+      path = "/orgs/#{params[:orgId]}/member"
 
       @client.request(
         method: :delete,

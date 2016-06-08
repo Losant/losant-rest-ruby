@@ -22,58 +22,19 @@ module LosantRest
     # Errors:
     # *  404 - Error if webhook was not found (https://api.losant.com/#/definitions/error)
     def get(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("applicationId")      
-        "applicationId"      
-      elsif params.has_key?(:"applicationId")      
-        :"applicationId"      
-      else      
-        nil      
-      end      
-      path_params[:"applicationId"] = params[param_key] if param_key
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("webhookId is required") unless params.has_key?(:webhookId)
 
-      param_key = if params.has_key?("webhookId")      
-        "webhookId"      
-      elsif params.has_key?(:"webhookId")      
-        :"webhookId"      
-      else      
-        nil      
-      end      
-      path_params[:"webhookId"] = params[param_key] if param_key
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
-
-      path = "/applications/%{applicationId}/webhooks/%{webhookId}"
-      path = path % path_params unless path_params.empty?
+      path = "/applications/#{params[:applicationId]}/webhooks/#{params[:webhookId]}"
 
       @client.request(
         method: :get,
@@ -100,67 +61,21 @@ module LosantRest
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if webhook was not found (https://api.losant.com/#/definitions/error)
     def patch(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("applicationId")      
-        "applicationId"      
-      elsif params.has_key?(:"applicationId")      
-        :"applicationId"      
-      else      
-        nil      
-      end      
-      path_params[:"applicationId"] = params[param_key] if param_key
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("webhookId is required") unless params.has_key?(:webhookId)
+      raise ArgumentError.new("webhook is required") unless params.has_key?(:webhook)
 
-      param_key = if params.has_key?("webhookId")      
-        "webhookId"      
-      elsif params.has_key?(:"webhookId")      
-        :"webhookId"      
-      else      
-        nil      
-      end      
-      path_params[:"webhookId"] = params[param_key] if param_key
+      body = params[:webhook] if params.has_key?(:webhook)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      param_key = if params.has_key?("webhook")      
-        "webhook"      
-      elsif params.has_key?(:"webhook")      
-        :"webhook"      
-      else      
-        nil      
-      end      
-      body = params[param_key] if param_key
-
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
-
-      path = "/applications/%{applicationId}/webhooks/%{webhookId}"
-      path = path % path_params unless path_params.empty?
+      path = "/applications/#{params[:applicationId]}/webhooks/#{params[:webhookId]}"
 
       @client.request(
         method: :patch,
@@ -185,58 +100,19 @@ module LosantRest
     # Errors:
     # *  404 - Error if webhook was not found (https://api.losant.com/#/definitions/error)
     def delete(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("applicationId")      
-        "applicationId"      
-      elsif params.has_key?(:"applicationId")      
-        :"applicationId"      
-      else      
-        nil      
-      end      
-      path_params[:"applicationId"] = params[param_key] if param_key
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("webhookId is required") unless params.has_key?(:webhookId)
 
-      param_key = if params.has_key?("webhookId")      
-        "webhookId"      
-      elsif params.has_key?(:"webhookId")      
-        :"webhookId"      
-      else      
-        nil      
-      end      
-      path_params[:"webhookId"] = params[param_key] if param_key
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
-
-      path = "/applications/%{applicationId}/webhooks/%{webhookId}"
-      path = path % path_params unless path_params.empty?
+      path = "/applications/#{params[:applicationId]}/webhooks/#{params[:webhookId]}"
 
       @client.request(
         method: :delete,

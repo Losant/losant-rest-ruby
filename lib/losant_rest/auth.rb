@@ -22,49 +22,19 @@ module LosantRest
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  401 - Unauthorized error if authentication fails (https://api.losant.com/#/definitions/error)
     def authenticate_user(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("credentials")      
-        "credentials"      
-      elsif params.has_key?(:"credentials")      
-        :"credentials"      
-      else      
-        nil      
-      end      
-      body = params[param_key] if param_key
+      raise ArgumentError.new("credentials is required") unless params.has_key?(:credentials)
 
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
+      body = params[:credentials] if params.has_key?(:credentials)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
       path = "/auth/user"
-      path = path % path_params unless path_params.empty?
 
       @client.request(
         method: :post,
@@ -89,49 +59,19 @@ module LosantRest
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  401 - Unauthorized error if authentication fails (https://api.losant.com/#/definitions/error)
     def authenticate_user_github(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("oauth")      
-        "oauth"      
-      elsif params.has_key?(:"oauth")      
-        :"oauth"      
-      else      
-        nil      
-      end      
-      body = params[param_key] if param_key
+      raise ArgumentError.new("oauth is required") unless params.has_key?(:oauth)
 
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
+      body = params[:oauth] if params.has_key?(:oauth)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
       path = "/auth/user/github"
-      path = path % path_params unless path_params.empty?
 
       @client.request(
         method: :post,
@@ -156,49 +96,19 @@ module LosantRest
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  401 - Unauthorized error if authentication fails (https://api.losant.com/#/definitions/error)
     def authenticate_device(params = {})
+      params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
-      path_params = {}
       headers = {}
       body = nil
 
-      param_key = if params.has_key?("credentials")      
-        "credentials"      
-      elsif params.has_key?(:"credentials")      
-        :"credentials"      
-      else      
-        nil      
-      end      
-      body = params[param_key] if param_key
+      raise ArgumentError.new("credentials is required") unless params.has_key?(:credentials)
 
-      param_key = if params.has_key?("_actions")      
-        "_actions"      
-      elsif params.has_key?(:"_actions")      
-        :"_actions"      
-      else      
-        nil      
-      end      
-      query_params[:"_actions"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_links")      
-        "_links"      
-      elsif params.has_key?(:"_links")      
-        :"_links"      
-      else      
-        nil      
-      end      
-      query_params[:"_links"] = params[param_key] if param_key
-
-      param_key = if params.has_key?("_embedded")      
-        "_embedded"      
-      elsif params.has_key?(:"_embedded")      
-        :"_embedded"      
-      else      
-        nil      
-      end      
-      query_params[:"_embedded"] = params[param_key] if param_key
+      body = params[:credentials] if params.has_key?(:credentials)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
       path = "/auth/device"
-      path = path % path_params unless path_params.empty?
 
       @client.request(
         method: :post,
