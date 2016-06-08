@@ -42,7 +42,7 @@ puts response
 
 ### LosantRest
 
-LosantRest is the wrapping module, but it also acts as a singleton [Client](#client)
+LosantRest is the wrapping module, but it also acts as a singleton [Client](#losantrestclient)
 instance.  So if you only need a single client instance, you do not need to
 instantiate one yourself - the LosantRest module will act exactly like an instance of
 of LosantRest::Client.
