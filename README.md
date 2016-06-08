@@ -206,7 +206,7 @@ The status code returned from the Losant API.
 The type of error that occured, such as "Validation" or "Authorization".
 
 *   message  
-A more detailed message about the particulars of the error.
+A more detailed message about the particulars of the error.  
 
 Copyright (c) 2016 Losant IoT, Inc
 
