@@ -14,7 +14,7 @@ parameters and the potential responses.
 
 ## Delete
 
-Deletes an dashboard
+Deletes a dashboard
 
 ```ruby
 result = client.dashboard.delete(dashboardId: my_dashboard_id)

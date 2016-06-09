@@ -7,7 +7,7 @@ module LosantRest
       @client = client
     end
 
-    # Deletes an dashboard
+    # Deletes a dashboard
     #
     # Parameters:
     # *  {string} dashboardId - ID of the associated dashboard
