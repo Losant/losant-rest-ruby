@@ -14,8 +14,6 @@
     },
     "payload": {},
     "deviceTags": {
-      "title": "Tags (Optional)",
-      "description": "Array of Tags where the tag keys and tag values are optional",
       "type": "array",
       "items": {
         "type": "object",

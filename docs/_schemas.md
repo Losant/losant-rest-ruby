@@ -1,4 +1,5 @@
 # Schemas
+
 ## accessToken
 
 ```javascript
@@ -56,6 +57,32 @@
   }
 }
 ```
+
+## accessTokenPatch
+
+```javascript
+{
+  "title": "Access Token Patch",
+  "description": "Schema for the body of an Access Token modification request",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
+```
+
 ## accessTokenPost
 
 ```javascript
@@ -93,30 +120,7 @@
   ]
 }
 ```
-## accessTokenPatch
 
-```javascript
-{
-  "title": "Access Token Patch",
-  "description": "Schema for the body of an Access Token modification request",
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 255
-    },
-    "status": {
-      "type": "string",
-      "enum": [
-        "active",
-        "inactive"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
-```
 ## accessTokens
 
 ```javascript
@@ -187,6 +191,7 @@
   }
 }
 ```
+
 ## application
 
 ```javascript
@@ -257,6 +262,7 @@
   }
 }
 ```
+
 ## applicationKey
 
 ```javascript
@@ -306,8 +312,6 @@
       }
     },
     "deviceTags": {
-      "title": "Tags (Optional)",
-      "description": "Array of Tags where the tag keys and tag values are optional",
       "type": "array",
       "items": {
         "type": "object",
@@ -328,6 +332,7 @@
   }
 }
 ```
+
 ## applicationKeyPatch
 
 ```javascript
@@ -347,6 +352,7 @@
   "additionalProperties": false
 }
 ```
+
 ## applicationKeyPost
 
 ```javascript
@@ -363,8 +369,6 @@
       }
     },
     "deviceTags": {
-      "title": "Tags (Optional)",
-      "description": "Array of Tags where the tag keys and tag values are optional",
       "type": "array",
       "items": {
         "type": "object",
@@ -386,6 +390,7 @@
   "additionalProperties": false
 }
 ```
+
 ## applicationKeys
 
 ```javascript
@@ -442,8 +447,6 @@
             }
           },
           "deviceTags": {
-            "title": "Tags (Optional)",
-            "description": "Array of Tags where the tag keys and tag values are optional",
             "type": "array",
             "items": {
               "type": "object",
@@ -499,6 +502,7 @@
   }
 }
 ```
+
 ## applicationPatch
 
 ```javascript
@@ -520,6 +524,7 @@
   "additionalProperties": false
 }
 ```
+
 ## applicationPost
 
 ```javascript
@@ -548,6 +553,7 @@
   ]
 }
 ```
+
 ## applications
 
 ```javascript
@@ -656,6 +662,7 @@
   }
 }
 ```
+
 ## authedDevice
 
 ```javascript
@@ -695,6 +702,7 @@
   ]
 }
 ```
+
 ## authedUser
 
 ```javascript
@@ -718,6 +726,7 @@
   ]
 }
 ```
+
 ## dashboard
 
 ```javascript
@@ -818,6 +827,7 @@
   }
 }
 ```
+
 ## dashboardPatch
 
 ```javascript
@@ -892,6 +902,7 @@
   "additionalProperties": false
 }
 ```
+
 ## dashboardPost
 
 ```javascript
@@ -973,6 +984,7 @@
   ]
 }
 ```
+
 ## dashboards
 
 ```javascript
@@ -1111,6 +1123,7 @@
   }
 }
 ```
+
 ## device
 
 ```javascript
@@ -1225,6 +1238,7 @@
   }
 }
 ```
+
 ## deviceCommand
 
 ```javascript
@@ -1250,6 +1264,7 @@
   "additionalProperties": false
 }
 ```
+
 ## deviceCommands
 
 ```javascript
@@ -1280,6 +1295,35 @@
   }
 }
 ```
+
+## deviceCredentials
+
+```javascript
+{
+  "title": "Device Credentials",
+  "description": "Schema for the body of a Device authentication request",
+  "type": "object",
+  "properties": {
+    "deviceId": {
+      "type": "string",
+      "pattern": "^[A-Fa-f\\d]{24}$"
+    },
+    "key": {
+      "type": "string"
+    },
+    "secret": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "deviceId",
+    "key",
+    "secret"
+  ],
+  "additionalProperties": false
+}
+```
+
 ## devicePatch
 
 ```javascript
@@ -1363,33 +1407,7 @@
   "additionalProperties": false
 }
 ```
-## deviceCredentials
 
-```javascript
-{
-  "title": "Device Credentials",
-  "description": "Schema for the body of a Device authentication request",
-  "type": "object",
-  "properties": {
-    "deviceId": {
-      "type": "string",
-      "pattern": "^[A-Fa-f\\d]{24}$"
-    },
-    "key": {
-      "type": "string"
-    },
-    "secret": {
-      "type": "string"
-    }
-  },
-  "required": [
-    "deviceId",
-    "key",
-    "secret"
-  ],
-  "additionalProperties": false
-}
-```
 ## devicePost
 
 ```javascript
@@ -1476,6 +1494,7 @@
   ]
 }
 ```
+
 ## deviceRecipe
 
 ```javascript
@@ -1587,6 +1606,7 @@
   }
 }
 ```
+
 ## deviceRecipeBulkCreate
 
 ```javascript
@@ -1607,6 +1627,32 @@
   }
 }
 ```
+
+## deviceRecipeBulkCreatePost
+
+```javascript
+{
+  "title": "Device Recipe Bulk Create Post",
+  "description": "Schema for the body of a bulk Device creation request",
+  "type": "object",
+  "properties": {
+    "nameColumn": {
+      "type": "string"
+    },
+    "descriptionColumn": {
+      "type": "string"
+    },
+    "csv": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "csv"
+  ]
+}
+```
+
 ## deviceRecipePatch
 
 ```javascript
@@ -1699,30 +1745,7 @@
   "additionalProperties": false
 }
 ```
-## deviceRecipeBulkCreatePost
 
-```javascript
-{
-  "title": "Device Recipe Bulk Create Post",
-  "description": "Schema for the body of a bulk Device creation request",
-  "type": "object",
-  "properties": {
-    "nameColumn": {
-      "type": "string"
-    },
-    "descriptionColumn": {
-      "type": "string"
-    },
-    "csv": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "csv"
-  ]
-}
-```
 ## deviceRecipePost
 
 ```javascript
@@ -1818,6 +1841,7 @@
   ]
 }
 ```
+
 ## deviceRecipes
 
 ```javascript
@@ -1971,6 +1995,7 @@
   }
 }
 ```
+
 ## deviceState
 
 ```javascript
@@ -2006,6 +2031,7 @@
   "additionalProperties": false
 }
 ```
+
 ## deviceStates
 
 ```javascript
@@ -2046,12 +2072,13 @@
   }
 }
 ```
+
 ## deviceTagFilter
 
 ```javascript
 {
-  "title": "Tags (Optional)",
-  "description": "Array of Tags where the tag keys and tag values are optional",
+  "title": "Device Tag Filter",
+  "description": "Array of Tags for filtering devices. Tag keys and tag values are optional.",
   "type": "array",
   "items": {
     "type": "object",
@@ -2070,6 +2097,7 @@
   }
 }
 ```
+
 ## devices
 
 ```javascript
@@ -2226,6 +2254,7 @@
   }
 }
 ```
+
 ## disableTwoFactorAuth
 
 ```javascript
@@ -2251,6 +2280,7 @@
   "additionalProperties": false
 }
 ```
+
 ## emailVerificationVerify
 
 ```javascript
@@ -2276,6 +2306,7 @@
   "additionalProperties": false
 }
 ```
+
 ## enableTwoFactorAuth
 
 ```javascript
@@ -2302,6 +2333,7 @@
   "additionalProperties": false
 }
 ```
+
 ## error
 
 ```javascript
@@ -2319,6 +2351,7 @@
   }
 }
 ```
+
 ## event
 
 ```javascript
@@ -2439,6 +2472,7 @@
   }
 }
 ```
+
 ## eventPatch
 
 ```javascript
@@ -2464,6 +2498,7 @@
   "additionalProperties": false
 }
 ```
+
 ## eventPost
 
 ```javascript
@@ -2508,6 +2543,7 @@
   "additionalProperties": false
 }
 ```
+
 ## events
 
 ```javascript
@@ -2678,6 +2714,7 @@
   }
 }
 ```
+
 ## flow
 
 ```javascript
@@ -2809,6 +2846,7 @@
   }
 }
 ```
+
 ## flowPatch
 
 ```javascript
@@ -2921,6 +2959,7 @@
   "additionalProperties": false
 }
 ```
+
 ## flowPost
 
 ```javascript
@@ -3036,6 +3075,7 @@
   ]
 }
 ```
+
 ## flowStorageEntry
 
 ```javascript
@@ -3057,6 +3097,7 @@
   ]
 }
 ```
+
 ## flows
 
 ```javascript
@@ -3230,6 +3271,7 @@
   }
 }
 ```
+
 ## githubLogin
 
 ```javascript
@@ -3249,6 +3291,7 @@
   "additionalProperties": false
 }
 ```
+
 ## lastValueData
 
 ```javascript
@@ -3288,6 +3331,7 @@
   "additionalProperties": false
 }
 ```
+
 ## lastValueQuery
 
 ```javascript
@@ -3301,8 +3345,6 @@
       "pattern": "^[0-9a-zA-Z_-]{1,255}$"
     },
     "deviceTags": {
-      "title": "Tags (Optional)",
-      "description": "Array of Tags where the tag keys and tag values are optional",
       "type": "array",
       "items": {
         "type": "object",
@@ -3331,6 +3373,7 @@
   "additionalProperties": false
 }
 ```
+
 ## me
 
 ```javascript
@@ -3509,6 +3552,58 @@
   }
 }
 ```
+
+## multiDeviceCommand
+
+```javascript
+{
+  "title": "Multi Device Command",
+  "description": "Schema for the body of a request to send a command to multiple Devices",
+  "type": "object",
+  "properties": {
+    "time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "payload": {},
+    "deviceTags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "pattern": "^[0-9a-zA-Z_-]{1,255}$"
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "deviceIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Fa-f\\d]{24}$"
+      }
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "additionalProperties": false
+}
+```
+
 ## mePatch
 
 ```javascript
@@ -3557,58 +3652,7 @@
   "additionalProperties": false
 }
 ```
-## multiDeviceCommand
 
-```javascript
-{
-  "title": "Multi Device Command",
-  "description": "Schema for the body of a request to send a command to multiple Devices",
-  "type": "object",
-  "properties": {
-    "time": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "name": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 255
-    },
-    "payload": {},
-    "deviceTags": {
-      "title": "Tags (Optional)",
-      "description": "Array of Tags where the tag keys and tag values are optional",
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string",
-            "pattern": "^[0-9a-zA-Z_-]{1,255}$"
-          },
-          "value": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 255
-          }
-        },
-        "additionalProperties": false
-      }
-    },
-    "deviceIds": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "pattern": "^[A-Fa-f\\d]{24}$"
-      }
-    }
-  },
-  "required": [
-    "name"
-  ],
-  "additionalProperties": false
-}
-```
 ## org
 
 ```javascript
@@ -3695,6 +3739,7 @@
   }
 }
 ```
+
 ## orgInviteAction
 
 ```javascript
@@ -3724,6 +3769,7 @@
   ]
 }
 ```
+
 ## orgInviteInfo
 
 ```javascript
@@ -3760,6 +3806,7 @@
   }
 }
 ```
+
 ## orgInvitePost
 
 ```javascript
@@ -3789,24 +3836,7 @@
   ]
 }
 ```
-## orgInviteResult
 
-```javascript
-{
-  "title": "Organization Invitation Result",
-  "description": "Schema for the result of accepting/rejecting an invitation",
-  "type": "object",
-  "properties": {
-    "accepted": {
-      "type": "boolean"
-    },
-    "orgId": {
-      "type": "string",
-      "pattern": "^[A-Fa-f\\d]{24}$"
-    }
-  }
-}
-```
 ## orgInvites
 
 ```javascript
@@ -3848,6 +3878,26 @@
   }
 }
 ```
+
+## orgInviteResult
+
+```javascript
+{
+  "title": "Organization Invitation Result",
+  "description": "Schema for the result of accepting/rejecting an invitation",
+  "type": "object",
+  "properties": {
+    "accepted": {
+      "type": "boolean"
+    },
+    "orgId": {
+      "type": "string",
+      "pattern": "^[A-Fa-f\\d]{24}$"
+    }
+  }
+}
+```
+
 ## orgMemberPatch
 
 ```javascript
@@ -3876,6 +3926,7 @@
   ]
 }
 ```
+
 ## orgPatch
 
 ```javascript
@@ -3897,6 +3948,7 @@
   "additionalProperties": false
 }
 ```
+
 ## orgPost
 
 ```javascript
@@ -3921,6 +3973,7 @@
   ]
 }
 ```
+
 ## orgs
 
 ```javascript
@@ -4045,6 +4098,7 @@
   }
 }
 ```
+
 ## passwordResetFinish
 
 ```javascript
@@ -4076,6 +4130,7 @@
   "additionalProperties": false
 }
 ```
+
 ## passwordResetInput
 
 ```javascript
@@ -4096,6 +4151,7 @@
   "additionalProperties": false
 }
 ```
+
 ## recentItem
 
 ```javascript
@@ -4128,23 +4184,7 @@
   ]
 }
 ```
-## success
 
-```javascript
-{
-  "title": "Success",
-  "description": "Schema for reporting a successful operation",
-  "type": "object",
-  "properties": {
-    "success": {
-      "type": "boolean",
-      "enum": [
-        true
-      ]
-    }
-  }
-}
-```
 ## recentItemList
 
 ```javascript
@@ -4186,6 +4226,95 @@
   }
 }
 ```
+
+## success
+
+```javascript
+{
+  "title": "Success",
+  "description": "Schema for reporting a successful operation",
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean",
+      "enum": [
+        true
+      ]
+    }
+  }
+}
+```
+
+## timeSeriesQuery
+
+```javascript
+{
+  "title": "Time Series Query",
+  "description": "Schema for the body of a time series query request",
+  "type": "object",
+  "properties": {
+    "start": {
+      "type": "number"
+    },
+    "end": {
+      "type": "number"
+    },
+    "duration": {
+      "type": "number"
+    },
+    "resolution": {
+      "type": "number"
+    },
+    "aggregation": {
+      "type": "string",
+      "enum": [
+        "FIRST",
+        "LAST",
+        "COUNT",
+        "MAX",
+        "MIN",
+        "MEDIAN",
+        "MEAN",
+        "SUM"
+      ]
+    },
+    "attributes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9a-zA-Z_-]{1,255}$"
+      }
+    },
+    "deviceTags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "pattern": "^[0-9a-zA-Z_-]{1,255}$"
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "deviceIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Fa-f\\d]{24}$"
+      }
+    }
+  },
+  "additionalProperties": false
+}
+```
+
 ## timeSeriesData
 
 ```javascript
@@ -4280,77 +4409,7 @@
   ]
 }
 ```
-## timeSeriesQuery
 
-```javascript
-{
-  "title": "Time Series Query",
-  "description": "Schema for the body of a time series query request",
-  "type": "object",
-  "properties": {
-    "start": {
-      "type": "number"
-    },
-    "end": {
-      "type": "number"
-    },
-    "duration": {
-      "type": "number"
-    },
-    "resolution": {
-      "type": "number"
-    },
-    "aggregation": {
-      "type": "string",
-      "enum": [
-        "FIRST",
-        "LAST",
-        "COUNT",
-        "MAX",
-        "MIN",
-        "MEDIAN",
-        "MEAN",
-        "SUM"
-      ]
-    },
-    "attributes": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "pattern": "^[0-9a-zA-Z_-]{1,255}$"
-      }
-    },
-    "deviceTags": {
-      "title": "Tags (Optional)",
-      "description": "Array of Tags where the tag keys and tag values are optional",
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string",
-            "pattern": "^[0-9a-zA-Z_-]{1,255}$"
-          },
-          "value": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 255
-          }
-        },
-        "additionalProperties": false
-      }
-    },
-    "deviceIds": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "pattern": "^[A-Fa-f\\d]{24}$"
-      }
-    }
-  },
-  "additionalProperties": false
-}
-```
 ## userCredentials
 
 ```javascript
@@ -4381,6 +4440,7 @@
   "additionalProperties": false
 }
 ```
+
 ## userPost
 
 ```javascript
@@ -4468,6 +4528,7 @@
   ]
 }
 ```
+
 ## virtualButtonPress
 
 ```javascript
@@ -4487,6 +4548,42 @@
   "additionalProperties": false
 }
 ```
+
+## webhookPatch
+
+```javascript
+{
+  "title": "Webhook Patch",
+  "description": "Schema for the body of a Webhook modification request",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "responseCode": {
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 599
+    },
+    "verificationType": {
+      "type": "string",
+      "enum": [
+        "facebook",
+        "fitbit",
+        "none"
+      ]
+    },
+    "verificationCode": {
+      "type": "string",
+      "maxLength": 32767
+    }
+  },
+  "additionalProperties": false
+}
+```
+
 ## webhook
 
 ```javascript
@@ -4544,40 +4641,7 @@
   }
 }
 ```
-## webhookPatch
 
-```javascript
-{
-  "title": "Webhook Patch",
-  "description": "Schema for the body of a Webhook modification request",
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 255
-    },
-    "responseCode": {
-      "type": "integer",
-      "minimum": 100,
-      "maximum": 599
-    },
-    "verificationType": {
-      "type": "string",
-      "enum": [
-        "facebook",
-        "fitbit",
-        "none"
-      ]
-    },
-    "verificationCode": {
-      "type": "string",
-      "maxLength": 32767
-    }
-  },
-  "additionalProperties": false
-}
-```
 ## webhookPost
 
 ```javascript
@@ -4615,6 +4679,7 @@
   "additionalProperties": false
 }
 ```
+
 ## webhooks
 
 ```javascript
