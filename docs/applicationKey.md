@@ -17,10 +17,11 @@ parameters and the potential responses.
 Deletes an applicationKey
 
 ```ruby
-client.application_key.delete(
+result = client.application_key.delete(
   applicationId: my_application_id,
-  applicationKeyId: my_application_key_id
-)
+  applicationKeyId: my_application_key_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -49,10 +50,11 @@ client.application_key.delete(
 Retrieves information on an applicationKey
 
 ```ruby
-client.application_key.get(
+result = client.application_key.get(
   applicationId: my_application_id,
-  applicationKeyId: my_application_key_id
-)
+  applicationKeyId: my_application_key_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -81,11 +83,12 @@ client.application_key.get(
 Updates information about an applicationKey
 
 ```ruby
-client.application_key.patch(
+result = client.application_key.patch(
   applicationId: my_application_id,
   applicationKeyId: my_application_key_id,
-  applicationKey: my_application_key
-)
+  applicationKey: my_application_key)
+
+puts result
 ```
 
 #### Available Parameters

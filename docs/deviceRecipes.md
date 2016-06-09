@@ -16,9 +16,9 @@ parameters and the potential responses.
 Returns the device recipes for an application
 
 ```ruby
-client.device_recipes.get(
-  applicationId: my_application_id
-)
+result = client.device_recipes.get(applicationId: my_application_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -52,10 +52,11 @@ client.device_recipes.get(
 Create a new device recipe for an application
 
 ```ruby
-client.device_recipes.post(
+result = client.device_recipes.post(
   applicationId: my_application_id,
-  deviceRecipe: my_device_recipe
-)
+  deviceRecipe: my_device_recipe)
+
+puts result
 ```
 
 #### Available Parameters

@@ -21,10 +21,11 @@ parameters and the potential responses.
 Deletes a flow
 
 ```ruby
-client.flow.delete(
+result = client.flow.delete(
   applicationId: my_application_id,
-  flowId: my_flow_id
-)
+  flowId: my_flow_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -53,10 +54,11 @@ client.flow.delete(
 Retrieves information on an flow
 
 ```ruby
-client.flow.get(
+result = client.flow.get(
   applicationId: my_application_id,
-  flowId: my_flow_id
-)
+  flowId: my_flow_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -85,10 +87,11 @@ client.flow.get(
 Retrieve the recent log entries about the flows
 
 ```ruby
-client.flow.get_log_entries(
+result = client.flow.get_log_entries(
   applicationId: my_application_id,
-  flowId: my_flow_id
-)
+  flowId: my_flow_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -119,10 +122,11 @@ client.flow.get_log_entries(
 Gets the current values in persistent storage
 
 ```ruby
-client.flow.get_storage_entries(
+result = client.flow.get_storage_entries(
   applicationId: my_application_id,
-  flowId: my_flow_id
-)
+  flowId: my_flow_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -151,11 +155,12 @@ client.flow.get_storage_entries(
 Updates information about a flow
 
 ```ruby
-client.flow.patch(
+result = client.flow.patch(
   applicationId: my_application_id,
   flowId: my_flow_id,
-  flow: my_flow
-)
+  flow: my_flow)
+
+puts result
 ```
 
 #### Available Parameters
@@ -186,11 +191,12 @@ client.flow.patch(
 Presses the specified virtual button on the flow
 
 ```ruby
-client.flow.press_virtual_button(
+result = client.flow.press_virtual_button(
   applicationId: my_application_id,
   flowId: my_flow_id,
-  button: my_button
-)
+  button: my_button)
+
+puts result
 ```
 
 #### Available Parameters
@@ -220,11 +226,12 @@ client.flow.press_virtual_button(
 Sets a storage value
 
 ```ruby
-client.flow.set_storage_entry(
+result = client.flow.set_storage_entry(
   applicationId: my_application_id,
   flowId: my_flow_id,
-  entry: my_entry
-)
+  entry: my_entry)
+
+puts result
 ```
 
 #### Available Parameters

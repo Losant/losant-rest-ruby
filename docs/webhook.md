@@ -17,10 +17,11 @@ parameters and the potential responses.
 Deletes a webhook
 
 ```ruby
-client.webhook.delete(
+result = client.webhook.delete(
   applicationId: my_application_id,
-  webhookId: my_webhook_id
-)
+  webhookId: my_webhook_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -49,10 +50,11 @@ client.webhook.delete(
 Retrieves information on a webhook
 
 ```ruby
-client.webhook.get(
+result = client.webhook.get(
   applicationId: my_application_id,
-  webhookId: my_webhook_id
-)
+  webhookId: my_webhook_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -81,11 +83,12 @@ client.webhook.get(
 Updates information about a webhook
 
 ```ruby
-client.webhook.patch(
+result = client.webhook.patch(
   applicationId: my_application_id,
   webhookId: my_webhook_id,
-  webhook: my_webhook
-)
+  webhook: my_webhook)
+
+puts result
 ```
 
 #### Available Parameters

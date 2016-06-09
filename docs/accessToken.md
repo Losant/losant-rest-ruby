@@ -17,9 +17,9 @@ parameters and the potential responses.
 Deletes a accessToken
 
 ```ruby
-client.access_token.delete(
-  accessTokenId: my_access_token_id
-)
+result = client.access_token.delete(accessTokenId: my_access_token_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -47,9 +47,9 @@ client.access_token.delete(
 Retrieves information on an accessToken
 
 ```ruby
-client.access_token.get(
-  accessTokenId: my_access_token_id
-)
+result = client.access_token.get(accessTokenId: my_access_token_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -77,10 +77,11 @@ client.access_token.get(
 Updates information about a accessToken
 
 ```ruby
-client.access_token.patch(
+result = client.access_token.patch(
   accessTokenId: my_access_token_id,
-  accessToken: my_access_token
-)
+  accessToken: my_access_token)
+
+puts result
 ```
 
 #### Available Parameters

@@ -16,7 +16,9 @@ parameters and the potential responses.
 Returns the dashboards the current user has permission to see
 
 ```ruby
-client.dashboards.get(optional_params)
+result = client.dashboards.get(optional_params)
+
+puts result
 ```
 
 #### Available Parameters
@@ -49,9 +51,9 @@ client.dashboards.get(optional_params)
 Create a new dasboard
 
 ```ruby
-client.dashboards.post(
-  dashboard: my_dashboard
-)
+result = client.dashboards.post(dashboard: my_dashboard)
+
+puts result
 ```
 
 #### Available Parameters

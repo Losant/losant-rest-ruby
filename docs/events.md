@@ -18,9 +18,9 @@ parameters and the potential responses.
 Returns the events for an application
 
 ```ruby
-client.events.get(
-  applicationId: my_application_id
-)
+result = client.events.get(applicationId: my_application_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -55,9 +55,9 @@ client.events.get(
 Returns the first new event ordered by severity and then creation
 
 ```ruby
-client.events.most_recent_by_severity(
-  applicationId: my_application_id
-)
+result = client.events.most_recent_by_severity(applicationId: my_application_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -86,10 +86,11 @@ client.events.most_recent_by_severity(
 Updates information for matching events by subject and/or current state
 
 ```ruby
-client.events.patch(
+result = client.events.patch(
   applicationId: my_application_id,
-  updates: my_updates
-)
+  updates: my_updates)
+
+puts result
 ```
 
 #### Available Parameters
@@ -122,10 +123,11 @@ client.events.patch(
 Create a new event for an application
 
 ```ruby
-client.events.post(
+result = client.events.post(
   applicationId: my_application_id,
-  event: my_event
-)
+  event: my_event)
+
+puts result
 ```
 
 #### Available Parameters

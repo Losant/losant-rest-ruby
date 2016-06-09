@@ -17,9 +17,9 @@ parameters and the potential responses.
 Returns the devices for an application
 
 ```ruby
-client.devices.get(
-  applicationId: my_application_id
-)
+result = client.devices.get(applicationId: my_application_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -54,10 +54,11 @@ client.devices.get(
 Create a new device for an application
 
 ```ruby
-client.devices.post(
+result = client.devices.post(
   applicationId: my_application_id,
-  device: my_device
-)
+  device: my_device)
+
+puts result
 ```
 
 #### Available Parameters
@@ -87,10 +88,11 @@ client.devices.post(
 Send a command to multiple devices
 
 ```ruby
-client.devices.send_command(
+result = client.devices.send_command(
   applicationId: my_application_id,
-  multiDeviceCommand: my_multi_device_command
-)
+  multiDeviceCommand: my_multi_device_command)
+
+puts result
 ```
 
 #### Available Parameters

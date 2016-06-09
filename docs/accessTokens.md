@@ -16,7 +16,9 @@ parameters and the potential responses.
 Returns the accessTokens for a user
 
 ```ruby
-client.access_tokens.get
+result = client.access_tokens.get
+
+puts result
 ```
 
 #### Available Parameters
@@ -41,9 +43,9 @@ No parameters needed for this call.
 Create a new accessKey for a user
 
 ```ruby
-client.access_tokens.post(
-  accessToken: my_access_token
-)
+result = client.access_tokens.post(accessToken: my_access_token)
+
+puts result
 ```
 
 #### Available Parameters

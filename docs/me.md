@@ -24,9 +24,9 @@ parameters and the potential responses.
 Adds an item to a recent item list
 
 ```ruby
-client.me.add_recent_item(
-  data: my_data
-)
+result = client.me.add_recent_item(data: my_data)
+
+puts result
 ```
 
 #### Available Parameters
@@ -54,9 +54,9 @@ client.me.add_recent_item(
 Deletes the current user
 
 ```ruby
-client.me.delete(
-  credentials: my_credentials
-)
+result = client.me.delete(credentials: my_credentials)
+
+puts result
 ```
 
 #### Available Parameters
@@ -84,9 +84,9 @@ client.me.delete(
 Disables two factor auth for the current user
 
 ```ruby
-client.me.disable_two_factor_auth(
-  data: my_data
-)
+result = client.me.disable_two_factor_auth(data: my_data)
+
+puts result
 ```
 
 #### Available Parameters
@@ -114,7 +114,9 @@ client.me.disable_two_factor_auth(
 Disconnects the user from Github
 
 ```ruby
-client.me.disconnect_github
+result = client.me.disconnect_github
+
+puts result
 ```
 
 #### Available Parameters
@@ -140,7 +142,9 @@ No parameters needed for this call.
 Disconnects the user from Twitter
 
 ```ruby
-client.me.disconnect_twitter
+result = client.me.disconnect_twitter
+
+puts result
 ```
 
 #### Available Parameters
@@ -166,9 +170,9 @@ No parameters needed for this call.
 Enables two factor auth for the current user
 
 ```ruby
-client.me.enable_two_factor_auth(
-  data: my_data
-)
+result = client.me.enable_two_factor_auth(data: my_data)
+
+puts result
 ```
 
 #### Available Parameters
@@ -196,9 +200,9 @@ client.me.enable_two_factor_auth(
 Gets a recent item list
 
 ```ruby
-client.me.fetch_recent_items(
-  itemType: my_item_type
-)
+result = client.me.fetch_recent_items(itemType: my_item_type)
+
+puts result
 ```
 
 #### Available Parameters
@@ -227,7 +231,9 @@ client.me.fetch_recent_items(
 Retrieves information on the current user
 
 ```ruby
-client.me.get(optional_params)
+result = client.me.get(optional_params)
+
+puts result
 ```
 
 #### Available Parameters
@@ -254,9 +260,9 @@ client.me.get(optional_params)
 Updates information about the current user
 
 ```ruby
-client.me.patch(
-  user: my_user
-)
+result = client.me.patch(user: my_user)
+
+puts result
 ```
 
 #### Available Parameters
@@ -284,7 +290,9 @@ client.me.patch(
 Sends an email verification to the user
 
 ```ruby
-client.me.verify_email
+result = client.me.verify_email
+
+puts result
 ```
 
 #### Available Parameters

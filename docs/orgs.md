@@ -16,7 +16,9 @@ parameters and the potential responses.
 Returns the organizations associated with the current user
 
 ```ruby
-client.orgs.get(optional_params)
+result = client.orgs.get(optional_params)
+
+puts result
 ```
 
 #### Available Parameters
@@ -48,9 +50,9 @@ client.orgs.get(optional_params)
 Create a new organization
 
 ```ruby
-client.orgs.post(
-  organization: my_organization
-)
+result = client.orgs.post(organization: my_organization)
+
+puts result
 ```
 
 #### Available Parameters

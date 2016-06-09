@@ -22,10 +22,11 @@ parameters and the potential responses.
 Deletes a device
 
 ```ruby
-client.device.delete(
+result = client.device.delete(
   applicationId: my_application_id,
-  deviceId: my_device_id
-)
+  deviceId: my_device_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -54,10 +55,11 @@ client.device.delete(
 Retrieves information on an device
 
 ```ruby
-client.device.get(
+result = client.device.get(
   applicationId: my_application_id,
-  deviceId: my_device_id
-)
+  deviceId: my_device_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -86,10 +88,11 @@ client.device.get(
 Retrieve the last known commands(s) sent to the device
 
 ```ruby
-client.device.get_command(
+result = client.device.get_command(
   applicationId: my_application_id,
-  deviceId: my_device_id
-)
+  deviceId: my_device_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -120,10 +123,11 @@ client.device.get_command(
 Retrieve the recent log entries about the device
 
 ```ruby
-client.device.get_log_entries(
+result = client.device.get_log_entries(
   applicationId: my_application_id,
-  deviceId: my_device_id
-)
+  deviceId: my_device_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -154,10 +158,11 @@ client.device.get_log_entries(
 Retrieve the last known state(s) of the device
 
 ```ruby
-client.device.get_state(
+result = client.device.get_state(
   applicationId: my_application_id,
-  deviceId: my_device_id
-)
+  deviceId: my_device_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -188,11 +193,12 @@ client.device.get_state(
 Updates information about a device
 
 ```ruby
-client.device.patch(
+result = client.device.patch(
   applicationId: my_application_id,
   deviceId: my_device_id,
-  device: my_device
-)
+  device: my_device)
+
+puts result
 ```
 
 #### Available Parameters
@@ -223,11 +229,12 @@ client.device.patch(
 Send a command to a device
 
 ```ruby
-client.device.send_command(
+result = client.device.send_command(
   applicationId: my_application_id,
   deviceId: my_device_id,
-  deviceCommand: my_device_command
-)
+  deviceCommand: my_device_command)
+
+puts result
 ```
 
 #### Available Parameters
@@ -258,11 +265,12 @@ client.device.send_command(
 Send the current state of the device
 
 ```ruby
-client.device.send_state(
+result = client.device.send_state(
   applicationId: my_application_id,
   deviceId: my_device_id,
-  deviceState: my_device_state
-)
+  deviceState: my_device_state)
+
+puts result
 ```
 
 #### Available Parameters

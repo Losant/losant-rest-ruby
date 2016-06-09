@@ -16,7 +16,9 @@ parameters and the potential responses.
 Returns the applications the current user has permission to see
 
 ```ruby
-client.applications.get(optional_params)
+result = client.applications.get(optional_params)
+
+puts result
 ```
 
 #### Available Parameters
@@ -49,9 +51,9 @@ client.applications.get(optional_params)
 Create a new application
 
 ```ruby
-client.applications.post(
-  application: my_application
-)
+result = client.applications.post(application: my_application)
+
+puts result
 ```
 
 #### Available Parameters

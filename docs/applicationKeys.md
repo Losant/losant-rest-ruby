@@ -16,9 +16,9 @@ parameters and the potential responses.
 Returns the applicationKeys for an application
 
 ```ruby
-client.application_keys.get(
-  applicationId: my_application_id
-)
+result = client.application_keys.get(applicationId: my_application_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -52,10 +52,11 @@ client.application_keys.get(
 Create a new applicationKey for an application
 
 ```ruby
-client.application_keys.post(
+result = client.application_keys.post(
   applicationId: my_application_id,
-  applicationKey: my_application_key
-)
+  applicationKey: my_application_key)
+
+puts result
 ```
 
 #### Available Parameters

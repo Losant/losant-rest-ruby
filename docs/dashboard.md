@@ -17,9 +17,9 @@ parameters and the potential responses.
 Deletes an dashboard
 
 ```ruby
-client.dashboard.delete(
-  dashboardId: my_dashboard_id
-)
+result = client.dashboard.delete(dashboardId: my_dashboard_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -47,9 +47,9 @@ client.dashboard.delete(
 Retrieves information on an dashboard
 
 ```ruby
-client.dashboard.get(
-  dashboardId: my_dashboard_id
-)
+result = client.dashboard.get(dashboardId: my_dashboard_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -77,10 +77,11 @@ client.dashboard.get(
 Updates information about a dashboard
 
 ```ruby
-client.dashboard.patch(
+result = client.dashboard.patch(
   dashboardId: my_dashboard_id,
-  dashboard: my_dashboard
-)
+  dashboard: my_dashboard)
+
+puts result
 ```
 
 #### Available Parameters

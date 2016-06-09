@@ -16,9 +16,9 @@ parameters and the potential responses.
 Returns the webhooks for an application
 
 ```ruby
-client.webhooks.get(
-  applicationId: my_application_id
-)
+result = client.webhooks.get(applicationId: my_application_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -52,10 +52,11 @@ client.webhooks.get(
 Create a new webhook for an application
 
 ```ruby
-client.webhooks.post(
+result = client.webhooks.post(
   applicationId: my_application_id,
-  webhook: my_webhook
-)
+  webhook: my_webhook)
+
+puts result
 ```
 
 #### Available Parameters

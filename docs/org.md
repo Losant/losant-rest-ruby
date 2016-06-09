@@ -22,9 +22,9 @@ parameters and the potential responses.
 Deletes an organization
 
 ```ruby
-client.org.delete(
-  orgId: my_org_id
-)
+result = client.org.delete(orgId: my_org_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -52,9 +52,9 @@ client.org.delete(
 Retrieves information on an organization
 
 ```ruby
-client.org.get(
-  orgId: my_org_id
-)
+result = client.org.get(orgId: my_org_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -82,10 +82,11 @@ client.org.get(
 Invites a person to an organization
 
 ```ruby
-client.org.invite_member(
+result = client.org.invite_member(
   orgId: my_org_id,
-  invite: my_invite
-)
+  invite: my_invite)
+
+puts result
 ```
 
 #### Available Parameters
@@ -115,10 +116,11 @@ client.org.invite_member(
 Modifies a current org member&#x27;s role
 
 ```ruby
-client.org.modify_member(
+result = client.org.modify_member(
   orgId: my_org_id,
-  member: my_member
-)
+  member: my_member)
+
+puts result
 ```
 
 #### Available Parameters
@@ -148,10 +150,11 @@ client.org.modify_member(
 Updates information about an organization
 
 ```ruby
-client.org.patch(
+result = client.org.patch(
   orgId: my_org_id,
-  organization: my_organization
-)
+  organization: my_organization)
+
+puts result
 ```
 
 #### Available Parameters
@@ -181,9 +184,9 @@ client.org.patch(
 Gets the current pending invites
 
 ```ruby
-client.org.pending_invites(
-  orgId: my_org_id
-)
+result = client.org.pending_invites(orgId: my_org_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -211,10 +214,11 @@ client.org.pending_invites(
 Modifies a current org member&#x27;s role
 
 ```ruby
-client.org.remove_member(
+result = client.org.remove_member(
   orgId: my_org_id,
-  userId: my_user_id
-)
+  userId: my_user_id)
+
+puts result
 ```
 
 #### Available Parameters
@@ -244,10 +248,11 @@ client.org.remove_member(
 Revokes an existing invite
 
 ```ruby
-client.org.revoke_invite(
+result = client.org.revoke_invite(
   orgId: my_org_id,
-  inviteId: my_invite_id
-)
+  inviteId: my_invite_id)
+
+puts result
 ```
 
 #### Available Parameters
