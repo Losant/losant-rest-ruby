@@ -89,6 +89,10 @@ through this accessor.
 
 #### Resources
 
+Each of the following is a method on the client object, and returns a wrapper
+for the actions against that particular resource.  See each resource
+documentation file for more information.
+
 *   [application_key](docs/applicationKey.md)  
 Contains all the actions that can be performed against a single
 [Application Key](https://docs.losant.com/applications/access-keys/) -
