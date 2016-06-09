@@ -6,14 +6,43 @@ parameters and the potential responses.
 
 ##### Contents
 
-*   [Get](#get)
-*   [Patch](#patch)
 *   [Delete](#delete)
-*   [Get State](#get-state)
-*   [Send State](#send-state)
+*   [Get](#get)
 *   [Get Command](#get-command)
-*   [Send Command](#send-command)
 *   [Get Log Entries](#get-log-entries)
+*   [Get State](#get-state)
+*   [Patch](#patch)
+*   [Send Command](#send-command)
+*   [Send State](#send-state)
+
+<br/>
+
+## Delete
+
+Deletes a device
+
+```ruby
+client.device.delete(params)
+```
+
+#### Available Parameters
+
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| deviceId | string | Y | ID associated with the device |  |
+
+#### Successful Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 200 | [Success](_schemas.md#success) | If device was successfully deleted |
+
+#### Error Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 404 | [Error](_schemas.md#error) | Error if device was not found |
 
 <br/>
 
@@ -46,12 +75,12 @@ client.device.get(params)
 
 <br/>
 
-## Patch
+## Get Command
 
-Updates information about a device
+Retrieve the last known commands(s) sent to the device
 
 ```ruby
-client.device.patch(params)
+client.device.get_command(params)
 ```
 
 #### Available Parameters
@@ -60,29 +89,29 @@ client.device.patch(params)
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
 | deviceId | string | Y | ID associated with the device |  |
-| device | [Device Patch](_schemas.md#device-patch) | Y | Object containing new properties of the device |  |
+| limit | string | N | Max command entries to return (ordered by time descending) | 1 |
+| since | string | N | Look for command entries since this time (ms since epoch) |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [Device](_schemas.md#device) | Updated device information |
+| 200 | [Device Commands](_schemas.md#device-commands) | Recent device commands |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [Error](_schemas.md#error) | Error if malformed request |
 | 404 | [Error](_schemas.md#error) | Error if device was not found |
 
 <br/>
 
-## Delete
+## Get Log Entries
 
-Deletes a device
+Retrieve the recent log entries about the device
 
 ```ruby
-client.device.delete(params)
+client.device.get_log_entries(params)
 ```
 
 #### Available Parameters
@@ -91,12 +120,14 @@ client.device.delete(params)
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
 | deviceId | string | Y | ID associated with the device |  |
+| limit | string | N | Max log entries to return (ordered by time descending) | 1 |
+| since | string | N | Look for log entries since this time (ms since epoch) |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [Success](_schemas.md#success) | If device was successfully deleted |
+| 200 | undefined | Recent log entries |
 
 #### Error Responses
 
@@ -137,12 +168,12 @@ client.device.get_state(params)
 
 <br/>
 
-## Send State
+## Patch
 
-Send the current state of the device
+Updates information about a device
 
 ```ruby
-client.device.send_state(params)
+client.device.patch(params)
 ```
 
 #### Available Parameters
@@ -151,50 +182,19 @@ client.device.send_state(params)
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
 | deviceId | string | Y | ID associated with the device |  |
-| deviceState | [Device State](_schemas.md#device-state) | Y | Object containing the current state of the device |  |
+| device | [Device Patch](_schemas.md#device-patch) | Y | Object containing new properties of the device |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [Success](_schemas.md#success) | If state was successfully received |
+| 200 | [Device](_schemas.md#device) | Updated device information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [Error](_schemas.md#error) | Error if malformed request |
-| 404 | [Error](_schemas.md#error) | Error if device was not found |
-
-<br/>
-
-## Get Command
-
-Retrieve the last known commands(s) sent to the device
-
-```ruby
-client.device.get_command(params)
-```
-
-#### Available Parameters
-
-| Name | Type | Required | Description | Default |
-| ---- | ---- | -------- | ----------- | ------- |
-| applicationId | string | Y | ID associated with the application |  |
-| deviceId | string | Y | ID associated with the device |  |
-| limit | string | N | Max command entries to return (ordered by time descending) | 1 |
-| since | string | N | Look for command entries since this time (ms since epoch) |  |
-
-#### Successful Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 200 | [Device Commands](_schemas.md#device-commands) | Recent device commands |
-
-#### Error Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
 | 404 | [Error](_schemas.md#error) | Error if device was not found |
 
 <br/>
@@ -230,12 +230,12 @@ client.device.send_command(params)
 
 <br/>
 
-## Get Log Entries
+## Send State
 
-Retrieve the recent log entries about the device
+Send the current state of the device
 
 ```ruby
-client.device.get_log_entries(params)
+client.device.send_state(params)
 ```
 
 #### Available Parameters
@@ -244,17 +244,17 @@ client.device.get_log_entries(params)
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
 | deviceId | string | Y | ID associated with the device |  |
-| limit | string | N | Max log entries to return (ordered by time descending) | 1 |
-| since | string | N | Look for log entries since this time (ms since epoch) |  |
+| deviceState | [Device State](_schemas.md#device-state) | Y | Object containing the current state of the device |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | undefined | Recent log entries |
+| 200 | [Success](_schemas.md#success) | If state was successfully received |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
 | 404 | [Error](_schemas.md#error) | Error if device was not found |

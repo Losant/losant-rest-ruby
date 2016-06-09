@@ -7,6 +7,43 @@ module LosantRest
       @client = client
     end
 
+    # Authenticates a device using the provided credentials
+    #
+    # Parameters:
+    # *  {hash} credentials - Device authentication credentials (https://api.losant.com/#/definitions/deviceCredentials)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - Successful authentication (https://api.losant.com/#/definitions/authedDevice)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  401 - Unauthorized error if authentication fails (https://api.losant.com/#/definitions/error)
+    def authenticate_device(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("credentials is required") unless params.has_key?(:credentials)
+
+      body = params[:credentials] if params.has_key?(:credentials)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/auth/device"
+
+      @client.request(
+        method: :post,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
     # Authenticates a user using the provided credentials
     #
     # Parameters:
@@ -72,43 +109,6 @@ module LosantRest
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
       path = "/auth/user/github"
-
-      @client.request(
-        method: :post,
-        path: path,
-        query: query_params,
-        headers: headers,
-        body: body)
-    end
-
-    # Authenticates a device using the provided credentials
-    #
-    # Parameters:
-    # *  {hash} credentials - Device authentication credentials (https://api.losant.com/#/definitions/deviceCredentials)
-    # *  {boolean} _actions - Return resource actions in response
-    # *  {boolean} _links - Return resource link in response
-    # *  {boolean} _embedded - Return embedded resources in response
-    #
-    # Responses:
-    # *  200 - Successful authentication (https://api.losant.com/#/definitions/authedDevice)
-    #
-    # Errors:
-    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  401 - Unauthorized error if authentication fails (https://api.losant.com/#/definitions/error)
-    def authenticate_device(params = {})
-      params = Utils.symbolize_hash_keys(params)
-      query_params = { _actions: false, _links: true, _embedded: true }
-      headers = {}
-      body = nil
-
-      raise ArgumentError.new("credentials is required") unless params.has_key?(:credentials)
-
-      body = params[:credentials] if params.has_key?(:credentials)
-      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
-      query_params[:_links] = params[:_links] if params.has_key?(:_links)
-      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
-
-      path = "/auth/device"
 
       @client.request(
         method: :post,

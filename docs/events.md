@@ -7,9 +7,9 @@ parameters and the potential responses.
 ##### Contents
 
 *   [Get](#get)
-*   [Post](#post)
-*   [Patch](#patch)
 *   [Most Recent by Severity](#most-recent-by-severity)
+*   [Patch](#patch)
+*   [Post](#post)
 
 <br/>
 
@@ -48,12 +48,12 @@ client.events.get(params)
 
 <br/>
 
-## Post
+## Most Recent by Severity
 
-Create a new event for an application
+Returns the first new event ordered by severity and then creation
 
 ```ruby
-client.events.post(params)
+client.events.most_recent_by_severity(params)
 ```
 
 #### Available Parameters
@@ -61,21 +61,19 @@ client.events.post(params)
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
-| event | [Event Post](_schemas.md#event-post) | Y | New event information |  |
+| filter | string | N | Filter to apply against event subjects. Supports globbing. Blank or not provided means no filtering. |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 201 | [Event](_schemas.md#event) | Successfully created event |
+| 200 | undefined | The event, plus count of currently new events |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [Error](_schemas.md#error) | Error if malformed request |
 | 404 | [Error](_schemas.md#error) | Error if application was not found |
-| 429 | [Error](_schemas.md#error) | Error if event creation rate limit exceeded |
 
 <br/>
 
@@ -112,12 +110,12 @@ client.events.patch(params)
 
 <br/>
 
-## Most Recent by Severity
+## Post
 
-Returns the first new event ordered by severity and then creation
+Create a new event for an application
 
 ```ruby
-client.events.most_recent_by_severity(params)
+client.events.post(params)
 ```
 
 #### Available Parameters
@@ -125,16 +123,18 @@ client.events.most_recent_by_severity(params)
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
-| filter | string | N | Filter to apply against event subjects. Supports globbing. Blank or not provided means no filtering. |  |
+| event | [Event Post](_schemas.md#event-post) | Y | New event information |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | undefined | The event, plus count of currently new events |
+| 201 | [Event](_schemas.md#event) | Successfully created event |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
 | 404 | [Error](_schemas.md#error) | Error if application was not found |
+| 429 | [Error](_schemas.md#error) | Error if event creation rate limit exceeded |

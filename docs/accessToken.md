@@ -6,9 +6,37 @@ parameters and the potential responses.
 
 ##### Contents
 
+*   [Delete](#delete)
 *   [Get](#get)
 *   [Patch](#patch)
-*   [Delete](#delete)
+
+<br/>
+
+## Delete
+
+Deletes a accessToken
+
+```ruby
+client.access_token.delete(params)
+```
+
+#### Available Parameters
+
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| accessTokenId | string | Y | ID associated with the accessToken |  |
+
+#### Successful Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 200 | [Success](_schemas.md#success) | If accessToken was successfully deleted |
+
+#### Error Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 404 | [Error](_schemas.md#error) | Error if accessToken was not found |
 
 <br/>
 
@@ -66,32 +94,4 @@ client.access_token.patch(params)
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [Error](_schemas.md#error) | Error if malformed request |
-| 404 | [Error](_schemas.md#error) | Error if accessToken was not found |
-
-<br/>
-
-## Delete
-
-Deletes a accessToken
-
-```ruby
-client.access_token.delete(params)
-```
-
-#### Available Parameters
-
-| Name | Type | Required | Description | Default |
-| ---- | ---- | -------- | ----------- | ------- |
-| accessTokenId | string | Y | ID associated with the accessToken |  |
-
-#### Successful Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 200 | [Success](_schemas.md#success) | If accessToken was successfully deleted |
-
-#### Error Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
 | 404 | [Error](_schemas.md#error) | Error if accessToken was not found |

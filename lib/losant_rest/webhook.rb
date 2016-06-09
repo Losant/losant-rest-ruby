@@ -7,6 +7,43 @@ module LosantRest
       @client = client
     end
 
+    # Deletes a webhook
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} webhookId - ID associated with the webhook
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - If webhook was successfully deleted (https://api.losant.com/#/definitions/success)
+    #
+    # Errors:
+    # *  404 - Error if webhook was not found (https://api.losant.com/#/definitions/error)
+    def delete(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("webhookId is required") unless params.has_key?(:webhookId)
+
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/webhooks/#{params[:webhookId]}"
+
+      @client.request(
+        method: :delete,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
     # Retrieves information on a webhook
     #
     # Parameters:
@@ -79,43 +116,6 @@ module LosantRest
 
       @client.request(
         method: :patch,
-        path: path,
-        query: query_params,
-        headers: headers,
-        body: body)
-    end
-
-    # Deletes a webhook
-    #
-    # Parameters:
-    # *  {string} applicationId - ID associated with the application
-    # *  {string} webhookId - ID associated with the webhook
-    # *  {boolean} _actions - Return resource actions in response
-    # *  {boolean} _links - Return resource link in response
-    # *  {boolean} _embedded - Return embedded resources in response
-    #
-    # Responses:
-    # *  200 - If webhook was successfully deleted (https://api.losant.com/#/definitions/success)
-    #
-    # Errors:
-    # *  404 - Error if webhook was not found (https://api.losant.com/#/definitions/error)
-    def delete(params = {})
-      params = Utils.symbolize_hash_keys(params)
-      query_params = { _actions: false, _links: true, _embedded: true }
-      headers = {}
-      body = nil
-
-      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
-      raise ArgumentError.new("webhookId is required") unless params.has_key?(:webhookId)
-
-      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
-      query_params[:_links] = params[:_links] if params.has_key?(:_links)
-      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
-
-      path = "/applications/#{params[:applicationId]}/webhooks/#{params[:webhookId]}"
-
-      @client.request(
-        method: :delete,
         path: path,
         query: query_params,
         headers: headers,

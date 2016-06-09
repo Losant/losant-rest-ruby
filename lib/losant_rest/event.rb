@@ -7,6 +7,43 @@ module LosantRest
       @client = client
     end
 
+    # Deletes an event
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} eventId - ID associated with the event
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - If event was successfully deleted (https://api.losant.com/#/definitions/success)
+    #
+    # Errors:
+    # *  404 - Error if event was not found (https://api.losant.com/#/definitions/error)
+    def delete(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("eventId is required") unless params.has_key?(:eventId)
+
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/events/#{params[:eventId]}"
+
+      @client.request(
+        method: :delete,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
     # Retrieves information on an event
     #
     # Parameters:
@@ -79,43 +116,6 @@ module LosantRest
 
       @client.request(
         method: :patch,
-        path: path,
-        query: query_params,
-        headers: headers,
-        body: body)
-    end
-
-    # Deletes an event
-    #
-    # Parameters:
-    # *  {string} applicationId - ID associated with the application
-    # *  {string} eventId - ID associated with the event
-    # *  {boolean} _actions - Return resource actions in response
-    # *  {boolean} _links - Return resource link in response
-    # *  {boolean} _embedded - Return embedded resources in response
-    #
-    # Responses:
-    # *  200 - If event was successfully deleted (https://api.losant.com/#/definitions/success)
-    #
-    # Errors:
-    # *  404 - Error if event was not found (https://api.losant.com/#/definitions/error)
-    def delete(params = {})
-      params = Utils.symbolize_hash_keys(params)
-      query_params = { _actions: false, _links: true, _embedded: true }
-      headers = {}
-      body = nil
-
-      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
-      raise ArgumentError.new("eventId is required") unless params.has_key?(:eventId)
-
-      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
-      query_params[:_links] = params[:_links] if params.has_key?(:_links)
-      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
-
-      path = "/applications/#{params[:applicationId]}/events/#{params[:eventId]}"
-
-      @client.request(
-        method: :delete,
         path: path,
         query: query_params,
         headers: headers,

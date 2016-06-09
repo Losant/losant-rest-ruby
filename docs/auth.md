@@ -6,9 +6,38 @@ parameters and the potential responses.
 
 ##### Contents
 
+*   [Authenticate Device](#authenticate-device)
 *   [Authenticate User](#authenticate-user)
 *   [Authenticate User Github](#authenticate-user-github)
-*   [Authenticate Device](#authenticate-device)
+
+<br/>
+
+## Authenticate Device
+
+Authenticates a device using the provided credentials
+
+```ruby
+client.auth.authenticate_device(params)
+```
+
+#### Available Parameters
+
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| credentials | [Device Credentials](_schemas.md#device-credentials) | Y | Device authentication credentials |  |
+
+#### Successful Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 200 | [Authenticated Device](_schemas.md#authenticated-device) | Successful authentication |
+
+#### Error Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 401 | [Error](_schemas.md#error) | Unauthorized error if authentication fails |
 
 <br/>
 
@@ -60,35 +89,6 @@ client.auth.authenticate_user_github(params)
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [Authenticated User](_schemas.md#authenticated-user) | Successful authentication |
-
-#### Error Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 400 | [Error](_schemas.md#error) | Error if malformed request |
-| 401 | [Error](_schemas.md#error) | Unauthorized error if authentication fails |
-
-<br/>
-
-## Authenticate Device
-
-Authenticates a device using the provided credentials
-
-```ruby
-client.auth.authenticate_device(params)
-```
-
-#### Available Parameters
-
-| Name | Type | Required | Description | Default |
-| ---- | ---- | -------- | ----------- | ------- |
-| credentials | [Device Credentials](_schemas.md#device-credentials) | Y | Device authentication credentials |  |
-
-#### Successful Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 200 | [Authenticated Device](_schemas.md#authenticated-device) | Successful authentication |
 
 #### Error Responses
 

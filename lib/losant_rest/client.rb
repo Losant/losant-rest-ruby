@@ -18,20 +18,20 @@ module LosantRest
       @access_token ||= AccessToken.new(self)
     end
 
-    def application_key
-      @application_key ||= ApplicationKey.new(self)
-    end
-
     def access_tokens
       @access_tokens ||= AccessTokens.new(self)
     end
 
-    def application_keys
-      @application_keys ||= ApplicationKeys.new(self)
-    end
-
     def application
       @application ||= Application.new(self)
+    end
+
+    def application_key
+      @application_key ||= ApplicationKey.new(self)
+    end
+
+    def application_keys
+      @application_keys ||= ApplicationKeys.new(self)
     end
 
     def applications
@@ -54,16 +54,16 @@ module LosantRest
       @data ||= Data.new(self)
     end
 
+    def device
+      @device ||= Device.new(self)
+    end
+
     def device_recipe
       @device_recipe ||= DeviceRecipe.new(self)
     end
 
     def device_recipes
       @device_recipes ||= DeviceRecipes.new(self)
-    end
-
-    def device
-      @device ||= Device.new(self)
     end
 
     def devices

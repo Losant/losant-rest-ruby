@@ -6,73 +6,13 @@ parameters and the potential responses.
 
 ##### Contents
 
-*   [Get](#get)
-*   [Patch](#patch)
 *   [Delete](#delete)
+*   [Get](#get)
 *   [Get Log Entries](#get-log-entries)
-*   [Press Virtual Button](#press-virtual-button)
 *   [Get Storage Entries](#get-storage-entries)
+*   [Patch](#patch)
+*   [Press Virtual Button](#press-virtual-button)
 *   [Set Storage Entry](#set-storage-entry)
-
-<br/>
-
-## Get
-
-Retrieves information on an flow
-
-```ruby
-client.flow.get(params)
-```
-
-#### Available Parameters
-
-| Name | Type | Required | Description | Default |
-| ---- | ---- | -------- | ----------- | ------- |
-| applicationId | string | Y | ID associated with the application |  |
-| flowId | string | Y | ID associated with the flow |  |
-
-#### Successful Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 200 | [Workflow](_schemas.md#workflow) | Flow information |
-
-#### Error Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 404 | [Error](_schemas.md#error) | Error if flow was not found |
-
-<br/>
-
-## Patch
-
-Updates information about a flow
-
-```ruby
-client.flow.patch(params)
-```
-
-#### Available Parameters
-
-| Name | Type | Required | Description | Default |
-| ---- | ---- | -------- | ----------- | ------- |
-| applicationId | string | Y | ID associated with the application |  |
-| flowId | string | Y | ID associated with the flow |  |
-| flow | [Workflow Patch](_schemas.md#workflow-patch) | Y | Object containing new properties of the flow |  |
-
-#### Successful Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 200 | [Workflow](_schemas.md#workflow) | Updated flow information |
-
-#### Error Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 400 | [Error](_schemas.md#error) | Error if malformed request |
-| 404 | [Error](_schemas.md#error) | Error if flow is not found |
 
 <br/>
 
@@ -96,6 +36,35 @@ client.flow.delete(params)
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [Success](_schemas.md#success) | If flow was successfully deleted |
+
+#### Error Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 404 | [Error](_schemas.md#error) | Error if flow was not found |
+
+<br/>
+
+## Get
+
+Retrieves information on an flow
+
+```ruby
+client.flow.get(params)
+```
+
+#### Available Parameters
+
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| flowId | string | Y | ID associated with the flow |  |
+
+#### Successful Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 200 | [Workflow](_schemas.md#workflow) | Flow information |
 
 #### Error Responses
 
@@ -136,6 +105,66 @@ client.flow.get_log_entries(params)
 
 <br/>
 
+## Get Storage Entries
+
+Gets the current values in persistent storage
+
+```ruby
+client.flow.get_storage_entries(params)
+```
+
+#### Available Parameters
+
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| flowId | string | Y | ID associated with the flow |  |
+
+#### Successful Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 200 | undefined | The stored values |
+
+#### Error Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 404 | [Error](_schemas.md#error) | Error if flow was not found |
+
+<br/>
+
+## Patch
+
+Updates information about a flow
+
+```ruby
+client.flow.patch(params)
+```
+
+#### Available Parameters
+
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| flowId | string | Y | ID associated with the flow |  |
+| flow | [Workflow Patch](_schemas.md#workflow-patch) | Y | Object containing new properties of the flow |  |
+
+#### Successful Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 200 | [Workflow](_schemas.md#workflow) | Updated flow information |
+
+#### Error Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if flow is not found |
+
+<br/>
+
 ## Press Virtual Button
 
 Presses the specified virtual button on the flow
@@ -157,35 +186,6 @@ client.flow.press_virtual_button(params)
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [Success](_schemas.md#success) | Virtual button was pressed |
-
-#### Error Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 404 | [Error](_schemas.md#error) | Error if flow was not found |
-
-<br/>
-
-## Get Storage Entries
-
-Gets the current values in persistent storage
-
-```ruby
-client.flow.get_storage_entries(params)
-```
-
-#### Available Parameters
-
-| Name | Type | Required | Description | Default |
-| ---- | ---- | -------- | ----------- | ------- |
-| applicationId | string | Y | ID associated with the application |  |
-| flowId | string | Y | ID associated with the flow |  |
-
-#### Successful Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 200 | undefined | The stored values |
 
 #### Error Responses
 

@@ -6,65 +6,38 @@ parameters and the potential responses.
 
 ##### Contents
 
-*   [Get](#get)
-*   [Patch](#patch)
+*   [Add Recent Item](#add-recent-item)
 *   [Delete](#delete)
-*   [Verify Email](#verify-email)
-*   [Enable Two Factor Auth](#enable-two-factor-auth)
 *   [Disable Two Factor Auth](#disable-two-factor-auth)
 *   [Disconnect Github](#disconnect-github)
 *   [Disconnect Twitter](#disconnect-twitter)
-*   [Add Recent Item](#add-recent-item)
+*   [Enable Two Factor Auth](#enable-two-factor-auth)
 *   [Fetch Recent Items](#fetch-recent-items)
+*   [Get](#get)
+*   [Patch](#patch)
+*   [Verify Email](#verify-email)
 
 <br/>
 
-## Get
+## Add Recent Item
 
-Retrieves information on the current user
+Adds an item to a recent item list
 
 ```ruby
-client.me.get(params)
+client.me.add_recent_item(params)
 ```
 
 #### Available Parameters
 
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
-| includeRecent | undefined | N | Should the user include recent app/dashboard info |  |
+| data | [Recent Item](_schemas.md#recent-item) | Y | Object containing recent item info |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [Me](_schemas.md#me) | Current user information |
-
-#### Error Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-
-<br/>
-
-## Patch
-
-Updates information about the current user
-
-```ruby
-client.me.patch(params)
-```
-
-#### Available Parameters
-
-| Name | Type | Required | Description | Default |
-| ---- | ---- | -------- | ----------- | ------- |
-| user | [Me Patch](_schemas.md#me-patch) | Y | Object containing new user properties |  |
-
-#### Successful Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 200 | [Me](_schemas.md#me) | Updated user information |
+| 200 | [Recent Item List](_schemas.md#recent-item-list) | Updated recent item list |
 
 #### Error Responses
 
@@ -93,60 +66,6 @@ client.me.delete(params)
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [Success](_schemas.md#success) | If the user was successfully deleted |
-
-#### Error Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 400 | [Error](_schemas.md#error) | Error if malformed request |
-
-<br/>
-
-## Verify Email
-
-Sends an email verification to the user
-
-```ruby
-client.me.verify_email
-```
-
-#### Available Parameters
-
-No parameters needed for this call.
-
-#### Successful Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 200 | [Success](_schemas.md#success) | If email verification was successfully sent |
-
-#### Error Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 400 | [Error](_schemas.md#error) | Error if malformed request |
-
-<br/>
-
-## Enable Two Factor Auth
-
-Enables two factor auth for the current user
-
-```ruby
-client.me.enable_two_factor_auth(params)
-```
-
-#### Available Parameters
-
-| Name | Type | Required | Description | Default |
-| ---- | ---- | -------- | ----------- | ------- |
-| data | [Enable Two Factor Auth](_schemas.md#enable-two-factor-auth) | Y | Object containing two factor auth properties |  |
-
-#### Successful Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 200 | [Me](_schemas.md#me) | Updated user information |
 
 #### Error Responses
 
@@ -236,25 +155,25 @@ No parameters needed for this call.
 
 <br/>
 
-## Add Recent Item
+## Enable Two Factor Auth
 
-Adds an item to a recent item list
+Enables two factor auth for the current user
 
 ```ruby
-client.me.add_recent_item(params)
+client.me.enable_two_factor_auth(params)
 ```
 
 #### Available Parameters
 
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
-| data | [Recent Item](_schemas.md#recent-item) | Y | Object containing recent item info |  |
+| data | [Enable Two Factor Auth](_schemas.md#enable-two-factor-auth) | Y | Object containing two factor auth properties |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [Recent Item List](_schemas.md#recent-item-list) | Updated recent item list |
+| 200 | [Me](_schemas.md#me) | Updated user information |
 
 #### Error Responses
 
@@ -284,6 +203,87 @@ client.me.fetch_recent_items(params)
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [Recent Item List](_schemas.md#recent-item-list) | Recent item list |
+
+#### Error Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+
+<br/>
+
+## Get
+
+Retrieves information on the current user
+
+```ruby
+client.me.get(params)
+```
+
+#### Available Parameters
+
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| includeRecent | undefined | N | Should the user include recent app/dashboard info |  |
+
+#### Successful Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 200 | [Me](_schemas.md#me) | Current user information |
+
+#### Error Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+
+<br/>
+
+## Patch
+
+Updates information about the current user
+
+```ruby
+client.me.patch(params)
+```
+
+#### Available Parameters
+
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| user | [Me Patch](_schemas.md#me-patch) | Y | Object containing new user properties |  |
+
+#### Successful Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 200 | [Me](_schemas.md#me) | Updated user information |
+
+#### Error Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+
+<br/>
+
+## Verify Email
+
+Sends an email verification to the user
+
+```ruby
+client.me.verify_email
+```
+
+#### Available Parameters
+
+No parameters needed for this call.
+
+#### Successful Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 200 | [Success](_schemas.md#success) | If email verification was successfully sent |
 
 #### Error Responses
 

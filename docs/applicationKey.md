@@ -6,9 +6,38 @@ parameters and the potential responses.
 
 ##### Contents
 
+*   [Delete](#delete)
 *   [Get](#get)
 *   [Patch](#patch)
-*   [Delete](#delete)
+
+<br/>
+
+## Delete
+
+Deletes an applicationKey
+
+```ruby
+client.application_key.delete(params)
+```
+
+#### Available Parameters
+
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| applicationKeyId | string | Y | ID associated with the applicationKey |  |
+
+#### Successful Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 200 | [Success](_schemas.md#success) | If applicationKey was successfully deleted |
+
+#### Error Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 404 | [Error](_schemas.md#error) | Error if applicationKey was not found |
 
 <br/>
 
@@ -68,33 +97,4 @@ client.application_key.patch(params)
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [Error](_schemas.md#error) | Error if malformed request |
-| 404 | [Error](_schemas.md#error) | Error if applicationKey was not found |
-
-<br/>
-
-## Delete
-
-Deletes an applicationKey
-
-```ruby
-client.application_key.delete(params)
-```
-
-#### Available Parameters
-
-| Name | Type | Required | Description | Default |
-| ---- | ---- | -------- | ----------- | ------- |
-| applicationId | string | Y | ID associated with the application |  |
-| applicationKeyId | string | Y | ID associated with the applicationKey |  |
-
-#### Successful Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 200 | [Success](_schemas.md#success) | If applicationKey was successfully deleted |
-
-#### Error Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
 | 404 | [Error](_schemas.md#error) | Error if applicationKey was not found |

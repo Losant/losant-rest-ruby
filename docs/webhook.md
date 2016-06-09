@@ -6,9 +6,38 @@ parameters and the potential responses.
 
 ##### Contents
 
+*   [Delete](#delete)
 *   [Get](#get)
 *   [Patch](#patch)
-*   [Delete](#delete)
+
+<br/>
+
+## Delete
+
+Deletes a webhook
+
+```ruby
+client.webhook.delete(params)
+```
+
+#### Available Parameters
+
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| webhookId | string | Y | ID associated with the webhook |  |
+
+#### Successful Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 200 | [Success](_schemas.md#success) | If webhook was successfully deleted |
+
+#### Error Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 404 | [Error](_schemas.md#error) | Error if webhook was not found |
 
 <br/>
 
@@ -68,33 +97,4 @@ client.webhook.patch(params)
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [Error](_schemas.md#error) | Error if malformed request |
-| 404 | [Error](_schemas.md#error) | Error if webhook was not found |
-
-<br/>
-
-## Delete
-
-Deletes a webhook
-
-```ruby
-client.webhook.delete(params)
-```
-
-#### Available Parameters
-
-| Name | Type | Required | Description | Default |
-| ---- | ---- | -------- | ----------- | ------- |
-| applicationId | string | Y | ID associated with the application |  |
-| webhookId | string | Y | ID associated with the webhook |  |
-
-#### Successful Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 200 | [Success](_schemas.md#success) | If webhook was successfully deleted |
-
-#### Error Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
 | 404 | [Error](_schemas.md#error) | Error if webhook was not found |

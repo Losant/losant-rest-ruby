@@ -6,9 +6,38 @@ parameters and the potential responses.
 
 ##### Contents
 
+*   [Delete](#delete)
 *   [Get](#get)
 *   [Patch](#patch)
-*   [Delete](#delete)
+
+<br/>
+
+## Delete
+
+Deletes an event
+
+```ruby
+client.event.delete(params)
+```
+
+#### Available Parameters
+
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| eventId | string | Y | ID associated with the event |  |
+
+#### Successful Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 200 | [Success](_schemas.md#success) | If event was successfully deleted |
+
+#### Error Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 404 | [Error](_schemas.md#error) | Error if event was not found |
 
 <br/>
 
@@ -69,32 +98,3 @@ client.event.patch(params)
 | ---- | ---- | ----------- |
 | 400 | [Error](_schemas.md#error) | Error if malformed request |
 | 404 | [Error](_schemas.md#error) | Error if event is not found |
-
-<br/>
-
-## Delete
-
-Deletes an event
-
-```ruby
-client.event.delete(params)
-```
-
-#### Available Parameters
-
-| Name | Type | Required | Description | Default |
-| ---- | ---- | -------- | ----------- | ------- |
-| applicationId | string | Y | ID associated with the application |  |
-| eventId | string | Y | ID associated with the event |  |
-
-#### Successful Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 200 | [Success](_schemas.md#success) | If event was successfully deleted |
-
-#### Error Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 404 | [Error](_schemas.md#error) | Error if event was not found |

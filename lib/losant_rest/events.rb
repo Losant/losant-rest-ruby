@@ -56,40 +56,37 @@ module LosantRest
         body: body)
     end
 
-    # Create a new event for an application
+    # Returns the first new event ordered by severity and then creation
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {hash} event - New event information (https://api.losant.com/#/definitions/eventPost)
+    # *  {string} filter - Filter to apply against event subjects. Supports globbing. Blank or not provided means no filtering.
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  201 - Successfully created event (https://api.losant.com/#/definitions/event)
+    # *  200 - The event, plus count of currently new events
     #
     # Errors:
-    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
-    # *  429 - Error if event creation rate limit exceeded (https://api.losant.com/#/definitions/error)
-    def post(params = {})
+    def most_recent_by_severity(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
       headers = {}
       body = nil
 
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
-      raise ArgumentError.new("event is required") unless params.has_key?(:event)
 
-      body = params[:event] if params.has_key?(:event)
+      query_params[:filter] = params[:filter] if params.has_key?(:filter)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/applications/#{params[:applicationId]}/events"
+      path = "/applications/#{params[:applicationId]}/events/mostRecentBySeverity"
 
       @client.request(
-        method: :post,
+        method: :get,
         path: path,
         query: query_params,
         headers: headers,
@@ -141,37 +138,40 @@ module LosantRest
         body: body)
     end
 
-    # Returns the first new event ordered by severity and then creation
+    # Create a new event for an application
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {string} filter - Filter to apply against event subjects. Supports globbing. Blank or not provided means no filtering.
+    # *  {hash} event - New event information (https://api.losant.com/#/definitions/eventPost)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - The event, plus count of currently new events
+    # *  201 - Successfully created event (https://api.losant.com/#/definitions/event)
     #
     # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
-    def most_recent_by_severity(params = {})
+    # *  429 - Error if event creation rate limit exceeded (https://api.losant.com/#/definitions/error)
+    def post(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
       headers = {}
       body = nil
 
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("event is required") unless params.has_key?(:event)
 
-      query_params[:filter] = params[:filter] if params.has_key?(:filter)
+      body = params[:event] if params.has_key?(:event)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/applications/#{params[:applicationId]}/events/mostRecentBySeverity"
+      path = "/applications/#{params[:applicationId]}/events"
 
       @client.request(
-        method: :get,
+        method: :post,
         path: path,
         query: query_params,
         headers: headers,

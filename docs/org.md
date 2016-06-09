@@ -6,72 +6,14 @@ parameters and the potential responses.
 
 ##### Contents
 
-*   [Get](#get)
-*   [Patch](#patch)
 *   [Delete](#delete)
-*   [Pending Invites](#pending-invites)
+*   [Get](#get)
 *   [Invite Member](#invite-member)
-*   [Revoke Invite](#revoke-invite)
 *   [Modify Member](#modify-member)
+*   [Patch](#patch)
+*   [Pending Invites](#pending-invites)
 *   [Remove Member](#remove-member)
-
-<br/>
-
-## Get
-
-Retrieves information on an organization
-
-```ruby
-client.org.get(params)
-```
-
-#### Available Parameters
-
-| Name | Type | Required | Description | Default |
-| ---- | ---- | -------- | ----------- | ------- |
-| orgId | string | Y | ID associated with the organization |  |
-
-#### Successful Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 200 | [Organization](_schemas.md#organization) | Organization information |
-
-#### Error Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 404 | [Error](_schemas.md#error) | Error if organization not found |
-
-<br/>
-
-## Patch
-
-Updates information about an organization
-
-```ruby
-client.org.patch(params)
-```
-
-#### Available Parameters
-
-| Name | Type | Required | Description | Default |
-| ---- | ---- | -------- | ----------- | ------- |
-| orgId | string | Y | ID associated with the organization |  |
-| organization | [Organization Patch](_schemas.md#organization-patch) | Y | Object containing new organization properties |  |
-
-#### Successful Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 200 | [Organization](_schemas.md#organization) | Updated organization information |
-
-#### Error Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 400 | [Error](_schemas.md#error) | Error if malformed request |
-| 404 | [Error](_schemas.md#error) | Error if organization was not found |
+*   [Revoke Invite](#revoke-invite)
 
 <br/>
 
@@ -103,12 +45,12 @@ client.org.delete(params)
 
 <br/>
 
-## Pending Invites
+## Get
 
-Gets the current pending invites
+Retrieves information on an organization
 
 ```ruby
-client.org.pending_invites(params)
+client.org.get(params)
 ```
 
 #### Available Parameters
@@ -121,7 +63,7 @@ client.org.pending_invites(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [Organization Invitations](_schemas.md#organization-invitations) | Invitation information |
+| 200 | [Organization](_schemas.md#organization) | Organization information |
 
 #### Error Responses
 
@@ -145,36 +87,6 @@ client.org.invite_member(params)
 | ---- | ---- | -------- | ----------- | ------- |
 | orgId | string | Y | ID associated with the organization |  |
 | invite | [Organization Invitation Post](_schemas.md#organization-invitation-post) | Y | Object containing new invite info |  |
-
-#### Successful Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 200 | [Organization Invitations](_schemas.md#organization-invitations) | Invitation information |
-
-#### Error Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 400 | [Error](_schemas.md#error) | Error if malformed request |
-| 404 | [Error](_schemas.md#error) | Error if organization not found |
-
-<br/>
-
-## Revoke Invite
-
-Revokes an existing invite
-
-```ruby
-client.org.revoke_invite(params)
-```
-
-#### Available Parameters
-
-| Name | Type | Required | Description | Default |
-| ---- | ---- | -------- | ----------- | ------- |
-| orgId | string | Y | ID associated with the organization |  |
-| inviteId | string | Y | Id of invite to revoke |  |
 
 #### Successful Responses
 
@@ -221,6 +133,64 @@ client.org.modify_member(params)
 
 <br/>
 
+## Patch
+
+Updates information about an organization
+
+```ruby
+client.org.patch(params)
+```
+
+#### Available Parameters
+
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| orgId | string | Y | ID associated with the organization |  |
+| organization | [Organization Patch](_schemas.md#organization-patch) | Y | Object containing new organization properties |  |
+
+#### Successful Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 200 | [Organization](_schemas.md#organization) | Updated organization information |
+
+#### Error Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if organization was not found |
+
+<br/>
+
+## Pending Invites
+
+Gets the current pending invites
+
+```ruby
+client.org.pending_invites(params)
+```
+
+#### Available Parameters
+
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| orgId | string | Y | ID associated with the organization |  |
+
+#### Successful Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 200 | [Organization Invitations](_schemas.md#organization-invitations) | Invitation information |
+
+#### Error Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 404 | [Error](_schemas.md#error) | Error if organization not found |
+
+<br/>
+
 ## Remove Member
 
 Modifies a current org member&#x27;s role
@@ -241,6 +211,36 @@ client.org.remove_member(params)
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 200 | [Organization](_schemas.md#organization) | Updated organization information |
+
+#### Error Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if organization not found |
+
+<br/>
+
+## Revoke Invite
+
+Revokes an existing invite
+
+```ruby
+client.org.revoke_invite(params)
+```
+
+#### Available Parameters
+
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| orgId | string | Y | ID associated with the organization |  |
+| inviteId | string | Y | Id of invite to revoke |  |
+
+#### Successful Responses
+
+| Code | Type | Description |
+| ---- | ---- | ----------- |
+| 200 | [Organization Invitations](_schemas.md#organization-invitations) | Invitation information |
 
 #### Error Responses
 
