@@ -24,11 +24,11 @@ client.device_recipes.get(params)
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
-| sortField | One of: name, id, creationDate | N | Field to sort the results by | name |
-| sortDirection | One of: asc, desc | N | Direction to sort the results by | asc |
+| sortField | string | N | Field to sort the results by. Accepted values are: name, id, creationDate | name |
+| sortDirection | string | N | Direction to sort the results by. Accepted values are: asc, desc | asc |
 | page | string | N | Which page of results to return | 0 |
 | perPage | string | N | How many items to return per page | 1000 |
-| filterField | One of: name | N | Field to filter the results by. Blank or not provided means no filtering. |  |
+| filterField | string | N | Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name |  |
 | filter | string | N | Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering. |  |
 
 #### Successful Responses

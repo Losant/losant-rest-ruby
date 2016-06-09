@@ -11,13 +11,13 @@ module LosantRest
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {string} sortField - Field to sort the results by
-    # *  {string} sortDirection - Direction to sort the results by
+    # *  {string} sortField - Field to sort the results by. Accepted values are: subject, id, creationDate
+    # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
     # *  {string} page - Which page of results to return
     # *  {string} perPage - How many items to return per page
-    # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering.
+    # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: subject
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
-    # *  {string} state - If provided, return events only in the given state.
+    # *  {string} state - If provided, return events only in the given state. Accepted values are: new, acknowledged, resolved
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -100,9 +100,9 @@ module LosantRest
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {string} filterField - Field to filter the events to act on by. Blank or not provided means no filtering.
+    # *  {string} filterField - Field to filter the events to act on by. Blank or not provided means no filtering. Accepted values are: subject
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
-    # *  {string} state - If provided, act on events only in the given state.
+    # *  {string} state - If provided, act on events only in the given state. Accepted values are: new, acknowledged, resolved
     # *  {hash} updates - Object containing updated information for the events (https://api.losant.com/#/definitions/eventPatch)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response

@@ -10,11 +10,11 @@ module LosantRest
     # Returns the applications the current user has permission to see
     #
     # Parameters:
-    # *  {string} sortField - Field to sort the results by
-    # *  {string} sortDirection - Direction to sort the results by
+    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate, ownerId
+    # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
     # *  {string} page - Which page of results to return
     # *  {string} perPage - How many items to return per page
-    # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering.
+    # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
     # *  {string} orgId - If not provided, return all applications. If provided but blank, only return applications belonging to the current user.  If provided and an id, only return applications belonging to the given organization id.
     # *  {boolean} _actions - Return resource actions in response

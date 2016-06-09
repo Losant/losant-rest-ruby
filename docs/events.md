@@ -26,13 +26,13 @@ client.events.get(params)
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
-| sortField | One of: subject, id, creationDate | N | Field to sort the results by | creationDate |
-| sortDirection | One of: asc, desc | N | Direction to sort the results by | desc |
+| sortField | string | N | Field to sort the results by. Accepted values are: subject, id, creationDate | creationDate |
+| sortDirection | string | N | Direction to sort the results by. Accepted values are: asc, desc | desc |
 | page | string | N | Which page of results to return | 0 |
 | perPage | string | N | How many items to return per page | 1000 |
-| filterField | One of: subject | N | Field to filter the results by. Blank or not provided means no filtering. |  |
+| filterField | string | N | Field to filter the results by. Blank or not provided means no filtering. Accepted values are: subject |  |
 | filter | string | N | Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering. |  |
-| state | One of: new, acknowledged, resolved | N | If provided, return events only in the given state. |  |
+| state | string | N | If provided, return events only in the given state. Accepted values are: new, acknowledged, resolved |  |
 
 #### Successful Responses
 
@@ -92,9 +92,9 @@ client.events.patch(params)
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
-| filterField | One of: subject | N | Field to filter the events to act on by. Blank or not provided means no filtering. |  |
+| filterField | string | N | Field to filter the events to act on by. Blank or not provided means no filtering. Accepted values are: subject |  |
 | filter | string | N | Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering. |  |
-| state | One of: new, acknowledged, resolved | N | If provided, act on events only in the given state. |  |
+| state | string | N | If provided, act on events only in the given state. Accepted values are: new, acknowledged, resolved |  |
 | updates | [Event Patch](_schemas.md#event-patch) | Y | Object containing updated information for the events |  |
 
 #### Successful Responses

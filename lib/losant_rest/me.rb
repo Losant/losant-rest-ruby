@@ -324,7 +324,7 @@ module LosantRest
     #
     # Parameters:
     # *  {string} parentId - Parent id of the recent list
-    # *  {undefined} itemType - Item type to get the recent list of
+    # *  {undefined} itemType - Item type to get the recent list of. Accepted values are: application, device, flow, dashboard
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response

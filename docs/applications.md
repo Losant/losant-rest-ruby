@@ -23,11 +23,11 @@ client.applications.get(params)
 
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
-| sortField | One of: name, id, creationDate, ownerId | N | Field to sort the results by | name |
-| sortDirection | One of: asc, desc | N | Direction to sort the results by | asc |
+| sortField | string | N | Field to sort the results by. Accepted values are: name, id, creationDate, ownerId | name |
+| sortDirection | string | N | Direction to sort the results by. Accepted values are: asc, desc | asc |
 | page | string | N | Which page of results to return | 0 |
 | perPage | string | N | How many items to return per page | 1000 |
-| filterField | One of: name | N | Field to filter the results by. Blank or not provided means no filtering. |  |
+| filterField | string | N | Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name |  |
 | filter | string | N | Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering. |  |
 | orgId | string | N | If not provided, return all applications. If provided but blank, only return applications belonging to the current user.  If provided and an id, only return applications belonging to the given organization id. |  |
 

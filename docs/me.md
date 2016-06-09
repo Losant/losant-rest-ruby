@@ -277,7 +277,7 @@ client.me.fetch_recent_items(params)
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
 | parentId | string | N | Parent id of the recent list |  |
-| itemType | One of: application, device, flow, dashboard | Y | Item type to get the recent list of |  |
+| itemType | undefined | Y | Item type to get the recent list of. Accepted values are: application, device, flow, dashboard |  |
 
 #### Successful Responses
 
