@@ -51,7 +51,7 @@ puts result
 
 ## Get
 
-Retrieves information on an flow
+Retrieves information on a flow
 
 ```ruby
 result = client.flow.get(

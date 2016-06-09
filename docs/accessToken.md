@@ -14,7 +14,7 @@ parameters and the potential responses.
 
 ## Delete
 
-Deletes a accessToken
+Deletes an accessToken
 
 ```ruby
 result = client.access_token.delete(accessTokenId: my_access_token_id)
@@ -62,7 +62,7 @@ puts result
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [Access Token](_schemas.md#access-token) | Device information |
+| 200 | [Access Token](_schemas.md#access-token) | Access token information |
 
 #### Error Responses
 
@@ -74,7 +74,7 @@ puts result
 
 ## Patch
 
-Updates information about a accessToken
+Updates information about an accessToken
 
 ```ruby
 result = client.access_token.patch(

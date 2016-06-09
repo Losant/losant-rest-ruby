@@ -42,7 +42,7 @@ module LosantRest
         body: body)
     end
 
-    # Retrieves information on an dashboard
+    # Retrieves information on a dashboard
     #
     # Parameters:
     # *  {string} dashboardId - ID of the associated dashboard

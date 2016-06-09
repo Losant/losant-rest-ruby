@@ -52,7 +52,7 @@ puts result
 
 ## Get
 
-Retrieves information on an device
+Retrieves information on a device
 
 ```ruby
 result = client.device.get(

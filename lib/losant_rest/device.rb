@@ -44,7 +44,7 @@ module LosantRest
         body: body)
     end
 
-    # Retrieves information on an device
+    # Retrieves information on a device
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application

@@ -39,7 +39,7 @@ module LosantRest
         body: body)
     end
 
-    # Create a new accessKey for a user
+    # Create a new accessToken for a user
     #
     # Parameters:
     # *  {hash} accessToken - AccessToken information (https://api.losant.com/#/definitions/accessTokenPost)
@@ -48,7 +48,7 @@ module LosantRest
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  201 - Successfully created access token (https://api.losant.com/#/definitions/accessToken)
+    # *  201 - The successfully created accessToken (https://api.losant.com/#/definitions/accessToken)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)

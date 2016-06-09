@@ -412,7 +412,7 @@ Schema for a single Application Key
 
 ## Application Key Patch
 
-Schema for the body of a Application Key modification request
+Schema for the body of an Application Key modification request
 
 ```javascript
 {
@@ -585,7 +585,7 @@ Schema for a collection of Application Keys
 
 ## Application Patch
 
-Schema for the body of a Application modification request
+Schema for the body of an Application modification request
 
 ```javascript
 {
@@ -3944,7 +3944,7 @@ Schema for the body of a request to modify an Organization member
 
 ## Organization Patch
 
-Schema for the body of a Organization modification request
+Schema for the body of an Organization modification request
 
 ```javascript
 {
@@ -3967,7 +3967,7 @@ Schema for the body of a Organization modification request
 
 ## Organization Post
 
-Schema for the body of a Organization creation request
+Schema for the body of an Organization creation request
 
 ```javascript
 {

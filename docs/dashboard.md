@@ -44,7 +44,7 @@ puts result
 
 ## Get
 
-Retrieves information on an dashboard
+Retrieves information on a dashboard
 
 ```ruby
 result = client.dashboard.get(dashboardId: my_dashboard_id)

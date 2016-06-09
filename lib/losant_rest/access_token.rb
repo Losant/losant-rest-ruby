@@ -7,7 +7,7 @@ module LosantRest
       @client = client
     end
 
-    # Deletes a accessToken
+    # Deletes an accessToken
     #
     # Parameters:
     # *  {string} accessTokenId - ID associated with the accessToken
@@ -51,7 +51,7 @@ module LosantRest
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Device information (https://api.losant.com/#/definitions/accessToken)
+    # *  200 - Access token information (https://api.losant.com/#/definitions/accessToken)
     #
     # Errors:
     # *  404 - Error if accessToken was not found (https://api.losant.com/#/definitions/error)
@@ -77,7 +77,7 @@ module LosantRest
         body: body)
     end
 
-    # Updates information about a accessToken
+    # Updates information about an accessToken
     #
     # Parameters:
     # *  {string} accessTokenId - ID associated with the accessToken

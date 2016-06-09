@@ -44,7 +44,7 @@ module LosantRest
         body: body)
     end
 
-    # Retrieves information on an flow
+    # Retrieves information on a flow
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application

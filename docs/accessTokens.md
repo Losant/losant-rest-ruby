@@ -40,7 +40,7 @@ No parameters needed for this call.
 
 ## Post
 
-Create a new accessKey for a user
+Create a new accessToken for a user
 
 ```ruby
 result = client.access_tokens.post(accessToken: my_access_token)
@@ -58,7 +58,7 @@ puts result
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 201 | [Access Token](_schemas.md#access-token) | Successfully created access token |
+| 201 | [Access Token](_schemas.md#access-token) | The successfully created accessToken |
 
 #### Error Responses
 
