@@ -24,7 +24,9 @@ parameters and the potential responses.
 Adds an item to a recent item list
 
 ```ruby
-client.me.add_recent_item(params)
+client.me.add_recent_item(
+  data: my_data
+)
 ```
 
 #### Available Parameters
@@ -52,7 +54,9 @@ client.me.add_recent_item(params)
 Deletes the current user
 
 ```ruby
-client.me.delete(params)
+client.me.delete(
+  credentials: my_credentials
+)
 ```
 
 #### Available Parameters
@@ -80,7 +84,9 @@ client.me.delete(params)
 Disables two factor auth for the current user
 
 ```ruby
-client.me.disable_two_factor_auth(params)
+client.me.disable_two_factor_auth(
+  data: my_data
+)
 ```
 
 #### Available Parameters
@@ -160,7 +166,9 @@ No parameters needed for this call.
 Enables two factor auth for the current user
 
 ```ruby
-client.me.enable_two_factor_auth(params)
+client.me.enable_two_factor_auth(
+  data: my_data
+)
 ```
 
 #### Available Parameters
@@ -188,7 +196,9 @@ client.me.enable_two_factor_auth(params)
 Gets a recent item list
 
 ```ruby
-client.me.fetch_recent_items(params)
+client.me.fetch_recent_items(
+  itemType: my_item_type
+)
 ```
 
 #### Available Parameters
@@ -217,7 +227,7 @@ client.me.fetch_recent_items(params)
 Retrieves information on the current user
 
 ```ruby
-client.me.get(params)
+client.me.get(optional_params)
 ```
 
 #### Available Parameters
@@ -244,7 +254,9 @@ client.me.get(params)
 Updates information about the current user
 
 ```ruby
-client.me.patch(params)
+client.me.patch(
+  user: my_user
+)
 ```
 
 #### Available Parameters

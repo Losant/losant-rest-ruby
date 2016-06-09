@@ -21,7 +21,10 @@ parameters and the potential responses.
 Deletes a flow
 
 ```ruby
-client.flow.delete(params)
+client.flow.delete(
+  applicationId: my_application_id,
+  flowId: my_flow_id
+)
 ```
 
 #### Available Parameters
@@ -50,7 +53,10 @@ client.flow.delete(params)
 Retrieves information on an flow
 
 ```ruby
-client.flow.get(params)
+client.flow.get(
+  applicationId: my_application_id,
+  flowId: my_flow_id
+)
 ```
 
 #### Available Parameters
@@ -79,7 +85,10 @@ client.flow.get(params)
 Retrieve the recent log entries about the flows
 
 ```ruby
-client.flow.get_log_entries(params)
+client.flow.get_log_entries(
+  applicationId: my_application_id,
+  flowId: my_flow_id
+)
 ```
 
 #### Available Parameters
@@ -110,7 +119,10 @@ client.flow.get_log_entries(params)
 Gets the current values in persistent storage
 
 ```ruby
-client.flow.get_storage_entries(params)
+client.flow.get_storage_entries(
+  applicationId: my_application_id,
+  flowId: my_flow_id
+)
 ```
 
 #### Available Parameters
@@ -139,7 +151,11 @@ client.flow.get_storage_entries(params)
 Updates information about a flow
 
 ```ruby
-client.flow.patch(params)
+client.flow.patch(
+  applicationId: my_application_id,
+  flowId: my_flow_id,
+  flow: my_flow
+)
 ```
 
 #### Available Parameters
@@ -170,7 +186,11 @@ client.flow.patch(params)
 Presses the specified virtual button on the flow
 
 ```ruby
-client.flow.press_virtual_button(params)
+client.flow.press_virtual_button(
+  applicationId: my_application_id,
+  flowId: my_flow_id,
+  button: my_button
+)
 ```
 
 #### Available Parameters
@@ -200,7 +220,11 @@ client.flow.press_virtual_button(params)
 Sets a storage value
 
 ```ruby
-client.flow.set_storage_entry(params)
+client.flow.set_storage_entry(
+  applicationId: my_application_id,
+  flowId: my_flow_id,
+  entry: my_entry
+)
 ```
 
 #### Available Parameters

@@ -17,7 +17,10 @@ parameters and the potential responses.
 Deletes an event
 
 ```ruby
-client.event.delete(params)
+client.event.delete(
+  applicationId: my_application_id,
+  eventId: my_event_id
+)
 ```
 
 #### Available Parameters
@@ -46,7 +49,10 @@ client.event.delete(params)
 Retrieves information on an event
 
 ```ruby
-client.event.get(params)
+client.event.get(
+  applicationId: my_application_id,
+  eventId: my_event_id
+)
 ```
 
 #### Available Parameters
@@ -75,7 +81,11 @@ client.event.get(params)
 Updates information about an event
 
 ```ruby
-client.event.patch(params)
+client.event.patch(
+  applicationId: my_application_id,
+  eventId: my_event_id,
+  event: my_event
+)
 ```
 
 #### Available Parameters

@@ -17,7 +17,9 @@ parameters and the potential responses.
 Deletes an application
 
 ```ruby
-client.application.delete(params)
+client.application.delete(
+  applicationId: my_application_id
+)
 ```
 
 #### Available Parameters
@@ -45,7 +47,9 @@ client.application.delete(params)
 Retrieves information on an application
 
 ```ruby
-client.application.get(params)
+client.application.get(
+  applicationId: my_application_id
+)
 ```
 
 #### Available Parameters
@@ -73,7 +77,10 @@ client.application.get(params)
 Updates information about an application
 
 ```ruby
-client.application.patch(params)
+client.application.patch(
+  applicationId: my_application_id,
+  application: my_application
+)
 ```
 
 #### Available Parameters

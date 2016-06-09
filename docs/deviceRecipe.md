@@ -18,7 +18,11 @@ parameters and the potential responses.
 Bulk creates devices using this recipe from a CSV
 
 ```ruby
-client.device_recipe.bulk_create(params)
+client.device_recipe.bulk_create(
+  applicationId: my_application_id,
+  deviceRecipeId: my_device_recipe_id,
+  bulkInfo: my_bulk_info
+)
 ```
 
 #### Available Parameters
@@ -48,7 +52,10 @@ client.device_recipe.bulk_create(params)
 Deletes a device recipe
 
 ```ruby
-client.device_recipe.delete(params)
+client.device_recipe.delete(
+  applicationId: my_application_id,
+  deviceRecipeId: my_device_recipe_id
+)
 ```
 
 #### Available Parameters
@@ -77,7 +84,10 @@ client.device_recipe.delete(params)
 Retrieves information on a device recipe
 
 ```ruby
-client.device_recipe.get(params)
+client.device_recipe.get(
+  applicationId: my_application_id,
+  deviceRecipeId: my_device_recipe_id
+)
 ```
 
 #### Available Parameters
@@ -106,7 +116,11 @@ client.device_recipe.get(params)
 Updates information about a device recipe
 
 ```ruby
-client.device_recipe.patch(params)
+client.device_recipe.patch(
+  applicationId: my_application_id,
+  deviceRecipeId: my_device_recipe_id,
+  deviceRecipe: my_device_recipe
+)
 ```
 
 #### Available Parameters

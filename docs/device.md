@@ -22,7 +22,10 @@ parameters and the potential responses.
 Deletes a device
 
 ```ruby
-client.device.delete(params)
+client.device.delete(
+  applicationId: my_application_id,
+  deviceId: my_device_id
+)
 ```
 
 #### Available Parameters
@@ -51,7 +54,10 @@ client.device.delete(params)
 Retrieves information on an device
 
 ```ruby
-client.device.get(params)
+client.device.get(
+  applicationId: my_application_id,
+  deviceId: my_device_id
+)
 ```
 
 #### Available Parameters
@@ -80,7 +86,10 @@ client.device.get(params)
 Retrieve the last known commands(s) sent to the device
 
 ```ruby
-client.device.get_command(params)
+client.device.get_command(
+  applicationId: my_application_id,
+  deviceId: my_device_id
+)
 ```
 
 #### Available Parameters
@@ -111,7 +120,10 @@ client.device.get_command(params)
 Retrieve the recent log entries about the device
 
 ```ruby
-client.device.get_log_entries(params)
+client.device.get_log_entries(
+  applicationId: my_application_id,
+  deviceId: my_device_id
+)
 ```
 
 #### Available Parameters
@@ -142,7 +154,10 @@ client.device.get_log_entries(params)
 Retrieve the last known state(s) of the device
 
 ```ruby
-client.device.get_state(params)
+client.device.get_state(
+  applicationId: my_application_id,
+  deviceId: my_device_id
+)
 ```
 
 #### Available Parameters
@@ -173,7 +188,11 @@ client.device.get_state(params)
 Updates information about a device
 
 ```ruby
-client.device.patch(params)
+client.device.patch(
+  applicationId: my_application_id,
+  deviceId: my_device_id,
+  device: my_device
+)
 ```
 
 #### Available Parameters
@@ -204,7 +223,11 @@ client.device.patch(params)
 Send a command to a device
 
 ```ruby
-client.device.send_command(params)
+client.device.send_command(
+  applicationId: my_application_id,
+  deviceId: my_device_id,
+  deviceCommand: my_device_command
+)
 ```
 
 #### Available Parameters
@@ -235,7 +258,11 @@ client.device.send_command(params)
 Send the current state of the device
 
 ```ruby
-client.device.send_state(params)
+client.device.send_state(
+  applicationId: my_application_id,
+  deviceId: my_device_id,
+  deviceState: my_device_state
+)
 ```
 
 #### Available Parameters

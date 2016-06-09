@@ -41,7 +41,9 @@ No parameters needed for this call.
 Create a new accessKey for a user
 
 ```ruby
-client.access_tokens.post(params)
+client.access_tokens.post(
+  accessToken: my_access_token
+)
 ```
 
 #### Available Parameters

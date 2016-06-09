@@ -16,7 +16,10 @@ parameters and the potential responses.
 Returns the last known data for the given attribute
 
 ```ruby
-client.data.last_value_query(params)
+client.data.last_value_query(
+  applicationId: my_application_id,
+  query: my_query
+)
 ```
 
 #### Available Parameters
@@ -45,7 +48,10 @@ client.data.last_value_query(params)
 Returns the data for the given query
 
 ```ruby
-client.data.time_series_query(params)
+client.data.time_series_query(
+  applicationId: my_application_id,
+  query: my_query
+)
 ```
 
 #### Available Parameters

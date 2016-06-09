@@ -16,7 +16,9 @@ parameters and the potential responses.
 Returns the flows for an application
 
 ```ruby
-client.flows.get(params)
+client.flows.get(
+  applicationId: my_application_id
+)
 ```
 
 #### Available Parameters
@@ -50,7 +52,10 @@ client.flows.get(params)
 Create a new flow for an application
 
 ```ruby
-client.flows.post(params)
+client.flows.post(
+  applicationId: my_application_id,
+  flow: my_flow
+)
 ```
 
 #### Available Parameters

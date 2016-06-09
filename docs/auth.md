@@ -17,7 +17,9 @@ parameters and the potential responses.
 Authenticates a device using the provided credentials
 
 ```ruby
-client.auth.authenticate_device(params)
+client.auth.authenticate_device(
+  credentials: my_credentials
+)
 ```
 
 #### Available Parameters
@@ -46,7 +48,9 @@ client.auth.authenticate_device(params)
 Authenticates a user using the provided credentials
 
 ```ruby
-client.auth.authenticate_user(params)
+client.auth.authenticate_user(
+  credentials: my_credentials
+)
 ```
 
 #### Available Parameters
@@ -75,7 +79,9 @@ client.auth.authenticate_user(params)
 Authenticates a user via GitHub OAuth
 
 ```ruby
-client.auth.authenticate_user_github(params)
+client.auth.authenticate_user_github(
+  oauth: my_oauth
+)
 ```
 
 #### Available Parameters
