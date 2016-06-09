@@ -1,6 +1,5 @@
 {
-  "title": "Enable Two Factor Auth",
-  "description": "Schema for the body of a request to enable two factor auth",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "twoFactorAuthKey": {

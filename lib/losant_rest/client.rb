@@ -18,12 +18,12 @@ module LosantRest
       @access_token ||= AccessToken.new(self)
     end
 
-    def access_tokens
-      @access_tokens ||= AccessTokens.new(self)
-    end
-
     def application_key
       @application_key ||= ApplicationKey.new(self)
+    end
+
+    def access_tokens
+      @access_tokens ||= AccessTokens.new(self)
     end
 
     def application_keys

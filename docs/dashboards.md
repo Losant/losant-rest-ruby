@@ -13,7 +13,7 @@ parameters and the potential responses.
 
 ## Get
 
-Returns the dashboards owned by the current user
+Returns the dashboards the current user has permission to see
 
 ```ruby
 client.dashboards.get(params)
@@ -35,7 +35,7 @@ client.dashboards.get(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [dashboards](_schemas.md#dashboards) | Collection of dashboards |
+| 200 | [Dashboards](_schemas.md#dashboards) | Collection of dashboards |
 
 #### Error Responses
 
@@ -46,7 +46,7 @@ client.dashboards.get(params)
 
 ## Post
 
-Create a new dasboard owned by the current user
+Create a new dasboard
 
 ```ruby
 client.dashboards.post(params)
@@ -56,16 +56,16 @@ client.dashboards.post(params)
 
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
-| dashboard | [dashboardPost](_schemas.md#dashboardpost) | Y | New dashboard information |  |
+| dashboard | [Dashboard Post](_schemas.md#dashboard-post) | Y | New dashboard information |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 201 | [dashboard](_schemas.md#dashboard) | Successfully created dashboard |
+| 201 | [Dashboard](_schemas.md#dashboard) | Successfully created dashboard |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |

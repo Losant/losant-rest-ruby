@@ -113,7 +113,7 @@ module LosantRest
         body: body)
     end
 
-    # Sends and email verification to the user
+    # Sends an email verification to the user
     #
     # Parameters:
     # *  {boolean} _actions - Return resource actions in response

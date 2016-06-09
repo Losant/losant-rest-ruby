@@ -1,6 +1,5 @@
 {
-  "title": "Multi Device Command",
-  "description": "Schema for the body of a request to send a command to multiple Devices",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "time": {

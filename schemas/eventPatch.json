@@ -1,6 +1,5 @@
 {
-  "title": "Event Patch",
-  "description": "Schema for the body of an Event modification request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "state": {

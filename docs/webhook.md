@@ -14,7 +14,7 @@ parameters and the potential responses.
 
 ## Get
 
-Retrieves information on an webhook
+Retrieves information on a webhook
 
 ```ruby
 client.webhook.get(params)
@@ -31,13 +31,13 @@ client.webhook.get(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [webhook](_schemas.md#webhook) | Webhook information |
+| 200 | [Webhook](_schemas.md#webhook) | Webhook information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if webhook was not found |
+| 404 | [Error](_schemas.md#error) | Error if webhook was not found |
 
 <br/>
 
@@ -55,20 +55,20 @@ client.webhook.patch(params)
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
 | webhookId | string | Y | ID associated with the webhook |  |
-| webhook | [webhookPatch](_schemas.md#webhookpatch) | Y | Object containing new properties of the webhook |  |
+| webhook | [Webhook Patch](_schemas.md#webhook-patch) | Y | Object containing new properties of the webhook |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [webhook](_schemas.md#webhook) | Updated webhook information |
+| 200 | [Webhook](_schemas.md#webhook) | Updated webhook information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if webhook was not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if webhook was not found |
 
 <br/>
 
@@ -91,10 +91,10 @@ client.webhook.delete(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [success](_schemas.md#success) | If webhook was successfully deleted |
+| 200 | [Success](_schemas.md#success) | If webhook was successfully deleted |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if webhook was not found |
+| 404 | [Error](_schemas.md#error) | Error if webhook was not found |

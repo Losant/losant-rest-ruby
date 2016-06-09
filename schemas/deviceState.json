@@ -1,6 +1,5 @@
 {
-  "title": "Device State",
-  "description": "Schema for a single Device state",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "time": {

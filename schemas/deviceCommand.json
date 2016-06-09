@@ -1,6 +1,5 @@
 {
-  "title": "Device Command",
-  "description": "Schema for a command for a single Device",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "time": {

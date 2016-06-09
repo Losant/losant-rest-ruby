@@ -1,6 +1,5 @@
 {
-  "title": "Virtual Button Press",
-  "description": "Schema for the body of a request to press a Workflow virtual button",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "key": {

@@ -1,6 +1,5 @@
 {
-  "title": "Workflows",
-  "description": "Schema for a collection of Workflows",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "items": {

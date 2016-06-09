@@ -38,13 +38,13 @@ client.events.get(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [events](_schemas.md#events) | Collection of events |
+| 200 | [Events](_schemas.md#events) | Collection of events |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if application was not found |
+| 404 | [Error](_schemas.md#error) | Error if application was not found |
 
 <br/>
 
@@ -61,21 +61,21 @@ client.events.post(params)
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
-| event | [eventPost](_schemas.md#eventpost) | Y | New event information |  |
+| event | [Event Post](_schemas.md#event-post) | Y | New event information |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 201 | [event](_schemas.md#event) | Successfully created event |
+| 201 | [Event](_schemas.md#event) | Successfully created event |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if application was not found |
-| 429 | [error](_schemas.md#error) | Error if event creation rate limit exceeded |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if application was not found |
+| 429 | [Error](_schemas.md#error) | Error if event creation rate limit exceeded |
 
 <br/>
 
@@ -95,20 +95,20 @@ client.events.patch(params)
 | filterField | One of: subject | N | Field to filter the events to act on by. Blank or not provided means no filtering. |  |
 | filter | string | N | Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering. |  |
 | state | One of: new, acknowledged, resolved | N | If provided, act on events only in the given state. |  |
-| updates | [eventPatch](_schemas.md#eventpatch) | Y | Object containing updated information for the events |  |
+| updates | [Event Patch](_schemas.md#event-patch) | Y | Object containing updated information for the events |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [success](_schemas.md#success) | If updates were successfully applied |
+| 200 | [Success](_schemas.md#success) | If updates were successfully applied |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if application is not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if application is not found |
 
 <br/>
 
@@ -137,4 +137,4 @@ client.events.most_recent_by_severity(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if application was not found |
+| 404 | [Error](_schemas.md#error) | Error if application was not found |

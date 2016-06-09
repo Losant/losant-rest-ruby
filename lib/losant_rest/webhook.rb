@@ -7,7 +7,7 @@ module LosantRest
       @client = client
     end
 
-    # Retrieves information on an webhook
+    # Retrieves information on a webhook
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application

@@ -35,13 +35,13 @@ client.org.get(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [org](_schemas.md#org) | Organization information |
+| 200 | [Organization](_schemas.md#organization) | Organization information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if organization not found |
+| 404 | [Error](_schemas.md#error) | Error if organization not found |
 
 <br/>
 
@@ -58,20 +58,20 @@ client.org.patch(params)
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
 | orgId | string | Y | ID associated with the organization |  |
-| organization | [orgPatch](_schemas.md#orgpatch) | Y | Object containing new organization properties |  |
+| organization | [Organization Patch](_schemas.md#organization-patch) | Y | Object containing new organization properties |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [org](_schemas.md#org) | Updated organization information |
+| 200 | [Organization](_schemas.md#organization) | Updated organization information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if organization was not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if organization was not found |
 
 <br/>
 
@@ -93,13 +93,13 @@ client.org.delete(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [success](_schemas.md#success) | If organization was successfully deleted |
+| 200 | [Success](_schemas.md#success) | If organization was successfully deleted |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if organization was not found |
+| 404 | [Error](_schemas.md#error) | Error if organization was not found |
 
 <br/>
 
@@ -121,13 +121,13 @@ client.org.pending_invites(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [orgInvites](_schemas.md#orginvites) | Invitation information |
+| 200 | [Organization Invitations](_schemas.md#organization-invitations) | Invitation information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if organization not found |
+| 404 | [Error](_schemas.md#error) | Error if organization not found |
 
 <br/>
 
@@ -144,20 +144,20 @@ client.org.invite_member(params)
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
 | orgId | string | Y | ID associated with the organization |  |
-| invite | [orgInvitePost](_schemas.md#orginvitepost) | Y | Object containing new invite info |  |
+| invite | [Organization Invitation Post](_schemas.md#organization-invitation-post) | Y | Object containing new invite info |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [orgInvites](_schemas.md#orginvites) | Invitation information |
+| 200 | [Organization Invitations](_schemas.md#organization-invitations) | Invitation information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if organization not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if organization not found |
 
 <br/>
 
@@ -180,14 +180,14 @@ client.org.revoke_invite(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [orgInvites](_schemas.md#orginvites) | Invitation information |
+| 200 | [Organization Invitations](_schemas.md#organization-invitations) | Invitation information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if organization not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if organization not found |
 
 <br/>
 
@@ -204,20 +204,20 @@ client.org.modify_member(params)
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
 | orgId | string | Y | ID associated with the organization |  |
-| member | [orgMemberPatch](_schemas.md#orgmemberpatch) | Y | Object containing new member pair |  |
+| member | [Organization Member Patch](_schemas.md#organization-member-patch) | Y | Object containing new member pair |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [org](_schemas.md#org) | Updated organization information |
+| 200 | [Organization](_schemas.md#organization) | Updated organization information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if organization not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if organization not found |
 
 <br/>
 
@@ -240,11 +240,11 @@ client.org.remove_member(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [org](_schemas.md#org) | Updated organization information |
+| 200 | [Organization](_schemas.md#organization) | Updated organization information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if organization not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if organization not found |

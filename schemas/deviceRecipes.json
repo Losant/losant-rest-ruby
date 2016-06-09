@@ -1,6 +1,5 @@
 {
-  "title": "Device Recipes",
-  "description": "Schema for a collection of Device Recipes",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "items": {

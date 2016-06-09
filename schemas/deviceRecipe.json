@@ -1,6 +1,5 @@
 {
-  "title": "Device Recipe",
-  "description": "Schema for a single Device Recipe",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "id": {

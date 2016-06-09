@@ -31,19 +31,19 @@ client.devices.get(params)
 | perPage | string | N | How many items to return per page | 1000 |
 | filterField | One of: name | N | Field to filter the results by. Blank or not provided means no filtering. |  |
 | filter | string | N | Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering. |  |
-| tagFilter | [deviceTagFilter](_schemas.md#devicetagfilter) | N | Array of tag pairs to filter by. |  |
+| tagFilter | [Device Tag Filter](_schemas.md#device-tag-filter) | N | Array of tag pairs to filter by. |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [devices](_schemas.md#devices) | Collection of devices |
+| 200 | [Devices](_schemas.md#devices) | Collection of devices |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if application was not found |
+| 404 | [Error](_schemas.md#error) | Error if application was not found |
 
 <br/>
 
@@ -60,20 +60,20 @@ client.devices.post(params)
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
-| device | [devicePost](_schemas.md#devicepost) | Y | New device information |  |
+| device | [Device Post](_schemas.md#device-post) | Y | New device information |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 201 | [device](_schemas.md#device) | Successfully created device |
+| 201 | [Device](_schemas.md#device) | Successfully created device |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if application was not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if application was not found |
 
 <br/>
 
@@ -90,17 +90,17 @@ client.devices.send_command(params)
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
-| multiDeviceCommand | [multiDeviceCommand](_schemas.md#multidevicecommand) | Y | Command to send to the device |  |
+| multiDeviceCommand | [Multi Device Command](_schemas.md#multi-device-command) | Y | Command to send to the device |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [success](_schemas.md#success) | If command was successfully sent |
+| 200 | [Success](_schemas.md#success) | If command was successfully sent |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if application was not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if application was not found |

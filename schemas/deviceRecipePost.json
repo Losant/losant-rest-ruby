@@ -1,6 +1,5 @@
 {
-  "title": "Device Recipe Post",
-  "description": "Schema for the body of a Device Recipe creation request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "name": {

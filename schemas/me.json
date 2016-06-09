@@ -1,6 +1,5 @@
 {
-  "title": "Me",
-  "description": "Schema for information about the currently authenticated user",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "id": {

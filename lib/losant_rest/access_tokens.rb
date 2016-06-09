@@ -42,7 +42,7 @@ module LosantRest
     # Create a new accessKey for a user
     #
     # Parameters:
-    # *  {hash} accessToken - AccessToken information (https://api.losant.com/#/definitions/accessToken)
+    # *  {hash} accessToken - AccessToken information (https://api.losant.com/#/definitions/accessTokenPost)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response

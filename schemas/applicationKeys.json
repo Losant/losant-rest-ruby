@@ -1,6 +1,5 @@
 {
-  "title": "Application Keys",
-  "description": "Schema for a collection of Application Keys",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "items": {

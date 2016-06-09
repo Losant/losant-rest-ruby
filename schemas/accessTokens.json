@@ -1,6 +1,5 @@
 {
-  "title": "Access Tokens",
-  "description": "Schema for a collection of Access Tokens",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "items": {

@@ -7,7 +7,7 @@ module LosantRest
       @client = client
     end
 
-    # Returns the dashboards owned by the current user
+    # Returns the dashboards the current user has permission to see
     #
     # Parameters:
     # *  {string} sortField - Field to sort the results by
@@ -53,7 +53,7 @@ module LosantRest
         body: body)
     end
 
-    # Create a new dasboard owned by the current user
+    # Create a new dasboard
     #
     # Parameters:
     # *  {hash} dashboard - New dashboard information (https://api.losant.com/#/definitions/dashboardPost)

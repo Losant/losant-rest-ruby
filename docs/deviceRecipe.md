@@ -32,13 +32,13 @@ client.device_recipe.get(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [deviceRecipe](_schemas.md#devicerecipe) | Device recipe information |
+| 200 | [Device Recipe](_schemas.md#device-recipe) | Device recipe information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if device recipe was not found |
+| 404 | [Error](_schemas.md#error) | Error if device recipe was not found |
 
 <br/>
 
@@ -56,20 +56,20 @@ client.device_recipe.patch(params)
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
 | deviceRecipeId | string | Y | ID associated with the device recipe |  |
-| deviceRecipe | [deviceRecipePatch](_schemas.md#devicerecipepatch) | Y | Object containing new properties of the device recipe |  |
+| deviceRecipe | [Device Recipe Patch](_schemas.md#device-recipe-patch) | Y | Object containing new properties of the device recipe |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [deviceRecipe](_schemas.md#devicerecipe) | Updated device recipe information |
+| 200 | [Device Recipe](_schemas.md#device-recipe) | Updated device recipe information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if device recipe was not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if device recipe was not found |
 
 <br/>
 
@@ -92,13 +92,13 @@ client.device_recipe.delete(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [success](_schemas.md#success) | If device recipe was successfully deleted |
+| 200 | [Success](_schemas.md#success) | If device recipe was successfully deleted |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if device recipe was not found |
+| 404 | [Error](_schemas.md#error) | Error if device recipe was not found |
 
 <br/>
 
@@ -116,16 +116,16 @@ client.device_recipe.bulk_create(params)
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
 | deviceRecipeId | string | Y | ID associated with the device recipe |  |
-| bulkInfo | [deviceRecipeBulkCreatePost](_schemas.md#devicerecipebulkcreatepost) | Y | Object containing bulk creation info |  |
+| bulkInfo | [Device Recipe Bulk Create Post](_schemas.md#device-recipe-bulk-create-post) | Y | Object containing bulk creation info |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 201 | [deviceRecipeBulkCreate](_schemas.md#devicerecipebulkcreate) | If devices were sucessfully created |
+| 201 | [Device Recipe Bulk Create](_schemas.md#device-recipe-bulk-create) | If devices were sucessfully created |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if device recipe was not found |
+| 404 | [Error](_schemas.md#error) | Error if device recipe was not found |

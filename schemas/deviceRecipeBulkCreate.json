@@ -1,6 +1,5 @@
 {
-  "title": "Device Recipe Bulk Create",
-  "description": "Schema for the result of a bulk Device creation request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "created": {

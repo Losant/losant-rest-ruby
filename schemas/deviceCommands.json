@@ -1,6 +1,5 @@
 {
-  "title": "Device Commands",
-  "description": "Schema for an array of Device Commands",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "array",
   "items": {
     "title": "Device Command",

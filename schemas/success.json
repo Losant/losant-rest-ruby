@@ -1,6 +1,5 @@
 {
-  "title": "Success",
-  "description": "Schema for reporting a successful operation",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "success": {

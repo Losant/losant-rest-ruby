@@ -30,13 +30,13 @@ client.dashboard.get(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [dashboard](_schemas.md#dashboard) | Dashboard information |
+| 200 | [Dashboard](_schemas.md#dashboard) | Dashboard information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if dashboard was not found |
+| 404 | [Error](_schemas.md#error) | Error if dashboard was not found |
 
 <br/>
 
@@ -53,20 +53,20 @@ client.dashboard.patch(params)
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
 | dashboardId | string | Y | ID of the associated dashboard |  |
-| dashboard | [dashboardPatch](_schemas.md#dashboardpatch) | Y | Object containing new dashboard properties |  |
+| dashboard | [Dashboard Patch](_schemas.md#dashboard-patch) | Y | Object containing new dashboard properties |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [dashboard](_schemas.md#dashboard) | Update dashboard information |
+| 200 | [Dashboard](_schemas.md#dashboard) | Update dashboard information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if dashboard was not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if dashboard was not found |
 
 <br/>
 
@@ -88,10 +88,10 @@ client.dashboard.delete(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [success](_schemas.md#success) | If dashboard was successfully deleted |
+| 200 | [Success](_schemas.md#success) | If dashboard was successfully deleted |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if dashboard was not found |
+| 404 | [Error](_schemas.md#error) | Error if dashboard was not found |

@@ -35,13 +35,13 @@ client.webhooks.get(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [webhooks](_schemas.md#webhooks) | Collection of webhooks |
+| 200 | [Webhooks](_schemas.md#webhooks) | Collection of webhooks |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if application was not found |
+| 404 | [Error](_schemas.md#error) | Error if application was not found |
 
 <br/>
 
@@ -58,17 +58,17 @@ client.webhooks.post(params)
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
-| webhook | [webhookPost](_schemas.md#webhookpost) | Y | New webhook information |  |
+| webhook | [Webhook Post](_schemas.md#webhook-post) | Y | New webhook information |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 201 | [webhook](_schemas.md#webhook) | Successfully created webhook |
+| 201 | [Webhook](_schemas.md#webhook) | Successfully created webhook |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if application was not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if application was not found |

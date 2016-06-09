@@ -7,7 +7,7 @@ module LosantRest
       @client = client
     end
 
-    # Returns the applications owned by the current user
+    # Returns the applications the current user has permission to see
     #
     # Parameters:
     # *  {string} sortField - Field to sort the results by
@@ -53,7 +53,7 @@ module LosantRest
         body: body)
     end
 
-    # Create a new application owned by the current user
+    # Create a new application
     #
     # Parameters:
     # *  {hash} application - New application information (https://api.losant.com/#/definitions/applicationPost)

@@ -9,7 +9,6 @@ parameters and the potential responses.
 *   [Get](#get)
 *   [Patch](#patch)
 *   [Delete](#delete)
-*   [Debug](#debug)
 *   [Get Log Entries](#get-log-entries)
 *   [Press Virtual Button](#press-virtual-button)
 *   [Get Storage Entries](#get-storage-entries)
@@ -36,13 +35,13 @@ client.flow.get(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [flow](_schemas.md#flow) | Flow information |
+| 200 | [Workflow](_schemas.md#workflow) | Flow information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if flow was not found |
+| 404 | [Error](_schemas.md#error) | Error if flow was not found |
 
 <br/>
 
@@ -60,20 +59,20 @@ client.flow.patch(params)
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
 | flowId | string | Y | ID associated with the flow |  |
-| flow | [flowPatch](_schemas.md#flowpatch) | Y | Object containing new properties of the flow |  |
+| flow | [Workflow Patch](_schemas.md#workflow-patch) | Y | Object containing new properties of the flow |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [flow](_schemas.md#flow) | Updated flow information |
+| 200 | [Workflow](_schemas.md#workflow) | Updated flow information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if flow is not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if flow is not found |
 
 <br/>
 
@@ -96,42 +95,13 @@ client.flow.delete(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [success](_schemas.md#success) | If flow was successfully deleted |
+| 200 | [Success](_schemas.md#success) | If flow was successfully deleted |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if flow was not found |
-
-<br/>
-
-## Debug
-
-Streams real time flow debug events using SSE
-
-```ruby
-client.flow.debug(params)
-```
-
-#### Available Parameters
-
-| Name | Type | Required | Description | Default |
-| ---- | ---- | -------- | ----------- | ------- |
-| applicationId | string | Y | ID associated with the application |  |
-| flowId | string | Y | ID associated with the flow |  |
-
-#### Successful Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 200 | undefined | Stream of flow debug events |
-
-#### Error Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if flow was not found |
+| 404 | [Error](_schemas.md#error) | Error if flow was not found |
 
 <br/>
 
@@ -162,7 +132,7 @@ client.flow.get_log_entries(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if device was not found |
+| 404 | [Error](_schemas.md#error) | Error if device was not found |
 
 <br/>
 
@@ -180,19 +150,19 @@ client.flow.press_virtual_button(params)
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
 | flowId | string | Y | ID associated with the flow |  |
-| button | [virtualButtonPress](_schemas.md#virtualbuttonpress) | Y | Object containing button key and payload |  |
+| button | [Virtual Button Press](_schemas.md#virtual-button-press) | Y | Object containing button key and payload |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [success](_schemas.md#success) | Virtual button was pressed |
+| 200 | [Success](_schemas.md#success) | Virtual button was pressed |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if flow was not found |
+| 404 | [Error](_schemas.md#error) | Error if flow was not found |
 
 <br/>
 
@@ -221,7 +191,7 @@ client.flow.get_storage_entries(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if flow was not found |
+| 404 | [Error](_schemas.md#error) | Error if flow was not found |
 
 <br/>
 
@@ -239,16 +209,16 @@ client.flow.set_storage_entry(params)
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
 | flowId | string | Y | ID associated with the flow |  |
-| entry | [flowStorageEntry](_schemas.md#flowstorageentry) | Y | Object containing storage entry |  |
+| entry | [Workflow Storage Entry](_schemas.md#workflow-storage-entry) | Y | Object containing storage entry |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [success](_schemas.md#success) | Value was successfully stored |
+| 200 | [Success](_schemas.md#success) | Value was successfully stored |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if flow was not found |
+| 404 | [Error](_schemas.md#error) | Error if flow was not found |

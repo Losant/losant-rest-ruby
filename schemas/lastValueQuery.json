@@ -1,6 +1,5 @@
 {
-  "title": "Last Value Query",
-  "description": "Schema for the body of a last value query request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "attribute": {

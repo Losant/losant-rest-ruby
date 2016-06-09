@@ -1,6 +1,5 @@
 {
-  "title": "Webhook Patch",
-  "description": "Schema for the body of a Webhook modification request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "name": {

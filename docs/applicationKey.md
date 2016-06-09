@@ -31,13 +31,13 @@ client.application_key.get(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [applicationKey](_schemas.md#applicationkey) | applicationKey information |
+| 200 | [Application Key](_schemas.md#application-key) | applicationKey information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if applicationKey was not found |
+| 404 | [Error](_schemas.md#error) | Error if applicationKey was not found |
 
 <br/>
 
@@ -55,20 +55,20 @@ client.application_key.patch(params)
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
 | applicationKeyId | string | Y | ID associated with the applicationKey |  |
-| applicationKey | [applicationKeyPatch](_schemas.md#applicationkeypatch) | Y | Object containing new properties of the applicationKey |  |
+| applicationKey | [Application Key Patch](_schemas.md#application-key-patch) | Y | Object containing new properties of the applicationKey |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [applicationKey](_schemas.md#applicationkey) | Updated applicationKey information |
+| 200 | [Application Key](_schemas.md#application-key) | Updated applicationKey information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if applicationKey was not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if applicationKey was not found |
 
 <br/>
 
@@ -91,10 +91,10 @@ client.application_key.delete(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [success](_schemas.md#success) | If applicationKey was successfully deleted |
+| 200 | [Success](_schemas.md#success) | If applicationKey was successfully deleted |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if applicationKey was not found |
+| 404 | [Error](_schemas.md#error) | Error if applicationKey was not found |

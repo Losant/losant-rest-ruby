@@ -31,13 +31,13 @@ client.event.get(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [event](_schemas.md#event) | Event information |
+| 200 | [Event](_schemas.md#event) | Event information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if event was not found |
+| 404 | [Error](_schemas.md#error) | Error if event was not found |
 
 <br/>
 
@@ -55,20 +55,20 @@ client.event.patch(params)
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
 | eventId | string | Y | ID associated with the event |  |
-| event | [eventPatch](_schemas.md#eventpatch) | Y | Object containing new properties of the event |  |
+| event | [Event Patch](_schemas.md#event-patch) | Y | Object containing new properties of the event |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [event](_schemas.md#event) | Updated event information |
+| 200 | [Event](_schemas.md#event) | Updated event information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if event is not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if event is not found |
 
 <br/>
 
@@ -91,10 +91,10 @@ client.event.delete(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [success](_schemas.md#success) | If event was successfully deleted |
+| 200 | [Success](_schemas.md#success) | If event was successfully deleted |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if event was not found |
+| 404 | [Error](_schemas.md#error) | Error if event was not found |

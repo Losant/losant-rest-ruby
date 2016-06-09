@@ -1,6 +1,5 @@
 {
-  "title": "Dashboard Post",
-  "description": "Schema for the body of a Dashboard creation request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "orgId": {

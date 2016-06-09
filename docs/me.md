@@ -37,7 +37,7 @@ client.me.get(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [me](_schemas.md#me) | Current user information |
+| 200 | [Me](_schemas.md#me) | Current user information |
 
 #### Error Responses
 
@@ -58,19 +58,19 @@ client.me.patch(params)
 
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
-| user | [mePatch](_schemas.md#mepatch) | Y | Object containing new user properties |  |
+| user | [Me Patch](_schemas.md#me-patch) | Y | Object containing new user properties |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [me](_schemas.md#me) | Updated user information |
+| 200 | [Me](_schemas.md#me) | Updated user information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
 
 <br/>
 
@@ -86,25 +86,25 @@ client.me.delete(params)
 
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
-| credentials | [userCredentials](_schemas.md#usercredentials) | Y | User authentication credentials |  |
+| credentials | [User Credentials](_schemas.md#user-credentials) | Y | User authentication credentials |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [success](_schemas.md#success) | If the user was successfully deleted |
+| 200 | [Success](_schemas.md#success) | If the user was successfully deleted |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
 
 <br/>
 
 ## Verify Email
 
-Sends and email verification to the user
+Sends an email verification to the user
 
 ```ruby
 client.me.verify_email
@@ -118,13 +118,13 @@ No parameters needed for this call.
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [success](_schemas.md#success) | If email verification was successfully sent |
+| 200 | [Success](_schemas.md#success) | If email verification was successfully sent |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
 
 <br/>
 
@@ -140,19 +140,19 @@ client.me.enable_two_factor_auth(params)
 
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
-| data | [enableTwoFactorAuth](_schemas.md#enabletwofactorauth) | Y | Object containing two factor auth properties |  |
+| data | [Enable Two Factor Auth](_schemas.md#enable-two-factor-auth) | Y | Object containing two factor auth properties |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [me](_schemas.md#me) | Updated user information |
+| 200 | [Me](_schemas.md#me) | Updated user information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
 
 <br/>
 
@@ -168,19 +168,19 @@ client.me.disable_two_factor_auth(params)
 
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
-| data | [disableTwoFactorAuth](_schemas.md#disabletwofactorauth) | Y | Object containing two factor auth properties |  |
+| data | [Disable Two Factor Auth](_schemas.md#disable-two-factor-auth) | Y | Object containing two factor auth properties |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [me](_schemas.md#me) | Updated user information |
+| 200 | [Me](_schemas.md#me) | Updated user information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
 
 <br/>
 
@@ -200,13 +200,13 @@ No parameters needed for this call.
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [me](_schemas.md#me) | Updated user information |
+| 200 | [Me](_schemas.md#me) | Updated user information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
 
 <br/>
 
@@ -226,13 +226,13 @@ No parameters needed for this call.
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [me](_schemas.md#me) | Updated user information |
+| 200 | [Me](_schemas.md#me) | Updated user information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
 
 <br/>
 
@@ -248,19 +248,19 @@ client.me.add_recent_item(params)
 
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
-| data | [recentItem](_schemas.md#recentitem) | Y | Object containing recent item info |  |
+| data | [Recent Item](_schemas.md#recent-item) | Y | Object containing recent item info |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [recentItemList](_schemas.md#recentitemlist) | Updated recent item list |
+| 200 | [Recent Item List](_schemas.md#recent-item-list) | Updated recent item list |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
 
 <br/>
 
@@ -283,10 +283,10 @@ client.me.fetch_recent_items(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [recentItemList](_schemas.md#recentitemlist) | Recent item list |
+| 200 | [Recent Item List](_schemas.md#recent-item-list) | Recent item list |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |

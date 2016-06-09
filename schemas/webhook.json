@@ -1,6 +1,5 @@
 {
-  "title": "Webhook",
-  "description": "Schema for a single Webhook",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "id": {

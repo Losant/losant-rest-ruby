@@ -1,6 +1,5 @@
 {
-  "title": "Me Patch",
-  "description": "Schema for the body of request to modify the current user",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "email": {

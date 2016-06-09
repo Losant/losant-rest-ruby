@@ -1,6 +1,5 @@
 {
-  "title": "Organization Invitations",
-  "description": "Schema for an array of pending invitations to an Organization",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "array",
   "items": {
     "type": "object",

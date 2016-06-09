@@ -35,13 +35,13 @@ client.application_keys.get(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [applicationKeys](_schemas.md#applicationkeys) | Collection of applicationKeys |
+| 200 | [Application Keys](_schemas.md#application-keys) | Collection of applicationKeys |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if application was not found |
+| 404 | [Error](_schemas.md#error) | Error if application was not found |
 
 <br/>
 
@@ -58,17 +58,17 @@ client.application_keys.post(params)
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
-| applicationKey | [applicationKeyPost](_schemas.md#applicationkeypost) | Y | ApplicationKey information |  |
+| applicationKey | [Application Key Post](_schemas.md#application-key-post) | Y | ApplicationKey information |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 201 | [applicationKey](_schemas.md#applicationkey) | Successfully created applicationKey |
+| 201 | [Application Key](_schemas.md#application-key) | Successfully created applicationKey |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if application was not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if application was not found |

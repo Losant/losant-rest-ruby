@@ -1,6 +1,5 @@
 {
-  "title": "Device Tag Filter",
-  "description": "Array of Tags for filtering devices. Tag keys and tag values are optional.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "array",
   "items": {
     "type": "object",

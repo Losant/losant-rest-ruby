@@ -1,6 +1,5 @@
 {
-  "title": "Authenticated User",
-  "description": "Schema for the sucessful response when authenticating a User",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "userId": {

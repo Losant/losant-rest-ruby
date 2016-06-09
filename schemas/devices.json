@@ -1,6 +1,5 @@
 {
-  "title": "Devices",
-  "description": "Schema for a collection of Devices",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "items": {

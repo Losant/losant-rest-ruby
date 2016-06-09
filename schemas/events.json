@@ -1,6 +1,5 @@
 {
-  "title": "Events",
-  "description": "Schema for a collection of Events",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "items": {

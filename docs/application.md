@@ -9,7 +9,6 @@ parameters and the potential responses.
 *   [Get](#get)
 *   [Patch](#patch)
 *   [Delete](#delete)
-*   [Debug](#debug)
 
 <br/>
 
@@ -31,13 +30,13 @@ client.application.get(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [application](_schemas.md#application) | Application information |
+| 200 | [Application](_schemas.md#application) | Application information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if application was not found |
+| 404 | [Error](_schemas.md#error) | Error if application was not found |
 
 <br/>
 
@@ -54,20 +53,20 @@ client.application.patch(params)
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID of the associated application |  |
-| application | [applicationPatch](_schemas.md#applicationpatch) | Y | Object containing new application properties |  |
+| application | [Application Patch](_schemas.md#application-patch) | Y | Object containing new application properties |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [application](_schemas.md#application) | Updated application information |
+| 200 | [Application](_schemas.md#application) | Updated application information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if application was not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if application was not found |
 
 <br/>
 
@@ -89,38 +88,10 @@ client.application.delete(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [success](_schemas.md#success) | If application was successfully deleted |
+| 200 | [Success](_schemas.md#success) | If application was successfully deleted |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if application was not found |
-
-<br/>
-
-## Debug
-
-Streams real time application debug events using SSE
-
-```ruby
-client.application.debug(params)
-```
-
-#### Available Parameters
-
-| Name | Type | Required | Description | Default |
-| ---- | ---- | -------- | ----------- | ------- |
-| applicationId | string | Y | ID of the associated application |  |
-
-#### Successful Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 200 | undefined | Stream of application debug events |
-
-#### Error Responses
-
-| Code | Type | Description |
-| ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if application was not found |
+| 404 | [Error](_schemas.md#error) | Error if application was not found |

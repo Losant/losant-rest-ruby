@@ -1,89 +1,83 @@
 # Schemas
 
-*   [accessToken](#accesstoken)
-*   [accessTokenPatch](#accesstokenpatch)
-*   [accessTokenPost](#accesstokenpost)
-*   [accessTokens](#accesstokens)
-*   [application](#application)
-*   [applicationKey](#applicationkey)
-*   [applicationKeyPatch](#applicationkeypatch)
-*   [applicationKeyPost](#applicationkeypost)
-*   [applicationKeys](#applicationkeys)
-*   [applicationPatch](#applicationpatch)
-*   [applicationPost](#applicationpost)
-*   [applications](#applications)
-*   [authedDevice](#autheddevice)
-*   [authedUser](#autheduser)
-*   [dashboard](#dashboard)
-*   [dashboardPatch](#dashboardpatch)
-*   [dashboardPost](#dashboardpost)
-*   [dashboards](#dashboards)
-*   [device](#device)
-*   [deviceCommand](#devicecommand)
-*   [deviceCommands](#devicecommands)
-*   [deviceCredentials](#devicecredentials)
-*   [devicePatch](#devicepatch)
-*   [devicePost](#devicepost)
-*   [deviceRecipe](#devicerecipe)
-*   [deviceRecipeBulkCreate](#devicerecipebulkcreate)
-*   [deviceRecipeBulkCreatePost](#devicerecipebulkcreatepost)
-*   [deviceRecipePatch](#devicerecipepatch)
-*   [deviceRecipePost](#devicerecipepost)
-*   [deviceRecipes](#devicerecipes)
-*   [deviceState](#devicestate)
-*   [deviceStates](#devicestates)
-*   [deviceTagFilter](#devicetagfilter)
-*   [devices](#devices)
-*   [disableTwoFactorAuth](#disabletwofactorauth)
-*   [emailVerificationVerify](#emailverificationverify)
-*   [enableTwoFactorAuth](#enabletwofactorauth)
-*   [error](#error)
-*   [event](#event)
-*   [eventPatch](#eventpatch)
-*   [eventPost](#eventpost)
-*   [events](#events)
-*   [flow](#flow)
-*   [flowPatch](#flowpatch)
-*   [flowPost](#flowpost)
-*   [flowStorageEntry](#flowstorageentry)
-*   [flows](#flows)
-*   [githubLogin](#githublogin)
-*   [lastValueData](#lastvaluedata)
-*   [lastValueQuery](#lastvaluequery)
-*   [me](#me)
-*   [multiDeviceCommand](#multidevicecommand)
-*   [mePatch](#mepatch)
-*   [org](#org)
-*   [orgInviteAction](#orginviteaction)
-*   [orgInviteInfo](#orginviteinfo)
-*   [orgInvitePost](#orginvitepost)
-*   [orgInvites](#orginvites)
-*   [orgInviteResult](#orginviteresult)
-*   [orgMemberPatch](#orgmemberpatch)
-*   [orgPatch](#orgpatch)
-*   [orgPost](#orgpost)
-*   [orgs](#orgs)
-*   [passwordResetFinish](#passwordresetfinish)
-*   [passwordResetInput](#passwordresetinput)
-*   [recentItem](#recentitem)
-*   [recentItemList](#recentitemlist)
-*   [success](#success)
-*   [timeSeriesQuery](#timeseriesquery)
-*   [timeSeriesData](#timeseriesdata)
-*   [userCredentials](#usercredentials)
-*   [userPost](#userpost)
-*   [virtualButtonPress](#virtualbuttonpress)
-*   [webhookPatch](#webhookpatch)
-*   [webhook](#webhook)
-*   [webhookPost](#webhookpost)
-*   [webhooks](#webhooks)
+*   [Access Token](#access-token)
+*   [Access Token Patch](#access-token-patch)
+*   [Access Token Post](#access-token-post)
+*   [Access Tokens](#access-tokens)
+*   [Application](#application)
+*   [Application Key](#application-key)
+*   [Application Key Patch](#application-key-patch)
+*   [Application Key Post](#application-key-post)
+*   [Application Keys](#application-keys)
+*   [Application Patch](#application-patch)
+*   [Application Post](#application-post)
+*   [Applications](#applications)
+*   [Authenticated Device](#authenticated-device)
+*   [Authenticated User](#authenticated-user)
+*   [Dashboard](#dashboard)
+*   [Dashboard Patch](#dashboard-patch)
+*   [Dashboard Post](#dashboard-post)
+*   [Dashboards](#dashboards)
+*   [Device](#device)
+*   [Device Command](#device-command)
+*   [Device Commands](#device-commands)
+*   [Device Credentials](#device-credentials)
+*   [Device Patch](#device-patch)
+*   [Device Post](#device-post)
+*   [Device Recipe](#device-recipe)
+*   [Device Recipe Bulk Create](#device-recipe-bulk-create)
+*   [Device Recipe Bulk Create Post](#device-recipe-bulk-create-post)
+*   [Device Recipe Patch](#device-recipe-patch)
+*   [Device Recipe Post](#device-recipe-post)
+*   [Device Recipes](#device-recipes)
+*   [Device State](#device-state)
+*   [Device States](#device-states)
+*   [Device Tag Filter](#device-tag-filter)
+*   [Devices](#devices)
+*   [Disable Two Factor Auth](#disable-two-factor-auth)
+*   [Enable Two Factor Auth](#enable-two-factor-auth)
+*   [Error](#error)
+*   [Event](#event)
+*   [Event Patch](#event-patch)
+*   [Event Post](#event-post)
+*   [Events](#events)
+*   [Workflow](#workflow)
+*   [Workflow Patch](#workflow-patch)
+*   [Workflow Post](#workflow-post)
+*   [Workflow Storage Entry](#workflow-storage-entry)
+*   [Workflows](#workflows)
+*   [Github Login](#github-login)
+*   [Last Value Data](#last-value-data)
+*   [Last Value Query](#last-value-query)
+*   [Me](#me)
+*   [Me Patch](#me-patch)
+*   [Multi Device Command](#multi-device-command)
+*   [Organization](#organization)
+*   [Organization Invitation Post](#organization-invitation-post)
+*   [Organization Invitations](#organization-invitations)
+*   [Organization Member Patch](#organization-member-patch)
+*   [Organization Patch](#organization-patch)
+*   [Organization Post](#organization-post)
+*   [Organizations](#organizations)
+*   [Recent Item](#recent-item)
+*   [Recent Item List](#recent-item-list)
+*   [Success](#success)
+*   [Time Series Data](#time-series-data)
+*   [Time Series Query](#time-series-query)
+*   [User Credentials](#user-credentials)
+*   [Virtual Button Press](#virtual-button-press)
+*   [Webhook](#webhook)
+*   [Webhook Patch](#webhook-patch)
+*   [Webhook Post](#webhook-post)
+*   [Webhooks](#webhooks)
 
-## accessToken
+## Access Token
+
+Schema for a single Access Token
 
 ```javascript
 {
-  "title": "Access Token",
-  "description": "Schema for a single Access Token",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "id": {
@@ -136,12 +130,13 @@
 }
 ```
 
-## accessTokenPatch
+## Access Token Patch
+
+Schema for the body of an Access Token modification request
 
 ```javascript
 {
-  "title": "Access Token Patch",
-  "description": "Schema for the body of an Access Token modification request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "name": {
@@ -161,12 +156,13 @@
 }
 ```
 
-## accessTokenPost
+## Access Token Post
+
+Schema for the body of an Access Token creation request
 
 ```javascript
 {
-  "title": "Access Token Post",
-  "description": "Schema for the body of an Access Token creation request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "name": {
@@ -199,12 +195,13 @@
 }
 ```
 
-## accessTokens
+## Access Tokens
+
+Schema for a collection of Access Tokens
 
 ```javascript
 {
-  "title": "Access Tokens",
-  "description": "Schema for a collection of Access Tokens",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "items": {
@@ -270,12 +267,13 @@
 }
 ```
 
-## application
+## Application
+
+Schema for a single Application
 
 ```javascript
 {
-  "title": "Application",
-  "description": "Schema for a single Application",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "id": {
@@ -341,12 +339,13 @@
 }
 ```
 
-## applicationKey
+## Application Key
+
+Schema for a single Application Key
 
 ```javascript
 {
-  "title": "Application Key",
-  "description": "Schema for a single Application Key",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "id": {
@@ -411,12 +410,13 @@
 }
 ```
 
-## applicationKeyPatch
+## Application Key Patch
+
+Schema for the body of a Application Key modification request
 
 ```javascript
 {
-  "title": "Application Key Patch",
-  "description": "Schema for the body of a Application Key modification request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "status": {
@@ -431,12 +431,13 @@
 }
 ```
 
-## applicationKeyPost
+## Application Key Post
+
+Schema for the body of an Application Key creation request
 
 ```javascript
 {
-  "title": "Application Key Post",
-  "description": "Schema for the body of an Application Key creation request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "deviceIds": {
@@ -469,12 +470,13 @@
 }
 ```
 
-## applicationKeys
+## Application Keys
+
+Schema for a collection of Application Keys
 
 ```javascript
 {
-  "title": "Application Keys",
-  "description": "Schema for a collection of Application Keys",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "items": {
@@ -581,12 +583,13 @@
 }
 ```
 
-## applicationPatch
+## Application Patch
+
+Schema for the body of a Application modification request
 
 ```javascript
 {
-  "title": "Application Patch",
-  "description": "Schema for the body of a Application modification request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "name": {
@@ -603,12 +606,13 @@
 }
 ```
 
-## applicationPost
+## Application Post
+
+Schema for the body of an Application creation request
 
 ```javascript
 {
-  "title": "Application Post",
-  "description": "Schema for the body of an Application creation request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "orgId": {
@@ -632,12 +636,13 @@
 }
 ```
 
-## applications
+## Applications
+
+Schema for a collection of Applications
 
 ```javascript
 {
-  "title": "Applications",
-  "description": "Schema for a collection of Applications",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "items": {
@@ -741,12 +746,13 @@
 }
 ```
 
-## authedDevice
+## Authenticated Device
+
+Schema for the sucessful response when authenticating a Device
 
 ```javascript
 {
-  "title": "Authenticated Device",
-  "description": "Schema for the sucessful response when authenticating a Device",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "applicationId": {
@@ -781,12 +787,13 @@
 }
 ```
 
-## authedUser
+## Authenticated User
+
+Schema for the sucessful response when authenticating a User
 
 ```javascript
 {
-  "title": "Authenticated User",
-  "description": "Schema for the sucessful response when authenticating a User",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "userId": {
@@ -805,12 +812,13 @@
 }
 ```
 
-## dashboard
+## Dashboard
+
+Schema for a single Dashboard
 
 ```javascript
 {
-  "title": "Dashboard",
-  "description": "Schema for a single Dashboard",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "id": {
@@ -906,12 +914,13 @@
 }
 ```
 
-## dashboardPatch
+## Dashboard Patch
+
+Schema for the body of a Dashboard modification request
 
 ```javascript
 {
-  "title": "Dashboard Patch",
-  "description": "Schema for the body of a Dashboard modification request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "name": {
@@ -981,12 +990,13 @@
 }
 ```
 
-## dashboardPost
+## Dashboard Post
+
+Schema for the body of a Dashboard creation request
 
 ```javascript
 {
-  "title": "Dashboard Post",
-  "description": "Schema for the body of a Dashboard creation request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "orgId": {
@@ -1063,12 +1073,13 @@
 }
 ```
 
-## dashboards
+## Dashboards
+
+Schema for a collection of Dashboards
 
 ```javascript
 {
-  "title": "Dashboards",
-  "description": "Schema for a collection of Dashboards",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "items": {
@@ -1202,12 +1213,13 @@
 }
 ```
 
-## device
+## Device
+
+Schema for a single Device
 
 ```javascript
 {
-  "title": "Device",
-  "description": "Schema for a single Device",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "id": {
@@ -1317,12 +1329,13 @@
 }
 ```
 
-## deviceCommand
+## Device Command
+
+Schema for a command for a single Device
 
 ```javascript
 {
-  "title": "Device Command",
-  "description": "Schema for a command for a single Device",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "time": {
@@ -1343,12 +1356,13 @@
 }
 ```
 
-## deviceCommands
+## Device Commands
+
+Schema for an array of Device Commands
 
 ```javascript
 {
-  "title": "Device Commands",
-  "description": "Schema for an array of Device Commands",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "array",
   "items": {
     "title": "Device Command",
@@ -1374,12 +1388,13 @@
 }
 ```
 
-## deviceCredentials
+## Device Credentials
+
+Schema for the body of a Device authentication request
 
 ```javascript
 {
-  "title": "Device Credentials",
-  "description": "Schema for the body of a Device authentication request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "deviceId": {
@@ -1402,12 +1417,13 @@
 }
 ```
 
-## devicePatch
+## Device Patch
+
+Schema for the body of a Device modification request
 
 ```javascript
 {
-  "title": "Device Patch",
-  "description": "Schema for the body of a Device modification request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "name": {
@@ -1486,12 +1502,13 @@
 }
 ```
 
-## devicePost
+## Device Post
+
+Schema for the body of a Device creation request
 
 ```javascript
 {
-  "title": "Device Post",
-  "description": "Schema for the body of a Device creation request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "name": {
@@ -1573,12 +1590,13 @@
 }
 ```
 
-## deviceRecipe
+## Device Recipe
+
+Schema for a single Device Recipe
 
 ```javascript
 {
-  "title": "Device Recipe",
-  "description": "Schema for a single Device Recipe",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "id": {
@@ -1685,12 +1703,13 @@
 }
 ```
 
-## deviceRecipeBulkCreate
+## Device Recipe Bulk Create
+
+Schema for the result of a bulk Device creation request
 
 ```javascript
 {
-  "title": "Device Recipe Bulk Create",
-  "description": "Schema for the result of a bulk Device creation request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "created": {
@@ -1706,12 +1725,13 @@
 }
 ```
 
-## deviceRecipeBulkCreatePost
+## Device Recipe Bulk Create Post
+
+Schema for the body of a bulk Device creation request
 
 ```javascript
 {
-  "title": "Device Recipe Bulk Create Post",
-  "description": "Schema for the body of a bulk Device creation request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "nameColumn": {
@@ -1731,12 +1751,13 @@
 }
 ```
 
-## deviceRecipePatch
+## Device Recipe Patch
+
+Schema for the body of a Device Recipe modification request
 
 ```javascript
 {
-  "title": "Device Recipe Patch",
-  "description": "Schema for the body of a Device Recipe modification request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "name": {
@@ -1824,12 +1845,13 @@
 }
 ```
 
-## deviceRecipePost
+## Device Recipe Post
+
+Schema for the body of a Device Recipe creation request
 
 ```javascript
 {
-  "title": "Device Recipe Post",
-  "description": "Schema for the body of a Device Recipe creation request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "name": {
@@ -1920,12 +1942,13 @@
 }
 ```
 
-## deviceRecipes
+## Device Recipes
+
+Schema for a collection of Device Recipes
 
 ```javascript
 {
-  "title": "Device Recipes",
-  "description": "Schema for a collection of Device Recipes",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "items": {
@@ -2074,12 +2097,13 @@
 }
 ```
 
-## deviceState
+## Device State
+
+Schema for a single Device state
 
 ```javascript
 {
-  "title": "Device State",
-  "description": "Schema for a single Device state",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "time": {
@@ -2110,12 +2134,13 @@
 }
 ```
 
-## deviceStates
+## Device States
+
+Schema for an array of Device states
 
 ```javascript
 {
-  "title": "Device States",
-  "description": "Schema for an array of Device states",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "array",
   "items": {
     "title": "Device State",
@@ -2151,12 +2176,13 @@
 }
 ```
 
-## deviceTagFilter
+## Device Tag Filter
+
+Array of Tags for filtering devices. Tag keys and tag values are optional.
 
 ```javascript
 {
-  "title": "Device Tag Filter",
-  "description": "Array of Tags for filtering devices. Tag keys and tag values are optional.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "array",
   "items": {
     "type": "object",
@@ -2176,12 +2202,13 @@
 }
 ```
 
-## devices
+## Devices
+
+Schema for a collection of Devices
 
 ```javascript
 {
-  "title": "Devices",
-  "description": "Schema for a collection of Devices",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "items": {
@@ -2333,12 +2360,13 @@
 }
 ```
 
-## disableTwoFactorAuth
+## Disable Two Factor Auth
+
+Schema for the body of a request to disable two factor auth
 
 ```javascript
 {
-  "title": "Disable Two Factor Auth",
-  "description": "Schema for the body of a request to disable two factor auth",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "twoFactorCode": {
@@ -2359,38 +2387,13 @@
 }
 ```
 
-## emailVerificationVerify
+## Enable Two Factor Auth
+
+Schema for the body of a request to enable two factor auth
 
 ```javascript
 {
-  "title": "Email Verification Verify",
-  "description": "Schema for the body of a request verifying an email",
-  "type": "object",
-  "properties": {
-    "email": {
-      "type": "string",
-      "format": "email",
-      "maxLength": 1024
-    },
-    "token": {
-      "type": "string",
-      "minLength": 1
-    }
-  },
-  "required": [
-    "email",
-    "token"
-  ],
-  "additionalProperties": false
-}
-```
-
-## enableTwoFactorAuth
-
-```javascript
-{
-  "title": "Enable Two Factor Auth",
-  "description": "Schema for the body of a request to enable two factor auth",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "twoFactorAuthKey": {
@@ -2412,12 +2415,13 @@
 }
 ```
 
-## error
+## Error
+
+Schema for errors returned by the API
 
 ```javascript
 {
-  "title": "Error",
-  "description": "Schema for errors returned by the API",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "type": {
@@ -2430,12 +2434,13 @@
 }
 ```
 
-## event
+## Event
+
+Schema for a single Event
 
 ```javascript
 {
-  "title": "Event",
-  "description": "Schema for a single Event",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "id": {
@@ -2551,12 +2556,13 @@
 }
 ```
 
-## eventPatch
+## Event Patch
+
+Schema for the body of an Event modification request
 
 ```javascript
 {
-  "title": "Event Patch",
-  "description": "Schema for the body of an Event modification request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "state": {
@@ -2577,12 +2583,13 @@
 }
 ```
 
-## eventPost
+## Event Post
+
+Schema for the body of an Event creation request
 
 ```javascript
 {
-  "title": "Event Post",
-  "description": "Schema for the body of an Event creation request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "level": {
@@ -2622,12 +2629,13 @@
 }
 ```
 
-## events
+## Events
+
+Schema for a collection of Events
 
 ```javascript
 {
-  "title": "Events",
-  "description": "Schema for a collection of Events",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "items": {
@@ -2793,12 +2801,13 @@
 }
 ```
 
-## flow
+## Workflow
+
+Schema for a single Workflow
 
 ```javascript
 {
-  "title": "Workflow",
-  "description": "Schema for a single Workflow",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "id": {
@@ -2925,12 +2934,13 @@
 }
 ```
 
-## flowPatch
+## Workflow Patch
+
+Schema for the body of a Workflow modification request
 
 ```javascript
 {
-  "title": "Workflow Patch",
-  "description": "Schema for the body of a Workflow modification request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "name": {
@@ -3038,12 +3048,13 @@
 }
 ```
 
-## flowPost
+## Workflow Post
+
+Schema for the body of a Workflow creation request
 
 ```javascript
 {
-  "title": "Workflow Post",
-  "description": "Schema for the body of a Workflow creation request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "name": {
@@ -3154,12 +3165,13 @@
 }
 ```
 
-## flowStorageEntry
+## Workflow Storage Entry
+
+Schema for the body of a request to set a Workflow storage entry
 
 ```javascript
 {
-  "title": "Workflow Storage Entry",
-  "description": "Schema for the body of a request to set a Workflow storage entry",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "key": {
@@ -3176,12 +3188,13 @@
 }
 ```
 
-## flows
+## Workflows
+
+Schema for a collection of Workflows
 
 ```javascript
 {
-  "title": "Workflows",
-  "description": "Schema for a collection of Workflows",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "items": {
@@ -3350,12 +3363,13 @@
 }
 ```
 
-## githubLogin
+## Github Login
+
+Schema for the body of a Github login request
 
 ```javascript
 {
-  "title": "Github Login",
-  "description": "Schema for the body of a Github login request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "accessToken": {
@@ -3370,12 +3384,13 @@
 }
 ```
 
-## lastValueData
+## Last Value Data
+
+Schema for the result of a last value query
 
 ```javascript
 {
-  "title": "Last Value Data",
-  "description": "Schema for the result of a last value query",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "patternProperties": {
     "^[A-Fa-f\\d]{24}$": {
@@ -3410,12 +3425,13 @@
 }
 ```
 
-## lastValueQuery
+## Last Value Query
+
+Schema for the body of a last value query request
 
 ```javascript
 {
-  "title": "Last Value Query",
-  "description": "Schema for the body of a last value query request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "attribute": {
@@ -3452,12 +3468,13 @@
 }
 ```
 
-## me
+## Me
+
+Schema for information about the currently authenticated user
 
 ```javascript
 {
-  "title": "Me",
-  "description": "Schema for information about the currently authenticated user",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "id": {
@@ -3631,12 +3648,63 @@
 }
 ```
 
-## multiDeviceCommand
+## Me Patch
+
+Schema for the body of request to modify the current user
 
 ```javascript
 {
-  "title": "Multi Device Command",
-  "description": "Schema for the body of a request to send a command to multiple Devices",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "format": "email",
+      "maxLength": 1024
+    },
+    "firstName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "lastName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "companyName": {
+      "type": "string",
+      "maxLength": 1024
+    },
+    "phoneNumber": {
+      "type": "string",
+      "maxLength": 1024
+    },
+    "location": {
+      "type": "string",
+      "maxLength": 1024
+    },
+    "url": {
+      "type": "string",
+      "maxLength": 1024
+    },
+    "password": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 2048
+    }
+  },
+  "additionalProperties": false
+}
+```
+
+## Multi Device Command
+
+Schema for the body of a request to send a command to multiple Devices
+
+```javascript
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "time": {
@@ -3682,61 +3750,13 @@
 }
 ```
 
-## mePatch
+## Organization
+
+Schema for a single Organization
 
 ```javascript
 {
-  "title": "Me Patch",
-  "description": "Schema for the body of request to modify the current user",
-  "type": "object",
-  "properties": {
-    "email": {
-      "type": "string",
-      "format": "email",
-      "maxLength": 1024
-    },
-    "firstName": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 1024
-    },
-    "lastName": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 1024
-    },
-    "companyName": {
-      "type": "string",
-      "maxLength": 1024
-    },
-    "phoneNumber": {
-      "type": "string",
-      "maxLength": 1024
-    },
-    "location": {
-      "type": "string",
-      "maxLength": 1024
-    },
-    "url": {
-      "type": "string",
-      "maxLength": 1024
-    },
-    "password": {
-      "type": "string",
-      "minLength": 8,
-      "maxLength": 2048
-    }
-  },
-  "additionalProperties": false
-}
-```
-
-## org
-
-```javascript
-{
-  "title": "Organization",
-  "description": "Schema for a single Organization",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "id": {
@@ -3818,79 +3838,13 @@
 }
 ```
 
-## orgInviteAction
+## Organization Invitation Post
+
+Schema for the body of a request to send an invitation
 
 ```javascript
 {
-  "title": "Organization Invitation Action",
-  "description": "Schema for the body of a request to accept or reject an invitation",
-  "type": "object",
-  "properties": {
-    "email": {
-      "type": "string",
-      "format": "email",
-      "maxLength": 1024
-    },
-    "token": {
-      "type": "string",
-      "minLength": 1
-    },
-    "accept": {
-      "type": "boolean"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "email",
-    "token",
-    "accept"
-  ]
-}
-```
-
-## orgInviteInfo
-
-```javascript
-{
-  "title": "Organization Invitation Information",
-  "description": "Schema for information about an invitation",
-  "type": "object",
-  "properties": {
-    "orgName": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 255
-    },
-    "email": {
-      "type": "string",
-      "format": "email",
-      "maxLength": 1024
-    },
-    "role": {
-      "type": "string",
-      "enum": [
-        "admin",
-        "edit",
-        "view"
-      ]
-    },
-    "inviteDate": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "ttl": {
-      "type": "number"
-    }
-  }
-}
-```
-
-## orgInvitePost
-
-```javascript
-{
-  "title": "Organization Invitation Post",
-  "description": "Schema for the body of a request to send an invitation",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "email": {
@@ -3915,12 +3869,13 @@
 }
 ```
 
-## orgInvites
+## Organization Invitations
+
+Schema for an array of pending invitations to an Organization
 
 ```javascript
 {
-  "title": "Organization Invitations",
-  "description": "Schema for an array of pending invitations to an Organization",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "array",
   "items": {
     "type": "object",
@@ -3957,31 +3912,13 @@
 }
 ```
 
-## orgInviteResult
+## Organization Member Patch
+
+Schema for the body of a request to modify an Organization member
 
 ```javascript
 {
-  "title": "Organization Invitation Result",
-  "description": "Schema for the result of accepting/rejecting an invitation",
-  "type": "object",
-  "properties": {
-    "accepted": {
-      "type": "boolean"
-    },
-    "orgId": {
-      "type": "string",
-      "pattern": "^[A-Fa-f\\d]{24}$"
-    }
-  }
-}
-```
-
-## orgMemberPatch
-
-```javascript
-{
-  "title": "Organization Member Patch",
-  "description": "Schema for the body of a request to modify an Organization member",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "userId": {
@@ -4005,12 +3942,13 @@
 }
 ```
 
-## orgPatch
+## Organization Patch
+
+Schema for the body of a Organization modification request
 
 ```javascript
 {
-  "title": "Organization Patch",
-  "description": "Schema for the body of a Organization modification request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "name": {
@@ -4027,12 +3965,13 @@
 }
 ```
 
-## orgPost
+## Organization Post
+
+Schema for the body of a Organization creation request
 
 ```javascript
 {
-  "title": "Organization Post",
-  "description": "Schema for the body of a Organization creation request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "name": {
@@ -4052,12 +3991,13 @@
 }
 ```
 
-## orgs
+## Organizations
+
+Schema for a collection of Organizations
 
 ```javascript
 {
-  "title": "Organizations",
-  "description": "Schema for a collection of Organizations",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "items": {
@@ -4177,65 +4117,13 @@
 }
 ```
 
-## passwordResetFinish
+## Recent Item
+
+Schema for the body of a request to add a recent item
 
 ```javascript
 {
-  "title": "Password Reset Finish",
-  "description": "Schema for the body of a request to complete the reset password flow",
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "minLength": 1
-    },
-    "email": {
-      "type": "string",
-      "format": "email",
-      "maxLength": 1024
-    },
-    "password": {
-      "type": "string",
-      "minLength": 8,
-      "maxLength": 2048
-    }
-  },
-  "required": [
-    "token",
-    "email",
-    "password"
-  ],
-  "additionalProperties": false
-}
-```
-
-## passwordResetInput
-
-```javascript
-{
-  "title": "Password Reset Input",
-  "description": "Schema for the body of a request to start the reset password flow",
-  "type": "object",
-  "properties": {
-    "email": {
-      "type": "string",
-      "format": "email",
-      "maxLength": 1024
-    }
-  },
-  "required": [
-    "email"
-  ],
-  "additionalProperties": false
-}
-```
-
-## recentItem
-
-```javascript
-{
-  "title": "Recent Item",
-  "description": "Schema for the body of a request to add a recent item",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "itemType": {
@@ -4263,12 +4151,13 @@
 }
 ```
 
-## recentItemList
+## Recent Item List
+
+Schema for an array of recent items
 
 ```javascript
 {
-  "title": "Recent Item List",
-  "description": "Schema for an array of recent items",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "itemType": {
@@ -4305,12 +4194,13 @@
 }
 ```
 
-## success
+## Success
+
+Schema for reporting a successful operation
 
 ```javascript
 {
-  "title": "Success",
-  "description": "Schema for reporting a successful operation",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "success": {
@@ -4323,82 +4213,13 @@
 }
 ```
 
-## timeSeriesQuery
+## Time Series Data
+
+Schema for the result of a time series query
 
 ```javascript
 {
-  "title": "Time Series Query",
-  "description": "Schema for the body of a time series query request",
-  "type": "object",
-  "properties": {
-    "start": {
-      "type": "number"
-    },
-    "end": {
-      "type": "number"
-    },
-    "duration": {
-      "type": "number"
-    },
-    "resolution": {
-      "type": "number"
-    },
-    "aggregation": {
-      "type": "string",
-      "enum": [
-        "FIRST",
-        "LAST",
-        "COUNT",
-        "MAX",
-        "MIN",
-        "MEDIAN",
-        "MEAN",
-        "SUM"
-      ]
-    },
-    "attributes": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "pattern": "^[0-9a-zA-Z_-]{1,255}$"
-      }
-    },
-    "deviceTags": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string",
-            "pattern": "^[0-9a-zA-Z_-]{1,255}$"
-          },
-          "value": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 255
-          }
-        },
-        "additionalProperties": false
-      }
-    },
-    "deviceIds": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "pattern": "^[A-Fa-f\\d]{24}$"
-      }
-    }
-  },
-  "additionalProperties": false
-}
-```
-
-## timeSeriesData
-
-```javascript
-{
-  "title": "Time Series Data",
-  "description": "Schema for the result of a time series query",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "start": {
@@ -4488,12 +4309,84 @@
 }
 ```
 
-## userCredentials
+## Time Series Query
+
+Schema for the body of a time series query request
 
 ```javascript
 {
-  "title": "User Credentials",
-  "description": "Schema for the body of a User authentication request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "start": {
+      "type": "number"
+    },
+    "end": {
+      "type": "number"
+    },
+    "duration": {
+      "type": "number"
+    },
+    "resolution": {
+      "type": "number"
+    },
+    "aggregation": {
+      "type": "string",
+      "enum": [
+        "FIRST",
+        "LAST",
+        "COUNT",
+        "MAX",
+        "MIN",
+        "MEDIAN",
+        "MEAN",
+        "SUM"
+      ]
+    },
+    "attributes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9a-zA-Z_-]{1,255}$"
+      }
+    },
+    "deviceTags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "pattern": "^[0-9a-zA-Z_-]{1,255}$"
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "deviceIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Fa-f\\d]{24}$"
+      }
+    }
+  },
+  "additionalProperties": false
+}
+```
+
+## User Credentials
+
+Schema for the body of a User authentication request
+
+```javascript
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "email": {
@@ -4519,100 +4412,13 @@
 }
 ```
 
-## userPost
+## Virtual Button Press
+
+Schema for the body of a request to press a Workflow virtual button
 
 ```javascript
 {
-  "title": "User Post",
-  "description": "Schema for the body of a User creation request",
-  "type": "object",
-  "properties": {
-    "email": {
-      "type": "string",
-      "format": "email",
-      "maxLength": 1024
-    },
-    "firstName": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 1024
-    },
-    "lastName": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 1024
-    },
-    "companyName": {
-      "type": "string",
-      "maxLength": 1024
-    },
-    "phoneNumber": {
-      "type": "string",
-      "maxLength": 1024
-    },
-    "location": {
-      "type": "string",
-      "maxLength": 1024
-    },
-    "url": {
-      "type": "string",
-      "maxLength": 1024
-    },
-    "oauth": {
-      "type": "object",
-      "properties": {
-        "service": {
-          "type": "string"
-        },
-        "accessToken": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "service",
-        "accessToken"
-      ]
-    },
-    "password": {
-      "type": "string",
-      "minLength": 8,
-      "maxLength": 2048
-    },
-    "acceptTerms": {
-      "enum": [
-        "on"
-      ]
-    }
-  },
-  "anyOf": [
-    {
-      "required": [
-        "email",
-        "firstName",
-        "lastName",
-        "password",
-        "acceptTerms"
-      ]
-    },
-    {
-      "required": [
-        "email",
-        "firstName",
-        "lastName",
-        "oauth",
-        "acceptTerms"
-      ]
-    }
-  ]
-}
-```
-
-## virtualButtonPress
-
-```javascript
-{
-  "title": "Virtual Button Press",
-  "description": "Schema for the body of a request to press a Workflow virtual button",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "key": {
@@ -4627,47 +4433,13 @@
 }
 ```
 
-## webhookPatch
+## Webhook
+
+Schema for a single Webhook
 
 ```javascript
 {
-  "title": "Webhook Patch",
-  "description": "Schema for the body of a Webhook modification request",
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 255
-    },
-    "responseCode": {
-      "type": "integer",
-      "minimum": 100,
-      "maximum": 599
-    },
-    "verificationType": {
-      "type": "string",
-      "enum": [
-        "facebook",
-        "fitbit",
-        "none"
-      ]
-    },
-    "verificationCode": {
-      "type": "string",
-      "maxLength": 32767
-    }
-  },
-  "additionalProperties": false
-}
-```
-
-## webhook
-
-```javascript
-{
-  "title": "Webhook",
-  "description": "Schema for a single Webhook",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "id": {
@@ -4720,12 +4492,49 @@
 }
 ```
 
-## webhookPost
+## Webhook Patch
+
+Schema for the body of a Webhook modification request
 
 ```javascript
 {
-  "title": "Webhook Post",
-  "description": "Schema for the body of a Webhook creation request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "responseCode": {
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 599
+    },
+    "verificationType": {
+      "type": "string",
+      "enum": [
+        "facebook",
+        "fitbit",
+        "none"
+      ]
+    },
+    "verificationCode": {
+      "type": "string",
+      "maxLength": 32767
+    }
+  },
+  "additionalProperties": false
+}
+```
+
+## Webhook Post
+
+Schema for the body of a Webhook creation request
+
+```javascript
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "name": {
@@ -4758,12 +4567,13 @@
 }
 ```
 
-## webhooks
+## Webhooks
+
+Schema for a collection of Webhooks
 
 ```javascript
 {
-  "title": "Webhooks",
-  "description": "Schema for a collection of Webhooks",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "items": {

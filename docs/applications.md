@@ -13,7 +13,7 @@ parameters and the potential responses.
 
 ## Get
 
-Returns the applications owned by the current user
+Returns the applications the current user has permission to see
 
 ```ruby
 client.applications.get(params)
@@ -35,7 +35,7 @@ client.applications.get(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [applications](_schemas.md#applications) | Collection of applications |
+| 200 | [Applications](_schemas.md#applications) | Collection of applications |
 
 #### Error Responses
 
@@ -46,7 +46,7 @@ client.applications.get(params)
 
 ## Post
 
-Create a new application owned by the current user
+Create a new application
 
 ```ruby
 client.applications.post(params)
@@ -56,16 +56,16 @@ client.applications.post(params)
 
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
-| application | [applicationPost](_schemas.md#applicationpost) | Y | New application information |  |
+| application | [Application Post](_schemas.md#application-post) | Y | New application information |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 201 | [application](_schemas.md#application) | Successfully created application |
+| 201 | [Application](_schemas.md#application) | Successfully created application |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |

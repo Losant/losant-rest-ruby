@@ -1,6 +1,5 @@
 {
-  "title": "Access Token",
-  "description": "Schema for a single Access Token",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "id": {

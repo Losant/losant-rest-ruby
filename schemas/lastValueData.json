@@ -1,6 +1,5 @@
 {
-  "title": "Last Value Data",
-  "description": "Schema for the result of a last value query",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "patternProperties": {
     "^[A-Fa-f\\d]{24}$": {

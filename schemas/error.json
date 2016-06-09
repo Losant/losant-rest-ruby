@@ -1,6 +1,5 @@
 {
-  "title": "Error",
-  "description": "Schema for errors returned by the API",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "type": {

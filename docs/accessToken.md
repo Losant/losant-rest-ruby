@@ -30,13 +30,13 @@ client.access_token.get(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [accessToken](_schemas.md#accesstoken) | Device information |
+| 200 | [Access Token](_schemas.md#access-token) | Device information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if accessToken was not found |
+| 404 | [Error](_schemas.md#error) | Error if accessToken was not found |
 
 <br/>
 
@@ -53,20 +53,20 @@ client.access_token.patch(params)
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
 | accessTokenId | string | Y | ID associated with the accessToken |  |
-| accessToken | [accessTokenPatch](_schemas.md#accesstokenpatch) | Y | Object containing new properties of the accessToken |  |
+| accessToken | [Access Token Patch](_schemas.md#access-token-patch) | Y | Object containing new properties of the accessToken |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [accessToken](_schemas.md#accesstoken) | Updated accessToken information |
+| 200 | [Access Token](_schemas.md#access-token) | Updated accessToken information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if accessToken was not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if accessToken was not found |
 
 <br/>
 
@@ -88,10 +88,10 @@ client.access_token.delete(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [success](_schemas.md#success) | If accessToken was successfully deleted |
+| 200 | [Success](_schemas.md#success) | If accessToken was successfully deleted |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if accessToken was not found |
+| 404 | [Error](_schemas.md#error) | Error if accessToken was not found |

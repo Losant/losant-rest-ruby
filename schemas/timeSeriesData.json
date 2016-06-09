@@ -1,6 +1,5 @@
 {
-  "title": "Time Series Data",
-  "description": "Schema for the result of a time series query",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "start": {

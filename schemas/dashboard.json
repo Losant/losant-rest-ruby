@@ -1,6 +1,5 @@
 {
-  "title": "Dashboard",
-  "description": "Schema for a single Dashboard",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "id": {

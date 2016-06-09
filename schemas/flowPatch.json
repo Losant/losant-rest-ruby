@@ -1,6 +1,5 @@
 {
-  "title": "Workflow Patch",
-  "description": "Schema for the body of a Workflow modification request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "name": {

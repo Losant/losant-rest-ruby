@@ -35,13 +35,13 @@ client.flows.get(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [flows](_schemas.md#flows) | Collection of flows |
+| 200 | [Workflows](_schemas.md#workflows) | Collection of flows |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if application was not found |
+| 404 | [Error](_schemas.md#error) | Error if application was not found |
 
 <br/>
 
@@ -58,17 +58,17 @@ client.flows.post(params)
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
-| flow | [flowPost](_schemas.md#flowpost) | Y | New flow information |  |
+| flow | [Workflow Post](_schemas.md#workflow-post) | Y | New flow information |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 201 | [flow](_schemas.md#flow) | Successfully created flow |
+| 201 | [Workflow](_schemas.md#workflow) | Successfully created flow |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if application was not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if application was not found |

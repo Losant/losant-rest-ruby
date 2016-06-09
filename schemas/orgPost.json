@@ -1,6 +1,5 @@
 {
-  "title": "Organization Post",
-  "description": "Schema for the body of a Organization creation request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "name": {

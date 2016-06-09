@@ -34,7 +34,7 @@ client.orgs.get(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [orgs](_schemas.md#orgs) | Collection of organizations |
+| 200 | [Organizations](_schemas.md#organizations) | Collection of organizations |
 
 #### Error Responses
 
@@ -55,16 +55,16 @@ client.orgs.post(params)
 
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
-| organization | [orgPost](_schemas.md#orgpost) | Y | New organization information |  |
+| organization | [Organization Post](_schemas.md#organization-post) | Y | New organization information |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 201 | [org](_schemas.md#org) | Successfully created organization |
+| 201 | [Organization](_schemas.md#organization) | Successfully created organization |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |

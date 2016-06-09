@@ -27,7 +27,7 @@ No parameters needed for this call.
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [accessTokens](_schemas.md#accesstokens) | Collection of accessTokens |
+| 200 | [Access Tokens](_schemas.md#access-tokens) | Collection of accessTokens |
 
 #### Error Responses
 
@@ -48,16 +48,16 @@ client.access_tokens.post(params)
 
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
-| accessToken | [accessToken](_schemas.md#accesstoken) | Y | AccessToken information |  |
+| accessToken | [Access Token Post](_schemas.md#access-token-post) | Y | AccessToken information |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 201 | [accessToken](_schemas.md#accesstoken) | Successfully created access token |
+| 201 | [Access Token](_schemas.md#access-token) | Successfully created access token |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |

@@ -1,6 +1,5 @@
 {
-  "title": "Webhook Post",
-  "description": "Schema for the body of a Webhook creation request",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "name": {

@@ -1,6 +1,5 @@
 {
-  "title": "Device States",
-  "description": "Schema for an array of Device states",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "array",
   "items": {
     "title": "Device State",

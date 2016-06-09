@@ -35,13 +35,13 @@ client.device_recipes.get(params)
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [deviceRecipes](_schemas.md#devicerecipes) | Collection of device recipes |
+| 200 | [Device Recipes](_schemas.md#device-recipes) | Collection of device recipes |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 404 | [error](_schemas.md#error) | Error if application was not found |
+| 404 | [Error](_schemas.md#error) | Error if application was not found |
 
 <br/>
 
@@ -58,17 +58,17 @@ client.device_recipes.post(params)
 | Name | Type | Required | Description | Default |
 | ---- | ---- | -------- | ----------- | ------- |
 | applicationId | string | Y | ID associated with the application |  |
-| deviceRecipe | [deviceRecipePost](_schemas.md#devicerecipepost) | Y | New device recipe information |  |
+| deviceRecipe | [Device Recipe Post](_schemas.md#device-recipe-post) | Y | New device recipe information |  |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 201 | [deviceRecipe](_schemas.md#devicerecipe) | Successfully created device recipe |
+| 201 | [Device Recipe](_schemas.md#device-recipe) | Successfully created device recipe |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 400 | [error](_schemas.md#error) | Error if malformed request |
-| 404 | [error](_schemas.md#error) | Error if application was not found |
+| 400 | [Error](_schemas.md#error) | Error if malformed request |
+| 404 | [Error](_schemas.md#error) | Error if application was not found |
