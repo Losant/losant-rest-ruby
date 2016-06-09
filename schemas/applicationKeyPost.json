@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Application Key Post",
+  "description": "Schema for the body of an Application Key creation request",
   "type": "object",
   "properties": {
     "deviceIds": {
@@ -10,17 +11,23 @@
       }
     },
     "deviceTags": {
+      "title": "Tags (Optional)",
+      "description": "Array of Tags where the tag keys and tag values are optional",
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
           "key": {
-            "type": "string"
+            "type": "string",
+            "pattern": "^[0-9a-zA-Z_-]{1,255}$"
           },
           "value": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
           }
-        }
+        },
+        "additionalProperties": false
       }
     }
   },

@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Dashboard Patch",
+  "description": "Schema for the body of a Dashboard modification request",
   "type": "object",
   "properties": {
     "name": {

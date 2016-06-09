@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Access Token Patch",
+  "description": "Schema for the body of an Access Token modification request",
   "type": "object",
   "properties": {
     "name": {

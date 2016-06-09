@@ -46,9 +46,9 @@ client.access_tokens.post(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| accessToken | [accessToken](_schemas.md#accesstoken) | Y | AccessToken information |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| accessToken | [accessToken](_schemas.md#accesstoken) | Y | AccessToken information |  |
 
 #### Successful Responses
 

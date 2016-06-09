@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Workflow Storage Entry",
+  "description": "Schema for the body of a request to set a Workflow storage entry",
   "type": "object",
   "properties": {
     "key": {

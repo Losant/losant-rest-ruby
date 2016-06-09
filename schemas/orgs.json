@@ -1,11 +1,13 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Organizations",
+  "description": "Schema for a collection of Organizations",
   "type": "object",
   "properties": {
     "items": {
       "type": "array",
       "items": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
+        "title": "Organization",
+        "description": "Schema for a single Organization",
         "type": "object",
         "properties": {
           "id": {
@@ -43,10 +45,14 @@
                   "pattern": "^[A-Fa-f\\d]{24}$"
                 },
                 "firstName": {
-                  "type": "string"
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1024
                 },
                 "lastName": {
-                  "type": "string"
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1024
                 },
                 "email": {
                   "type": "string",
@@ -54,7 +60,8 @@
                   "maxLength": 1024
                 },
                 "avatarUrl": {
-                  "type": "string"
+                  "type": "string",
+                  "format": "url"
                 },
                 "role": {
                   "type": "string",

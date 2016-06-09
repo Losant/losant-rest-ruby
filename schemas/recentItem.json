@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Recent Item",
+  "description": "Schema for the body of a request to add a recent item",
   "type": "object",
   "properties": {
     "itemType": {

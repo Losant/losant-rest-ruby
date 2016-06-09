@@ -22,10 +22,10 @@ client.event.get(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| eventId | string | Y | ID associated with the event |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| eventId | string | Y | ID associated with the event |  |
 
 #### Successful Responses
 
@@ -51,11 +51,11 @@ client.event.patch(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| eventId | string | Y | ID associated with the event |
-| event | [eventPatch](_schemas.md#eventpatch) | Y | Object containing new properties of the event |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| eventId | string | Y | ID associated with the event |  |
+| event | [eventPatch](_schemas.md#eventpatch) | Y | Object containing new properties of the event |  |
 
 #### Successful Responses
 
@@ -82,10 +82,10 @@ client.event.delete(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| eventId | string | Y | ID associated with the event |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| eventId | string | Y | ID associated with the event |  |
 
 #### Successful Responses
 

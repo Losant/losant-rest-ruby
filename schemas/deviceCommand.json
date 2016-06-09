@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Device Command",
+  "description": "Schema for a command for a single Device",
   "type": "object",
   "properties": {
     "time": {
@@ -7,11 +8,11 @@
       "format": "date-time"
     },
     "name": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
     },
-    "payload": {
-      "type": "object"
-    }
+    "payload": {}
   },
   "required": [
     "name"

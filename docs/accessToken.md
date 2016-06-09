@@ -22,9 +22,9 @@ client.access_token.get(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| accessTokenId | string | Y | ID associated with the accessToken |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| accessTokenId | string | Y | ID associated with the accessToken |  |
 
 #### Successful Responses
 
@@ -50,10 +50,10 @@ client.access_token.patch(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| accessTokenId | string | Y | ID associated with the accessToken |
-| accessToken | [accessTokenPatch](_schemas.md#accesstokenpatch) | Y | Object containing new properties of the accessToken |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| accessTokenId | string | Y | ID associated with the accessToken |  |
+| accessToken | [accessTokenPatch](_schemas.md#accesstokenpatch) | Y | Object containing new properties of the accessToken |  |
 
 #### Successful Responses
 
@@ -80,9 +80,9 @@ client.access_token.delete(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| accessTokenId | string | Y | ID associated with the accessToken |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| accessTokenId | string | Y | ID associated with the accessToken |  |
 
 #### Successful Responses
 

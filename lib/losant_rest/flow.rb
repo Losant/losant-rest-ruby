@@ -164,8 +164,8 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} flowId - ID associated with the flow
-    # *  {string} limit
-    # *  {string} since
+    # *  {string} limit - Max log entries to return (ordered by time descending)
+    # *  {string} since - Look for log entries since this time (ms since epoch)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response

@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Multi Device Command",
+  "description": "Schema for the body of a request to send a command to multiple Devices",
   "type": "object",
   "properties": {
     "time": {
@@ -7,12 +8,14 @@
       "format": "date-time"
     },
     "name": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
     },
-    "payload": {
-      "type": "object"
-    },
+    "payload": {},
     "deviceTags": {
+      "title": "Tags (Optional)",
+      "description": "Array of Tags where the tag keys and tag values are optional",
       "type": "array",
       "items": {
         "type": "object",
@@ -26,7 +29,8 @@
             "minLength": 1,
             "maxLength": 255
           }
-        }
+        },
+        "additionalProperties": false
       }
     },
     "deviceIds": {

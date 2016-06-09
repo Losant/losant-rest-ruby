@@ -54,20 +54,20 @@ module LosantRest
       @data ||= Data.new(self)
     end
 
-    def device
-      @device ||= Device.new(self)
-    end
-
-    def devices
-      @devices ||= Devices.new(self)
-    end
-
     def device_recipe
       @device_recipe ||= DeviceRecipe.new(self)
     end
 
     def device_recipes
       @device_recipes ||= DeviceRecipes.new(self)
+    end
+
+    def device
+      @device ||= Device.new(self)
+    end
+
+    def devices
+      @devices ||= Devices.new(self)
     end
 
     def event

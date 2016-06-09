@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Event Patch",
+  "description": "Schema for the body of an Event modification request",
   "type": "object",
   "properties": {
     "state": {
@@ -14,9 +15,7 @@
       "type": "string",
       "maxLength": 32767
     },
-    "data": {
-      "$ref": "#/definitions/data"
-    }
+    "data": {}
   },
   "additionalProperties": false
 }

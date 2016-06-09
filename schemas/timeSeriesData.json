@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Time Series Data",
+  "description": "Schema for the result of a time series query",
   "type": "object",
   "properties": {
     "start": {
@@ -14,7 +15,17 @@
       "type": "number"
     },
     "aggregation": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "FIRST",
+        "LAST",
+        "COUNT",
+        "MAX",
+        "MIN",
+        "MEDIAN",
+        "MEAN",
+        "SUM"
+      ]
     },
     "devices": {
       "type": "object",
@@ -23,7 +34,9 @@
           "type": "object",
           "properties": {
             "name": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 255
             },
             "points": {
               "type": "array",

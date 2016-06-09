@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Organization Member Patch",
+  "description": "Schema for the body of a request to modify an Organization member",
   "type": "object",
   "properties": {
     "userId": {

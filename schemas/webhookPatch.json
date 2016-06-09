@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Webhook Patch",
+  "description": "Schema for the body of a Webhook modification request",
   "type": "object",
   "properties": {
     "name": {
@@ -8,13 +9,21 @@
       "maxLength": 255
     },
     "responseCode": {
-      "$ref": "webook.json#/definitions/responseCode"
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 599
     },
     "verificationType": {
-      "$ref": "webook.json#/definitions/verificationType"
+      "type": "string",
+      "enum": [
+        "facebook",
+        "fitbit",
+        "none"
+      ]
     },
     "verificationCode": {
-      "$ref": "webook.json#/definitions/verificationCode"
+      "type": "string",
+      "maxLength": 32767
     }
   },
   "additionalProperties": false

@@ -21,10 +21,10 @@ client.data.time_series_query(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| query | [timeSeriesQuery](_schemas.md#timeseriesquery) | Y | The query parameters |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| query | [timeSeriesQuery](_schemas.md#timeseriesquery) | Y | The query parameters |  |
 
 #### Successful Responses
 
@@ -50,10 +50,10 @@ client.data.last_value_query(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| query | [lastValueQuery](_schemas.md#lastvaluequery) | Y | The query parameters |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| query | [lastValueQuery](_schemas.md#lastvaluequery) | Y | The query parameters |  |
 
 #### Successful Responses
 

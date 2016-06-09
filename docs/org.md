@@ -27,9 +27,9 @@ client.org.get(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| orgId | string | Y | ID associated with the organization |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| orgId | string | Y | ID associated with the organization |  |
 
 #### Successful Responses
 
@@ -55,10 +55,10 @@ client.org.patch(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| orgId | string | Y | ID associated with the organization |
-| organization | [orgPatch](_schemas.md#orgpatch) | Y | Object containing new organization properties |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| orgId | string | Y | ID associated with the organization |  |
+| organization | [orgPatch](_schemas.md#orgpatch) | Y | Object containing new organization properties |  |
 
 #### Successful Responses
 
@@ -85,9 +85,9 @@ client.org.delete(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| orgId | string | Y | ID associated with the organization |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| orgId | string | Y | ID associated with the organization |  |
 
 #### Successful Responses
 
@@ -113,9 +113,9 @@ client.org.pending_invites(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| orgId | string | Y | ID associated with the organization |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| orgId | string | Y | ID associated with the organization |  |
 
 #### Successful Responses
 
@@ -141,10 +141,10 @@ client.org.invite_member(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| orgId | string | Y | ID associated with the organization |
-| invite | [orgInvitePost](_schemas.md#orginvitepost) | Y | Object containing new invite info |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| orgId | string | Y | ID associated with the organization |  |
+| invite | [orgInvitePost](_schemas.md#orginvitepost) | Y | Object containing new invite info |  |
 
 #### Successful Responses
 
@@ -171,10 +171,10 @@ client.org.revoke_invite(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| orgId | string | Y | ID associated with the organization |
-| inviteId | string | Y | Id of invite to revoke |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| orgId | string | Y | ID associated with the organization |  |
+| inviteId | string | Y | Id of invite to revoke |  |
 
 #### Successful Responses
 
@@ -201,10 +201,10 @@ client.org.modify_member(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| orgId | string | Y | ID associated with the organization |
-| member | [orgMemberPatch](_schemas.md#orgmemberpatch) | Y | Object containing new member pair |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| orgId | string | Y | ID associated with the organization |  |
+| member | [orgMemberPatch](_schemas.md#orgmemberpatch) | Y | Object containing new member pair |  |
 
 #### Successful Responses
 
@@ -231,10 +231,10 @@ client.org.remove_member(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| orgId | string | Y | ID associated with the organization |
-| userId | string | Y | Id of user to remove |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| orgId | string | Y | ID associated with the organization |  |
+| userId | string | Y | Id of user to remove |  |
 
 #### Successful Responses
 

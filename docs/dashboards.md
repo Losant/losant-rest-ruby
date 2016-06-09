@@ -21,15 +21,15 @@ client.dashboards.get(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| sortField | string | N |  |
-| sortDirection | string | N |  |
-| page | string | N |  |
-| perPage | string | N |  |
-| filterField | string | N |  |
-| filter | string | N |  |
-| orgId | string | N |  |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| sortField | One of: name, id, creationDate, ownerId | N | Field to sort the results by | name |
+| sortDirection | One of: asc, desc | N | Direction to sort the results by | asc |
+| page | string | N | Which page of results to return | 0 |
+| perPage | string | N | How many items to return per page | 1000 |
+| filterField | One of: name | N | Field to filter the results by. Blank or not provided means no filtering. |  |
+| filter | string | N | Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering. |  |
+| orgId | string | N | If not provided, return all dashboards. If provided but blank, only return dashboards belonging to the current user.  If provided and an id, only return dashboards belonging to the given organization id. |  |
 
 #### Successful Responses
 
@@ -54,9 +54,9 @@ client.dashboards.post(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| dashboard | [dashboardPost](_schemas.md#dashboardpost) | Y | New dashboard information |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| dashboard | [dashboardPost](_schemas.md#dashboardpost) | Y | New dashboard information |  |
 
 #### Successful Responses
 

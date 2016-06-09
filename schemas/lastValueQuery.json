@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Last Value Query",
+  "description": "Schema for the body of a last value query request",
   "type": "object",
   "properties": {
     "attribute": {
@@ -7,6 +8,8 @@
       "pattern": "^[0-9a-zA-Z_-]{1,255}$"
     },
     "deviceTags": {
+      "title": "Tags (Optional)",
+      "description": "Array of Tags where the tag keys and tag values are optional",
       "type": "array",
       "items": {
         "type": "object",
@@ -20,7 +23,8 @@
             "minLength": 1,
             "maxLength": 255
           }
-        }
+        },
+        "additionalProperties": false
       }
     },
     "deviceIds": {

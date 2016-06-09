@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Application",
+  "description": "Schema for a single Application",
   "type": "object",
   "properties": {
     "id": {
@@ -54,6 +55,9 @@
           "type": "number"
         },
         "keyCount": {
+          "type": "number"
+        },
+        "deviceRecipeCount": {
           "type": "number"
         }
       }

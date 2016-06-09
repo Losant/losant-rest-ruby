@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Authenticated Device",
+  "description": "Schema for the sucessful response when authenticating a Device",
   "type": "object",
   "properties": {
     "applicationId": {
@@ -21,7 +22,8 @@
       ]
     },
     "token": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     }
   },
   "required": [

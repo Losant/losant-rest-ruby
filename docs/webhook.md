@@ -22,10 +22,10 @@ client.webhook.get(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| webhookId | string | Y | ID associated with the webhook |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| webhookId | string | Y | ID associated with the webhook |  |
 
 #### Successful Responses
 
@@ -51,11 +51,11 @@ client.webhook.patch(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| webhookId | string | Y | ID associated with the webhook |
-| webhook | [webhookPatch](_schemas.md#webhookpatch) | Y | Object containing new properties of the webhook |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| webhookId | string | Y | ID associated with the webhook |  |
+| webhook | [webhookPatch](_schemas.md#webhookpatch) | Y | Object containing new properties of the webhook |  |
 
 #### Successful Responses
 
@@ -82,10 +82,10 @@ client.webhook.delete(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| webhookId | string | Y | ID associated with the webhook |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| webhookId | string | Y | ID associated with the webhook |  |
 
 #### Successful Responses
 

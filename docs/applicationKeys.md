@@ -21,15 +21,15 @@ client.application_keys.get(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| sortField | string | N |  |
-| sortDirection | string | N |  |
-| page | string | N |  |
-| perPage | string | N |  |
-| filterField | string | N |  |
-| filter | string | N |  |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| sortField | One of: key, status, id, creationDate | N | Field to sort the results by | name |
+| sortDirection | One of: asc, desc | N | Direction to sort the results by | asc |
+| page | string | N | Which page of results to return | 0 |
+| perPage | string | N | How many items to return per page | 1000 |
+| filterField | One of: key, status | N | Field to filter the results by. Blank or not provided means no filtering. |  |
+| filter | string | N | Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering. |  |
 
 #### Successful Responses
 
@@ -55,10 +55,10 @@ client.application_keys.post(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| applicationKey | [applicationKeyPost](_schemas.md#applicationkeypost) | Y | ApplicationKey information |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| applicationKey | [applicationKeyPost](_schemas.md#applicationkeypost) | Y | ApplicationKey information |  |
 
 #### Successful Responses
 

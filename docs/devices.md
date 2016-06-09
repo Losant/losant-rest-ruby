@@ -22,16 +22,16 @@ client.devices.get(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| sortField | string | N |  |
-| sortDirection | string | N |  |
-| page | string | N |  |
-| perPage | string | N |  |
-| filterField | string | N |  |
-| filter | string | N |  |
-| tagFilter | [deviceTagFilter](_schemas.md#devicetagfilter) | N | Array of tag pairs to filter by |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| sortField | One of: name, id, creationDate | N | Field to sort the results by | name |
+| sortDirection | One of: asc, desc | N | Direction to sort the results by | asc |
+| page | string | N | Which page of results to return | 0 |
+| perPage | string | N | How many items to return per page | 1000 |
+| filterField | One of: name | N | Field to filter the results by. Blank or not provided means no filtering. |  |
+| filter | string | N | Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering. |  |
+| tagFilter | [deviceTagFilter](_schemas.md#devicetagfilter) | N | Array of tag pairs to filter by. |  |
 
 #### Successful Responses
 
@@ -57,10 +57,10 @@ client.devices.post(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| device | [devicePost](_schemas.md#devicepost) | Y | New device information |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| device | [devicePost](_schemas.md#devicepost) | Y | New device information |  |
 
 #### Successful Responses
 
@@ -87,10 +87,10 @@ client.devices.send_command(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| multiDeviceCommand | [multiDeviceCommand](_schemas.md#multidevicecommand) | Y | Command to send to the device |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| multiDeviceCommand | [multiDeviceCommand](_schemas.md#multidevicecommand) | Y | Command to send to the device |  |
 
 #### Successful Responses
 

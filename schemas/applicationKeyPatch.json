@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Application Key Patch",
+  "description": "Schema for the body of a Application Key modification request",
   "type": "object",
   "properties": {
     "status": {

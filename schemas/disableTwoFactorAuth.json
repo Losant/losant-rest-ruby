@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Disable Two Factor Auth",
+  "description": "Schema for the body of a request to disable two factor auth",
   "type": "object",
   "properties": {
     "twoFactorCode": {

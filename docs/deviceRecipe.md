@@ -23,10 +23,10 @@ client.device_recipe.get(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| deviceRecipeId | string | Y | ID associated with the device recipe |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| deviceRecipeId | string | Y | ID associated with the device recipe |  |
 
 #### Successful Responses
 
@@ -52,11 +52,11 @@ client.device_recipe.patch(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| deviceRecipeId | string | Y | ID associated with the device recipe |
-| deviceRecipe | [deviceRecipePatch](_schemas.md#devicerecipepatch) | Y | Object containing new properties of the device recipe |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| deviceRecipeId | string | Y | ID associated with the device recipe |  |
+| deviceRecipe | [deviceRecipePatch](_schemas.md#devicerecipepatch) | Y | Object containing new properties of the device recipe |  |
 
 #### Successful Responses
 
@@ -83,10 +83,10 @@ client.device_recipe.delete(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| deviceRecipeId | string | Y | ID associated with the device recipe |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| deviceRecipeId | string | Y | ID associated with the device recipe |  |
 
 #### Successful Responses
 
@@ -112,11 +112,11 @@ client.device_recipe.bulk_create(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| deviceRecipeId | string | Y | ID associated with the device recipe |
-| bulkInfo | [deviceRecipeBulkCreatePost](_schemas.md#devicerecipebulkcreatepost) | Y | Object containing bulk creation info |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| deviceRecipeId | string | Y | ID associated with the device recipe |  |
+| bulkInfo | [deviceRecipeBulkCreatePost](_schemas.md#devicerecipebulkcreatepost) | Y | Object containing bulk creation info |  |
 
 #### Successful Responses
 

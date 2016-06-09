@@ -23,16 +23,16 @@ client.events.get(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| sortField | string | N |  |
-| sortDirection | string | N |  |
-| page | string | N |  |
-| perPage | string | N |  |
-| filterField | string | N |  |
-| filter | string | N |  |
-| state | string | N |  |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| sortField | One of: subject, id, creationDate | N | Field to sort the results by | creationDate |
+| sortDirection | One of: asc, desc | N | Direction to sort the results by | desc |
+| page | string | N | Which page of results to return | 0 |
+| perPage | string | N | How many items to return per page | 1000 |
+| filterField | One of: subject | N | Field to filter the results by. Blank or not provided means no filtering. |  |
+| filter | string | N | Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering. |  |
+| state | One of: new, acknowledged, resolved | N | If provided, return events only in the given state. |  |
 
 #### Successful Responses
 
@@ -58,10 +58,10 @@ client.events.post(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| event | [eventPost](_schemas.md#eventpost) | Y | New event information |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| event | [eventPost](_schemas.md#eventpost) | Y | New event information |  |
 
 #### Successful Responses
 
@@ -89,13 +89,13 @@ client.events.patch(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| filterField | string | N |  |
-| filter | string | N |  |
-| state | string | N |  |
-| updates | [eventPatch](_schemas.md#eventpatch) | Y | Object containing updated information for the events |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| filterField | One of: subject | N | Field to filter the events to act on by. Blank or not provided means no filtering. |  |
+| filter | string | N | Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering. |  |
+| state | One of: new, acknowledged, resolved | N | If provided, act on events only in the given state. |  |
+| updates | [eventPatch](_schemas.md#eventpatch) | Y | Object containing updated information for the events |  |
 
 #### Successful Responses
 
@@ -122,10 +122,10 @@ client.events.most_recent_by_severity(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| filter | string | N |  |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| filter | string | N | Filter to apply against event subjects. Supports globbing. Blank or not provided means no filtering. |  |
 
 #### Successful Responses
 

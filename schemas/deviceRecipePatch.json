@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Device Recipe Patch",
+  "description": "Schema for the body of a Device Recipe modification request",
   "type": "object",
   "properties": {
     "name": {

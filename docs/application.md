@@ -23,9 +23,9 @@ client.application.get(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID of the associated application |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID of the associated application |  |
 
 #### Successful Responses
 
@@ -51,10 +51,10 @@ client.application.patch(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID of the associated application |
-| application | [applicationPatch](_schemas.md#applicationpatch) | Y | Object containing new application properties |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID of the associated application |  |
+| application | [applicationPatch](_schemas.md#applicationpatch) | Y | Object containing new application properties |  |
 
 #### Successful Responses
 
@@ -81,9 +81,9 @@ client.application.delete(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID of the associated application |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID of the associated application |  |
 
 #### Successful Responses
 
@@ -109,9 +109,9 @@ client.application.debug(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID of the associated application |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID of the associated application |  |
 
 #### Successful Responses
 

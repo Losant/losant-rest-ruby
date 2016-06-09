@@ -27,10 +27,10 @@ client.device.get(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| deviceId | string | Y | ID associated with the device |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| deviceId | string | Y | ID associated with the device |  |
 
 #### Successful Responses
 
@@ -56,11 +56,11 @@ client.device.patch(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| deviceId | string | Y | ID associated with the device |
-| device | [devicePatch](_schemas.md#devicepatch) | Y | Object containing new properties of the device |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| deviceId | string | Y | ID associated with the device |  |
+| device | [devicePatch](_schemas.md#devicepatch) | Y | Object containing new properties of the device |  |
 
 #### Successful Responses
 
@@ -87,10 +87,10 @@ client.device.delete(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| deviceId | string | Y | ID associated with the device |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| deviceId | string | Y | ID associated with the device |  |
 
 #### Successful Responses
 
@@ -116,12 +116,12 @@ client.device.get_state(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| deviceId | string | Y | ID associated with the device |
-| limit | string | N |  |
-| since | string | N |  |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| deviceId | string | Y | ID associated with the device |  |
+| limit | string | N | Max state entries to return (ordered by time descending) | 1 |
+| since | string | N | Look for state entries since this time (ms since epoch) |  |
 
 #### Successful Responses
 
@@ -147,11 +147,11 @@ client.device.send_state(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| deviceId | string | Y | ID associated with the device |
-| deviceState | [deviceState](_schemas.md#devicestate) | Y | Object containing the current state of the device |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| deviceId | string | Y | ID associated with the device |  |
+| deviceState | [deviceState](_schemas.md#devicestate) | Y | Object containing the current state of the device |  |
 
 #### Successful Responses
 
@@ -178,12 +178,12 @@ client.device.get_command(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| deviceId | string | Y | ID associated with the device |
-| limit | string | N |  |
-| since | string | N |  |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| deviceId | string | Y | ID associated with the device |  |
+| limit | string | N | Max command entries to return (ordered by time descending) | 1 |
+| since | string | N | Look for command entries since this time (ms since epoch) |  |
 
 #### Successful Responses
 
@@ -209,11 +209,11 @@ client.device.send_command(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| deviceId | string | Y | ID associated with the device |
-| deviceCommand | [deviceCommand](_schemas.md#devicecommand) | Y | Command to send to the device |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| deviceId | string | Y | ID associated with the device |  |
+| deviceCommand | [deviceCommand](_schemas.md#devicecommand) | Y | Command to send to the device |  |
 
 #### Successful Responses
 
@@ -240,12 +240,12 @@ client.device.get_log_entries(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| deviceId | string | Y | ID associated with the device |
-| limit | string | N |  |
-| since | string | N |  |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| deviceId | string | Y | ID associated with the device |  |
+| limit | string | N | Max log entries to return (ordered by time descending) | 1 |
+| since | string | N | Look for log entries since this time (ms since epoch) |  |
 
 #### Successful Responses
 

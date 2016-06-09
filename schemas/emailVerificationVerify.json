@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Email Verification Verify",
+  "description": "Schema for the body of a request verifying an email",
   "type": "object",
   "properties": {
     "email": {
@@ -8,7 +9,8 @@
       "maxLength": 1024
     },
     "token": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     }
   },
   "required": [

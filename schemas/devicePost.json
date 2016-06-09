@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Device Post",
+  "description": "Schema for the body of a Device creation request",
   "type": "object",
   "properties": {
     "name": {

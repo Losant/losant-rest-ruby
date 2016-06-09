@@ -22,9 +22,9 @@ client.dashboard.get(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| dashboardId | string | Y | ID of the associated dashboard |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| dashboardId | string | Y | ID of the associated dashboard |  |
 
 #### Successful Responses
 
@@ -50,10 +50,10 @@ client.dashboard.patch(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| dashboardId | string | Y | ID of the associated dashboard |
-| dashboard | [dashboardPatch](_schemas.md#dashboardpatch) | Y | Object containing new dashboard properties |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| dashboardId | string | Y | ID of the associated dashboard |  |
+| dashboard | [dashboardPatch](_schemas.md#dashboardpatch) | Y | Object containing new dashboard properties |  |
 
 #### Successful Responses
 
@@ -80,9 +80,9 @@ client.dashboard.delete(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| dashboardId | string | Y | ID of the associated dashboard |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| dashboardId | string | Y | ID of the associated dashboard |  |
 
 #### Successful Responses
 

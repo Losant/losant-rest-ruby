@@ -1,8 +1,10 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Device States",
+  "description": "Schema for an array of Device states",
   "type": "array",
   "items": {
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Device State",
+    "description": "Schema for a single Device state",
     "type": "object",
     "properties": {
       "time": {

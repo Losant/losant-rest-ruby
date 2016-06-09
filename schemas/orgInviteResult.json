@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Organization Invitation Result",
+  "description": "Schema for the result of accepting/rejecting an invitation",
   "type": "object",
   "properties": {
     "accepted": {

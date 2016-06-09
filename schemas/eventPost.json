@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Event Post",
+  "description": "Schema for the body of an Event creation request",
   "type": "object",
   "properties": {
     "level": {
@@ -28,9 +29,7 @@
       "type": "string",
       "maxLength": 32767
     },
-    "data": {
-      "$ref": "#/definitions/data"
-    }
+    "data": {}
   },
   "required": [
     "level",

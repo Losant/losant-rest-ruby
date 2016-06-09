@@ -29,9 +29,9 @@ client.me.get(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| includeRecent | undefined | N | Should the user include recent app/dashboard info |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| includeRecent | undefined | N | Should the user include recent app/dashboard info |  |
 
 #### Successful Responses
 
@@ -56,9 +56,9 @@ client.me.patch(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| user | [mePatch](_schemas.md#mepatch) | Y | Object containing new user properties |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| user | [mePatch](_schemas.md#mepatch) | Y | Object containing new user properties |  |
 
 #### Successful Responses
 
@@ -84,9 +84,9 @@ client.me.delete(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| credentials | [userCredentials](_schemas.md#usercredentials) | Y | User authentication credentials |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| credentials | [userCredentials](_schemas.md#usercredentials) | Y | User authentication credentials |  |
 
 #### Successful Responses
 
@@ -138,9 +138,9 @@ client.me.enable_two_factor_auth(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| data | [enableTwoFactorAuth](_schemas.md#enabletwofactorauth) | Y | Object containing two factor auth properties |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| data | [enableTwoFactorAuth](_schemas.md#enabletwofactorauth) | Y | Object containing two factor auth properties |  |
 
 #### Successful Responses
 
@@ -166,9 +166,9 @@ client.me.disable_two_factor_auth(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| data | [disableTwoFactorAuth](_schemas.md#disabletwofactorauth) | Y | Object containing two factor auth properties |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| data | [disableTwoFactorAuth](_schemas.md#disabletwofactorauth) | Y | Object containing two factor auth properties |  |
 
 #### Successful Responses
 
@@ -246,9 +246,9 @@ client.me.add_recent_item(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| data | [recentItem](_schemas.md#recentitem) | Y | Object containing recent item info |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| data | [recentItem](_schemas.md#recentitem) | Y | Object containing recent item info |  |
 
 #### Successful Responses
 
@@ -274,10 +274,10 @@ client.me.fetch_recent_items(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| parentId | string | N |  |
-| itemType | undefined | N |  |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| parentId | string | N | Parent id of the recent list |  |
+| itemType | One of: application, device, flow, dashboard | Y | Item type to get the recent list of |  |
 
 #### Successful Responses
 

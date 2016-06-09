@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Authenticated User",
+  "description": "Schema for the sucessful response when authenticating a User",
   "type": "object",
   "properties": {
     "userId": {
@@ -7,7 +8,8 @@
       "pattern": "^[A-Fa-f\\d]{24}$"
     },
     "token": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     }
   },
   "required": [

@@ -10,12 +10,12 @@ module LosantRest
     # Returns the organizations associated with the current user
     #
     # Parameters:
-    # *  {string} sortField
-    # *  {string} sortDirection
-    # *  {string} page
-    # *  {string} perPage
-    # *  {string} filterField
-    # *  {string} filter
+    # *  {string} sortField - Field to sort the results by
+    # *  {string} sortDirection - Direction to sort the results by
+    # *  {string} page - Which page of results to return
+    # *  {string} perPage - How many items to return per page
+    # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering.
+    # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response

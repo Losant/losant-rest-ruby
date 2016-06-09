@@ -27,10 +27,10 @@ client.flow.get(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| flowId | string | Y | ID associated with the flow |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| flowId | string | Y | ID associated with the flow |  |
 
 #### Successful Responses
 
@@ -56,11 +56,11 @@ client.flow.patch(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| flowId | string | Y | ID associated with the flow |
-| flow | [flowPatch](_schemas.md#flowpatch) | Y | Object containing new properties of the flow |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| flowId | string | Y | ID associated with the flow |  |
+| flow | [flowPatch](_schemas.md#flowpatch) | Y | Object containing new properties of the flow |  |
 
 #### Successful Responses
 
@@ -87,10 +87,10 @@ client.flow.delete(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| flowId | string | Y | ID associated with the flow |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| flowId | string | Y | ID associated with the flow |  |
 
 #### Successful Responses
 
@@ -116,10 +116,10 @@ client.flow.debug(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| flowId | string | Y | ID associated with the flow |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| flowId | string | Y | ID associated with the flow |  |
 
 #### Successful Responses
 
@@ -145,12 +145,12 @@ client.flow.get_log_entries(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| flowId | string | Y | ID associated with the flow |
-| limit | string | N |  |
-| since | string | N |  |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| flowId | string | Y | ID associated with the flow |  |
+| limit | string | N | Max log entries to return (ordered by time descending) | 1 |
+| since | string | N | Look for log entries since this time (ms since epoch) |  |
 
 #### Successful Responses
 
@@ -176,11 +176,11 @@ client.flow.press_virtual_button(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| flowId | string | Y | ID associated with the flow |
-| button | [virtualButtonPress](_schemas.md#virtualbuttonpress) | Y | Object containing button key and payload |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| flowId | string | Y | ID associated with the flow |  |
+| button | [virtualButtonPress](_schemas.md#virtualbuttonpress) | Y | Object containing button key and payload |  |
 
 #### Successful Responses
 
@@ -206,10 +206,10 @@ client.flow.get_storage_entries(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| flowId | string | Y | ID associated with the flow |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| flowId | string | Y | ID associated with the flow |  |
 
 #### Successful Responses
 
@@ -235,11 +235,11 @@ client.flow.set_storage_entry(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| flowId | string | Y | ID associated with the flow |
-| entry | [flowStorageEntry](_schemas.md#flowstorageentry) | Y | Object containing storage entry |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| flowId | string | Y | ID associated with the flow |  |
+| entry | [flowStorageEntry](_schemas.md#flowstorageentry) | Y | Object containing storage entry |  |
 
 #### Successful Responses
 

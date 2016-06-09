@@ -22,10 +22,10 @@ client.application_key.get(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| applicationKeyId | string | Y | ID associated with the applicationKey |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| applicationKeyId | string | Y | ID associated with the applicationKey |  |
 
 #### Successful Responses
 
@@ -51,11 +51,11 @@ client.application_key.patch(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| applicationKeyId | string | Y | ID associated with the applicationKey |
-| applicationKey | [applicationKeyPatch](_schemas.md#applicationkeypatch) | Y | Object containing new properties of the applicationKey |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| applicationKeyId | string | Y | ID associated with the applicationKey |  |
+| applicationKey | [applicationKeyPatch](_schemas.md#applicationkeypatch) | Y | Object containing new properties of the applicationKey |  |
 
 #### Successful Responses
 
@@ -82,10 +82,10 @@ client.application_key.delete(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| applicationKeyId | string | Y | ID associated with the applicationKey |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| applicationKeyId | string | Y | ID associated with the applicationKey |  |
 
 #### Successful Responses
 

@@ -21,15 +21,15 @@ client.device_recipes.get(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| sortField | string | N |  |
-| sortDirection | string | N |  |
-| page | string | N |  |
-| perPage | string | N |  |
-| filterField | string | N |  |
-| filter | string | N |  |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| sortField | One of: name, id, creationDate | N | Field to sort the results by | name |
+| sortDirection | One of: asc, desc | N | Direction to sort the results by | asc |
+| page | string | N | Which page of results to return | 0 |
+| perPage | string | N | How many items to return per page | 1000 |
+| filterField | One of: name | N | Field to filter the results by. Blank or not provided means no filtering. |  |
+| filter | string | N | Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering. |  |
 
 #### Successful Responses
 
@@ -55,10 +55,10 @@ client.device_recipes.post(params)
 
 #### Available Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| applicationId | string | Y | ID associated with the application |
-| deviceRecipe | [deviceRecipePost](_schemas.md#devicerecipepost) | Y | New device recipe information |
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| applicationId | string | Y | ID associated with the application |  |
+| deviceRecipe | [deviceRecipePost](_schemas.md#devicerecipepost) | Y | New device recipe information |  |
 
 #### Successful Responses
 

@@ -323,8 +323,8 @@ module LosantRest
     # Gets a recent item list
     #
     # Parameters:
-    # *  {string} parentId
-    # *  {undefined} itemType
+    # *  {string} parentId - Parent id of the recent list
+    # *  {undefined} itemType - Item type to get the recent list of
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -340,6 +340,7 @@ module LosantRest
       headers = {}
       body = nil
 
+      raise ArgumentError.new("itemType is required") unless params.has_key?(:itemType)
 
       query_params[:parentId] = params[:parentId] if params.has_key?(:parentId)
       query_params[:itemType] = params[:itemType] if params.has_key?(:itemType)
