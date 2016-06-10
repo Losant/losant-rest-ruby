@@ -5,8 +5,11 @@ use the comprehensive Losant API.  You can authenticate either as a Losant
 device or with your user account, and have access to all the functionality
 of the Losant platform.
 
-<br/>
+This client works with Ruby 2.1 and higher. It uses
+[HTTParty](https://github.com/jnunemaker/httparty) under the
+covers for the actual HTTP communication.
 
+<br/>
 
 ## Installation
 
@@ -209,8 +212,8 @@ to an Application - such as listing the webhooks or creating a new webhook.
 
 ### LosantRest::ResponseError
 
-When the Losant API returns a unsuccessful response, an instance of ResponseError
-is thrown.
+When the Losant API returns a unsuccessful response, an instance of
+ResponseError is thrown.
 
 #### Accessors
 

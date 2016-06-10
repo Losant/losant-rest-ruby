@@ -9,7 +9,7 @@ class BasicTest < MiniTest::Test
         .with(body: '{"email":"myemail@myemail.com","password":"mypassword"}',
         headers: { "Accept" => "application/json" }).
         to_return(body: '{ "userId": "theUserId", "token": "an auth token string"}',
-          status: 200, headers: { "Content-Type": "application/json" });
+          status: 200, headers: { "Content-Type" => "application/json" });
 
       client = LosantRest::Client.new
 
@@ -25,7 +25,7 @@ class BasicTest < MiniTest::Test
         "https://api.losant.com/applications?_actions=false&_embedded=true&_links=true")
         .with(headers: { "Accept" => "application/json", "Authorization" => "Bearer my token" }).
         to_return(body: '{ "count": 0, "items": [] }',
-          status: 200, headers: { "Content-Type": "application/json" });
+          status: 200, headers: { "Content-Type" => "application/json" });
 
       client = LosantRest::Client.new(auth_token: "my token")
 
@@ -38,7 +38,7 @@ class BasicTest < MiniTest::Test
         "https://api.losant.com/applications/appId/devices?_actions=false&_links=true&_embedded=true&tagFilter[0][key]=key2&tagFilter[1][key]=key1&tagFilter[1][value]=value1&tagFilter[2][value]=value2")
         .with(headers: { "Accept" => "application/json", "Authorization" => "Bearer my token" }).
         to_return(body: '{ "count": 0, "items": [] }',
-          status: 200, headers: { "Content-Type": "application/json" });
+          status: 200, headers: { "Content-Type" => "application/json" });
 
       client = LosantRest::Client.new(auth_token: "my token")
 
@@ -55,7 +55,7 @@ class BasicTest < MiniTest::Test
         "https://api.losant.com/applications?_actions=false&_embedded=true&_links=true")
         .with(headers: { "Accept" => "application/json", "Authorization" => "Bearer my token" }).
         to_return(body: '{ "count": 0, "items": [] }',
-          status: 200, headers: { "Content-Type": "application/json" });
+          status: 200, headers: { "Content-Type" => "application/json" });
 
       LosantRest.client.auth_token = "my token"
 

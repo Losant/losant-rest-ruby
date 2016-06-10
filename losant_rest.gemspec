@@ -7,13 +7,15 @@ Gem::Specification.new do |gem|
   gem.email         = ["hello@losant.com"]
   gem.summary       = %q{Provides a simple ruby wrapper around the Losant REST API}
   gem.description   = %q{Easily use the Losant IoT Platform through its REST API with Ruby}
-  gem.homepage      = "https://www.losant.com"
+  gem.homepage      = "https://github.com/Losant/losant-rest-ruby"
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.require_paths = ["lib"]
   gem.version       = LosantRest::VERSION
   gem.licenses      = ["MIT"]
+
+  gem.required_ruby_version = ">= 2.1"
 
   gem.add_dependency "httparty", ">=0.13.0"
 
