@@ -15,9 +15,9 @@ puts result
 #     "lastUpdated" => "2016-05-31T14:47:32.288Z",
 #     "id" => "myDevId",
 #     "attributes" => [
-#       {"name" => "string", "dataType" => "string"},
-#       {"name" => "number", "dataType" => "number"},
-#       {"name" => "boolean", "dataType" => "boolean"}
+#       { "name" => "string", "dataType" => "string" },
+#       { "name" => "number", "dataType" => "number" },
+#       { "name" => "boolean", "dataType" => "boolean" }
 #     ],
 #     "description" => "",
 #     "_etag" => "\"174-u7/3je4oFyaKGePPbcHLqw\"",
@@ -30,16 +30,16 @@ puts result
 #       "devices" => { "href" => "/applications/myAppId/devices" },
 #       "self" => { "href" => "/applications/myAppId/devices/myDevId" }
 #      }
-#    } ],
-#    "applicationId" => "myAppId",
-#    "perPage" => 100,
-#    "page" => 0,
-#    "sortField" => "name",
-#    "sortDirection" => "asc",
-#    "totalCount" => 1,
-#    "_type" => "devices",
-#    "_links" => {
-#      "application" => { "href" => "/applications/myAppId" },
-#      "self" => { "href" => "/applications/myAppId/devices" }
-#    }
-#  }
+#   } ],
+#   "applicationId" => "myAppId",
+#   "perPage" => 100,
+#   "page" => 0,
+#   "sortField" => "name",
+#   "sortDirection" => "asc",
+#   "totalCount" => 1,
+#   "_type" => "devices",
+#   "_links" => {
+#     "application" => { "href" => "/applications/myAppId" },
+#     "self" => { "href" => "/applications/myAppId/devices" }
+#   }
+# }
