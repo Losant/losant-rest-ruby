@@ -1,3 +1,3 @@
 module LosantRest
-  VERSION = "1.3.8"
+  VERSION = "1.0.0"
 end
