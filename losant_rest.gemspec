@@ -17,7 +17,7 @@ Gem::Specification.new do |gem|
 
   gem.required_ruby_version = ">= 2.1"
 
-  gem.add_dependency "httparty", ">=0.13.0"
+  gem.add_dependency "httparty", "~> 0.13.0"
 
   gem.add_development_dependency "minitest", "~> 5.9"
   gem.add_development_dependency "rake", "~> 11"
