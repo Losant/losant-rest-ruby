@@ -99,7 +99,7 @@ puts result
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
 | eventId | string | Y | ID associated with the event |  | 575ed0de7ae143cd83dc4aa5 |
-| event | [Event Patch](_schemas.md#event-patch) | Y | Object containing new properties of the event |  | [Event Patch Example](schemas.md#event-patch-example) |
+| event | [Event Patch](_schemas.md#event-patch) | Y | Object containing new properties of the event |  | [Event Patch Example](_schemas.md#event-patch-example) |
 
 #### Successful Responses
 

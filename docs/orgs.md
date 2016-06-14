@@ -60,7 +60,7 @@ puts result
 
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
-| organization | [Organization Post](_schemas.md#organization-post) | Y | New organization information |  | [Organization Post Example](schemas.md#organization-post-example) |
+| organization | [Organization Post](_schemas.md#organization-post) | Y | New organization information |  | [Organization Post Example](_schemas.md#organization-post-example) |
 
 #### Successful Responses
 

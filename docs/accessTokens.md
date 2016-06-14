@@ -53,7 +53,7 @@ puts result
 
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
-| accessToken | [Access Token Post](_schemas.md#access-token-post) | Y | AccessToken information |  | [Access Token Post Example](schemas.md#access-token-post-example) |
+| accessToken | [Access Token Post](_schemas.md#access-token-post) | Y | AccessToken information |  | [Access Token Post Example](_schemas.md#access-token-post-example) |
 
 #### Successful Responses
 

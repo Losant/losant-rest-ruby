@@ -65,7 +65,7 @@ puts result
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
-| applicationKey | [Application Key Post](_schemas.md#application-key-post) | Y | ApplicationKey information |  | [Application Key Post Example](schemas.md#application-key-post-example) |
+| applicationKey | [Application Key Post](_schemas.md#application-key-post) | Y | ApplicationKey information |  | [Application Key Post Example](_schemas.md#application-key-post-example) |
 
 #### Successful Responses
 

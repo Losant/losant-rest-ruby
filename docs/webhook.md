@@ -99,7 +99,7 @@ puts result
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
 | webhookId | string | Y | ID associated with the webhook |  | 575ed78e7ae143cd83dc4aab |
-| webhook | [Webhook Patch](_schemas.md#webhook-patch) | Y | Object containing new properties of the webhook |  | [Webhook Patch Example](schemas.md#webhook-patch-example) |
+| webhook | [Webhook Patch](_schemas.md#webhook-patch) | Y | Object containing new properties of the webhook |  | [Webhook Patch Example](_schemas.md#webhook-patch-example) |
 
 #### Successful Responses
 

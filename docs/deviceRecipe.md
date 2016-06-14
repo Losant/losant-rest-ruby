@@ -32,7 +32,7 @@ puts result
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
 | deviceRecipeId | string | Y | ID associated with the device recipe |  | 575ecec57ae143cd83dc4a9f |
-| bulkInfo | [Device Recipe Bulk Create Post](_schemas.md#device-recipe-bulk-create-post) | Y | Object containing bulk creation info |  | [Device Recipe Bulk Create Post Example](schemas.md#device-recipe-bulk-create-post-example) |
+| bulkInfo | [Device Recipe Bulk Create Post](_schemas.md#device-recipe-bulk-create-post) | Y | Object containing bulk creation info |  | [Device Recipe Bulk Create Post Example](_schemas.md#device-recipe-bulk-create-post-example) |
 
 #### Successful Responses
 
@@ -136,7 +136,7 @@ puts result
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
 | deviceRecipeId | string | Y | ID associated with the device recipe |  | 575ecec57ae143cd83dc4a9f |
-| deviceRecipe | [Device Recipe Patch](_schemas.md#device-recipe-patch) | Y | Object containing new properties of the device recipe |  | [Device Recipe Patch Example](schemas.md#device-recipe-patch-example) |
+| deviceRecipe | [Device Recipe Patch](_schemas.md#device-recipe-patch) | Y | Object containing new properties of the device recipe |  | [Device Recipe Patch Example](_schemas.md#device-recipe-patch-example) |
 
 #### Successful Responses
 

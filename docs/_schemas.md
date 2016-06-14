@@ -78,7 +78,7 @@
 
 Schema for a single Access Token
 
-### Schema <a name="access-token-schema"></a>
+### <a name="access-token-schema"></a> Schema
 
 ```json
 {
@@ -134,7 +134,7 @@ Schema for a single Access Token
   }
 }
 ```
-### Example <a name="access-token-example"></a>
+### <a name="access-token-example"></a> Example
 
 ```json
 {
@@ -160,7 +160,7 @@ Schema for a single Access Token
 
 Schema for the body of an Access Token modification request
 
-### Schema <a name="access-token-patch-schema"></a>
+### <a name="access-token-patch-schema"></a> Schema
 
 ```json
 {
@@ -183,7 +183,7 @@ Schema for the body of an Access Token modification request
   "additionalProperties": false
 }
 ```
-### Example <a name="access-token-patch-example"></a>
+### <a name="access-token-patch-example"></a> Example
 
 ```json
 {
@@ -198,7 +198,7 @@ Schema for the body of an Access Token modification request
 
 Schema for the body of an Access Token creation request
 
-### Schema <a name="access-token-post-schema"></a>
+### <a name="access-token-post-schema"></a> Schema
 
 ```json
 {
@@ -234,7 +234,7 @@ Schema for the body of an Access Token creation request
   ]
 }
 ```
-### Example <a name="access-token-post-example"></a>
+### <a name="access-token-post-example"></a> Example
 
 ```json
 {
@@ -254,7 +254,7 @@ Schema for the body of an Access Token creation request
 
 Schema for a collection of Access Tokens
 
-### Schema <a name="access-tokens-schema"></a>
+### <a name="access-tokens-schema"></a> Schema
 
 ```json
 {
@@ -323,7 +323,7 @@ Schema for a collection of Access Tokens
   }
 }
 ```
-### Example <a name="access-tokens-example"></a>
+### <a name="access-tokens-example"></a> Example
 
 ```json
 {
@@ -354,7 +354,7 @@ Schema for a collection of Access Tokens
 
 Schema for a single Application
 
-### Schema <a name="application-schema"></a>
+### <a name="application-schema"></a> Schema
 
 ```json
 {
@@ -423,7 +423,7 @@ Schema for a single Application
   }
 }
 ```
-### Example <a name="application-example"></a>
+### <a name="application-example"></a> Example
 
 ```json
 {
@@ -452,7 +452,7 @@ Schema for a single Application
 
 Schema for a single Application Key
 
-### Schema <a name="application-key-schema"></a>
+### <a name="application-key-schema"></a> Schema
 
 ```json
 {
@@ -524,7 +524,7 @@ Schema for a single Application Key
   }
 }
 ```
-### Example <a name="application-key-example"></a>
+### <a name="application-key-example"></a> Example
 
 ```json
 {
@@ -545,7 +545,7 @@ Schema for a single Application Key
 
 Schema for the body of an Application Key modification request
 
-### Schema <a name="application-key-patch-schema"></a>
+### <a name="application-key-patch-schema"></a> Schema
 
 ```json
 {
@@ -567,7 +567,7 @@ Schema for the body of an Application Key modification request
   "additionalProperties": false
 }
 ```
-### Example <a name="application-key-patch-example"></a>
+### <a name="application-key-patch-example"></a> Example
 
 ```json
 {
@@ -582,7 +582,7 @@ Schema for the body of an Application Key modification request
 
 Schema for the body of an Application Key creation request
 
-### Schema <a name="application-key-post-schema"></a>
+### <a name="application-key-post-schema"></a> Schema
 
 ```json
 {
@@ -622,7 +622,7 @@ Schema for the body of an Application Key creation request
   "additionalProperties": false
 }
 ```
-### Example <a name="application-key-post-example"></a>
+### <a name="application-key-post-example"></a> Example
 
 ```json
 {
@@ -636,7 +636,7 @@ Schema for the body of an Application Key creation request
 
 Schema for a collection of Application Keys
 
-### Schema <a name="application-keys-schema"></a>
+### <a name="application-keys-schema"></a> Schema
 
 ```json
 {
@@ -750,7 +750,7 @@ Schema for a collection of Application Keys
   }
 }
 ```
-### Example <a name="application-keys-example"></a>
+### <a name="application-keys-example"></a> Example
 
 ```json
 {
@@ -782,7 +782,7 @@ Schema for a collection of Application Keys
 
 Schema for the body of an Application modification request
 
-### Schema <a name="application-patch-schema"></a>
+### <a name="application-patch-schema"></a> Schema
 
 ```json
 {
@@ -802,7 +802,7 @@ Schema for the body of an Application modification request
   "additionalProperties": false
 }
 ```
-### Example <a name="application-patch-example"></a>
+### <a name="application-patch-example"></a> Example
 
 ```json
 {
@@ -817,7 +817,7 @@ Schema for the body of an Application modification request
 
 Schema for the body of an Application creation request
 
-### Schema <a name="application-post-schema"></a>
+### <a name="application-post-schema"></a> Schema
 
 ```json
 {
@@ -844,7 +844,7 @@ Schema for the body of an Application creation request
   ]
 }
 ```
-### Example <a name="application-post-example"></a>
+### <a name="application-post-example"></a> Example
 
 ```json
 {
@@ -859,7 +859,7 @@ Schema for the body of an Application creation request
 
 Schema for a collection of Applications
 
-### Schema <a name="applications-schema"></a>
+### <a name="applications-schema"></a> Schema
 
 ```json
 {
@@ -966,7 +966,7 @@ Schema for a collection of Applications
   }
 }
 ```
-### Example <a name="applications-example"></a>
+### <a name="applications-example"></a> Example
 
 ```json
 {
@@ -1005,7 +1005,7 @@ Schema for a collection of Applications
 
 Schema for the sucessful response when authenticating a Device
 
-### Schema <a name="authenticated-device-schema"></a>
+### <a name="authenticated-device-schema"></a> Schema
 
 ```json
 {
@@ -1043,7 +1043,7 @@ Schema for the sucessful response when authenticating a Device
   ]
 }
 ```
-### Example <a name="authenticated-device-example"></a>
+### <a name="authenticated-device-example"></a> Example
 
 ```json
 {
@@ -1060,7 +1060,7 @@ Schema for the sucessful response when authenticating a Device
 
 Schema for the sucessful response when authenticating a User
 
-### Schema <a name="authenticated-user-schema"></a>
+### <a name="authenticated-user-schema"></a> Schema
 
 ```json
 {
@@ -1082,7 +1082,7 @@ Schema for the sucessful response when authenticating a User
   ]
 }
 ```
-### Example <a name="authenticated-user-example"></a>
+### <a name="authenticated-user-example"></a> Example
 
 ```json
 {
@@ -1097,7 +1097,7 @@ Schema for the sucessful response when authenticating a User
 
 Schema for a single Dashboard
 
-### Schema <a name="dashboard-schema"></a>
+### <a name="dashboard-schema"></a> Schema
 
 ```json
 {
@@ -1196,7 +1196,7 @@ Schema for a single Dashboard
   }
 }
 ```
-### Example <a name="dashboard-example"></a>
+### <a name="dashboard-example"></a> Example
 
 ```json
 {
@@ -1220,7 +1220,7 @@ Schema for a single Dashboard
 
 Schema for the body of a Dashboard modification request
 
-### Schema <a name="dashboard-patch-schema"></a>
+### <a name="dashboard-patch-schema"></a> Schema
 
 ```json
 {
@@ -1293,7 +1293,7 @@ Schema for the body of a Dashboard modification request
   "additionalProperties": false
 }
 ```
-### Example <a name="dashboard-patch-example"></a>
+### <a name="dashboard-patch-example"></a> Example
 
 ```json
 {
@@ -1310,7 +1310,7 @@ Schema for the body of a Dashboard modification request
 
 Schema for the body of a Dashboard creation request
 
-### Schema <a name="dashboard-post-schema"></a>
+### <a name="dashboard-post-schema"></a> Schema
 
 ```json
 {
@@ -1390,7 +1390,7 @@ Schema for the body of a Dashboard creation request
   ]
 }
 ```
-### Example <a name="dashboard-post-example"></a>
+### <a name="dashboard-post-example"></a> Example
 
 ```json
 {
@@ -1405,7 +1405,7 @@ Schema for the body of a Dashboard creation request
 
 Schema for a collection of Dashboards
 
-### Schema <a name="dashboards-schema"></a>
+### <a name="dashboards-schema"></a> Schema
 
 ```json
 {
@@ -1542,7 +1542,7 @@ Schema for a collection of Dashboards
   }
 }
 ```
-### Example <a name="dashboards-example"></a>
+### <a name="dashboards-example"></a> Example
 
 ```json
 {
@@ -1576,7 +1576,7 @@ Schema for a collection of Dashboards
 
 Schema for a single Device
 
-### Schema <a name="device-schema"></a>
+### <a name="device-schema"></a> Schema
 
 ```json
 {
@@ -1693,7 +1693,7 @@ Schema for a single Device
   }
 }
 ```
-### Example <a name="device-example"></a>
+### <a name="device-example"></a> Example
 
 ```json
 {
@@ -1734,7 +1734,7 @@ Schema for a single Device
 
 Schema for a command for a single Device
 
-### Schema <a name="device-command-schema"></a>
+### <a name="device-command-schema"></a> Schema
 
 ```json
 {
@@ -1758,7 +1758,7 @@ Schema for a command for a single Device
   "additionalProperties": false
 }
 ```
-### Example <a name="device-command-example"></a>
+### <a name="device-command-example"></a> Example
 
 ```json
 {
@@ -1780,7 +1780,7 @@ Schema for a command for a single Device
 
 Schema for an array of Device Commands
 
-### Schema <a name="device-commands-schema"></a>
+### <a name="device-commands-schema"></a> Schema
 
 ```json
 {
@@ -1809,7 +1809,7 @@ Schema for an array of Device Commands
   }
 }
 ```
-### Example <a name="device-commands-example"></a>
+### <a name="device-commands-example"></a> Example
 
 ```json
 [
@@ -1844,7 +1844,7 @@ Schema for an array of Device Commands
 
 Schema for the body of a Device authentication request
 
-### Schema <a name="device-credentials-schema"></a>
+### <a name="device-credentials-schema"></a> Schema
 
 ```json
 {
@@ -1870,7 +1870,7 @@ Schema for the body of a Device authentication request
   "additionalProperties": false
 }
 ```
-### Example <a name="device-credentials-example"></a>
+### <a name="device-credentials-example"></a> Example
 
 ```json
 {
@@ -1886,7 +1886,7 @@ Schema for the body of a Device authentication request
 
 Log of connection information for a Device
 
-### Schema <a name="device-log-schema"></a>
+### <a name="device-log-schema"></a> Schema
 
 ```json
 {
@@ -1918,7 +1918,7 @@ Log of connection information for a Device
   }
 }
 ```
-### Example <a name="device-log-example"></a>
+### <a name="device-log-example"></a> Example
 
 ```json
 [
@@ -1957,7 +1957,7 @@ Log of connection information for a Device
 
 Schema for the body of a Device modification request
 
-### Schema <a name="device-patch-schema"></a>
+### <a name="device-patch-schema"></a> Schema
 
 ```json
 {
@@ -2039,7 +2039,7 @@ Schema for the body of a Device modification request
   "additionalProperties": false
 }
 ```
-### Example <a name="device-patch-example"></a>
+### <a name="device-patch-example"></a> Example
 
 ```json
 {
@@ -2067,7 +2067,7 @@ Schema for the body of a Device modification request
 
 Schema for the body of a Device creation request
 
-### Schema <a name="device-post-schema"></a>
+### <a name="device-post-schema"></a> Schema
 
 ```json
 {
@@ -2152,7 +2152,7 @@ Schema for the body of a Device creation request
   ]
 }
 ```
-### Example <a name="device-post-example"></a>
+### <a name="device-post-example"></a> Example
 
 ```json
 {
@@ -2180,7 +2180,7 @@ Schema for the body of a Device creation request
 
 Schema for a single Device Recipe
 
-### Schema <a name="device-recipe-schema"></a>
+### <a name="device-recipe-schema"></a> Schema
 
 ```json
 {
@@ -2290,7 +2290,7 @@ Schema for a single Device Recipe
   }
 }
 ```
-### Example <a name="device-recipe-example"></a>
+### <a name="device-recipe-example"></a> Example
 
 ```json
 {
@@ -2325,7 +2325,7 @@ Schema for a single Device Recipe
 
 Schema for the result of a bulk Device creation request
 
-### Schema <a name="device-recipe-bulk-create-schema"></a>
+### <a name="device-recipe-bulk-create-schema"></a> Schema
 
 ```json
 {
@@ -2344,7 +2344,7 @@ Schema for the result of a bulk Device creation request
   }
 }
 ```
-### Example <a name="device-recipe-bulk-create-example"></a>
+### <a name="device-recipe-bulk-create-example"></a> Example
 
 ```json
 {
@@ -2360,7 +2360,7 @@ Schema for the result of a bulk Device creation request
 
 Schema for the body of a bulk Device creation request
 
-### Schema <a name="device-recipe-bulk-create-post-schema"></a>
+### <a name="device-recipe-bulk-create-post-schema"></a> Schema
 
 ```json
 {
@@ -2383,7 +2383,7 @@ Schema for the body of a bulk Device creation request
   ]
 }
 ```
-### Example <a name="device-recipe-bulk-create-post-example"></a>
+### <a name="device-recipe-bulk-create-post-example"></a> Example
 
 ```json
 {
@@ -2399,7 +2399,7 @@ Schema for the body of a bulk Device creation request
 
 Schema for the body of a Device Recipe modification request
 
-### Schema <a name="device-recipe-patch-schema"></a>
+### <a name="device-recipe-patch-schema"></a> Schema
 
 ```json
 {
@@ -2490,7 +2490,7 @@ Schema for the body of a Device Recipe modification request
   "additionalProperties": false
 }
 ```
-### Example <a name="device-recipe-patch-example"></a>
+### <a name="device-recipe-patch-example"></a> Example
 
 ```json
 {
@@ -2520,7 +2520,7 @@ Schema for the body of a Device Recipe modification request
 
 Schema for the body of a Device Recipe creation request
 
-### Schema <a name="device-recipe-post-schema"></a>
+### <a name="device-recipe-post-schema"></a> Schema
 
 ```json
 {
@@ -2614,7 +2614,7 @@ Schema for the body of a Device Recipe creation request
   ]
 }
 ```
-### Example <a name="device-recipe-post-example"></a>
+### <a name="device-recipe-post-example"></a> Example
 
 ```json
 {
@@ -2644,7 +2644,7 @@ Schema for the body of a Device Recipe creation request
 
 Schema for a collection of Device Recipes
 
-### Schema <a name="device-recipes-schema"></a>
+### <a name="device-recipes-schema"></a> Schema
 
 ```json
 {
@@ -2796,7 +2796,7 @@ Schema for a collection of Device Recipes
   }
 }
 ```
-### Example <a name="device-recipes-example"></a>
+### <a name="device-recipes-example"></a> Example
 
 ```json
 {
@@ -2842,7 +2842,7 @@ Schema for a collection of Device Recipes
 
 Schema for a single Device state
 
-### Schema <a name="device-state-schema"></a>
+### <a name="device-state-schema"></a> Schema
 
 ```json
 {
@@ -2876,7 +2876,7 @@ Schema for a single Device state
   "additionalProperties": false
 }
 ```
-### Example <a name="device-state-example"></a>
+### <a name="device-state-example"></a> Example
 
 ```json
 {
@@ -2893,7 +2893,7 @@ Schema for a single Device state
 
 Schema for an array of Device states
 
-### Schema <a name="device-states-schema"></a>
+### <a name="device-states-schema"></a> Schema
 
 ```json
 {
@@ -2932,7 +2932,7 @@ Schema for an array of Device states
   }
 }
 ```
-### Example <a name="device-states-example"></a>
+### <a name="device-states-example"></a> Example
 
 ```json
 [
@@ -2951,7 +2951,7 @@ Schema for an array of Device states
 
 Array of Tags for filtering devices. Tag keys and tag values are optional.
 
-### Schema <a name="device-tag-filter-schema"></a>
+### <a name="device-tag-filter-schema"></a> Schema
 
 ```json
 {
@@ -2974,7 +2974,7 @@ Array of Tags for filtering devices. Tag keys and tag values are optional.
   }
 }
 ```
-### Example <a name="device-tag-filter-example"></a>
+### <a name="device-tag-filter-example"></a> Example
 
 ```json
 [
@@ -2994,7 +2994,7 @@ Array of Tags for filtering devices. Tag keys and tag values are optional.
 
 Schema for a collection of Devices
 
-### Schema <a name="devices-schema"></a>
+### <a name="devices-schema"></a> Schema
 
 ```json
 {
@@ -3153,7 +3153,7 @@ Schema for a collection of Devices
   }
 }
 ```
-### Example <a name="devices-example"></a>
+### <a name="devices-example"></a> Example
 
 ```json
 {
@@ -3205,7 +3205,7 @@ Schema for a collection of Devices
 
 Schema for the body of a request to disable two factor auth
 
-### Schema <a name="disable-two-factor-auth-schema"></a>
+### <a name="disable-two-factor-auth-schema"></a> Schema
 
 ```json
 {
@@ -3229,7 +3229,7 @@ Schema for the body of a request to disable two factor auth
   "additionalProperties": false
 }
 ```
-### Example <a name="disable-two-factor-auth-example"></a>
+### <a name="disable-two-factor-auth-example"></a> Example
 
 ```json
 {
@@ -3244,7 +3244,7 @@ Schema for the body of a request to disable two factor auth
 
 Schema for the body of a request to enable two factor auth
 
-### Schema <a name="enable-two-factor-auth-schema"></a>
+### <a name="enable-two-factor-auth-schema"></a> Schema
 
 ```json
 {
@@ -3269,7 +3269,7 @@ Schema for the body of a request to enable two factor auth
   "additionalProperties": false
 }
 ```
-### Example <a name="enable-two-factor-auth-example"></a>
+### <a name="enable-two-factor-auth-example"></a> Example
 
 ```json
 {
@@ -3284,7 +3284,7 @@ Schema for the body of a request to enable two factor auth
 
 Schema for errors returned by the API
 
-### Schema <a name="error-schema"></a>
+### <a name="error-schema"></a> Schema
 
 ```json
 {
@@ -3300,7 +3300,7 @@ Schema for errors returned by the API
   }
 }
 ```
-### Example <a name="error-example"></a>
+### <a name="error-example"></a> Example
 
 ```json
 {
@@ -3315,7 +3315,7 @@ Schema for errors returned by the API
 
 Schema for a single Event
 
-### Schema <a name="event-schema"></a>
+### <a name="event-schema"></a> Schema
 
 ```json
 {
@@ -3434,7 +3434,7 @@ Schema for a single Event
   }
 }
 ```
-### Example <a name="event-example"></a>
+### <a name="event-example"></a> Example
 
 ```json
 {
@@ -3459,7 +3459,7 @@ Schema for a single Event
 
 Schema for the body of an Event modification request
 
-### Schema <a name="event-patch-schema"></a>
+### <a name="event-patch-schema"></a> Schema
 
 ```json
 {
@@ -3483,7 +3483,7 @@ Schema for the body of an Event modification request
   "additionalProperties": false
 }
 ```
-### Example <a name="event-patch-example"></a>
+### <a name="event-patch-example"></a> Example
 
 ```json
 {
@@ -3498,7 +3498,7 @@ Schema for the body of an Event modification request
 
 Schema for the body of an Event creation request
 
-### Schema <a name="event-post-schema"></a>
+### <a name="event-post-schema"></a> Schema
 
 ```json
 {
@@ -3541,7 +3541,7 @@ Schema for the body of an Event creation request
   "additionalProperties": false
 }
 ```
-### Example <a name="event-post-example"></a>
+### <a name="event-post-example"></a> Example
 
 ```json
 {
@@ -3558,7 +3558,7 @@ Schema for the body of an Event creation request
 
 Schema for a collection of Events
 
-### Schema <a name="events-schema"></a>
+### <a name="events-schema"></a> Schema
 
 ```json
 {
@@ -3727,7 +3727,7 @@ Schema for a collection of Events
   }
 }
 ```
-### Example <a name="events-example"></a>
+### <a name="events-example"></a> Example
 
 ```json
 {
@@ -3764,7 +3764,7 @@ Schema for a collection of Events
 
 Schema for a single Workflow
 
-### Schema <a name="workflow-schema"></a>
+### <a name="workflow-schema"></a> Schema
 
 ```json
 {
@@ -3905,7 +3905,7 @@ Schema for a single Workflow
   }
 }
 ```
-### Example <a name="workflow-example"></a>
+### <a name="workflow-example"></a> Example
 
 ```json
 {
@@ -3933,7 +3933,7 @@ Schema for a single Workflow
 
 Log of workflow run information
 
-### Schema <a name="workflow-log-schema"></a>
+### <a name="workflow-log-schema"></a> Schema
 
 ```json
 {
@@ -3983,7 +3983,7 @@ Log of workflow run information
   }
 }
 ```
-### Example <a name="workflow-log-example"></a>
+### <a name="workflow-log-example"></a> Example
 
 ```json
 [
@@ -4026,7 +4026,7 @@ Log of workflow run information
 
 Schema for the body of a Workflow modification request
 
-### Schema <a name="workflow-patch-schema"></a>
+### <a name="workflow-patch-schema"></a> Schema
 
 ```json
 {
@@ -4137,7 +4137,7 @@ Schema for the body of a Workflow modification request
   "additionalProperties": false
 }
 ```
-### Example <a name="workflow-patch-example"></a>
+### <a name="workflow-patch-example"></a> Example
 
 ```json
 {
@@ -4153,7 +4153,7 @@ Schema for the body of a Workflow modification request
 
 Schema for the body of a Workflow creation request
 
-### Schema <a name="workflow-post-schema"></a>
+### <a name="workflow-post-schema"></a> Schema
 
 ```json
 {
@@ -4267,7 +4267,7 @@ Schema for the body of a Workflow creation request
   ]
 }
 ```
-### Example <a name="workflow-post-example"></a>
+### <a name="workflow-post-example"></a> Example
 
 ```json
 {
@@ -4282,7 +4282,7 @@ Schema for the body of a Workflow creation request
 
 Set of persistent workflow storage values
 
-### Schema <a name="workflow-storage-entries-schema"></a>
+### <a name="workflow-storage-entries-schema"></a> Schema
 
 ```json
 {
@@ -4293,7 +4293,7 @@ Set of persistent workflow storage values
   }
 }
 ```
-### Example <a name="workflow-storage-entries-example"></a>
+### <a name="workflow-storage-entries-example"></a> Example
 
 ```json
 {
@@ -4312,7 +4312,7 @@ Set of persistent workflow storage values
 
 Schema for the body of a request to set a Workflow storage entry
 
-### Schema <a name="workflow-storage-entry-schema"></a>
+### <a name="workflow-storage-entry-schema"></a> Schema
 
 ```json
 {
@@ -4332,7 +4332,7 @@ Schema for the body of a request to set a Workflow storage entry
   ]
 }
 ```
-### Example <a name="workflow-storage-entry-example"></a>
+### <a name="workflow-storage-entry-example"></a> Example
 
 ```json
 {
@@ -4347,7 +4347,7 @@ Schema for the body of a request to set a Workflow storage entry
 
 Schema for a collection of Workflows
 
-### Schema <a name="workflows-schema"></a>
+### <a name="workflows-schema"></a> Schema
 
 ```json
 {
@@ -4530,7 +4530,7 @@ Schema for a collection of Workflows
   }
 }
 ```
-### Example <a name="workflows-example"></a>
+### <a name="workflows-example"></a> Example
 
 ```json
 {
@@ -4569,7 +4569,7 @@ Schema for a collection of Workflows
 
 Schema for the body of a Github login request
 
-### Schema <a name="github-login-schema"></a>
+### <a name="github-login-schema"></a> Schema
 
 ```json
 {
@@ -4587,7 +4587,7 @@ Schema for the body of a Github login request
   "additionalProperties": false
 }
 ```
-### Example <a name="github-login-example"></a>
+### <a name="github-login-example"></a> Example
 
 ```json
 {
@@ -4601,7 +4601,7 @@ Schema for the body of a Github login request
 
 Schema for the result of a last value query
 
-### Schema <a name="last-value-data-schema"></a>
+### <a name="last-value-data-schema"></a> Schema
 
 ```json
 {
@@ -4639,7 +4639,7 @@ Schema for the result of a last value query
   "additionalProperties": false
 }
 ```
-### Example <a name="last-value-data-example"></a>
+### <a name="last-value-data-example"></a> Example
 
 ```json
 {
@@ -4664,7 +4664,7 @@ Schema for the result of a last value query
 
 Schema for the body of a last value query request
 
-### Schema <a name="last-value-query-schema"></a>
+### <a name="last-value-query-schema"></a> Schema
 
 ```json
 {
@@ -4704,7 +4704,7 @@ Schema for the body of a last value query request
   "additionalProperties": false
 }
 ```
-### Example <a name="last-value-query-example"></a>
+### <a name="last-value-query-example"></a> Example
 
 ```json
 {
@@ -4722,7 +4722,7 @@ Schema for the body of a last value query request
 
 Schema for information about the currently authenticated user
 
-### Schema <a name="me-schema"></a>
+### <a name="me-schema"></a> Schema
 
 ```json
 {
@@ -4899,7 +4899,7 @@ Schema for information about the currently authenticated user
   }
 }
 ```
-### Example <a name="me-example"></a>
+### <a name="me-example"></a> Example
 
 ```json
 {
@@ -4930,7 +4930,7 @@ Schema for information about the currently authenticated user
 
 Schema for the body of request to modify the current user
 
-### Schema <a name="me-patch-schema"></a>
+### <a name="me-patch-schema"></a> Schema
 
 ```json
 {
@@ -4977,7 +4977,7 @@ Schema for the body of request to modify the current user
   "additionalProperties": false
 }
 ```
-### Example <a name="me-patch-example"></a>
+### <a name="me-patch-example"></a> Example
 
 ```json
 {
@@ -4996,7 +4996,7 @@ Schema for the body of request to modify the current user
 
 Schema for the body of a request to send a command to multiple Devices
 
-### Schema <a name="multi-device-command-schema"></a>
+### <a name="multi-device-command-schema"></a> Schema
 
 ```json
 {
@@ -5045,7 +5045,7 @@ Schema for the body of a request to send a command to multiple Devices
   "additionalProperties": false
 }
 ```
-### Example <a name="multi-device-command-example"></a>
+### <a name="multi-device-command-example"></a> Example
 
 ```json
 {
@@ -5073,7 +5073,7 @@ Schema for the body of a request to send a command to multiple Devices
 
 Schema for a single Organization
 
-### Schema <a name="organization-schema"></a>
+### <a name="organization-schema"></a> Schema
 
 ```json
 {
@@ -5158,7 +5158,7 @@ Schema for a single Organization
   }
 }
 ```
-### Example <a name="organization-example"></a>
+### <a name="organization-example"></a> Example
 
 ```json
 {
@@ -5197,7 +5197,7 @@ Schema for a single Organization
 
 Schema for the body of a request to send an invitation
 
-### Schema <a name="organization-invitation-post-schema"></a>
+### <a name="organization-invitation-post-schema"></a> Schema
 
 ```json
 {
@@ -5225,7 +5225,7 @@ Schema for the body of a request to send an invitation
   ]
 }
 ```
-### Example <a name="organization-invitation-post-example"></a>
+### <a name="organization-invitation-post-example"></a> Example
 
 ```json
 {
@@ -5240,7 +5240,7 @@ Schema for the body of a request to send an invitation
 
 Schema for an array of pending invitations to an Organization
 
-### Schema <a name="organization-invitations-schema"></a>
+### <a name="organization-invitations-schema"></a> Schema
 
 ```json
 {
@@ -5280,7 +5280,7 @@ Schema for an array of pending invitations to an Organization
   }
 }
 ```
-### Example <a name="organization-invitations-example"></a>
+### <a name="organization-invitations-example"></a> Example
 
 ```json
 [
@@ -5301,7 +5301,7 @@ Schema for an array of pending invitations to an Organization
 
 Schema for the body of a request to modify an Organization member
 
-### Schema <a name="organization-member-patch-schema"></a>
+### <a name="organization-member-patch-schema"></a> Schema
 
 ```json
 {
@@ -5328,7 +5328,7 @@ Schema for the body of a request to modify an Organization member
   ]
 }
 ```
-### Example <a name="organization-member-patch-example"></a>
+### <a name="organization-member-patch-example"></a> Example
 
 ```json
 {
@@ -5343,7 +5343,7 @@ Schema for the body of a request to modify an Organization member
 
 Schema for the body of an Organization modification request
 
-### Schema <a name="organization-patch-schema"></a>
+### <a name="organization-patch-schema"></a> Schema
 
 ```json
 {
@@ -5363,7 +5363,7 @@ Schema for the body of an Organization modification request
   "additionalProperties": false
 }
 ```
-### Example <a name="organization-patch-example"></a>
+### <a name="organization-patch-example"></a> Example
 
 ```json
 {
@@ -5378,7 +5378,7 @@ Schema for the body of an Organization modification request
 
 Schema for the body of an Organization creation request
 
-### Schema <a name="organization-post-schema"></a>
+### <a name="organization-post-schema"></a> Schema
 
 ```json
 {
@@ -5401,7 +5401,7 @@ Schema for the body of an Organization creation request
   ]
 }
 ```
-### Example <a name="organization-post-example"></a>
+### <a name="organization-post-example"></a> Example
 
 ```json
 {
@@ -5416,7 +5416,7 @@ Schema for the body of an Organization creation request
 
 Schema for a collection of Organizations
 
-### Schema <a name="organizations-schema"></a>
+### <a name="organizations-schema"></a> Schema
 
 ```json
 {
@@ -5539,7 +5539,7 @@ Schema for a collection of Organizations
   }
 }
 ```
-### Example <a name="organizations-example"></a>
+### <a name="organizations-example"></a> Example
 
 ```json
 {
@@ -5588,7 +5588,7 @@ Schema for a collection of Organizations
 
 Schema for the body of a request to add a recent item
 
-### Schema <a name="recent-item-schema"></a>
+### <a name="recent-item-schema"></a> Schema
 
 ```json
 {
@@ -5619,7 +5619,7 @@ Schema for the body of a request to add a recent item
   ]
 }
 ```
-### Example <a name="recent-item-example"></a>
+### <a name="recent-item-example"></a> Example
 
 ```json
 {
@@ -5635,7 +5635,7 @@ Schema for the body of a request to add a recent item
 
 Schema for an array of recent items
 
-### Schema <a name="recent-item-list-schema"></a>
+### <a name="recent-item-list-schema"></a> Schema
 
 ```json
 {
@@ -5675,7 +5675,7 @@ Schema for an array of recent items
   }
 }
 ```
-### Example <a name="recent-item-list-example"></a>
+### <a name="recent-item-list-example"></a> Example
 
 ```json
 {
@@ -5699,7 +5699,7 @@ Schema for an array of recent items
 
 Schema for reporting a successful operation
 
-### Schema <a name="success-schema"></a>
+### <a name="success-schema"></a> Schema
 
 ```json
 {
@@ -5715,7 +5715,7 @@ Schema for reporting a successful operation
   }
 }
 ```
-### Example <a name="success-example"></a>
+### <a name="success-example"></a> Example
 
 ```json
 {
@@ -5729,7 +5729,7 @@ Schema for reporting a successful operation
 
 Schema for the result of a time series query
 
-### Schema <a name="time-series-data-schema"></a>
+### <a name="time-series-data-schema"></a> Schema
 
 ```json
 {
@@ -5822,7 +5822,7 @@ Schema for the result of a time series query
   ]
 }
 ```
-### Example <a name="time-series-data-example"></a>
+### <a name="time-series-data-example"></a> Example
 
 ```json
 {
@@ -5875,7 +5875,7 @@ Schema for the result of a time series query
 
 Schema for the body of a time series query request
 
-### Schema <a name="time-series-query-schema"></a>
+### <a name="time-series-query-schema"></a> Schema
 
 ```json
 {
@@ -5943,7 +5943,7 @@ Schema for the body of a time series query request
   "additionalProperties": false
 }
 ```
-### Example <a name="time-series-query-example"></a>
+### <a name="time-series-query-example"></a> Example
 
 ```json
 {
@@ -5967,7 +5967,7 @@ Schema for the body of a time series query request
 
 Schema for the body of a User authentication request
 
-### Schema <a name="user-credentials-schema"></a>
+### <a name="user-credentials-schema"></a> Schema
 
 ```json
 {
@@ -5996,7 +5996,7 @@ Schema for the body of a User authentication request
   "additionalProperties": false
 }
 ```
-### Example <a name="user-credentials-example"></a>
+### <a name="user-credentials-example"></a> Example
 
 ```json
 {
@@ -6011,7 +6011,7 @@ Schema for the body of a User authentication request
 
 Schema for the body of a request to press a Workflow virtual button
 
-### Schema <a name="virtual-button-press-schema"></a>
+### <a name="virtual-button-press-schema"></a> Schema
 
 ```json
 {
@@ -6029,7 +6029,7 @@ Schema for the body of a request to press a Workflow virtual button
   "additionalProperties": false
 }
 ```
-### Example <a name="virtual-button-press-example"></a>
+### <a name="virtual-button-press-example"></a> Example
 
 ```json
 {
@@ -6046,7 +6046,7 @@ Schema for the body of a request to press a Workflow virtual button
 
 Schema for a single Webhook
 
-### Schema <a name="webhook-schema"></a>
+### <a name="webhook-schema"></a> Schema
 
 ```json
 {
@@ -6102,7 +6102,7 @@ Schema for a single Webhook
   }
 }
 ```
-### Example <a name="webhook-example"></a>
+### <a name="webhook-example"></a> Example
 
 ```json
 {
@@ -6123,7 +6123,7 @@ Schema for a single Webhook
 
 Schema for the body of a Webhook modification request
 
-### Schema <a name="webhook-patch-schema"></a>
+### <a name="webhook-patch-schema"></a> Schema
 
 ```json
 {
@@ -6156,7 +6156,7 @@ Schema for the body of a Webhook modification request
   "additionalProperties": false
 }
 ```
-### Example <a name="webhook-patch-example"></a>
+### <a name="webhook-patch-example"></a> Example
 
 ```json
 {
@@ -6171,7 +6171,7 @@ Schema for the body of a Webhook modification request
 
 Schema for the body of a Webhook creation request
 
-### Schema <a name="webhook-post-schema"></a>
+### <a name="webhook-post-schema"></a> Schema
 
 ```json
 {
@@ -6207,7 +6207,7 @@ Schema for the body of a Webhook creation request
   "additionalProperties": false
 }
 ```
-### Example <a name="webhook-post-example"></a>
+### <a name="webhook-post-example"></a> Example
 
 ```json
 {
@@ -6221,7 +6221,7 @@ Schema for the body of a Webhook creation request
 
 Schema for a collection of Webhooks
 
-### Schema <a name="webhooks-schema"></a>
+### <a name="webhooks-schema"></a> Schema
 
 ```json
 {
@@ -6319,7 +6319,7 @@ Schema for a collection of Webhooks
   }
 }
 ```
-### Example <a name="webhooks-example"></a>
+### <a name="webhooks-example"></a> Example
 
 ```json
 {

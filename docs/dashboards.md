@@ -61,7 +61,7 @@ puts result
 
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
-| dashboard | [Dashboard Post](_schemas.md#dashboard-post) | Y | New dashboard information |  | [Dashboard Post Example](schemas.md#dashboard-post-example) |
+| dashboard | [Dashboard Post](_schemas.md#dashboard-post) | Y | New dashboard information |  | [Dashboard Post Example](_schemas.md#dashboard-post-example) |
 
 #### Successful Responses
 

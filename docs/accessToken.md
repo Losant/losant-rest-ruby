@@ -91,7 +91,7 @@ puts result
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | accessTokenId | string | Y | ID associated with the accessToken |  | 575ec7417ae143cd83dc4a95 |
-| accessToken | [Access Token Patch](_schemas.md#access-token-patch) | Y | Object containing new properties of the accessToken |  | [Access Token Patch Example](schemas.md#access-token-patch-example) |
+| accessToken | [Access Token Patch](_schemas.md#access-token-patch) | Y | Object containing new properties of the accessToken |  | [Access Token Patch Example](_schemas.md#access-token-patch-example) |
 
 #### Successful Responses
 

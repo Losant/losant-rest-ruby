@@ -212,7 +212,7 @@ puts result
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
 | deviceId | string | Y | ID associated with the device |  | 575ecf887ae143cd83dc4aa2 |
-| device | [Device Patch](_schemas.md#device-patch) | Y | Object containing new properties of the device |  | [Device Patch Example](schemas.md#device-patch-example) |
+| device | [Device Patch](_schemas.md#device-patch) | Y | Object containing new properties of the device |  | [Device Patch Example](_schemas.md#device-patch-example) |
 
 #### Successful Responses
 
@@ -248,7 +248,7 @@ puts result
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
 | deviceId | string | Y | ID associated with the device |  | 575ecf887ae143cd83dc4aa2 |
-| deviceCommand | [Device Command](_schemas.md#device-command) | Y | Command to send to the device |  | [Device Command Example](schemas.md#device-command-example) |
+| deviceCommand | [Device Command](_schemas.md#device-command) | Y | Command to send to the device |  | [Device Command Example](_schemas.md#device-command-example) |
 
 #### Successful Responses
 
@@ -284,7 +284,7 @@ puts result
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
 | deviceId | string | Y | ID associated with the device |  | 575ecf887ae143cd83dc4aa2 |
-| deviceState | [Device State](_schemas.md#device-state) | Y | Object containing the current state of the device |  | [Device State Example](schemas.md#device-state-example) |
+| deviceState | [Device State](_schemas.md#device-state) | Y | Object containing the current state of the device |  | [Device State Example](_schemas.md#device-state-example) |
 
 #### Successful Responses
 

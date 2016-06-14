@@ -65,7 +65,7 @@ puts result
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
-| deviceRecipe | [Device Recipe Post](_schemas.md#device-recipe-post) | Y | New device recipe information |  | [Device Recipe Post Example](schemas.md#device-recipe-post-example) |
+| deviceRecipe | [Device Recipe Post](_schemas.md#device-recipe-post) | Y | New device recipe information |  | [Device Recipe Post Example](_schemas.md#device-recipe-post-example) |
 
 #### Successful Responses
 

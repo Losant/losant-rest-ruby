@@ -96,7 +96,7 @@ puts result
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | orgId | string | Y | ID associated with the organization |  | 575ed6e87ae143cd83dc4aa8 |
-| invite | [Organization Invitation Post](_schemas.md#organization-invitation-post) | Y | Object containing new invite info |  | [Organization Invitation Post Example](schemas.md#organization-invitation-post-example) |
+| invite | [Organization Invitation Post](_schemas.md#organization-invitation-post) | Y | Object containing new invite info |  | [Organization Invitation Post Example](_schemas.md#organization-invitation-post-example) |
 
 #### Successful Responses
 
@@ -130,7 +130,7 @@ puts result
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | orgId | string | Y | ID associated with the organization |  | 575ed6e87ae143cd83dc4aa8 |
-| member | [Organization Member Patch](_schemas.md#organization-member-patch) | Y | Object containing new member pair |  | [Organization Member Patch Example](schemas.md#organization-member-patch-example) |
+| member | [Organization Member Patch](_schemas.md#organization-member-patch) | Y | Object containing new member pair |  | [Organization Member Patch Example](_schemas.md#organization-member-patch-example) |
 
 #### Successful Responses
 
@@ -164,7 +164,7 @@ puts result
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | orgId | string | Y | ID associated with the organization |  | 575ed6e87ae143cd83dc4aa8 |
-| organization | [Organization Patch](_schemas.md#organization-patch) | Y | Object containing new organization properties |  | [Organization Patch Example](schemas.md#organization-patch-example) |
+| organization | [Organization Patch](_schemas.md#organization-patch) | Y | Object containing new organization properties |  | [Organization Patch Example](_schemas.md#organization-patch-example) |
 
 #### Successful Responses
 

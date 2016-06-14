@@ -99,7 +99,7 @@ puts result
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
 | applicationKeyId | string | Y | ID associated with the applicationKey |  | 575ec76c7ae143cd83dc4a96 |
-| applicationKey | [Application Key Patch](_schemas.md#application-key-patch) | Y | Object containing new properties of the applicationKey |  | [Application Key Patch Example](schemas.md#application-key-patch-example) |
+| applicationKey | [Application Key Patch](_schemas.md#application-key-patch) | Y | Object containing new properties of the applicationKey |  | [Application Key Patch Example](_schemas.md#application-key-patch-example) |
 
 #### Successful Responses
 

@@ -65,7 +65,7 @@ puts result
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
-| webhook | [Webhook Post](_schemas.md#webhook-post) | Y | New webhook information |  | [Webhook Post Example](schemas.md#webhook-post-example) |
+| webhook | [Webhook Post](_schemas.md#webhook-post) | Y | New webhook information |  | [Webhook Post Example](_schemas.md#webhook-post-example) |
 
 #### Successful Responses
 

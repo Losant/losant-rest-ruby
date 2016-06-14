@@ -61,7 +61,7 @@ puts result
 
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
-| application | [Application Post](_schemas.md#application-post) | Y | New application information |  | [Application Post Example](schemas.md#application-post-example) |
+| application | [Application Post](_schemas.md#application-post) | Y | New application information |  | [Application Post Example](_schemas.md#application-post-example) |
 
 #### Successful Responses
 

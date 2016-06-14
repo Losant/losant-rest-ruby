@@ -102,7 +102,7 @@ puts result
 | filterField | string | N | Field to filter the events to act on by. Blank or not provided means no filtering. Accepted values are: subject |  | subject |
 | filter | string | N | Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering. |  | abnormal power to * |
 | state | string | N | If provided, act on events only in the given state. Accepted values are: new, acknowledged, resolved |  | new |
-| updates | [Event Patch](_schemas.md#event-patch) | Y | Object containing updated information for the events |  | [Event Patch Example](schemas.md#event-patch-example) |
+| updates | [Event Patch](_schemas.md#event-patch) | Y | Object containing updated information for the events |  | [Event Patch Example](_schemas.md#event-patch-example) |
 
 #### Successful Responses
 
@@ -136,7 +136,7 @@ puts result
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
-| event | [Event Post](_schemas.md#event-post) | Y | New event information |  | [Event Post Example](schemas.md#event-post-example) |
+| event | [Event Post](_schemas.md#event-post) | Y | New event information |  | [Event Post Example](_schemas.md#event-post-example) |
 
 #### Successful Responses
 
