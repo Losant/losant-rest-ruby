@@ -20,6 +20,7 @@ module LosantRest
     # *  200 - If webhook was successfully deleted (https://api.losant.com/#/definitions/success)
     #
     # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if webhook was not found (https://api.losant.com/#/definitions/error)
     def delete(params = {})
       params = Utils.symbolize_hash_keys(params)
@@ -57,6 +58,7 @@ module LosantRest
     # *  200 - Webhook information (https://api.losant.com/#/definitions/webhook)
     #
     # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if webhook was not found (https://api.losant.com/#/definitions/error)
     def get(params = {})
       params = Utils.symbolize_hash_keys(params)

@@ -20,6 +20,7 @@ module LosantRest
     # *  200 - If flow was successfully deleted (https://api.losant.com/#/definitions/success)
     #
     # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if flow was not found (https://api.losant.com/#/definitions/error)
     def delete(params = {})
       params = Utils.symbolize_hash_keys(params)
@@ -57,6 +58,7 @@ module LosantRest
     # *  200 - Flow information (https://api.losant.com/#/definitions/flow)
     #
     # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if flow was not found (https://api.losant.com/#/definitions/error)
     def get(params = {})
       params = Utils.symbolize_hash_keys(params)
@@ -93,9 +95,10 @@ module LosantRest
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Recent log entries
+    # *  200 - Recent log entries (https://api.losant.com/#/definitions/flowLog)
     #
     # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if device was not found (https://api.losant.com/#/definitions/error)
     def get_log_entries(params = {})
       params = Utils.symbolize_hash_keys(params)
@@ -132,9 +135,10 @@ module LosantRest
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - The stored values
+    # *  200 - The stored values (https://api.losant.com/#/definitions/flowStorageEntries)
     #
     # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if flow was not found (https://api.losant.com/#/definitions/error)
     def get_storage_entries(params = {})
       params = Utils.symbolize_hash_keys(params)
@@ -214,6 +218,7 @@ module LosantRest
     # *  200 - Virtual button was pressed (https://api.losant.com/#/definitions/success)
     #
     # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if flow was not found (https://api.losant.com/#/definitions/error)
     def press_virtual_button(params = {})
       params = Utils.symbolize_hash_keys(params)
@@ -254,6 +259,7 @@ module LosantRest
     # *  200 - Value was successfully stored (https://api.losant.com/#/definitions/success)
     #
     # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if flow was not found (https://api.losant.com/#/definitions/error)
     def set_storage_entry(params = {})
       params = Utils.symbolize_hash_keys(params)

@@ -20,6 +20,7 @@ module LosantRest
     # *  200 - Last known data for the requested attribute (https://api.losant.com/#/definitions/lastValueData)
     #
     # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
     def last_value_query(params = {})
       params = Utils.symbolize_hash_keys(params)
@@ -58,6 +59,7 @@ module LosantRest
     # *  200 - Data for requested time range (https://api.losant.com/#/definitions/timeSeriesData)
     #
     # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
     def time_series_query(params = {})
       params = Utils.symbolize_hash_keys(params)

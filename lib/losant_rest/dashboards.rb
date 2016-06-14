@@ -25,6 +25,7 @@ module LosantRest
     # *  200 - Collection of dashboards (https://api.losant.com/#/definitions/dashboards)
     #
     # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     def get(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }

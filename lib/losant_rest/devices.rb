@@ -26,6 +26,7 @@ module LosantRest
     # *  200 - Collection of devices (https://api.losant.com/#/definitions/devices)
     #
     # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
     def get(params = {})
       params = Utils.symbolize_hash_keys(params)
