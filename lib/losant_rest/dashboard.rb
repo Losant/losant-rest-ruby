@@ -47,6 +47,7 @@ module LosantRest
     #
     # Parameters:
     # *  {string} dashboardId - ID of the associated dashboard
+    # *  {string} password - Password for password-protected dashboards
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -65,6 +66,7 @@ module LosantRest
 
       raise ArgumentError.new("dashboardId is required") unless params.has_key?(:dashboardId)
 
+      query_params[:password] = params[:password] if params.has_key?(:password)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
