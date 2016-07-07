@@ -11,6 +11,7 @@ module LosantRest
     #
     # Parameters:
     # *  {string} applicationId - ID of the associated application
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -29,6 +30,7 @@ module LosantRest
 
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
 
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -47,6 +49,7 @@ module LosantRest
     #
     # Parameters:
     # *  {string} applicationId - ID of the associated application
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -65,6 +68,7 @@ module LosantRest
 
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
 
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -84,6 +88,7 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID of the associated application
     # *  {hash} application - Object containing new application properties (https://api.losant.com/#/definitions/applicationPatch)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -104,6 +109,7 @@ module LosantRest
       raise ArgumentError.new("application is required") unless params.has_key?(:application)
 
       body = params[:application] if params.has_key?(:application)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)

@@ -12,6 +12,7 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {hash} query - The query parameters (https://api.losant.com/#/definitions/lastValueQuery)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -32,6 +33,7 @@ module LosantRest
       raise ArgumentError.new("query is required") unless params.has_key?(:query)
 
       body = params[:query] if params.has_key?(:query)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -51,6 +53,7 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {hash} query - The query parameters (https://api.losant.com/#/definitions/timeSeriesQuery)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -71,6 +74,7 @@ module LosantRest
       raise ArgumentError.new("query is required") unless params.has_key?(:query)
 
       body = params[:query] if params.has_key?(:query)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)

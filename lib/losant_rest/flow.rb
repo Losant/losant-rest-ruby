@@ -12,6 +12,7 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} flowId - ID associated with the flow
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -31,6 +32,7 @@ module LosantRest
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
       raise ArgumentError.new("flowId is required") unless params.has_key?(:flowId)
 
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -50,6 +52,7 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} flowId - ID associated with the flow
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -69,6 +72,7 @@ module LosantRest
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
       raise ArgumentError.new("flowId is required") unless params.has_key?(:flowId)
 
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -90,6 +94,7 @@ module LosantRest
     # *  {string} flowId - ID associated with the flow
     # *  {string} limit - Max log entries to return (ordered by time descending)
     # *  {string} since - Look for log entries since this time (ms since epoch)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -111,6 +116,7 @@ module LosantRest
 
       query_params[:limit] = params[:limit] if params.has_key?(:limit)
       query_params[:since] = params[:since] if params.has_key?(:since)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -130,6 +136,7 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} flowId - ID associated with the flow
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -149,6 +156,7 @@ module LosantRest
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
       raise ArgumentError.new("flowId is required") unless params.has_key?(:flowId)
 
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -169,6 +177,7 @@ module LosantRest
     # *  {string} applicationId - ID associated with the application
     # *  {string} flowId - ID associated with the flow
     # *  {hash} flow - Object containing new properties of the flow (https://api.losant.com/#/definitions/flowPatch)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -190,6 +199,7 @@ module LosantRest
       raise ArgumentError.new("flow is required") unless params.has_key?(:flow)
 
       body = params[:flow] if params.has_key?(:flow)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -210,6 +220,7 @@ module LosantRest
     # *  {string} applicationId - ID associated with the application
     # *  {string} flowId - ID associated with the flow
     # *  {hash} button - Object containing button key and payload (https://api.losant.com/#/definitions/virtualButtonPress)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -231,6 +242,7 @@ module LosantRest
       raise ArgumentError.new("button is required") unless params.has_key?(:button)
 
       body = params[:button] if params.has_key?(:button)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -251,6 +263,7 @@ module LosantRest
     # *  {string} applicationId - ID associated with the application
     # *  {string} flowId - ID associated with the flow
     # *  {hash} entry - Object containing storage entry (https://api.losant.com/#/definitions/flowStorageEntry)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -272,6 +285,7 @@ module LosantRest
       raise ArgumentError.new("entry is required") unless params.has_key?(:entry)
 
       body = params[:entry] if params.has_key?(:entry)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)

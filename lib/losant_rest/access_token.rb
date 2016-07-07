@@ -11,6 +11,7 @@ module LosantRest
     #
     # Parameters:
     # *  {string} accessTokenId - ID associated with the accessToken
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -29,6 +30,7 @@ module LosantRest
 
       raise ArgumentError.new("accessTokenId is required") unless params.has_key?(:accessTokenId)
 
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -47,6 +49,7 @@ module LosantRest
     #
     # Parameters:
     # *  {string} accessTokenId - ID associated with the accessToken
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -65,6 +68,7 @@ module LosantRest
 
       raise ArgumentError.new("accessTokenId is required") unless params.has_key?(:accessTokenId)
 
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -84,6 +88,7 @@ module LosantRest
     # Parameters:
     # *  {string} accessTokenId - ID associated with the accessToken
     # *  {hash} accessToken - Object containing new properties of the accessToken (https://api.losant.com/#/definitions/accessTokenPatch)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -104,6 +109,7 @@ module LosantRest
       raise ArgumentError.new("accessToken is required") unless params.has_key?(:accessToken)
 
       body = params[:accessToken] if params.has_key?(:accessToken)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)

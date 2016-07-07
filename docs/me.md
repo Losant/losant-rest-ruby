@@ -114,7 +114,7 @@ puts result
 Disconnects the user from Github
 
 ```ruby
-result = client.me.disconnect_github
+result = client.me.disconnect_github(optional_params)
 
 puts result
 ```
@@ -142,7 +142,7 @@ No parameters needed for this call.
 Disconnects the user from Twitter
 
 ```ruby
-result = client.me.disconnect_twitter
+result = client.me.disconnect_twitter(optional_params)
 
 puts result
 ```
@@ -290,7 +290,7 @@ puts result
 Sends an email verification to the user
 
 ```ruby
-result = client.me.verify_email
+result = client.me.verify_email(optional_params)
 
 puts result
 ```

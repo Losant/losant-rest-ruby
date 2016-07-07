@@ -11,6 +11,7 @@ module LosantRest
     #
     # Parameters:
     # *  {string} dashboardId - ID of the associated dashboard
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -29,6 +30,7 @@ module LosantRest
 
       raise ArgumentError.new("dashboardId is required") unless params.has_key?(:dashboardId)
 
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -48,6 +50,7 @@ module LosantRest
     # Parameters:
     # *  {string} dashboardId - ID of the associated dashboard
     # *  {string} password - Password for password-protected dashboards
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -67,6 +70,7 @@ module LosantRest
       raise ArgumentError.new("dashboardId is required") unless params.has_key?(:dashboardId)
 
       query_params[:password] = params[:password] if params.has_key?(:password)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -86,6 +90,7 @@ module LosantRest
     # Parameters:
     # *  {string} dashboardId - ID of the associated dashboard
     # *  {hash} dashboard - Object containing new dashboard properties (https://api.losant.com/#/definitions/dashboardPatch)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -106,6 +111,7 @@ module LosantRest
       raise ArgumentError.new("dashboard is required") unless params.has_key?(:dashboard)
 
       body = params[:dashboard] if params.has_key?(:dashboard)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)

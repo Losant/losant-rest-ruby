@@ -16,7 +16,7 @@ parameters and the potential responses.
 Returns the accessTokens for a user
 
 ```ruby
-result = client.access_tokens.get
+result = client.access_tokens.get(optional_params)
 
 puts result
 ```

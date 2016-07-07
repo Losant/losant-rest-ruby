@@ -12,6 +12,7 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceId - ID associated with the device
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -31,6 +32,7 @@ module LosantRest
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
       raise ArgumentError.new("deviceId is required") unless params.has_key?(:deviceId)
 
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -45,11 +47,56 @@ module LosantRest
         body: body)
     end
 
+    # Creates a device data export (to be emailed to the requestor). Defaults to all data.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} deviceId - ID associated with the device
+    # *  {string} start - Start time of export (ms since epoch - 0 means now, negative is relative to now)
+    # *  {string} end - End time of export (ms since epoch - 0 means now, negative is relative to now)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - If generation of export was successfully started (https://api.losant.com/#/definitions/success)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if device was not found (https://api.losant.com/#/definitions/error)
+    def export(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("deviceId is required") unless params.has_key?(:deviceId)
+
+      query_params[:start] = params[:start] if params.has_key?(:start)
+      query_params[:end] = params[:end] if params.has_key?(:end)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/devices/#{params[:deviceId]}/export"
+
+      @client.request(
+        method: :post,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
     # Retrieves information on a device
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceId - ID associated with the device
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -69,6 +116,7 @@ module LosantRest
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
       raise ArgumentError.new("deviceId is required") unless params.has_key?(:deviceId)
 
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -90,6 +138,7 @@ module LosantRest
     # *  {string} deviceId - ID associated with the device
     # *  {string} limit - Max command entries to return (ordered by time descending)
     # *  {string} since - Look for command entries since this time (ms since epoch)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -111,6 +160,7 @@ module LosantRest
 
       query_params[:limit] = params[:limit] if params.has_key?(:limit)
       query_params[:since] = params[:since] if params.has_key?(:since)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -132,6 +182,7 @@ module LosantRest
     # *  {string} deviceId - ID associated with the device
     # *  {string} limit - Max log entries to return (ordered by time descending)
     # *  {string} since - Look for log entries since this time (ms since epoch)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -153,6 +204,7 @@ module LosantRest
 
       query_params[:limit] = params[:limit] if params.has_key?(:limit)
       query_params[:since] = params[:since] if params.has_key?(:since)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -174,6 +226,7 @@ module LosantRest
     # *  {string} deviceId - ID associated with the device
     # *  {string} limit - Max state entries to return (ordered by time descending)
     # *  {string} since - Look for state entries since this time (ms since epoch)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -195,6 +248,7 @@ module LosantRest
 
       query_params[:limit] = params[:limit] if params.has_key?(:limit)
       query_params[:since] = params[:since] if params.has_key?(:since)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -215,6 +269,7 @@ module LosantRest
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceId - ID associated with the device
     # *  {hash} device - Object containing new properties of the device (https://api.losant.com/#/definitions/devicePatch)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -236,6 +291,7 @@ module LosantRest
       raise ArgumentError.new("device is required") unless params.has_key?(:device)
 
       body = params[:device] if params.has_key?(:device)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -250,12 +306,57 @@ module LosantRest
         body: body)
     end
 
+    # Removes all device data for the specified time range. Defaults to all data.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} deviceId - ID associated with the device
+    # *  {string} start - Start time of export (ms since epoch - 0 means now, negative is relative to now)
+    # *  {string} end - End time of export (ms since epoch - 0 means now, negative is relative to now)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - If data removal was successfully started (https://api.losant.com/#/definitions/success)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if device was not found (https://api.losant.com/#/definitions/error)
+    def remove_data(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("deviceId is required") unless params.has_key?(:deviceId)
+
+      query_params[:start] = params[:start] if params.has_key?(:start)
+      query_params[:end] = params[:end] if params.has_key?(:end)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/devices/#{params[:deviceId]}/data"
+
+      @client.request(
+        method: :delete,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
     # Send a command to a device
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceId - ID associated with the device
     # *  {hash} deviceCommand - Command to send to the device (https://api.losant.com/#/definitions/deviceCommand)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -277,6 +378,7 @@ module LosantRest
       raise ArgumentError.new("deviceCommand is required") unless params.has_key?(:deviceCommand)
 
       body = params[:deviceCommand] if params.has_key?(:deviceCommand)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -297,6 +399,7 @@ module LosantRest
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceId - ID associated with the device
     # *  {hash} deviceState - Object containing the current state of the device (https://api.losant.com/#/definitions/deviceState)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -318,6 +421,7 @@ module LosantRest
       raise ArgumentError.new("deviceState is required") unless params.has_key?(:deviceState)
 
       body = params[:deviceState] if params.has_key?(:deviceState)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)

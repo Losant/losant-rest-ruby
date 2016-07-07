@@ -11,6 +11,7 @@ module LosantRest
     #
     # Parameters:
     # *  {hash} credentials - Device authentication credentials (https://api.losant.com/#/definitions/deviceCredentials)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -30,6 +31,7 @@ module LosantRest
       raise ArgumentError.new("credentials is required") unless params.has_key?(:credentials)
 
       body = params[:credentials] if params.has_key?(:credentials)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -48,6 +50,7 @@ module LosantRest
     #
     # Parameters:
     # *  {hash} credentials - User authentication credentials (https://api.losant.com/#/definitions/userCredentials)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -67,6 +70,7 @@ module LosantRest
       raise ArgumentError.new("credentials is required") unless params.has_key?(:credentials)
 
       body = params[:credentials] if params.has_key?(:credentials)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
@@ -85,6 +89,7 @@ module LosantRest
     #
     # Parameters:
     # *  {hash} oauth - User authentication credentials (access token) (https://api.losant.com/#/definitions/githubLogin)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
@@ -104,6 +109,7 @@ module LosantRest
       raise ArgumentError.new("oauth is required") unless params.has_key?(:oauth)
 
       body = params[:oauth] if params.has_key?(:oauth)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
