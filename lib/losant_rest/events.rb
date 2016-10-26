@@ -98,7 +98,7 @@ module LosantRest
         body: body)
     end
 
-    # Updates information for matching events by subject and/or current state
+    # Asynchronously updates information for matching events by subject and/or current state
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -112,7 +112,7 @@ module LosantRest
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - If updates were successfully applied (https://api.losant.com/#/definitions/success)
+    # *  200 - If the bulk update has been successfully started (https://api.losant.com/#/definitions/success)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
