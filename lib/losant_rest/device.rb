@@ -47,13 +47,15 @@ module LosantRest
         body: body)
     end
 
-    # Creates a device data export (to be emailed to the requestor). Defaults to all data.
+    # Creates a device data export. Defaults to all data.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceId - ID associated with the device
     # *  {string} start - Start time of export (ms since epoch - 0 means now, negative is relative to now)
     # *  {string} end - End time of export (ms since epoch - 0 means now, negative is relative to now)
+    # *  {string} email - Email address to send export to.  Defaults to current user&#x27;s email.
+    # *  {string} callbackUrl - Callback URL to call with export result.
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -76,6 +78,8 @@ module LosantRest
 
       query_params[:start] = params[:start] if params.has_key?(:start)
       query_params[:end] = params[:end] if params.has_key?(:end)
+      query_params[:email] = params[:email] if params.has_key?(:email)
+      query_params[:callbackUrl] = params[:callbackUrl] if params.has_key?(:callbackUrl)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -166,6 +170,50 @@ module LosantRest
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
       path = "/applications/#{params[:applicationId]}/devices/#{params[:deviceId]}/command"
+
+      @client.request(
+        method: :get,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
+    # Retrieve the composite last complete state of the device
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} deviceId - ID associated with the device
+    # *  {string} start - Start of time range to look at to build composite state
+    # *  {string} end - End of time range to look at to build composite state
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - Composite last state of the device (https://api.losant.com/#/definitions/compositeDeviceState)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if device was not found (https://api.losant.com/#/definitions/error)
+    def get_composite_state(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("deviceId is required") unless params.has_key?(:deviceId)
+
+      query_params[:start] = params[:start] if params.has_key?(:start)
+      query_params[:end] = params[:end] if params.has_key?(:end)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/devices/#{params[:deviceId]}/compositeState"
 
       @client.request(
         method: :get,

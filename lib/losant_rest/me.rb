@@ -233,7 +233,7 @@ module LosantRest
     #
     # Parameters:
     # *  {string} parentId - Parent id of the recent list
-    # *  {undefined} itemType - Item type to get the recent list of. Accepted values are: application, device, flow, dashboard
+    # *  {undefined} itemType - Item type to get the recent list of. Accepted values are: application, device, flow, dashboard, organization
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -358,7 +358,6 @@ module LosantRest
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
     def payload_counts(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
@@ -377,6 +376,44 @@ module LosantRest
 
       @client.request(
         method: :get,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
+    # Moves resources to a new owner
+    #
+    # Parameters:
+    # *  {hash} transfer - Object containing properties of the transfer (https://api.losant.com/#/definitions/resourceTransfer)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - If resource transfer was successful (https://api.losant.com/#/definitions/success)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    def transfer_resources(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("transfer is required") unless params.has_key?(:transfer)
+
+      body = params[:transfer] if params.has_key?(:transfer)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/me/transferResources"
+
+      @client.request(
+        method: :patch,
         path: path,
         query: query_params,
         headers: headers,
