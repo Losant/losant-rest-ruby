@@ -7,6 +7,48 @@ module LosantRest
       @client = client
     end
 
+    # Creates an export of all device metadata.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} email - Email address to send export to.  Defaults to current user&#x27;s email.
+    # *  {string} callbackUrl - Callback URL to call with export result.
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - If generation of export was successfully started (https://api.losant.com/#/definitions/success)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
+    def export(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+
+      query_params[:email] = params[:email] if params.has_key?(:email)
+      query_params[:callbackUrl] = params[:callbackUrl] if params.has_key?(:callbackUrl)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/devices/export"
+
+      @client.request(
+        method: :post,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
     # Returns the devices for an application
     #
     # Parameters:

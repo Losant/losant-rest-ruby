@@ -49,7 +49,7 @@ puts result
 
 ## Post
 
-Create a new dasboard
+Create a new dashboard
 
 ```ruby
 result = client.dashboards.post(dashboard: my_dashboard)
