@@ -22,94 +22,59 @@
 
 module LosantRest
 
-  # Class containing all the actions for the Applications Resource
-  class Applications
+  # Class containing all the actions for the Audit Logs Resource
+  class AuditLogs
 
     def initialize(client)
       @client = client
     end
 
-    # Returns the applications the current user has permission to see
+    # Returns the audit logs for the organization
     #
     # Parameters:
-    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate, ownerId
+    # *  {string} orgId - ID associated with the organization
+    # *  {string} sortField - Field to sort the results by. Accepted values are: creationDate, responseStatus, actorName
     # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
     # *  {string} page - Which page of results to return
     # *  {string} perPage - How many items to return per page
-    # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name
-    # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
-    # *  {string} orgId - If not provided, return all applications. If provided but blank, only return applications belonging to the current user. If provided and an id, only return applications belonging to the given organization id.
+    # *  {string} start - Start of time range for audit log query
+    # *  {string} end - End of time range for audit log query
+    # *  {hash} auditLogFilter - Filters for the audit log query (https://api.losant.com/#/definitions/auditLogFilter)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Collection of applications (https://api.losant.com/#/definitions/applications)
+    # *  200 - Collection of audit logs (https://api.losant.com/#/definitions/auditLogs)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if organization was not found (https://api.losant.com/#/definitions/error)
     def get(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
       headers = {}
       body = nil
 
+      raise ArgumentError.new("orgId is required") unless params.has_key?(:orgId)
 
       query_params[:sortField] = params[:sortField] if params.has_key?(:sortField)
       query_params[:sortDirection] = params[:sortDirection] if params.has_key?(:sortDirection)
       query_params[:page] = params[:page] if params.has_key?(:page)
       query_params[:perPage] = params[:perPage] if params.has_key?(:perPage)
-      query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
-      query_params[:filter] = params[:filter] if params.has_key?(:filter)
-      query_params[:orgId] = params[:orgId] if params.has_key?(:orgId)
+      query_params[:start] = params[:start] if params.has_key?(:start)
+      query_params[:end] = params[:end] if params.has_key?(:end)
+      query_params[:auditLogFilter] = params[:auditLogFilter] if params.has_key?(:auditLogFilter)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/applications"
+      path = "/orgs/#{params[:orgId]}/audit-logs"
 
       @client.request(
         method: :get,
-        path: path,
-        query: query_params,
-        headers: headers,
-        body: body)
-    end
-
-    # Create a new application
-    #
-    # Parameters:
-    # *  {hash} application - New application information (https://api.losant.com/#/definitions/applicationPost)
-    # *  {string} losantdomain - Domain scope of request (rarely needed)
-    # *  {boolean} _actions - Return resource actions in response
-    # *  {boolean} _links - Return resource link in response
-    # *  {boolean} _embedded - Return embedded resources in response
-    #
-    # Responses:
-    # *  201 - Successfully created application (https://api.losant.com/#/definitions/application)
-    #
-    # Errors:
-    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    def post(params = {})
-      params = Utils.symbolize_hash_keys(params)
-      query_params = { _actions: false, _links: true, _embedded: true }
-      headers = {}
-      body = nil
-
-      raise ArgumentError.new("application is required") unless params.has_key?(:application)
-
-      body = params[:application] if params.has_key?(:application)
-      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
-      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
-      query_params[:_links] = params[:_links] if params.has_key?(:_links)
-      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
-
-      path = "/applications"
-
-      @client.request(
-        method: :post,
         path: path,
         query: query_params,
         headers: headers,

@@ -308,7 +308,7 @@ module LosantRest
         body: body)
     end
 
-    # Modifies a current org member's role
+    # Removes a member from the org
     #
     # Parameters:
     # *  {string} orgId - ID associated with the organization

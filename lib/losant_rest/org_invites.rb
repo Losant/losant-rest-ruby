@@ -22,53 +22,47 @@
 
 module LosantRest
 
-  # Class containing all the actions for the Applications Resource
-  class Applications
+  # Class containing all the actions for the Org Invites Resource
+  class OrgInvites
 
     def initialize(client)
       @client = client
     end
 
-    # Returns the applications the current user has permission to see
+    # Gets information about an invite
     #
     # Parameters:
-    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate, ownerId
-    # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
-    # *  {string} page - Which page of results to return
-    # *  {string} perPage - How many items to return per page
-    # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name
-    # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
-    # *  {string} orgId - If not provided, return all applications. If provided but blank, only return applications belonging to the current user. If provided and an id, only return applications belonging to the given organization id.
+    # *  {string} token - The token associated with the invite
+    # *  {string} email - The email associated with the invite
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Collection of applications (https://api.losant.com/#/definitions/applications)
+    # *  200 - Information about invite (https://api.losant.com/#/definitions/orgInviteInfo)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if invite not found (https://api.losant.com/#/definitions/error)
+    # *  410 - Error if invite has expired (https://api.losant.com/#/definitions/error)
     def get(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
       headers = {}
       body = nil
 
+      raise ArgumentError.new("token is required") unless params.has_key?(:token)
+      raise ArgumentError.new("email is required") unless params.has_key?(:email)
 
-      query_params[:sortField] = params[:sortField] if params.has_key?(:sortField)
-      query_params[:sortDirection] = params[:sortDirection] if params.has_key?(:sortDirection)
-      query_params[:page] = params[:page] if params.has_key?(:page)
-      query_params[:perPage] = params[:perPage] if params.has_key?(:perPage)
-      query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
-      query_params[:filter] = params[:filter] if params.has_key?(:filter)
-      query_params[:orgId] = params[:orgId] if params.has_key?(:orgId)
+      query_params[:token] = params[:token] if params.has_key?(:token)
+      query_params[:email] = params[:email] if params.has_key?(:email)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/applications"
+      path = "/invites"
 
       @client.request(
         method: :get,
@@ -78,35 +72,37 @@ module LosantRest
         body: body)
     end
 
-    # Create a new application
+    # Accepts/Rejects an invite
     #
     # Parameters:
-    # *  {hash} application - New application information (https://api.losant.com/#/definitions/applicationPost)
+    # *  {hash} invite - Invite info and acceptance (https://api.losant.com/#/definitions/orgInviteAction)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  201 - Successfully created application (https://api.losant.com/#/definitions/application)
+    # *  200 - Acceptance/Rejection of invite (https://api.losant.com/#/definitions/orgInviteResult)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if invite not found (https://api.losant.com/#/definitions/error)
+    # *  410 - Error if invite has expired (https://api.losant.com/#/definitions/error)
     def post(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
       headers = {}
       body = nil
 
-      raise ArgumentError.new("application is required") unless params.has_key?(:application)
+      raise ArgumentError.new("invite is required") unless params.has_key?(:invite)
 
-      body = params[:application] if params.has_key?(:application)
+      body = params[:invite] if params.has_key?(:invite)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/applications"
+      path = "/invites"
 
       @client.request(
         method: :post,
