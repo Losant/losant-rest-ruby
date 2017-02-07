@@ -31,6 +31,12 @@ module LosantRest
 
     # Deletes an applicationKey
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, applicationKey.*, or applicationKey.delete.
+    #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} applicationKeyId - ID associated with the applicationKey
@@ -71,6 +77,12 @@ module LosantRest
 
     # Retrieves information on an applicationKey
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, applicationKey.*, or applicationKey.get.
+    #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} applicationKeyId - ID associated with the applicationKey
@@ -110,6 +122,12 @@ module LosantRest
     end
 
     # Updates information about an applicationKey
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, applicationKey.*, or applicationKey.patch.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application

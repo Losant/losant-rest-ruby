@@ -31,6 +31,12 @@ module LosantRest
 
     # Deletes a solution
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Organization, all.User, solution.*, or solution.delete.
+    #
     # Parameters:
     # *  {string} orgId - ID associated with the organization
     # *  {string} solutionId - ID associated with the solution
@@ -71,6 +77,12 @@ module LosantRest
 
     # Retrieves information on a solution
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Organization, all.Organization.read, all.User, all.User.read, solution.*, or solution.get.
+    #
     # Parameters:
     # *  {string} orgId - ID associated with the organization
     # *  {string} solutionId - ID associated with the solution
@@ -110,6 +122,12 @@ module LosantRest
     end
 
     # Updates information about a solution
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Organization, all.User, solution.*, or solution.patch.
     #
     # Parameters:
     # *  {string} orgId - ID associated with the organization

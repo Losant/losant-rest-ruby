@@ -24,6 +24,11 @@ result = client.webhook.delete(
 puts result
 ```
 
+#### Authentication
+The client must be configured with a valid api access token to call this
+action. The token must include at least one of the following scopes:
+all.Application, all.Organization, all.User, webhook.*, or webhook.delete.
+
 #### Available Parameters
 
 | Name | Type | Required | Description | Default | Example |
@@ -57,6 +62,11 @@ result = client.webhook.get(
 
 puts result
 ```
+
+#### Authentication
+The client must be configured with a valid api access token to call this
+action. The token must include at least one of the following scopes:
+all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, webhook.*, or webhook.get.
 
 #### Available Parameters
 
@@ -92,6 +102,11 @@ result = client.webhook.patch(
 
 puts result
 ```
+
+#### Authentication
+The client must be configured with a valid api access token to call this
+action. The token must include at least one of the following scopes:
+all.Application, all.Organization, all.User, webhook.*, or webhook.patch.
 
 #### Available Parameters
 

@@ -21,6 +21,11 @@ result = client.flows.get(applicationId: my_application_id)
 puts result
 ```
 
+#### Authentication
+The client must be configured with a valid api access token to call this
+action. The token must include at least one of the following scopes:
+all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, flows.*, or flows.get.
+
 #### Available Parameters
 
 | Name | Type | Required | Description | Default | Example |
@@ -59,6 +64,11 @@ result = client.flows.post(
 
 puts result
 ```
+
+#### Authentication
+The client must be configured with a valid api access token to call this
+action. The token must include at least one of the following scopes:
+all.Application, all.Organization, all.User, flows.*, or flows.create.
 
 #### Available Parameters
 

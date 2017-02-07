@@ -22,23 +22,30 @@
 
 module LosantRest
 
-  # Class containing all the actions for the Access Tokens Resource
-  class AccessTokens
+  # Class containing all the actions for the Application Api Tokens Resource
+  class ApplicationApiTokens
 
     def initialize(client)
       @client = client
     end
 
-    # Returns the accessTokens for a user
+    # Returns the API tokens for an application
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, applicationApiTokens.*, or applicationApiTokens.get.
     #
     # Parameters:
+    # *  {string} applicationId - ID associated with the application
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Collection of accessTokens (https://api.losant.com/#/definitions/accessTokens)
+    # *  200 - Collection of API tokens (https://api.losant.com/#/definitions/apiToken)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
@@ -48,13 +55,14 @@ module LosantRest
       headers = {}
       body = nil
 
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
 
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/access-tokens"
+      path = "/applications/#{params[:applicationId]}/tokens"
 
       @client.request(
         method: :get,
@@ -64,17 +72,24 @@ module LosantRest
         body: body)
     end
 
-    # Create a new accessToken for a user
+    # Create a new API token for an application
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, applicationApiTokens.*, or applicationApiTokens.post.
     #
     # Parameters:
-    # *  {hash} accessToken - AccessToken information (https://api.losant.com/#/definitions/accessTokenPost)
+    # *  {string} applicationId - ID associated with the application
+    # *  {hash} apiToken - API token information (https://api.losant.com/#/definitions/applicationApiTokenPost)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  201 - The successfully created accessToken (https://api.losant.com/#/definitions/accessToken)
+    # *  201 - The successfully created API token (https://api.losant.com/#/definitions/apiToken)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
@@ -84,15 +99,16 @@ module LosantRest
       headers = {}
       body = nil
 
-      raise ArgumentError.new("accessToken is required") unless params.has_key?(:accessToken)
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("apiToken is required") unless params.has_key?(:apiToken)
 
-      body = params[:accessToken] if params.has_key?(:accessToken)
+      body = params[:apiToken] if params.has_key?(:apiToken)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/access-tokens"
+      path = "/applications/#{params[:applicationId]}/tokens"
 
       @client.request(
         method: :post,

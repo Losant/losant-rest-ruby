@@ -31,6 +31,12 @@ module LosantRest
 
     # Returns the last known data for the given attribute
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Device, all.Device.read, all.Organization, all.Organization.read, all.User, all.User.read, data.*, or data.lastValueQuery.
+    #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {hash} query - The query parameters (https://api.losant.com/#/definitions/lastValueQuery)
@@ -71,6 +77,12 @@ module LosantRest
     end
 
     # Returns the data for the given query
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Device, all.Device.read, all.Organization, all.Organization.read, all.User, all.User.read, data.*, or data.timeSeriesQuery.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application

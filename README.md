@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/Losant/losant-rest-ruby.svg?branch=master)](https://travis-ci.org/Losant/losant-rest-ruby)  [![Gem Version](https://badge.fury.io/rb/losant_rest.svg)](https://badge.fury.io/rb/losant_rest)
 
 The [Losant](https://www.losant.com) REST API client provides a simple way to
-use the comprehensive Losant API.  You can authenticate either as a Losant
+use the comprehensive Losant API. You can authenticate either as a Losant
 device or with your user account, and have access to all the functionality
 of the Losant platform.
 
@@ -55,7 +55,7 @@ puts response
 ### LosantRest
 
 LosantRest is the wrapping module, but it also acts as a singleton [Client](#losantrestclient)
-instance.  So if you only need a single client instance, you do not need to
+instance. So if you only need a single client instance, you do not need to
 instantiate one yourself - the LosantRest module will act exactly like an
 instance of LosantRest::Client.
 
@@ -63,7 +63,7 @@ instance of LosantRest::Client.
 
 ### LosantRest::Client
 
-A client is a single api instance.  By default, it is unauthenticated, but can
+A client is a single api instance. By default, it is unauthenticated, but can
 be given an access token to perform authenticated requests.
 
 #### Initializer
@@ -76,8 +76,9 @@ The ``Client()`` initializer takes the following arguments:
 
 *   auth_token  
 The access token to be used for authentication - by default there is no
-access token.  An access token can be acquired through either of the
-[Auth](docs/auth.md) methods.
+access token. An access token can be acquired through any of the
+[Auth](docs/auth.md) methods, or can be created for a particular application
+through [application_api_tokens](docs/applicationApiTokens.md).
 
 *   url  
 The url of the Losant API - by default <https://api.losant.com>.
@@ -85,7 +86,7 @@ The url of the Losant API - by default <https://api.losant.com>.
 #### Accessors
 
 *   auth_token  
-The auth token can be accessed or changed after Client creation
+The access token can be accessed or changed after Client creation
 through this accessor.
 
 *   url  
@@ -95,8 +96,18 @@ through this accessor.
 #### Resources
 
 Each of the following is a method on the client object, and returns a wrapper
-for the actions against that particular resource.  See each resource
+for the actions against that particular resource. See each resource
 documentation file for more information.
+
+*   [application_api_token](docs/applicationApiToken.md)  
+Contains all the actions that can be performed against a single
+Api Token beloging to an application - for instance, getting info
+on a single token or revoking a token.
+
+*   [application_api_tokens](docs/applicationApiTokens.md)  
+Contains all of the actions that can be performed against the
+collection of Api Tokens belonging to an Application - such
+as listing all tokens or creating a new token.
 
 *   [application_key](docs/applicationKey.md)  
 Contains all the actions that can be performed against a single
@@ -122,7 +133,7 @@ listing the applications or creating a new application.
 
 *   [auth](docs/auth.md)  
 Contains the actions used for authenticating against the api, either as a
-user or as a device.  The result of authentication calls contain the auth_token
+user or as a device. The result of authentication calls contain the auth_token
 needed for authenticated calls - see the examples for more details.
 
 *   [dashboard](docs/dashboard.md)  

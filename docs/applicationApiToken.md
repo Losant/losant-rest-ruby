@@ -1,7 +1,7 @@
-# Application Key Actions
+# Application Api Token Actions
 
 Details on the various actions that can be performed on the
-Application Key resource, including the expected
+Application Api Token resource, including the expected
 parameters and the potential responses.
 
 ##### Contents
@@ -14,12 +14,12 @@ parameters and the potential responses.
 
 ## Delete
 
-Deletes an applicationKey
+Deletes an API Token
 
 ```ruby
-result = client.application_key.delete(
+result = client.application_api_token.delete(
   applicationId: my_application_id,
-  applicationKeyId: my_application_key_id)
+  apiTokenId: my_api_token_id)
 
 puts result
 ```
@@ -27,38 +27,38 @@ puts result
 #### Authentication
 The client must be configured with a valid api access token to call this
 action. The token must include at least one of the following scopes:
-all.Application, all.Organization, all.User, applicationKey.*, or applicationKey.delete.
+all.Application, all.Organization, all.User, applicationApiToken.*, or applicationApiToken.delete.
 
 #### Available Parameters
 
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
-| applicationKeyId | string | Y | ID associated with the applicationKey |  | 575ec76c7ae143cd83dc4a96 |
+| apiTokenId | string | Y | ID associated with the API token |  | 575ec7417ae143cd83dc4a95 |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [Success](_schemas.md#success) | If applicationKey was successfully deleted |
+| 200 | [Success](_schemas.md#success) | If API token was successfully deleted |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [Error](_schemas.md#error) | Error if malformed request |
-| 404 | [Error](_schemas.md#error) | Error if applicationKey was not found |
+| 404 | [Error](_schemas.md#error) | Error if API token was not found |
 
 <br/>
 
 ## Get
 
-Retrieves information on an applicationKey
+Retrieves information on an API token
 
 ```ruby
-result = client.application_key.get(
+result = client.application_api_token.get(
   applicationId: my_application_id,
-  applicationKeyId: my_application_key_id)
+  apiTokenId: my_api_token_id)
 
 puts result
 ```
@@ -66,39 +66,39 @@ puts result
 #### Authentication
 The client must be configured with a valid api access token to call this
 action. The token must include at least one of the following scopes:
-all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, applicationKey.*, or applicationKey.get.
+all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, applicationApiToken.*, or applicationApiToken.get.
 
 #### Available Parameters
 
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
-| applicationKeyId | string | Y | ID associated with the applicationKey |  | 575ec76c7ae143cd83dc4a96 |
+| apiTokenId | string | Y | ID associated with the API token |  | 575ec7417ae143cd83dc4a95 |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [Application Key](_schemas.md#application-key) | applicationKey information |
+| 200 | [API Token](_schemas.md#api-token) | API token information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [Error](_schemas.md#error) | Error if malformed request |
-| 404 | [Error](_schemas.md#error) | Error if applicationKey was not found |
+| 404 | [Error](_schemas.md#error) | Error if API token was not found |
 
 <br/>
 
 ## Patch
 
-Updates information about an applicationKey
+Updates information about an API token
 
 ```ruby
-result = client.application_key.patch(
+result = client.application_api_token.patch(
   applicationId: my_application_id,
-  applicationKeyId: my_application_key_id,
-  applicationKey: my_application_key)
+  apiTokenId: my_api_token_id,
+  apiToken: my_api_token)
 
 puts result
 ```
@@ -106,25 +106,25 @@ puts result
 #### Authentication
 The client must be configured with a valid api access token to call this
 action. The token must include at least one of the following scopes:
-all.Application, all.Organization, all.User, applicationKey.*, or applicationKey.patch.
+all.Application, all.Organization, all.User, applicationApiToken.*, or applicationApiToken.patch.
 
 #### Available Parameters
 
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
-| applicationKeyId | string | Y | ID associated with the applicationKey |  | 575ec76c7ae143cd83dc4a96 |
-| applicationKey | [Application Key Patch](_schemas.md#application-key-patch) | Y | Object containing new properties of the applicationKey |  | [Application Key Patch Example](_schemas.md#application-key-patch-example) |
+| apiTokenId | string | Y | ID associated with the API token |  | 575ec7417ae143cd83dc4a95 |
+| apiToken | [API Token Patch](_schemas.md#api-token-patch) | Y | Object containing new properties of the API token |  | [API Token Patch Example](_schemas.md#api-token-patch-example) |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [Application Key](_schemas.md#application-key) | Updated applicationKey information |
+| 200 | [API Token](_schemas.md#api-token) | Updated API token information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [Error](_schemas.md#error) | Error if malformed request |
-| 404 | [Error](_schemas.md#error) | Error if applicationKey was not found |
+| 404 | [Error](_schemas.md#error) | Error if API token was not found |

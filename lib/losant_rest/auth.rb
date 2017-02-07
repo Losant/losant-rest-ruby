@@ -29,7 +29,10 @@ module LosantRest
       @client = client
     end
 
-    # Authenticates a device using the provided credentials
+    # Authenticates a device using the provided credentials.
+    #
+    # Authentication:
+    # No api access token is required to call this action.
     #
     # Parameters:
     # *  {hash} credentials - Device authentication credentials (https://api.losant.com/#/definitions/deviceCredentials)
@@ -39,7 +42,7 @@ module LosantRest
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Successful authentication (https://api.losant.com/#/definitions/authedDevice)
+    # *  200 - Successful authentication. The included api access token has the scope 'all.Device'. (https://api.losant.com/#/definitions/authedDevice)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
@@ -68,10 +71,13 @@ module LosantRest
         body: body)
     end
 
-    # Authenticates a solution user using the provided credentials
+    # Authenticates a solution user using the provided credentials.
+    #
+    # Authentication:
+    # No api access token is required to call this action.
     #
     # Parameters:
-    # *  {hash} credentials - Solution user authentication credentials (https://api.losant.com/#/definitions/solutionUserCredentials)
+    # *  {hash} credentials - Solution user authentication credentials. The included api access token has the scope 'all.SolutionUser'. (https://api.losant.com/#/definitions/solutionUserCredentials)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -107,7 +113,10 @@ module LosantRest
         body: body)
     end
 
-    # Authenticates a user using the provided credentials
+    # Authenticates a user using the provided credentials.
+    #
+    # Authentication:
+    # No api access token is required to call this action.
     #
     # Parameters:
     # *  {hash} credentials - User authentication credentials (https://api.losant.com/#/definitions/userCredentials)
@@ -117,7 +126,7 @@ module LosantRest
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Successful authentication (https://api.losant.com/#/definitions/authedUser)
+    # *  200 - Successful authentication. The included api access token has the scope 'all.User'. (https://api.losant.com/#/definitions/authedUser)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
@@ -146,7 +155,10 @@ module LosantRest
         body: body)
     end
 
-    # Authenticates a user via GitHub OAuth
+    # Authenticates a user via GitHub OAuth.
+    #
+    # Authentication:
+    # No api access token is required to call this action.
     #
     # Parameters:
     # *  {hash} oauth - User authentication credentials (access token) (https://api.losant.com/#/definitions/githubLogin)
@@ -156,7 +168,7 @@ module LosantRest
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Successful authentication (https://api.losant.com/#/definitions/authedUser)
+    # *  200 - Successful authentication. The included api access token has the scope 'all.User'. (https://api.losant.com/#/definitions/authedUser)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)

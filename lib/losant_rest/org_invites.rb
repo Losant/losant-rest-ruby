@@ -31,6 +31,9 @@ module LosantRest
 
     # Gets information about an invite
     #
+    # Authentication:
+    # No api access token is required to call this action.
+    #
     # Parameters:
     # *  {string} token - The token associated with the invite
     # *  {string} email - The email associated with the invite
@@ -73,6 +76,9 @@ module LosantRest
     end
 
     # Accepts/Rejects an invite
+    #
+    # Authentication:
+    # No api access token is required to call this action.
     #
     # Parameters:
     # *  {hash} invite - Invite info and acceptance (https://api.losant.com/#/definitions/orgInviteAction)

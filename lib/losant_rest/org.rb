@@ -31,6 +31,12 @@ module LosantRest
 
     # Deletes an organization
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Organization, all.User, org.*, or org.delete.
+    #
     # Parameters:
     # *  {string} orgId - ID associated with the organization
     # *  {string} losantdomain - Domain scope of request (rarely needed)
@@ -69,8 +75,15 @@ module LosantRest
 
     # Retrieves information on an organization
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Organization, all.Organization.read, all.User, all.User.read, org.*, or org.get.
+    #
     # Parameters:
     # *  {string} orgId - ID associated with the organization
+    # *  {string} summaryExclude - List of summary fields to exclude from org summary
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -90,6 +103,7 @@ module LosantRest
 
       raise ArgumentError.new("orgId is required") unless params.has_key?(:orgId)
 
+      query_params[:summaryExclude] = params[:summaryExclude] if params.has_key?(:summaryExclude)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -106,6 +120,12 @@ module LosantRest
     end
 
     # Invites a person to an organization
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Organization, all.User, org.*, or org.inviteMember.
     #
     # Parameters:
     # *  {string} orgId - ID associated with the organization
@@ -148,6 +168,12 @@ module LosantRest
 
     # Modifies a current org member's role
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Organization, all.User, org.*, or org.modifyMember.
+    #
     # Parameters:
     # *  {string} orgId - ID associated with the organization
     # *  {hash} member - Object containing new member pair (https://api.losant.com/#/definitions/orgMemberPatch)
@@ -189,6 +215,12 @@ module LosantRest
 
     # Updates information about an organization
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Organization, all.User, org.*, or org.patch.
+    #
     # Parameters:
     # *  {string} orgId - ID associated with the organization
     # *  {hash} organization - Object containing new organization properties (https://api.losant.com/#/definitions/orgPatch)
@@ -229,6 +261,12 @@ module LosantRest
     end
 
     # Returns payload counts for the time range specified for all applications this organization owns
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Organization, all.Organization.read, all.User, all.User.read, org.*, or org.payloadCounts.
     #
     # Parameters:
     # *  {string} orgId - ID associated with the organization
@@ -272,6 +310,12 @@ module LosantRest
 
     # Gets the current pending invites
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Organization, all.Organization.read, all.User, all.User.read, org.*, or org.pendingInvites.
+    #
     # Parameters:
     # *  {string} orgId - ID associated with the organization
     # *  {string} losantdomain - Domain scope of request (rarely needed)
@@ -309,6 +353,12 @@ module LosantRest
     end
 
     # Removes a member from the org
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Organization, all.User, org.*, or org.removeMember.
     #
     # Parameters:
     # *  {string} orgId - ID associated with the organization
@@ -351,6 +401,12 @@ module LosantRest
 
     # Revokes an existing invite
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Organization, all.User, org.*, or org.revokeInvite.
+    #
     # Parameters:
     # *  {string} orgId - ID associated with the organization
     # *  {string} inviteId - Id of invite to revoke
@@ -391,6 +447,12 @@ module LosantRest
     end
 
     # Moves resources to a new owner
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Organization, all.User, org.*, or org.transferResources.
     #
     # Parameters:
     # *  {string} orgId - ID associated with the organization

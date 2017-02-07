@@ -31,6 +31,12 @@ module LosantRest
 
     # Deletes an application
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, application.*, or application.delete.
+    #
     # Parameters:
     # *  {string} applicationId - ID of the associated application
     # *  {string} losantdomain - Domain scope of request (rarely needed)
@@ -69,6 +75,12 @@ module LosantRest
 
     # Retrieves information on an application
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, application.*, or application.get.
+    #
     # Parameters:
     # *  {string} applicationId - ID of the associated application
     # *  {string} losantdomain - Domain scope of request (rarely needed)
@@ -106,6 +118,12 @@ module LosantRest
     end
 
     # Updates information about an application
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, application.*, or application.patch.
     #
     # Parameters:
     # *  {string} applicationId - ID of the associated application
@@ -147,6 +165,12 @@ module LosantRest
     end
 
     # Returns payload counts for the time range specified for this application
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, application.*, or application.payloadCounts.
     #
     # Parameters:
     # *  {string} applicationId - ID of the associated application

@@ -31,6 +31,12 @@ module LosantRest
 
     # Returns the organizations associated with the current user
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.User, all.User.read, orgs.*, or orgs.get.
+    #
     # Parameters:
     # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate
     # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
@@ -38,6 +44,7 @@ module LosantRest
     # *  {string} perPage - How many items to return per page
     # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
+    # *  {string} summaryExclude - List of summary fields to exclude from org summaries
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -61,6 +68,7 @@ module LosantRest
       query_params[:perPage] = params[:perPage] if params.has_key?(:perPage)
       query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
       query_params[:filter] = params[:filter] if params.has_key?(:filter)
+      query_params[:summaryExclude] = params[:summaryExclude] if params.has_key?(:summaryExclude)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -77,6 +85,12 @@ module LosantRest
     end
 
     # Create a new organization
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.User, orgs.*, or orgs.post.
     #
     # Parameters:
     # *  {hash} organization - New organization information (https://api.losant.com/#/definitions/orgPost)

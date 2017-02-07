@@ -24,6 +24,11 @@ result = client.event.delete(
 puts result
 ```
 
+#### Authentication
+The client must be configured with a valid api access token to call this
+action. The token must include at least one of the following scopes:
+all.Application, all.Organization, all.User, event.*, or event.delete.
+
 #### Available Parameters
 
 | Name | Type | Required | Description | Default | Example |
@@ -57,6 +62,11 @@ result = client.event.get(
 
 puts result
 ```
+
+#### Authentication
+The client must be configured with a valid api access token to call this
+action. The token must include at least one of the following scopes:
+all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, event.*, or event.get.
 
 #### Available Parameters
 
@@ -92,6 +102,11 @@ result = client.event.patch(
 
 puts result
 ```
+
+#### Authentication
+The client must be configured with a valid api access token to call this
+action. The token must include at least one of the following scopes:
+all.Application, all.Organization, all.User, event.*, or event.patch.
 
 #### Available Parameters
 

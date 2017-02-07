@@ -31,6 +31,12 @@ module LosantRest
 
     # Bulk creates devices using this recipe from a CSV
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, deviceRecipe.*, or deviceRecipe.bulkCreate.
+    #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceRecipeId - ID associated with the device recipe
@@ -74,6 +80,12 @@ module LosantRest
 
     # Deletes a device recipe
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, deviceRecipe.*, or deviceRecipe.delete.
+    #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceRecipeId - ID associated with the device recipe
@@ -114,6 +126,12 @@ module LosantRest
 
     # Retrieves information on a device recipe
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, deviceRecipe.*, or deviceRecipe.get.
+    #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceRecipeId - ID associated with the device recipe
@@ -153,6 +171,12 @@ module LosantRest
     end
 
     # Updates information about a device recipe
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, deviceRecipe.*, or deviceRecipe.patch.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application

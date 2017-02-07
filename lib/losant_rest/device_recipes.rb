@@ -31,6 +31,12 @@ module LosantRest
 
     # Returns the device recipes for an application
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, deviceRecipes.*, or deviceRecipes.get.
+    #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate
@@ -80,6 +86,12 @@ module LosantRest
     end
 
     # Create a new device recipe for an application
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, deviceRecipes.*, or deviceRecipes.post.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application

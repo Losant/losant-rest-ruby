@@ -31,6 +31,12 @@ module LosantRest
 
     # Deletes a flow
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, flow.*, or flow.delete.
+    #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} flowId - ID associated with the flow
@@ -71,6 +77,12 @@ module LosantRest
 
     # Retrieves information on a flow
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, flow.*, or flow.get.
+    #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} flowId - ID associated with the flow
@@ -110,6 +122,12 @@ module LosantRest
     end
 
     # Retrieve the recent log entries about the flows
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, flow.*, or flow.log.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -155,6 +173,12 @@ module LosantRest
 
     # Gets the current values in persistent storage
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, flow.*, or flow.getStorageEntries.
+    #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} flowId - ID associated with the flow
@@ -194,6 +218,12 @@ module LosantRest
     end
 
     # Updates information about a flow
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, flow.*, or flow.patch.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -238,6 +268,12 @@ module LosantRest
 
     # Presses the specified virtual button on the flow
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, flow.*, or flow.pressVirtualButton.
+    #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} flowId - ID associated with the flow
@@ -280,6 +316,12 @@ module LosantRest
     end
 
     # Sets a storage value
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, flow.*, or flow.setStorageEntry.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application

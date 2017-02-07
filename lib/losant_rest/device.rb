@@ -31,6 +31,12 @@ module LosantRest
 
     # Deletes a device
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, device.*, or device.delete.
+    #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceId - ID associated with the device
@@ -70,6 +76,12 @@ module LosantRest
     end
 
     # Creates a device data export. Defaults to all data.
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, device.*, or device.export.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -119,6 +131,12 @@ module LosantRest
 
     # Retrieves information on a device
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Device, all.Device.read, all.Organization, all.Organization.read, all.User, all.User.read, device.*, or device.get.
+    #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceId - ID associated with the device
@@ -158,6 +176,12 @@ module LosantRest
     end
 
     # Retrieve the last known commands(s) sent to the device
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Device, all.Device.read, all.Organization, all.Organization.read, all.User, all.User.read, device.*, or device.getCommand.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -203,6 +227,12 @@ module LosantRest
 
     # Retrieve the composite last complete state of the device
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Device, all.Device.read, all.Organization, all.Organization.read, all.User, all.User.read, device.*, or device.getCompositeState.
+    #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceId - ID associated with the device
@@ -246,6 +276,12 @@ module LosantRest
     end
 
     # Retrieve the recent log entries about the device
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Device, all.Device.read, all.Organization, all.Organization.read, all.User, all.User.read, device.*, or device.getLogEntries.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -291,6 +327,12 @@ module LosantRest
 
     # Retrieve the last known state(s) of the device
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Device, all.Device.read, all.Organization, all.Organization.read, all.User, all.User.read, device.*, or device.getState.
+    #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceId - ID associated with the device
@@ -335,6 +377,12 @@ module LosantRest
 
     # Updates information about a device
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, device.*, or device.patch.
+    #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceId - ID associated with the device
@@ -377,6 +425,12 @@ module LosantRest
     end
 
     # Removes all device data for the specified time range. Defaults to all data.
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, device.*, or device.removeData.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -422,6 +476,12 @@ module LosantRest
 
     # Send a command to a device
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Device, all.Organization, all.User, device.*, or device.sendCommand.
+    #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceId - ID associated with the device
@@ -464,6 +524,12 @@ module LosantRest
     end
 
     # Send the current state of the device
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Device, all.Organization, all.User, device.*, or device.sendState.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application

@@ -31,6 +31,12 @@ module LosantRest
 
     # Adds an item to a recent item list
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.SolutionUser, all.User, me.*, or me.addRecentItem.
+    #
     # Parameters:
     # *  {hash} data - Object containing recent item info (https://api.losant.com/#/definitions/recentItem)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
@@ -68,6 +74,12 @@ module LosantRest
     end
 
     # Deletes the current user
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.SolutionUser, all.User, me.*, or me.delete.
     #
     # Parameters:
     # *  {hash} credentials - User authentication credentials (https://api.losant.com/#/definitions/userCredentials)
@@ -107,6 +119,12 @@ module LosantRest
 
     # Disables two factor auth for the current user
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.SolutionUser, all.User, me.*, or me.disableTwoFactorAuth.
+    #
     # Parameters:
     # *  {hash} data - Object containing two factor auth properties (https://api.losant.com/#/definitions/disableTwoFactorAuth)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
@@ -145,6 +163,12 @@ module LosantRest
 
     # Disconnects the user from Github
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.SolutionUser, all.User, me.*, or me.disconnectGithub.
+    #
     # Parameters:
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
@@ -180,6 +204,12 @@ module LosantRest
 
     # Disconnects the user from Twitter
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.SolutionUser, all.User, me.*, or me.disconnectTwitter.
+    #
     # Parameters:
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
@@ -214,6 +244,12 @@ module LosantRest
     end
 
     # Enables two factor auth for the current user
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.SolutionUser, all.User, me.*, or me.enableTwoFactorAuth.
     #
     # Parameters:
     # *  {hash} data - Object containing two factor auth properties (https://api.losant.com/#/definitions/enableTwoFactorAuth)
@@ -252,6 +288,12 @@ module LosantRest
     end
 
     # Gets a recent item list
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.SolutionUser, all.SolutionUser.read, all.User, all.User.read, me.*, or me.fetchRecentItems.
     #
     # Parameters:
     # *  {string} parentId - Parent id of the recent list
@@ -293,8 +335,15 @@ module LosantRest
 
     # Retrieves information on the current user
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.SolutionUser, all.SolutionUser.read, all.User, all.User.read, me.*, or me.get.
+    #
     # Parameters:
     # *  {undefined} includeRecent - Should the user include recent app/dashboard info
+    # *  {string} summaryExclude - List of summary fields to exclude from user summary
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -312,6 +361,7 @@ module LosantRest
 
 
       query_params[:includeRecent] = params[:includeRecent] if params.has_key?(:includeRecent)
+      query_params[:summaryExclude] = params[:summaryExclude] if params.has_key?(:summaryExclude)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -328,6 +378,12 @@ module LosantRest
     end
 
     # Updates information about the current user
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.SolutionUser, all.User, me.*, or me.patch.
     #
     # Parameters:
     # *  {hash} user - Object containing new user properties (https://api.losant.com/#/definitions/mePatch)
@@ -366,6 +422,12 @@ module LosantRest
     end
 
     # Returns payload counts for the time range specified for all applications the current user owns
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.SolutionUser, all.User, all.User.read, me.*, or me.payloadCounts.
     #
     # Parameters:
     # *  {string} start - Start of range for payload count query (ms since epoch)
@@ -406,6 +468,12 @@ module LosantRest
 
     # Moves resources to a new owner
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.SolutionUser, all.User, me.*, or me.transferResources.
+    #
     # Parameters:
     # *  {hash} transfer - Object containing properties of the transfer (https://api.losant.com/#/definitions/resourceTransfer)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
@@ -443,6 +511,12 @@ module LosantRest
     end
 
     # Sends an email verification to the user
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.SolutionUser, all.User, me.*, or me.verifyEmail.
     #
     # Parameters:
     # *  {string} losantdomain - Domain scope of request (rarely needed)

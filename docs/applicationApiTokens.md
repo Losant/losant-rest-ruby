@@ -1,7 +1,7 @@
-# Webhooks Actions
+# Application Api Tokens Actions
 
 Details on the various actions that can be performed on the
-Webhooks resource, including the expected
+Application Api Tokens resource, including the expected
 parameters and the potential responses.
 
 ##### Contents
@@ -13,10 +13,10 @@ parameters and the potential responses.
 
 ## Get
 
-Returns the webhooks for an application
+Returns the API tokens for an application
 
 ```ruby
-result = client.webhooks.get(applicationId: my_application_id)
+result = client.application_api_tokens.get(applicationId: my_application_id)
 
 puts result
 ```
@@ -24,43 +24,36 @@ puts result
 #### Authentication
 The client must be configured with a valid api access token to call this
 action. The token must include at least one of the following scopes:
-all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, webhooks.*, or webhooks.get.
+all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, applicationApiTokens.*, or applicationApiTokens.get.
 
 #### Available Parameters
 
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
-| sortField | string | N | Field to sort the results by. Accepted values are: name, id, creationDate | name | name |
-| sortDirection | string | N | Direction to sort the results by. Accepted values are: asc, desc | asc | asc |
-| page | string | N | Which page of results to return | 0 | 0 |
-| perPage | string | N | How many items to return per page | 1000 | 10 |
-| filterField | string | N | Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name |  | name |
-| filter | string | N | Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering. |  | my*webhook |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [Webhooks](_schemas.md#webhooks) | Collection of webhooks |
+| 200 | [API Token](_schemas.md#api-token) | Collection of API tokens |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [Error](_schemas.md#error) | Error if malformed request |
-| 404 | [Error](_schemas.md#error) | Error if application was not found |
 
 <br/>
 
 ## Post
 
-Create a new webhook for an application
+Create a new API token for an application
 
 ```ruby
-result = client.webhooks.post(
+result = client.application_api_tokens.post(
   applicationId: my_application_id,
-  webhook: my_webhook)
+  apiToken: my_api_token)
 
 puts result
 ```
@@ -68,24 +61,23 @@ puts result
 #### Authentication
 The client must be configured with a valid api access token to call this
 action. The token must include at least one of the following scopes:
-all.Application, all.Organization, all.User, webhooks.*, or webhooks.post.
+all.Application, all.Organization, all.User, applicationApiTokens.*, or applicationApiTokens.post.
 
 #### Available Parameters
 
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
-| webhook | [Webhook Post](_schemas.md#webhook-post) | Y | New webhook information |  | [Webhook Post Example](_schemas.md#webhook-post-example) |
+| apiToken | [Application API Token Post](_schemas.md#application-api-token-post) | Y | API token information |  | [Application API Token Post Example](_schemas.md#application-api-token-post-example) |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 201 | [Webhook](_schemas.md#webhook) | Successfully created webhook |
+| 201 | [API Token](_schemas.md#api-token) | The successfully created API token |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [Error](_schemas.md#error) | Error if malformed request |
-| 404 | [Error](_schemas.md#error) | Error if application was not found |

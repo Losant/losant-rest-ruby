@@ -31,6 +31,12 @@ module LosantRest
 
     # Returns the events for an application
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, events.*, or events.get.
+    #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} sortField - Field to sort the results by. Accepted values are: subject, id, creationDate
@@ -83,6 +89,12 @@ module LosantRest
 
     # Returns the first new event ordered by severity and then creation
     #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, events.*, or events.mostRecentBySeverity.
+    #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} filter - Filter to apply against event subjects. Supports globbing. Blank or not provided means no filtering.
@@ -121,6 +133,12 @@ module LosantRest
     end
 
     # Asynchronously updates information for matching events by subject and/or current state
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, events.*, or events.patch.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -168,6 +186,12 @@ module LosantRest
     end
 
     # Create a new event for an application
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, events.*, or events.post.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application

@@ -22,42 +22,50 @@
 
 module LosantRest
 
-  # Class containing all the actions for the Access Token Resource
-  class AccessToken
+  # Class containing all the actions for the Application Api Token Resource
+  class ApplicationApiToken
 
     def initialize(client)
       @client = client
     end
 
-    # Deletes an accessToken
+    # Deletes an API Token
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, applicationApiToken.*, or applicationApiToken.delete.
     #
     # Parameters:
-    # *  {string} accessTokenId - ID associated with the accessToken
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} apiTokenId - ID associated with the API token
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - If accessToken was successfully deleted (https://api.losant.com/#/definitions/success)
+    # *  200 - If API token was successfully deleted (https://api.losant.com/#/definitions/success)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if accessToken was not found (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if API token was not found (https://api.losant.com/#/definitions/error)
     def delete(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
       headers = {}
       body = nil
 
-      raise ArgumentError.new("accessTokenId is required") unless params.has_key?(:accessTokenId)
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("apiTokenId is required") unless params.has_key?(:apiTokenId)
 
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/access-tokens/#{params[:accessTokenId]}"
+      path = "/applications/#{params[:applicationId]}/tokens/#{params[:apiTokenId]}"
 
       @client.request(
         method: :delete,
@@ -67,35 +75,43 @@ module LosantRest
         body: body)
     end
 
-    # Retrieves information on an accessToken
+    # Retrieves information on an API token
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, applicationApiToken.*, or applicationApiToken.get.
     #
     # Parameters:
-    # *  {string} accessTokenId - ID associated with the accessToken
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} apiTokenId - ID associated with the API token
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Access token information (https://api.losant.com/#/definitions/accessToken)
+    # *  200 - API token information (https://api.losant.com/#/definitions/apiToken)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if accessToken was not found (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if API token was not found (https://api.losant.com/#/definitions/error)
     def get(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
       headers = {}
       body = nil
 
-      raise ArgumentError.new("accessTokenId is required") unless params.has_key?(:accessTokenId)
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("apiTokenId is required") unless params.has_key?(:apiTokenId)
 
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/access-tokens/#{params[:accessTokenId]}"
+      path = "/applications/#{params[:applicationId]}/tokens/#{params[:apiTokenId]}"
 
       @client.request(
         method: :get,
@@ -105,38 +121,46 @@ module LosantRest
         body: body)
     end
 
-    # Updates information about an accessToken
+    # Updates information about an API token
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, applicationApiToken.*, or applicationApiToken.patch.
     #
     # Parameters:
-    # *  {string} accessTokenId - ID associated with the accessToken
-    # *  {hash} accessToken - Object containing new properties of the accessToken (https://api.losant.com/#/definitions/accessTokenPatch)
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} apiTokenId - ID associated with the API token
+    # *  {hash} apiToken - Object containing new properties of the API token (https://api.losant.com/#/definitions/apiTokenPatch)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Updated accessToken information (https://api.losant.com/#/definitions/accessToken)
+    # *  200 - Updated API token information (https://api.losant.com/#/definitions/apiToken)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if accessToken was not found (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if API token was not found (https://api.losant.com/#/definitions/error)
     def patch(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
       headers = {}
       body = nil
 
-      raise ArgumentError.new("accessTokenId is required") unless params.has_key?(:accessTokenId)
-      raise ArgumentError.new("accessToken is required") unless params.has_key?(:accessToken)
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("apiTokenId is required") unless params.has_key?(:apiTokenId)
+      raise ArgumentError.new("apiToken is required") unless params.has_key?(:apiToken)
 
-      body = params[:accessToken] if params.has_key?(:accessToken)
+      body = params[:apiToken] if params.has_key?(:apiToken)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/access-tokens/#{params[:accessTokenId]}"
+      path = "/applications/#{params[:applicationId]}/tokens/#{params[:apiTokenId]}"
 
       @client.request(
         method: :patch,
