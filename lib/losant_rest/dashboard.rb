@@ -163,5 +163,49 @@ module LosantRest
         body: body)
     end
 
+    # Validates a context object against the dashboard's context configuration
+    #
+    # Authentication:
+    # No api access token is required to call this action.
+    #
+    # Parameters:
+    # *  {string} dashboardId - ID of the associated dashboard
+    # *  {hash} ctx - The context object to validate (https://api.losant.com/#/definitions/dashboardContextInstance)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - If context is valid (https://api.losant.com/#/definitions/success)
+    #
+    # Errors:
+    # *  400 - Error if context is invalid (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if dashboard or application was not found (https://api.losant.com/#/definitions/error)
+    def validate_context(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("dashboardId is required") unless params.has_key?(:dashboardId)
+      raise ArgumentError.new("ctx is required") unless params.has_key?(:ctx)
+
+      body = params[:ctx] if params.has_key?(:ctx)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/dashboards/#{params[:dashboardId]}/validateContext"
+
+      @client.request(
+        method: :post,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
   end
 end
