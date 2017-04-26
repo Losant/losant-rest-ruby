@@ -22,37 +22,36 @@
 
 module LosantRest
 
-  # Class containing all the actions for the Flows Resource
-  class Flows
+  # Class containing all the actions for the Integrations Resource
+  class Integrations
 
     def initialize(client)
       @client = client
     end
 
-    # Returns the flows for an application
+    # Returns the integrations for an application
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, flows.*, or flows.get.
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, integrations.*, or integrations.get.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate
+    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate, integrationType
     # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
     # *  {string} page - Which page of results to return
     # *  {string} perPage - How many items to return per page
-    # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name
+    # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name, integrationType
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
-    # *  {hash} triggerFilter - Array of triggers to filter by. (https://api.losant.com/#/definitions/flowTriggerFilter)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Collection of flows (https://api.losant.com/#/definitions/flows)
+    # *  200 - Collection of integrations (https://api.losant.com/#/definitions/integrations)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
@@ -71,13 +70,12 @@ module LosantRest
       query_params[:perPage] = params[:perPage] if params.has_key?(:perPage)
       query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
       query_params[:filter] = params[:filter] if params.has_key?(:filter)
-      query_params[:triggerFilter] = params[:triggerFilter] if params.has_key?(:triggerFilter)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/applications/#{params[:applicationId]}/flows"
+      path = "/applications/#{params[:applicationId]}/integrations"
 
       @client.request(
         method: :get,
@@ -87,24 +85,24 @@ module LosantRest
         body: body)
     end
 
-    # Create a new flow for an application
+    # Create a new integration for an application
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, flows.*, or flows.post.
+    # all.Application, all.Organization, all.User, integrations.*, or integrations.post.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {hash} flow - New flow information (https://api.losant.com/#/definitions/flowPost)
+    # *  {hash} integration - New integration information (https://api.losant.com/#/definitions/integrationPost)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  201 - Successfully created flow (https://api.losant.com/#/definitions/flow)
+    # *  201 - Successfully created integration (https://api.losant.com/#/definitions/integration)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
@@ -116,15 +114,15 @@ module LosantRest
       body = nil
 
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
-      raise ArgumentError.new("flow is required") unless params.has_key?(:flow)
+      raise ArgumentError.new("integration is required") unless params.has_key?(:integration)
 
-      body = params[:flow] if params.has_key?(:flow)
+      body = params[:integration] if params.has_key?(:integration)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/applications/#{params[:applicationId]}/flows"
+      path = "/applications/#{params[:applicationId]}/integrations"
 
       @client.request(
         method: :post,

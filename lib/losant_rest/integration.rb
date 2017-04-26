@@ -22,41 +22,81 @@
 
 module LosantRest
 
-  # Class containing all the actions for the Flows Resource
-  class Flows
+  # Class containing all the actions for the Integration Resource
+  class Integration
 
     def initialize(client)
       @client = client
     end
 
-    # Returns the flows for an application
+    # Deletes an integration
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, flows.*, or flows.get.
+    # all.Application, all.Organization, all.User, integration.*, or integration.delete.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate
-    # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
-    # *  {string} page - Which page of results to return
-    # *  {string} perPage - How many items to return per page
-    # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name
-    # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
-    # *  {hash} triggerFilter - Array of triggers to filter by. (https://api.losant.com/#/definitions/flowTriggerFilter)
+    # *  {string} integrationId - ID associated with the integration
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Collection of flows (https://api.losant.com/#/definitions/flows)
+    # *  200 - If integration was successfully deleted (https://api.losant.com/#/definitions/success)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if integration was not found (https://api.losant.com/#/definitions/error)
+    def delete(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("integrationId is required") unless params.has_key?(:integrationId)
+
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/integrations/#{params[:integrationId]}"
+
+      @client.request(
+        method: :delete,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
+    # Retrieves information on an integration
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, integration.*, or integration.get.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} integrationId - ID associated with the integration
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - integration information (https://api.losant.com/#/definitions/integration)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if integration was not found (https://api.losant.com/#/definitions/error)
     def get(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
@@ -64,20 +104,14 @@ module LosantRest
       body = nil
 
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("integrationId is required") unless params.has_key?(:integrationId)
 
-      query_params[:sortField] = params[:sortField] if params.has_key?(:sortField)
-      query_params[:sortDirection] = params[:sortDirection] if params.has_key?(:sortDirection)
-      query_params[:page] = params[:page] if params.has_key?(:page)
-      query_params[:perPage] = params[:perPage] if params.has_key?(:perPage)
-      query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
-      query_params[:filter] = params[:filter] if params.has_key?(:filter)
-      query_params[:triggerFilter] = params[:triggerFilter] if params.has_key?(:triggerFilter)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/applications/#{params[:applicationId]}/flows"
+      path = "/applications/#{params[:applicationId]}/integrations/#{params[:integrationId]}"
 
       @client.request(
         method: :get,
@@ -87,47 +121,49 @@ module LosantRest
         body: body)
     end
 
-    # Create a new flow for an application
+    # Updates information about an integration
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, flows.*, or flows.post.
+    # all.Application, all.Organization, all.User, integration.*, or integration.patch.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {hash} flow - New flow information (https://api.losant.com/#/definitions/flowPost)
+    # *  {string} integrationId - ID associated with the integration
+    # *  {hash} integration - Object containing new properties of the integration (https://api.losant.com/#/definitions/integrationPatch)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  201 - Successfully created flow (https://api.losant.com/#/definitions/flow)
+    # *  200 - Updated integration information (https://api.losant.com/#/definitions/integration)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
-    def post(params = {})
+    # *  404 - Error if integration was not found (https://api.losant.com/#/definitions/error)
+    def patch(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
       headers = {}
       body = nil
 
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
-      raise ArgumentError.new("flow is required") unless params.has_key?(:flow)
+      raise ArgumentError.new("integrationId is required") unless params.has_key?(:integrationId)
+      raise ArgumentError.new("integration is required") unless params.has_key?(:integration)
 
-      body = params[:flow] if params.has_key?(:flow)
+      body = params[:integration] if params.has_key?(:integration)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/applications/#{params[:applicationId]}/flows"
+      path = "/applications/#{params[:applicationId]}/integrations/#{params[:integrationId]}"
 
       @client.request(
-        method: :post,
+        method: :patch,
         path: path,
         query: query_params,
         headers: headers,
