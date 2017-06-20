@@ -27,7 +27,7 @@ module LosantRest
   #
   # User API for accessing Losant data
   #
-  # Built For Version 1.6.0
+  # Built For Version 1.6.2
   class Client
     attr_accessor :auth_token, :url
 
@@ -136,6 +136,14 @@ module LosantRest
       @flow ||= Flow.new(self)
     end
 
+    def flow_version
+      @flow_version ||= FlowVersion.new(self)
+    end
+
+    def flow_versions
+      @flow_versions ||= FlowVersions.new(self)
+    end
+
     def flows
       @flows ||= Flows.new(self)
     end
@@ -194,7 +202,7 @@ module LosantRest
 
       headers["Accept"]         = "application/json"
       headers["Content-Type"]   = "application/json"
-      headers["Accept-Version"] = "^1.6.0"
+      headers["Accept-Version"] = "^1.6.2"
       headers["Authorization"]  = "Bearer #{self.auth_token}" if self.auth_token
       path = self.url + options.fetch(:path, "")
 

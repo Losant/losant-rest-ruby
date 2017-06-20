@@ -121,7 +121,7 @@ module LosantRest
         body: body)
     end
 
-    # Retrieve the recent log entries about the flows
+    # Retrieve the recent log entries about runs of this workflow
     #
     # Authentication:
     # The client must be configured with a valid api
