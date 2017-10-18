@@ -27,7 +27,7 @@ module LosantRest
   #
   # User API for accessing Losant data
   #
-  # Built For Version 1.7.2
+  # Built For Version 1.8.0
   class Client
     attr_accessor :auth_token, :url
 
@@ -140,6 +140,14 @@ module LosantRest
       @experience_groups ||= ExperienceGroups.new(self)
     end
 
+    def experience_template
+      @experience_template ||= ExperienceTemplate.new(self)
+    end
+
+    def experience_templates
+      @experience_templates ||= ExperienceTemplates.new(self)
+    end
+
     def experience_user
       @experience_user ||= ExperienceUser.new(self)
     end
@@ -218,7 +226,7 @@ module LosantRest
 
       headers["Accept"]         = "application/json"
       headers["Content-Type"]   = "application/json"
-      headers["Accept-Version"] = "^1.7.2"
+      headers["Accept-Version"] = "^1.8.0"
       headers["Authorization"]  = "Bearer #{self.auth_token}" if self.auth_token
       path = self.url + options.fetch(:path, "")
 

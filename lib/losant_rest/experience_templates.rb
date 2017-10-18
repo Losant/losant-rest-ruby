@@ -22,45 +22,48 @@
 
 module LosantRest
 
-  # Class containing all the actions for the Dashboards Resource
-  class Dashboards
+  # Class containing all the actions for the Experience Templates Resource
+  class ExperienceTemplates
 
     def initialize(client)
       @client = client
     end
 
-    # Returns the dashboards the current user has permission to see
+    # Returns the experience templates for an application
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Organization, all.Organization.read, all.SolutionUser, all.SolutionUser.read, all.User, all.User.read, dashboards.*, or dashboards.get.
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, experienceTemplates.*, or experienceTemplates.get.
     #
     # Parameters:
-    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate, ownerId
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} sortField - Field to sort the results by. Accepted values are: id, creationDate, name
     # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
     # *  {string} page - Which page of results to return
     # *  {string} perPage - How many items to return per page
     # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
-    # *  {string} orgId - If not provided, return all dashboards. If provided but blank, only return dashboards belonging to the current user. If provided and an id, only return dashboards belonging to the given organization id.
+    # *  {string} templateType - Filter templates to those only of the given type. Accepted values are: page, layout, component
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Collection of dashboards (https://api.losant.com/#/definitions/dashboards)
+    # *  200 - Collection of experience templates (https://api.losant.com/#/definitions/experienceTemplates)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
     def get(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
       headers = {}
       body = nil
 
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
 
       query_params[:sortField] = params[:sortField] if params.has_key?(:sortField)
       query_params[:sortDirection] = params[:sortDirection] if params.has_key?(:sortDirection)
@@ -68,13 +71,13 @@ module LosantRest
       query_params[:perPage] = params[:perPage] if params.has_key?(:perPage)
       query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
       query_params[:filter] = params[:filter] if params.has_key?(:filter)
-      query_params[:orgId] = params[:orgId] if params.has_key?(:orgId)
+      query_params[:templateType] = params[:templateType] if params.has_key?(:templateType)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/dashboards"
+      path = "/applications/#{params[:applicationId]}/experience/templates"
 
       @client.request(
         method: :get,
@@ -84,41 +87,44 @@ module LosantRest
         body: body)
     end
 
-    # Create a new dashboard
+    # Create a new experience template for an application
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Organization, all.User, dashboards.*, or dashboards.post.
+    # all.Application, all.Organization, all.User, experienceTemplates.*, or experienceTemplates.post.
     #
     # Parameters:
-    # *  {hash} dashboard - New dashboard information (https://api.losant.com/#/definitions/dashboardPost)
+    # *  {string} applicationId - ID associated with the application
+    # *  {hash} experienceTemplate - New experience template information (https://api.losant.com/#/definitions/experienceTemplatePost)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  201 - Successfully created dashboard (https://api.losant.com/#/definitions/dashboard)
+    # *  201 - Successfully created experience template (https://api.losant.com/#/definitions/experienceTemplate)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
     def post(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
       headers = {}
       body = nil
 
-      raise ArgumentError.new("dashboard is required") unless params.has_key?(:dashboard)
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("experienceTemplate is required") unless params.has_key?(:experienceTemplate)
 
-      body = params[:dashboard] if params.has_key?(:dashboard)
+      body = params[:experienceTemplate] if params.has_key?(:experienceTemplate)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/dashboards"
+      path = "/applications/#{params[:applicationId]}/experience/templates"
 
       @client.request(
         method: :post,
