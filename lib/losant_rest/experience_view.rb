@@ -22,85 +22,35 @@
 
 module LosantRest
 
-  # Class containing all the actions for the Device Recipe Resource
-  class DeviceRecipe
+  # Class containing all the actions for the Experience View Resource
+  class ExperienceView
 
     def initialize(client)
       @client = client
     end
 
-    # Bulk creates devices using this recipe from a CSV
+    # Deletes an experience view
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, deviceRecipe.*, or deviceRecipe.bulkCreate.
+    # all.Application, all.Organization, all.User, experienceView.*, or experienceView.delete.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {string} deviceRecipeId - ID associated with the device recipe
-    # *  {hash} bulkInfo - Object containing bulk creation info (https://api.losant.com/#/definitions/deviceRecipeBulkCreatePost)
+    # *  {string} experienceViewId - ID associated with the experience view
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  201 - If devices were successfully created (https://api.losant.com/#/definitions/deviceRecipeBulkCreate)
-    # *  202 - If devices were enqueued to be created (https://api.losant.com/#/definitions/deviceRecipeBulkCreateEnqueued)
+    # *  200 - If experience view was successfully deleted (https://api.losant.com/#/definitions/success)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if device recipe was not found (https://api.losant.com/#/definitions/error)
-    def bulk_create(params = {})
-      params = Utils.symbolize_hash_keys(params)
-      query_params = { _actions: false, _links: true, _embedded: true }
-      headers = {}
-      body = nil
-
-      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
-      raise ArgumentError.new("deviceRecipeId is required") unless params.has_key?(:deviceRecipeId)
-      raise ArgumentError.new("bulkInfo is required") unless params.has_key?(:bulkInfo)
-
-      body = params[:bulkInfo] if params.has_key?(:bulkInfo)
-      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
-      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
-      query_params[:_links] = params[:_links] if params.has_key?(:_links)
-      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
-
-      path = "/applications/#{params[:applicationId]}/device-recipes/#{params[:deviceRecipeId]}/bulkCreate"
-
-      @client.request(
-        method: :post,
-        path: path,
-        query: query_params,
-        headers: headers,
-        body: body)
-    end
-
-    # Deletes a device recipe
-    #
-    # Authentication:
-    # The client must be configured with a valid api
-    # access token to call this action. The token
-    # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, deviceRecipe.*, or deviceRecipe.delete.
-    #
-    # Parameters:
-    # *  {string} applicationId - ID associated with the application
-    # *  {string} deviceRecipeId - ID associated with the device recipe
-    # *  {string} losantdomain - Domain scope of request (rarely needed)
-    # *  {boolean} _actions - Return resource actions in response
-    # *  {boolean} _links - Return resource link in response
-    # *  {boolean} _embedded - Return embedded resources in response
-    #
-    # Responses:
-    # *  200 - If device recipe was successfully deleted (https://api.losant.com/#/definitions/success)
-    #
-    # Errors:
-    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if device recipe was not found (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if experience view was not found (https://api.losant.com/#/definitions/error)
     def delete(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
@@ -108,14 +58,14 @@ module LosantRest
       body = nil
 
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
-      raise ArgumentError.new("deviceRecipeId is required") unless params.has_key?(:deviceRecipeId)
+      raise ArgumentError.new("experienceViewId is required") unless params.has_key?(:experienceViewId)
 
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/applications/#{params[:applicationId]}/device-recipes/#{params[:deviceRecipeId]}"
+      path = "/applications/#{params[:applicationId]}/experience/views/#{params[:experienceViewId]}"
 
       @client.request(
         method: :delete,
@@ -125,28 +75,28 @@ module LosantRest
         body: body)
     end
 
-    # Retrieves information on a device recipe
+    # Retrieves information on an experience view
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, deviceRecipe.*, or deviceRecipe.get.
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, experienceView.*, or experienceView.get.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {string} deviceRecipeId - ID associated with the device recipe
+    # *  {string} experienceViewId - ID associated with the experience view
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Device recipe information (https://api.losant.com/#/definitions/deviceRecipe)
+    # *  200 - Experience view information (https://api.losant.com/#/definitions/experienceView)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if device recipe was not found (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if experience view was not found (https://api.losant.com/#/definitions/error)
     def get(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
@@ -154,14 +104,14 @@ module LosantRest
       body = nil
 
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
-      raise ArgumentError.new("deviceRecipeId is required") unless params.has_key?(:deviceRecipeId)
+      raise ArgumentError.new("experienceViewId is required") unless params.has_key?(:experienceViewId)
 
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/applications/#{params[:applicationId]}/device-recipes/#{params[:deviceRecipeId]}"
+      path = "/applications/#{params[:applicationId]}/experience/views/#{params[:experienceViewId]}"
 
       @client.request(
         method: :get,
@@ -171,29 +121,29 @@ module LosantRest
         body: body)
     end
 
-    # Updates information about a device recipe
+    # Updates information about an experience view
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, deviceRecipe.*, or deviceRecipe.patch.
+    # all.Application, all.Organization, all.User, experienceView.*, or experienceView.patch.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {string} deviceRecipeId - ID associated with the device recipe
-    # *  {hash} deviceRecipe - Object containing new properties of the device recipe (https://api.losant.com/#/definitions/deviceRecipePatch)
+    # *  {string} experienceViewId - ID associated with the experience view
+    # *  {hash} experienceView - Object containing new properties of the experience view (https://api.losant.com/#/definitions/experienceViewPatch)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Updated device recipe information (https://api.losant.com/#/definitions/deviceRecipe)
+    # *  200 - Updated experience view information (https://api.losant.com/#/definitions/experienceView)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if device recipe was not found (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if experience view was not found (https://api.losant.com/#/definitions/error)
     def patch(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
@@ -201,16 +151,16 @@ module LosantRest
       body = nil
 
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
-      raise ArgumentError.new("deviceRecipeId is required") unless params.has_key?(:deviceRecipeId)
-      raise ArgumentError.new("deviceRecipe is required") unless params.has_key?(:deviceRecipe)
+      raise ArgumentError.new("experienceViewId is required") unless params.has_key?(:experienceViewId)
+      raise ArgumentError.new("experienceView is required") unless params.has_key?(:experienceView)
 
-      body = params[:deviceRecipe] if params.has_key?(:deviceRecipe)
+      body = params[:experienceView] if params.has_key?(:experienceView)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/applications/#{params[:applicationId]}/device-recipes/#{params[:deviceRecipeId]}"
+      path = "/applications/#{params[:applicationId]}/experience/views/#{params[:experienceViewId]}"
 
       @client.request(
         method: :patch,

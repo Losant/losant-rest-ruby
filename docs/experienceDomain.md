@@ -1,7 +1,7 @@
-# Experience Template Actions
+# Experience Domain Actions
 
 Details on the various actions that can be performed on the
-Experience Template resource, including the expected
+Experience Domain resource, including the expected
 parameters and the potential responses.
 
 ##### Contents
@@ -14,12 +14,12 @@ parameters and the potential responses.
 
 ## Delete
 
-Deletes an experience template
+Deletes an experience domain
 
 ```ruby
-result = client.experience_template.delete(
+result = client.experience_domain.delete(
   applicationId: my_application_id,
-  experienceTemplateId: my_experience_template_id)
+  experienceDomainId: my_experience_domain_id)
 
 puts result
 ```
@@ -27,38 +27,38 @@ puts result
 #### Authentication
 The client must be configured with a valid api access token to call this
 action. The token must include at least one of the following scopes:
-all.Application, all.Organization, all.User, experienceTemplate.*, or experienceTemplate.delete.
+all.Application, all.Organization, all.User, experienceDomain.*, or experienceDomain.delete.
 
 #### Available Parameters
 
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
-| experienceTemplateId | string | Y | ID associated with the experience template |  | 575ed78e7ae143cd83dc4aab |
+| experienceDomainId | string | Y | ID associated with the experience domain |  | 575ed78e7ae143cd83dc4aab |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [Success](_schemas.md#success) | If experience template was successfully deleted |
+| 200 | [Success](_schemas.md#success) | If experience domain was successfully deleted |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [Error](_schemas.md#error) | Error if malformed request |
-| 404 | [Error](_schemas.md#error) | Error if experience template was not found |
+| 404 | [Error](_schemas.md#error) | Error if experience domain was not found |
 
 <br/>
 
 ## Get
 
-Retrieves information on an experience template
+Retrieves information on an experience domain
 
 ```ruby
-result = client.experience_template.get(
+result = client.experience_domain.get(
   applicationId: my_application_id,
-  experienceTemplateId: my_experience_template_id)
+  experienceDomainId: my_experience_domain_id)
 
 puts result
 ```
@@ -66,39 +66,39 @@ puts result
 #### Authentication
 The client must be configured with a valid api access token to call this
 action. The token must include at least one of the following scopes:
-all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, experienceTemplate.*, or experienceTemplate.get.
+all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, experienceDomain.*, or experienceDomain.get.
 
 #### Available Parameters
 
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
-| experienceTemplateId | string | Y | ID associated with the experience template |  | 575ed78e7ae143cd83dc4aab |
+| experienceDomainId | string | Y | ID associated with the experience domain |  | 575ed78e7ae143cd83dc4aab |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [Experience Template](_schemas.md#experience-template) | Experience template information |
+| 200 | [Experience Domain](_schemas.md#experience-domain) | Experience domain information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [Error](_schemas.md#error) | Error if malformed request |
-| 404 | [Error](_schemas.md#error) | Error if experience template was not found |
+| 404 | [Error](_schemas.md#error) | Error if experience domain was not found |
 
 <br/>
 
 ## Patch
 
-Updates information about an experience template
+Updates information about an experience domain
 
 ```ruby
-result = client.experience_template.patch(
+result = client.experience_domain.patch(
   applicationId: my_application_id,
-  experienceTemplateId: my_experience_template_id,
-  experienceTemplate: my_experience_template)
+  experienceDomainId: my_experience_domain_id,
+  experienceDomain: my_experience_domain)
 
 puts result
 ```
@@ -106,25 +106,25 @@ puts result
 #### Authentication
 The client must be configured with a valid api access token to call this
 action. The token must include at least one of the following scopes:
-all.Application, all.Organization, all.User, experienceTemplate.*, or experienceTemplate.patch.
+all.Application, all.Organization, all.User, experienceDomain.*, or experienceDomain.patch.
 
 #### Available Parameters
 
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
 | applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
-| experienceTemplateId | string | Y | ID associated with the experience template |  | 575ed78e7ae143cd83dc4aab |
-| experienceTemplate | [Experience Template Patch](_schemas.md#experience-template-patch) | Y | Object containing new properties of the experience template |  | [Experience Template Patch Example](_schemas.md#experience-template-patch-example) |
+| experienceDomainId | string | Y | ID associated with the experience domain |  | 575ed78e7ae143cd83dc4aab |
+| experienceDomain | [Experience Domain Patch](_schemas.md#experience-domain-patch) | Y | Object containing new properties of the experience domain |  | [Experience Domain Patch Example](_schemas.md#experience-domain-patch-example) |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [Experience Template](_schemas.md#experience-template) | Updated experience template information |
+| 200 | [Experience Domain](_schemas.md#experience-domain) | Updated experience domain information |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [Error](_schemas.md#error) | Error if malformed request |
-| 404 | [Error](_schemas.md#error) | Error if experience template was not found |
+| 404 | [Error](_schemas.md#error) | Error if experience domain was not found |
