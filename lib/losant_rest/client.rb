@@ -27,7 +27,7 @@ module LosantRest
   #
   # User API for accessing Losant data
   #
-  # Built For Version 1.9.0
+  # Built For Version 1.9.2
   class Client
     attr_accessor :auth_token, :url
 
@@ -234,7 +234,7 @@ module LosantRest
 
       headers["Accept"]         = "application/json"
       headers["Content-Type"]   = "application/json"
-      headers["Accept-Version"] = "^1.9.0"
+      headers["Accept-Version"] = "^1.9.2"
       headers["Authorization"]  = "Bearer #{self.auth_token}" if self.auth_token
       path = self.url + options.fetch(:path, "")
 
