@@ -40,12 +40,13 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} flowId - ID associated with the flow
-    # *  {string} sortField - Field to sort the results by. Accepted values are: version, id, creationDate
+    # *  {string} sortField - Field to sort the results by. Accepted values are: version, id, creationDate, lastUpdated
     # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
     # *  {string} page - Which page of results to return
     # *  {string} perPage - How many items to return per page
     # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: version
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
+    # *  {string} includeCustomNodes - If the result of the request should also include the details of any custom nodes referenced by the returned workflows
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -72,6 +73,7 @@ module LosantRest
       query_params[:perPage] = params[:perPage] if params.has_key?(:perPage)
       query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
       query_params[:filter] = params[:filter] if params.has_key?(:filter)
+      query_params[:includeCustomNodes] = params[:includeCustomNodes] if params.has_key?(:includeCustomNodes)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -99,7 +101,8 @@ module LosantRest
     # *  {string} applicationId - ID associated with the application
     # *  {string} flowId - ID associated with the flow
     # *  {hash} flowVersion - New flow version information (https://api.losant.com/#/definitions/flowVersionPost)
-    # *  {undefined} allowReplacement - Allow replacement of an existing flow version with same version name
+    # *  {string} includeCustomNodes - If the result of the request should also include the details of any custom nodes referenced by the returned workflows
+    # *  {string} allowReplacement - Allow replacement of an existing flow version with same version name
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -122,6 +125,7 @@ module LosantRest
       raise ArgumentError.new("flowVersion is required") unless params.has_key?(:flowVersion)
 
       body = params[:flowVersion] if params.has_key?(:flowVersion)
+      query_params[:includeCustomNodes] = params[:includeCustomNodes] if params.has_key?(:includeCustomNodes)
       query_params[:allowReplacement] = params[:allowReplacement] if params.has_key?(:allowReplacement)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)

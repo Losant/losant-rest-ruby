@@ -132,6 +132,7 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} flowId - ID associated with the flow
+    # *  {string} includeCustomNodes - If the result of the request should also include the details of any custom nodes referenced by the returned workflows
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -152,6 +153,7 @@ module LosantRest
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
       raise ArgumentError.new("flowId is required") unless params.has_key?(:flowId)
 
+      query_params[:includeCustomNodes] = params[:includeCustomNodes] if params.has_key?(:includeCustomNodes)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -274,6 +276,7 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} flowId - ID associated with the flow
+    # *  {string} includeCustomNodes - If the result of the request should also include the details of any custom nodes referenced by the returned workflows
     # *  {hash} flow - Object containing new properties of the flow (https://api.losant.com/#/definitions/flowPatch)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
@@ -296,6 +299,7 @@ module LosantRest
       raise ArgumentError.new("flowId is required") unless params.has_key?(:flowId)
       raise ArgumentError.new("flow is required") unless params.has_key?(:flow)
 
+      query_params[:includeCustomNodes] = params[:includeCustomNodes] if params.has_key?(:includeCustomNodes)
       body = params[:flow] if params.has_key?(:flow)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)

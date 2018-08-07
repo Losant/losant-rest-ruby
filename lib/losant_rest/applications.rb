@@ -38,7 +38,7 @@ module LosantRest
     # all.Organization, all.Organization.read, all.User, all.User.read, applications.*, or applications.get.
     #
     # Parameters:
-    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate, ownerId
+    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate, ownerId, lastUpdated
     # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
     # *  {string} page - Which page of results to return
     # *  {string} perPage - How many items to return per page

@@ -40,7 +40,7 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} flowId - ID associated with the flow
-    # *  {string} flowVersionId - ID associated with the flow version
+    # *  {string} flowVersionId - Version ID or version name associated with the flow version
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -88,7 +88,8 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} flowId - ID associated with the flow
-    # *  {string} flowVersionId - ID associated with the flow version
+    # *  {string} flowVersionId - Version ID or version name associated with the flow version
+    # *  {string} includeCustomNodes - If the result of the request should also include the details of any custom nodes referenced by the returned workflows
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -110,6 +111,7 @@ module LosantRest
       raise ArgumentError.new("flowId is required") unless params.has_key?(:flowId)
       raise ArgumentError.new("flowVersionId is required") unless params.has_key?(:flowVersionId)
 
+      query_params[:includeCustomNodes] = params[:includeCustomNodes] if params.has_key?(:includeCustomNodes)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -136,7 +138,7 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} flowId - ID associated with the flow
-    # *  {string} flowVersionId - ID associated with the flow version
+    # *  {string} flowVersionId - Version ID or version name associated with the flow version
     # *  {string} limit - Max log entries to return (ordered by time descending)
     # *  {string} since - Look for log entries since this time (ms since epoch)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
@@ -188,7 +190,8 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} flowId - ID associated with the flow
-    # *  {string} flowVersionId - ID associated with the flow version
+    # *  {string} flowVersionId - Version ID or version name associated with the flow version
+    # *  {string} includeCustomNodes - If the result of the request should also include the details of any custom nodes referenced by the returned workflows
     # *  {hash} flowVersion - Object containing new properties of the flow version (https://api.losant.com/#/definitions/flowVersionPatch)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
@@ -212,6 +215,7 @@ module LosantRest
       raise ArgumentError.new("flowVersionId is required") unless params.has_key?(:flowVersionId)
       raise ArgumentError.new("flowVersion is required") unless params.has_key?(:flowVersion)
 
+      query_params[:includeCustomNodes] = params[:includeCustomNodes] if params.has_key?(:includeCustomNodes)
       body = params[:flowVersion] if params.has_key?(:flowVersion)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)

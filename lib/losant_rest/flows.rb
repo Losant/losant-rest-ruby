@@ -39,14 +39,15 @@ module LosantRest
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate
+    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate, lastUpdated
     # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
     # *  {string} page - Which page of results to return
     # *  {string} perPage - How many items to return per page
     # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
-    # *  {string} flowClass - Filter the workflows by the given flow class. Accepted values are: edge, cloud
+    # *  {string} flowClass - Filter the workflows by the given flow class. Accepted values are: edge, cloud, customNode
     # *  {hash} triggerFilter - Array of triggers to filter by - always filters against default flow version. (https://api.losant.com/#/definitions/flowTriggerFilter)
+    # *  {string} includeCustomNodes - If the result of the request should also include the details of any custom nodes referenced by the returned workflows
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -74,6 +75,7 @@ module LosantRest
       query_params[:filter] = params[:filter] if params.has_key?(:filter)
       query_params[:flowClass] = params[:flowClass] if params.has_key?(:flowClass)
       query_params[:triggerFilter] = params[:triggerFilter] if params.has_key?(:triggerFilter)
+      query_params[:includeCustomNodes] = params[:includeCustomNodes] if params.has_key?(:includeCustomNodes)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -83,6 +85,53 @@ module LosantRest
 
       @client.request(
         method: :get,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
+    # Import a set of flows and flow versions
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, flows.*, or flows.import.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {hash} importData - New flow and flow version information (https://api.losant.com/#/definitions/flowsImportPost)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  201 - Successfully imported workflows (https://api.losant.com/#/definitions/flowsImportResult)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
+    def import(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("importData is required") unless params.has_key?(:importData)
+
+      body = params[:importData] if params.has_key?(:importData)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/flows/import"
+
+      @client.request(
+        method: :post,
         path: path,
         query: query_params,
         headers: headers,
@@ -100,6 +149,7 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {hash} flow - New flow information (https://api.losant.com/#/definitions/flowPost)
+    # *  {string} includeCustomNodes - If the result of the request should also include the details of any custom nodes referenced by the returned workflows
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -121,6 +171,7 @@ module LosantRest
       raise ArgumentError.new("flow is required") unless params.has_key?(:flow)
 
       body = params[:flow] if params.has_key?(:flow)
+      query_params[:includeCustomNodes] = params[:includeCustomNodes] if params.has_key?(:includeCustomNodes)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
