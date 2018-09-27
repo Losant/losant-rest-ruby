@@ -95,6 +95,7 @@ module LosantRest
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
     # *  {string} deviceClass - Filter the devices by the given device class. Accepted values are: standalone, gateway, peripheral, floating, edgeCompute
     # *  {hash} tagFilter - Array of tag pairs to filter by. (https://api.losant.com/#/definitions/deviceTagFilter)
+    # *  {string} excludeConnectionInfo - If set, do not return connection info
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -122,6 +123,7 @@ module LosantRest
       query_params[:filter] = params[:filter] if params.has_key?(:filter)
       query_params[:deviceClass] = params[:deviceClass] if params.has_key?(:deviceClass)
       query_params[:tagFilter] = params[:tagFilter] if params.has_key?(:tagFilter)
+      query_params[:excludeConnectionInfo] = params[:excludeConnectionInfo] if params.has_key?(:excludeConnectionInfo)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)

@@ -140,6 +140,7 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceId - ID associated with the device
+    # *  {string} excludeConnectionInfo - If set, do not return connection info
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -160,6 +161,7 @@ module LosantRest
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
       raise ArgumentError.new("deviceId is required") unless params.has_key?(:deviceId)
 
+      query_params[:excludeConnectionInfo] = params[:excludeConnectionInfo] if params.has_key?(:excludeConnectionInfo)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
