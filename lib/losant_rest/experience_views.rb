@@ -46,6 +46,7 @@ module LosantRest
     # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
     # *  {string} viewType - Filter views to those only of the given type. Accepted values are: page, layout, component
+    # *  {string} version - Return the experience views belonging to this version
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -72,6 +73,7 @@ module LosantRest
       query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
       query_params[:filter] = params[:filter] if params.has_key?(:filter)
       query_params[:viewType] = params[:viewType] if params.has_key?(:viewType)
+      query_params[:version] = params[:version] if params.has_key?(:version)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)

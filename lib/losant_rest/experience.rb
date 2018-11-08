@@ -29,7 +29,54 @@ module LosantRest
       @client = client
     end
 
-    # Deletes multiple parts of an experience including users, domains, endpoints, groups, views, and workflows
+    # Bootstraps the experience for this application with standard endpoints and views
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, experience.*, or experience.bootstrap.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {hash} options - Bootstrap options (https://api.losant.com/#/definitions/experienceBootstrapOptions)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - If bootstrap was successful (https://api.losant.com/#/definitions/experienceBootstrapResult)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
+    def bootstrap(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("options is required") unless params.has_key?(:options)
+
+      body = params[:options] if params.has_key?(:options)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/experience/bootstrap"
+
+      @client.request(
+        method: :patch,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
+    # Deletes multiple parts of an experience including users, groups, slugs, domains, versions, endpoints, views, and workflows
     #
     # Authentication:
     # The client must be configured with a valid api
@@ -39,19 +86,21 @@ module LosantRest
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {string} keepUser - Experience Users will automatically be deleted unless this is set.
-    # *  {string} keepDomains - Experience Domains will automatically be deleted unless this is set.
-    # *  {string} keepEndpoints - Experience Endpoints will automatically be deleted unless this is set.
-    # *  {string} keepGroups - Experience Groups will automatically be deleted unless this is set.
-    # *  {string} keepViews - Experience Views will automatically be deleted unless this is set.
-    # *  {string} removeWorkflows - If set will delete any workflows under this application with an Endpoint Trigger Node.
+    # *  {string} keepUsers - If this is set, Experience Users will not be removed.
+    # *  {string} keepGroups - If this is set, Experience Groups will not be removed.
+    # *  {string} keepSlugs - If this is set, Experience Slugs will not be removed.
+    # *  {string} keepDomains - If this is set, Experience Domains will not be removed.
+    # *  {string} removeVersions - If this is set, all Experience Versions and their contents will be removed (except for develop).
+    # *  {string} keepViews - If this is set, Experience Views (in the develop version) will not be removed.
+    # *  {string} keepEndpoints - If this is set, Experience Endpoints (in the develop version) will not be removed.
+    # *  {string} removeWorkflows - If this is set, all Experience Workflows (in the develop version) will ve removed.
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - If everything marked as true was successfully deleted (https://api.losant.com/#/definitions/success)
+    # *  200 - If deletion was successful (https://api.losant.com/#/definitions/success)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
@@ -64,11 +113,13 @@ module LosantRest
 
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
 
-      query_params[:keepUser] = params[:keepUser] if params.has_key?(:keepUser)
-      query_params[:keepDomains] = params[:keepDomains] if params.has_key?(:keepDomains)
-      query_params[:keepEndpoints] = params[:keepEndpoints] if params.has_key?(:keepEndpoints)
+      query_params[:keepUsers] = params[:keepUsers] if params.has_key?(:keepUsers)
       query_params[:keepGroups] = params[:keepGroups] if params.has_key?(:keepGroups)
+      query_params[:keepSlugs] = params[:keepSlugs] if params.has_key?(:keepSlugs)
+      query_params[:keepDomains] = params[:keepDomains] if params.has_key?(:keepDomains)
+      query_params[:removeVersions] = params[:removeVersions] if params.has_key?(:removeVersions)
       query_params[:keepViews] = params[:keepViews] if params.has_key?(:keepViews)
+      query_params[:keepEndpoints] = params[:keepEndpoints] if params.has_key?(:keepEndpoints)
       query_params[:removeWorkflows] = params[:removeWorkflows] if params.has_key?(:removeWorkflows)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)

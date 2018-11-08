@@ -45,6 +45,7 @@ module LosantRest
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
     # *  {string} experienceGroupId - Filter endpoints to those only in the specified group
     # *  {string} requestCountDuration - If set, a count of recent requests is included on each endpoint for the duration requested (milliseconds)
+    # *  {string} version - Return the experience endpoints belonging to this version
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -70,6 +71,7 @@ module LosantRest
       query_params[:filter] = params[:filter] if params.has_key?(:filter)
       query_params[:experienceGroupId] = params[:experienceGroupId] if params.has_key?(:experienceGroupId)
       query_params[:requestCountDuration] = params[:requestCountDuration] if params.has_key?(:requestCountDuration)
+      query_params[:version] = params[:version] if params.has_key?(:version)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -142,9 +144,13 @@ module LosantRest
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {string} statGrouping - Field to group the statistics by. Accepted values are: statusCode, endpointId
+    # *  {string} statGrouping - Field to group the statistics by. Accepted values are: statusCode, endpointId, version, domain
     # *  {string} duration - Duration in milliseconds
     # *  {string} resolution - Resolution in milliseconds
+    # *  {string} versionFilter - Filters the stats to a particular experience version
+    # *  {string} domainFilter - Filters the stats to a particular experience domain or slug
+    # *  {string} statusCodeFilter - Filters the stats to a particular status code
+    # *  {string} endpointIdFilter - Filters the stats to a particular endpoint
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -167,6 +173,10 @@ module LosantRest
       query_params[:statGrouping] = params[:statGrouping] if params.has_key?(:statGrouping)
       query_params[:duration] = params[:duration] if params.has_key?(:duration)
       query_params[:resolution] = params[:resolution] if params.has_key?(:resolution)
+      query_params[:versionFilter] = params[:versionFilter] if params.has_key?(:versionFilter)
+      query_params[:domainFilter] = params[:domainFilter] if params.has_key?(:domainFilter)
+      query_params[:statusCodeFilter] = params[:statusCodeFilter] if params.has_key?(:statusCodeFilter)
+      query_params[:endpointIdFilter] = params[:endpointIdFilter] if params.has_key?(:endpointIdFilter)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)

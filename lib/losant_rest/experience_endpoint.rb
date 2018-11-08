@@ -86,6 +86,7 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} experienceEndpointId - ID associated with the experience endpoint
+    # *  {string} version - Version of this experience endpoint to return
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -106,6 +107,7 @@ module LosantRest
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
       raise ArgumentError.new("experienceEndpointId is required") unless params.has_key?(:experienceEndpointId)
 
+      query_params[:version] = params[:version] if params.has_key?(:version)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
