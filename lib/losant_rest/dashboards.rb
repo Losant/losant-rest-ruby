@@ -38,12 +38,13 @@ module LosantRest
     # all.Organization, all.Organization.read, all.SolutionUser, all.SolutionUser.read, all.User, all.User.read, dashboards.*, or dashboards.get.
     #
     # Parameters:
-    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate, ownerId
+    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate, ownerId, applicationId
     # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
     # *  {string} page - Which page of results to return
     # *  {string} perPage - How many items to return per page
     # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
+    # *  {string} applicationId - If not provided, return all dashboards. If provided but blank, only return dashboards that are not linked to applications. If provided and an id, only return dashboards linked to the given application id.
     # *  {string} orgId - If not provided, return all dashboards. If provided but blank, only return dashboards belonging to the current user. If provided and an id, only return dashboards belonging to the given organization id.
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
@@ -68,6 +69,7 @@ module LosantRest
       query_params[:perPage] = params[:perPage] if params.has_key?(:perPage)
       query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
       query_params[:filter] = params[:filter] if params.has_key?(:filter)
+      query_params[:applicationId] = params[:applicationId] if params.has_key?(:applicationId)
       query_params[:orgId] = params[:orgId] if params.has_key?(:orgId)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)

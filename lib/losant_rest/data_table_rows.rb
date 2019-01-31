@@ -110,6 +110,7 @@ module LosantRest
 
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
       raise ArgumentError.new("dataTableId is required") unless params.has_key?(:dataTableId)
+      raise ArgumentError.new("exportData is required") unless params.has_key?(:exportData)
 
       body = params[:exportData] if params.has_key?(:exportData)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
