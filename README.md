@@ -251,6 +251,6 @@ When the Losant API returns a unsuccessful response, an instance of ResponseErro
 
 *****
 
-Copyright (c) 2018 Losant IoT, Inc
+Copyright (c) 2019 Losant IoT, Inc
 
 <https://www.losant.com>
