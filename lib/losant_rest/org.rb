@@ -83,7 +83,8 @@ module LosantRest
     #
     # Parameters:
     # *  {string} orgId - ID associated with the organization
-    # *  {string} summaryExclude - List of summary fields to exclude from org summary
+    # *  {string} summaryExclude - Comma seperated list of summary fields to exclude from org summary
+    # *  {string} summaryInclude - Comma seperated list of summary fields to include in org summary
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -104,6 +105,7 @@ module LosantRest
       raise ArgumentError.new("orgId is required") unless params.has_key?(:orgId)
 
       query_params[:summaryExclude] = params[:summaryExclude] if params.has_key?(:summaryExclude)
+      query_params[:summaryInclude] = params[:summaryInclude] if params.has_key?(:summaryInclude)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)

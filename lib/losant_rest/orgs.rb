@@ -44,7 +44,8 @@ module LosantRest
     # *  {string} perPage - How many items to return per page
     # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
-    # *  {string} summaryExclude - List of summary fields to exclude from org summaries
+    # *  {string} summaryExclude - Comma seperated list of summary fields to exclude from org summaries
+    # *  {string} summaryInclude - Comma seperated list of summary fields to include in org summary
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -69,6 +70,7 @@ module LosantRest
       query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
       query_params[:filter] = params[:filter] if params.has_key?(:filter)
       query_params[:summaryExclude] = params[:summaryExclude] if params.has_key?(:summaryExclude)
+      query_params[:summaryInclude] = params[:summaryInclude] if params.has_key?(:summaryInclude)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)

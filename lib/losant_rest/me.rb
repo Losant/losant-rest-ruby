@@ -387,7 +387,8 @@ module LosantRest
     #
     # Parameters:
     # *  {undefined} includeRecent - Should the user include recent app/dashboard info
-    # *  {string} summaryExclude - List of summary fields to exclude from user summary
+    # *  {string} summaryExclude - Comma seperated list of summary fields to exclude from user summary
+    # *  {string} summaryInclude - Comma seperated list of summary fields to include in user summary
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -406,6 +407,7 @@ module LosantRest
 
       query_params[:includeRecent] = params[:includeRecent] if params.has_key?(:includeRecent)
       query_params[:summaryExclude] = params[:summaryExclude] if params.has_key?(:summaryExclude)
+      query_params[:summaryInclude] = params[:summaryInclude] if params.has_key?(:summaryInclude)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
