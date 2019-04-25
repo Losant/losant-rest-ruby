@@ -387,8 +387,8 @@ module LosantRest
     #
     # Parameters:
     # *  {undefined} includeRecent - Should the user include recent app/dashboard info
-    # *  {string} summaryExclude - Comma seperated list of summary fields to exclude from user summary
-    # *  {string} summaryInclude - Comma seperated list of summary fields to include in user summary
+    # *  {string} summaryExclude - Comma-separated list of summary fields to exclude from user summary
+    # *  {string} summaryInclude - Comma-separated list of summary fields to include in user summary
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -433,6 +433,8 @@ module LosantRest
     #
     # Parameters:
     # *  {hash} user - Object containing new user properties (https://api.losant.com/#/definitions/mePatch)
+    # *  {string} summaryExclude - Comma-separated list of summary fields to exclude from user summary
+    # *  {string} summaryInclude - Comma-separated list of summary fields to include in user summary
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -452,6 +454,8 @@ module LosantRest
       raise ArgumentError.new("user is required") unless params.has_key?(:user)
 
       body = params[:user] if params.has_key?(:user)
+      query_params[:summaryExclude] = params[:summaryExclude] if params.has_key?(:summaryExclude)
+      query_params[:summaryInclude] = params[:summaryInclude] if params.has_key?(:summaryInclude)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)

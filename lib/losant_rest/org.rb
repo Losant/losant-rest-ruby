@@ -83,8 +83,8 @@ module LosantRest
     #
     # Parameters:
     # *  {string} orgId - ID associated with the organization
-    # *  {string} summaryExclude - Comma seperated list of summary fields to exclude from org summary
-    # *  {string} summaryInclude - Comma seperated list of summary fields to include in org summary
+    # *  {string} summaryExclude - Comma-separated list of summary fields to exclude from org summary
+    # *  {string} summaryInclude - Comma-separated list of summary fields to include in org summary
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -179,6 +179,8 @@ module LosantRest
     # Parameters:
     # *  {string} orgId - ID associated with the organization
     # *  {hash} member - Object containing new member pair (https://api.losant.com/#/definitions/orgMemberPatch)
+    # *  {string} summaryExclude - Comma-separated list of summary fields to exclude from org summary
+    # *  {string} summaryInclude - Comma-separated list of summary fields to include in org summary
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -200,6 +202,8 @@ module LosantRest
       raise ArgumentError.new("member is required") unless params.has_key?(:member)
 
       body = params[:member] if params.has_key?(:member)
+      query_params[:summaryExclude] = params[:summaryExclude] if params.has_key?(:summaryExclude)
+      query_params[:summaryInclude] = params[:summaryInclude] if params.has_key?(:summaryInclude)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -226,6 +230,8 @@ module LosantRest
     # Parameters:
     # *  {string} orgId - ID associated with the organization
     # *  {hash} organization - Object containing new organization properties (https://api.losant.com/#/definitions/orgPatch)
+    # *  {string} summaryExclude - Comma-separated list of summary fields to exclude from org summary
+    # *  {string} summaryInclude - Comma-separated list of summary fields to include in org summary
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -247,6 +253,8 @@ module LosantRest
       raise ArgumentError.new("organization is required") unless params.has_key?(:organization)
 
       body = params[:organization] if params.has_key?(:organization)
+      query_params[:summaryExclude] = params[:summaryExclude] if params.has_key?(:summaryExclude)
+      query_params[:summaryInclude] = params[:summaryInclude] if params.has_key?(:summaryInclude)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -365,6 +373,8 @@ module LosantRest
     # Parameters:
     # *  {string} orgId - ID associated with the organization
     # *  {string} userId - Id of user to remove
+    # *  {string} summaryExclude - Comma-separated list of summary fields to exclude from org summary
+    # *  {string} summaryInclude - Comma-separated list of summary fields to include in org summary
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -386,6 +396,8 @@ module LosantRest
       raise ArgumentError.new("userId is required") unless params.has_key?(:userId)
 
       query_params[:userId] = params[:userId] if params.has_key?(:userId)
+      query_params[:summaryExclude] = params[:summaryExclude] if params.has_key?(:summaryExclude)
+      query_params[:summaryInclude] = params[:summaryInclude] if params.has_key?(:summaryInclude)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
