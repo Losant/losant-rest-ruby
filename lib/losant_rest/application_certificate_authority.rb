@@ -22,175 +22,148 @@
 
 module LosantRest
 
-  # Class containing all the actions for the Auth Resource
-  class Auth
+  # Class containing all the actions for the Application Certificate Authority Resource
+  class ApplicationCertificateAuthority
 
     def initialize(client)
       @client = client
     end
 
-    # Authenticates a device using the provided credentials.
+    # Deletes an application certificate authority
     #
     # Authentication:
-    # No api access token is required to call this action.
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, applicationCertificateAuthority.*, or applicationCertificateAuthority.delete.
     #
     # Parameters:
-    # *  {hash} credentials - Device authentication credentials (https://api.losant.com/#/definitions/deviceCredentials)
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} applicationCertificateAuthorityId - ID associated with the application certificate authority
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Successful authentication. The included api access token by default has the scope 'all.Device'. (https://api.losant.com/#/definitions/authedDevice)
+    # *  200 - If application certificate authority was successfully deleted (https://api.losant.com/#/definitions/success)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  401 - Unauthorized error if authentication fails (https://api.losant.com/#/definitions/error)
-    def authenticate_device(params = {})
+    # *  404 - Error if application certificate authority was not found (https://api.losant.com/#/definitions/error)
+    def delete(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
       headers = {}
       body = nil
 
-      raise ArgumentError.new("credentials is required") unless params.has_key?(:credentials)
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("applicationCertificateAuthorityId is required") unless params.has_key?(:applicationCertificateAuthorityId)
 
-      body = params[:credentials] if params.has_key?(:credentials)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/auth/device"
+      path = "/applications/#{params[:applicationId]}/certificate-authorities/#{params[:applicationCertificateAuthorityId]}"
 
       @client.request(
-        method: :post,
+        method: :delete,
         path: path,
         query: query_params,
         headers: headers,
         body: body)
     end
 
-    # Authenticates a solution user using the provided credentials.
+    # Retrieves information on an application certificate authority
     #
     # Authentication:
-    # No api access token is required to call this action.
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, applicationCertificateAuthority.*, or applicationCertificateAuthority.get.
     #
     # Parameters:
-    # *  {hash} credentials - Solution user authentication credentials. The included api access token has the scope 'all.SolutionUser'. (https://api.losant.com/#/definitions/solutionUserCredentials)
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} applicationCertificateAuthorityId - ID associated with the application certificate authority
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Successful authentication (https://api.losant.com/#/definitions/authedSolutionUser)
+    # *  200 - Application certificate authority information (https://api.losant.com/#/definitions/applicationCertificateAuthority)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  401 - Unauthorized error if authentication fails (https://api.losant.com/#/definitions/error)
-    def authenticate_solution_user(params = {})
+    # *  404 - Error if application certificate authority was not found (https://api.losant.com/#/definitions/error)
+    def get(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
       headers = {}
       body = nil
 
-      raise ArgumentError.new("credentials is required") unless params.has_key?(:credentials)
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("applicationCertificateAuthorityId is required") unless params.has_key?(:applicationCertificateAuthorityId)
 
-      body = params[:credentials] if params.has_key?(:credentials)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/auth/solutionUser"
+      path = "/applications/#{params[:applicationId]}/certificate-authorities/#{params[:applicationCertificateAuthorityId]}"
 
       @client.request(
-        method: :post,
+        method: :get,
         path: path,
         query: query_params,
         headers: headers,
         body: body)
     end
 
-    # Authenticates a user using the provided credentials.
+    # Updates information about an application certificate authority
     #
     # Authentication:
-    # No api access token is required to call this action.
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, applicationCertificateAuthority.*, or applicationCertificateAuthority.patch.
     #
     # Parameters:
-    # *  {hash} credentials - User authentication credentials (https://api.losant.com/#/definitions/userCredentials)
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} applicationCertificateAuthorityId - ID associated with the application certificate authority
+    # *  {hash} applicationCertificateAuthority - Object containing new properties of the application certificate authority (https://api.losant.com/#/definitions/applicationCertificateAuthorityPatch)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Successful authentication. The included api access token has the scope 'all.User'. (https://api.losant.com/#/definitions/authedUser)
+    # *  200 - Updated application certificate authority information (https://api.losant.com/#/definitions/applicationCertificateAuthority)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  401 - Unauthorized error if authentication fails (https://api.losant.com/#/definitions/error)
-    def authenticate_user(params = {})
+    # *  404 - Error if application certificate authority was not found (https://api.losant.com/#/definitions/error)
+    def patch(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
       headers = {}
       body = nil
 
-      raise ArgumentError.new("credentials is required") unless params.has_key?(:credentials)
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("applicationCertificateAuthorityId is required") unless params.has_key?(:applicationCertificateAuthorityId)
+      raise ArgumentError.new("applicationCertificateAuthority is required") unless params.has_key?(:applicationCertificateAuthority)
 
-      body = params[:credentials] if params.has_key?(:credentials)
+      body = params[:applicationCertificateAuthority] if params.has_key?(:applicationCertificateAuthority)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/auth/user"
+      path = "/applications/#{params[:applicationId]}/certificate-authorities/#{params[:applicationCertificateAuthorityId]}"
 
       @client.request(
-        method: :post,
-        path: path,
-        query: query_params,
-        headers: headers,
-        body: body)
-    end
-
-    # Authenticates a user via GitHub OAuth.
-    #
-    # Authentication:
-    # No api access token is required to call this action.
-    #
-    # Parameters:
-    # *  {hash} oauth - User authentication credentials (access token) (https://api.losant.com/#/definitions/githubLogin)
-    # *  {string} losantdomain - Domain scope of request (rarely needed)
-    # *  {boolean} _actions - Return resource actions in response
-    # *  {boolean} _links - Return resource link in response
-    # *  {boolean} _embedded - Return embedded resources in response
-    #
-    # Responses:
-    # *  200 - Successful authentication. The included api access token has the scope 'all.User'. (https://api.losant.com/#/definitions/authedUser)
-    #
-    # Errors:
-    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  401 - Unauthorized error if authentication fails (https://api.losant.com/#/definitions/error)
-    def authenticate_user_github(params = {})
-      params = Utils.symbolize_hash_keys(params)
-      query_params = { _actions: false, _links: true, _embedded: true }
-      headers = {}
-      body = nil
-
-      raise ArgumentError.new("oauth is required") unless params.has_key?(:oauth)
-
-      body = params[:oauth] if params.has_key?(:oauth)
-      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
-      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
-      query_params[:_links] = params[:_links] if params.has_key?(:_links)
-      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
-
-      path = "/auth/user/github"
-
-      @client.request(
-        method: :post,
+        method: :patch,
         path: path,
         query: query_params,
         headers: headers,

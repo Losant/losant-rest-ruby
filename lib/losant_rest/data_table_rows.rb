@@ -143,6 +143,7 @@ module LosantRest
     # *  {string} sortDirection - Direction to sort the rows by. Accepted values are: asc, desc
     # *  {string} limit - How many rows to return
     # *  {string} offset - How many rows to skip
+    # *  {string} includeFields - Comma-separated list of fields to include in resulting rows. When not provided, returns all fields.
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -167,6 +168,7 @@ module LosantRest
       query_params[:sortDirection] = params[:sortDirection] if params.has_key?(:sortDirection)
       query_params[:limit] = params[:limit] if params.has_key?(:limit)
       query_params[:offset] = params[:offset] if params.has_key?(:offset)
+      query_params[:includeFields] = params[:includeFields] if params.has_key?(:includeFields)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -246,6 +248,7 @@ module LosantRest
     # *  {string} sortDirection - Direction to sort the rows by. Accepted values are: asc, desc
     # *  {string} limit - How many rows to return
     # *  {string} offset - How many rows to skip
+    # *  {string} includeFields - Comma-separated list of fields to include in resulting rows. When not provided, returns all fields.
     # *  {hash} query - Query to apply to filter the data table (https://api.losant.com/#/definitions/dataTableQuery)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
@@ -271,6 +274,7 @@ module LosantRest
       query_params[:sortDirection] = params[:sortDirection] if params.has_key?(:sortDirection)
       query_params[:limit] = params[:limit] if params.has_key?(:limit)
       query_params[:offset] = params[:offset] if params.has_key?(:offset)
+      query_params[:includeFields] = params[:includeFields] if params.has_key?(:includeFields)
       body = params[:query] if params.has_key?(:query)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
