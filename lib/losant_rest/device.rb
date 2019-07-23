@@ -20,6 +20,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+require "json"
+
 module LosantRest
 
   # Class containing all the actions for the Device Resource
@@ -240,6 +242,7 @@ module LosantRest
     # *  {string} deviceId - ID associated with the device
     # *  {string} start - Start of time range to look at to build composite state
     # *  {string} end - End of time range to look at to build composite state
+    # *  {string} attributes - Comma-separated list of attributes to include. When not provided, returns all attributes.
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -262,6 +265,7 @@ module LosantRest
 
       query_params[:start] = params[:start] if params.has_key?(:start)
       query_params[:end] = params[:end] if params.has_key?(:end)
+      query_params[:attributes] = params[:attributes] if params.has_key?(:attributes)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)

@@ -20,6 +20,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+require "json"
+
 module LosantRest
 
   # Class containing all the actions for the Data Table Rows Resource
@@ -40,7 +42,7 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} dataTableId - ID associated with the data table
-    # *  {hash} query - Query to apply to filter the data table (https://api.losant.com/#/definitions/dataTableQuery)
+    # *  {hash} query - Query to apply to filter the data table (https://api.losant.com/#/definitions/advancedQuery)
     # *  {string} limit - Limit number of rows to delete from data table
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
@@ -249,7 +251,7 @@ module LosantRest
     # *  {string} limit - How many rows to return
     # *  {string} offset - How many rows to skip
     # *  {string} includeFields - Comma-separated list of fields to include in resulting rows. When not provided, returns all fields.
-    # *  {hash} query - Query to apply to filter the data table (https://api.losant.com/#/definitions/dataTableQuery)
+    # *  {hash} query - Query to apply to filter the data table (https://api.losant.com/#/definitions/advancedQuery)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response

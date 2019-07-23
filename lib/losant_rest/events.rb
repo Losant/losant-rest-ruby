@@ -20,6 +20,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+require "json"
+
 module LosantRest
 
   # Class containing all the actions for the Events Resource
@@ -27,6 +29,98 @@ module LosantRest
 
     def initialize(client)
       @client = client
+    end
+
+    # Delete events
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, events.*, or events.delete.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {hash} query - Query to apply to filter the events (https://api.losant.com/#/definitions/advancedQuery)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - If request successfully deletes a set of Events (https://api.losant.com/#/definitions/eventsDeleted)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if events were not found (https://api.losant.com/#/definitions/error)
+    def delete(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+
+      body = params[:query] if params.has_key?(:query)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/events/delete"
+
+      @client.request(
+        method: :post,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
+    # Request an export of an application's event data
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, events.*, or events.export.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {hash} exportData - Export options for events (https://api.losant.com/#/definitions/eventsExport)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - If generation of export was successfully started (https://api.losant.com/#/definitions/success)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
+    def export(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+
+      body = params[:exportData] if params.has_key?(:exportData)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/events/export"
+
+      @client.request(
+        method: :post,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
     end
 
     # Returns the events for an application
@@ -46,6 +140,7 @@ module LosantRest
     # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: subject
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
     # *  {string} state - If provided, return events only in the given state. Accepted values are: new, acknowledged, resolved
+    # *  {hash} query - Event filter JSON object which overides the filterField, filter, and state parameters. (https://api.losant.com/#/definitions/advancedQuery)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -72,6 +167,8 @@ module LosantRest
       query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
       query_params[:filter] = params[:filter] if params.has_key?(:filter)
       query_params[:state] = params[:state] if params.has_key?(:state)
+      query_params[:query] = params[:query] if params.has_key?(:query)
+      query_params[:query] = JSON.dump(query_params[:query]) if query_params.has_key?(:query)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -98,6 +195,7 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} filter - Filter to apply against event subjects. Supports globbing. Blank or not provided means no filtering.
+    # *  {hash} query - Event filter JSON object which overides the filter parameter. (https://api.losant.com/#/definitions/advancedQuery)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -117,6 +215,8 @@ module LosantRest
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
 
       query_params[:filter] = params[:filter] if params.has_key?(:filter)
+      query_params[:query] = params[:query] if params.has_key?(:query)
+      query_params[:query] = JSON.dump(query_params[:query]) if query_params.has_key?(:query)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -145,6 +245,7 @@ module LosantRest
     # *  {string} filterField - Field to filter the events to act on by. Blank or not provided means no filtering. Accepted values are: subject
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
     # *  {string} state - If provided, act on events only in the given state. Accepted values are: new, acknowledged, resolved
+    # *  {hash} query - Event filter JSON object which overides the filterField, filter, and state parameters. (https://api.losant.com/#/definitions/advancedQuery)
     # *  {hash} updates - Object containing updated information for the events (https://api.losant.com/#/definitions/eventPatch)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
@@ -169,6 +270,8 @@ module LosantRest
       query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
       query_params[:filter] = params[:filter] if params.has_key?(:filter)
       query_params[:state] = params[:state] if params.has_key?(:state)
+      query_params[:query] = params[:query] if params.has_key?(:query)
+      query_params[:query] = JSON.dump(query_params[:query]) if query_params.has_key?(:query)
       body = params[:updates] if params.has_key?(:updates)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
