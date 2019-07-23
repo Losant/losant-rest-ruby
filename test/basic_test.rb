@@ -60,7 +60,7 @@ class BasicTest < MiniTest::Test
       client = LosantRest::Client.new(auth_token: "my token")
 
       response = client.events.get(applicationId: "appId", query: {
-        "$and": [ { level: "info" }, { state: "new" }]
+        :"$and" => [ { level: "info" }, { state: "new" }]
       })
       assert_equal response, { "count" => 0, "items" => [] }
     end
