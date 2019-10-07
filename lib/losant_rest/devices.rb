@@ -31,7 +31,7 @@ module LosantRest
       @client = client
     end
 
-    # Creates an export of all device metadata.
+    # Creates an export of all device metadata
     #
     # Authentication:
     # The client must be configured with a valid api
@@ -42,7 +42,7 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} email - Email address to send export to. Defaults to current user's email.
-    # *  {string} callbackUrl - Callback URL to call with export result.
+    # *  {string} callbackUrl - Callback URL to call with export result
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -95,9 +95,10 @@ module LosantRest
     # *  {string} perPage - How many items to return per page
     # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
-    # *  {string} deviceClass - Filter the devices by the given device class. Accepted values are: standalone, gateway, peripheral, floating, edgeCompute
-    # *  {hash} tagFilter - Array of tag pairs to filter by. (https://api.losant.com/#/definitions/deviceTagFilter)
+    # *  {hash} deviceClass - Filter the devices by the given device class or classes (https://api.losant.com/#/definitions/deviceClassFilter)
+    # *  {hash} tagFilter - Array of tag pairs to filter by (https://api.losant.com/#/definitions/deviceTagFilter)
     # *  {string} excludeConnectionInfo - If set, do not return connection info
+    # *  {string} parentId - Filter devices as children of a given system id
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -126,6 +127,7 @@ module LosantRest
       query_params[:deviceClass] = params[:deviceClass] if params.has_key?(:deviceClass)
       query_params[:tagFilter] = params[:tagFilter] if params.has_key?(:tagFilter)
       query_params[:excludeConnectionInfo] = params[:excludeConnectionInfo] if params.has_key?(:excludeConnectionInfo)
+      query_params[:parentId] = params[:parentId] if params.has_key?(:parentId)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -135,6 +137,52 @@ module LosantRest
 
       @client.request(
         method: :get,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
+    # Update the fields of one or more devices
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, devices.*, or devices.patch.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {hash} patchInfo - Object containing device filter fields and updated properties (https://api.losant.com/#/definitions/devicesPatch)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  201 - Successfully queued bulk update job (https://api.losant.com/#/definitions/success)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
+    def patch(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+
+      body = params[:patchInfo] if params.has_key?(:patchInfo)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/devices"
+
+      @client.request(
+        method: :patch,
         path: path,
         query: query_params,
         headers: headers,
