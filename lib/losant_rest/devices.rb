@@ -99,6 +99,7 @@ module LosantRest
     # *  {hash} tagFilter - Array of tag pairs to filter by (https://api.losant.com/#/definitions/deviceTagFilter)
     # *  {string} excludeConnectionInfo - If set, do not return connection info
     # *  {string} parentId - Filter devices as children of a given system id
+    # *  {hash} query - Device filter JSON object which overides the filterField, filter, deviceClass, tagFilter, and parentId parameters. (https://api.losant.com/#/definitions/advancedDeviceQuery)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -128,6 +129,8 @@ module LosantRest
       query_params[:tagFilter] = params[:tagFilter] if params.has_key?(:tagFilter)
       query_params[:excludeConnectionInfo] = params[:excludeConnectionInfo] if params.has_key?(:excludeConnectionInfo)
       query_params[:parentId] = params[:parentId] if params.has_key?(:parentId)
+      query_params[:query] = params[:query] if params.has_key?(:query)
+      query_params[:query] = JSON.dump(query_params[:query]) if query_params.has_key?(:query)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
