@@ -92,6 +92,7 @@ module LosantRest
     # *  {string} end - End time of export (ms since epoch - 0 means now, negative is relative to now)
     # *  {string} email - Email address to send export to. Defaults to current user's email.
     # *  {string} callbackUrl - Callback URL to call with export result
+    # *  {string} includeBlobData - If set will export any blob attributes in base64 form, otherwise they will be downloadable links which will expire.
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -116,6 +117,7 @@ module LosantRest
       query_params[:end] = params[:end] if params.has_key?(:end)
       query_params[:email] = params[:email] if params.has_key?(:email)
       query_params[:callbackUrl] = params[:callbackUrl] if params.has_key?(:callbackUrl)
+      query_params[:includeBlobData] = params[:includeBlobData] if params.has_key?(:includeBlobData)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
