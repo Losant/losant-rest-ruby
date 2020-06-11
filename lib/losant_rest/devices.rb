@@ -31,6 +31,54 @@ module LosantRest
       @client = client
     end
 
+    # Delete devices
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, devices.*, or devices.delete.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {hash} options - Object containing device query and email (https://api.losant.com/#/definitions/devicesDeletePost)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - Object indicating number of devices deleted or failed (https://api.losant.com/#/definitions/devicesDeleted)
+    # *  202 - If a job was enqueued for the devices to be deleted (https://api.losant.com/#/definitions/jobEnqueuedResult)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
+    def delete(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("options is required") unless params.has_key?(:options)
+
+      body = params[:options] if params.has_key?(:options)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/devices/delete"
+
+      @client.request(
+        method: :post,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
     # Creates an export of all device metadata
     #
     # Authentication:
@@ -43,6 +91,7 @@ module LosantRest
     # *  {string} applicationId - ID associated with the application
     # *  {string} email - Email address to send export to. Defaults to current user's email.
     # *  {string} callbackUrl - Callback URL to call with export result
+    # *  {hash} options - Object containing device query and optionally email or callback (https://api.losant.com/#/definitions/devicesExportPost)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -64,6 +113,7 @@ module LosantRest
 
       query_params[:email] = params[:email] if params.has_key?(:email)
       query_params[:callbackUrl] = params[:callbackUrl] if params.has_key?(:callbackUrl)
+      body = params[:options] if params.has_key?(:options)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -99,7 +149,7 @@ module LosantRest
     # *  {hash} tagFilter - Array of tag pairs to filter by (https://api.losant.com/#/definitions/deviceTagFilter)
     # *  {string} excludeConnectionInfo - If set, do not return connection info
     # *  {string} parentId - Filter devices as children of a given system id
-    # *  {hash} query - Device filter JSON object which overides the filterField, filter, deviceClass, tagFilter, and parentId parameters. (https://api.losant.com/#/definitions/advancedDeviceQuery)
+    # *  {hash} query - Device filter JSON object which overrides the filterField, filter, deviceClass, tagFilter, and parentId parameters. (https://api.losant.com/#/definitions/advancedDeviceQuery)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -156,14 +206,15 @@ module LosantRest
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {hash} patchInfo - Object containing device filter fields and updated properties (https://api.losant.com/#/definitions/devicesPatch)
+    # *  {hash} patchInfo - Object containing device query or IDs and update operations (https://api.losant.com/#/definitions/devicesPatch)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  201 - Successfully queued bulk update job (https://api.losant.com/#/definitions/success)
+    # *  200 - Object including an update log link and the number of devices updated, failed, and skipped (https://api.losant.com/#/definitions/devicesUpdated)
+    # *  202 - Successfully queued bulk update job (https://api.losant.com/#/definitions/jobEnqueuedResult)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
@@ -230,6 +281,54 @@ module LosantRest
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
       path = "/applications/#{params[:applicationId]}/devices"
+
+      @client.request(
+        method: :post,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
+    # Removes all device data for the specified time range. Defaults to all data.
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, devices.*, or devices.removeData.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {hash} options - Object defining the device data to delete and devices to delete from (https://api.losant.com/#/definitions/devicesRemoveDataPost)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - Object indicating number of devices completed or skipped (https://api.losant.com/#/definitions/devicesDataRemoved)
+    # *  202 - If a job was enqueued for device data to be removed (https://api.losant.com/#/definitions/jobEnqueuedResult)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if device was not found (https://api.losant.com/#/definitions/error)
+    def remove_data(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("options is required") unless params.has_key?(:options)
+
+      body = params[:options] if params.has_key?(:options)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/devices/removeData"
 
       @client.request(
         method: :post,
