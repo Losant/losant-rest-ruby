@@ -52,7 +52,7 @@ module LosantRest
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if event was not found (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if file was not found (https://api.losant.com/#/definitions/error)
     def delete(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
@@ -146,7 +146,7 @@ module LosantRest
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if file was not found (https://api.losant.com/#/definitions/error)
     def move(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
@@ -195,7 +195,7 @@ module LosantRest
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if file was not found (https://api.losant.com/#/definitions/error)
     def patch(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }

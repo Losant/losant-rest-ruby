@@ -226,6 +226,7 @@ module LosantRest
       body = nil
 
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("patchInfo is required") unless params.has_key?(:patchInfo)
 
       body = params[:patchInfo] if params.has_key?(:patchInfo)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
@@ -312,7 +313,7 @@ module LosantRest
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if device was not found (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
     def remove_data(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }

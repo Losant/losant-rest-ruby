@@ -148,6 +148,7 @@ module LosantRest
     # *  {string} applicationId - ID associated with the application
     # *  {string} statGrouping - Field to group the statistics by. Accepted values are: statusCode, endpointId, version, domain
     # *  {string} duration - Duration in milliseconds
+    # *  {string} end - End of time range in milliseconds since epoch
     # *  {string} resolution - Resolution in milliseconds
     # *  {string} versionFilter - Filters the stats to a particular experience version
     # *  {string} domainFilter - Filters the stats to a particular experience domain or slug
@@ -174,6 +175,7 @@ module LosantRest
 
       query_params[:statGrouping] = params[:statGrouping] if params.has_key?(:statGrouping)
       query_params[:duration] = params[:duration] if params.has_key?(:duration)
+      query_params[:end] = params[:end] if params.has_key?(:end)
       query_params[:resolution] = params[:resolution] if params.has_key?(:resolution)
       query_params[:versionFilter] = params[:versionFilter] if params.has_key?(:versionFilter)
       query_params[:domainFilter] = params[:domainFilter] if params.has_key?(:domainFilter)

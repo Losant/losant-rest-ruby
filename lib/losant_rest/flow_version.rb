@@ -79,6 +79,64 @@ module LosantRest
         body: body)
     end
 
+    # Get information about errors that occurred during runs of this workflow version
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, flowVersion.*, or flowVersion.errors.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} flowId - ID associated with the flow
+    # *  {string} flowVersionId - Version ID or version name associated with the flow version
+    # *  {string} duration - Duration of time range in milliseconds
+    # *  {string} end - End of time range in milliseconds since epoch
+    # *  {string} limit - Maximum number of errors to return
+    # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
+    # *  {string} deviceId - For edge workflows, the Device ID to return workflow errors for. When not included, will be errors for all device IDs.
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - Workflow error information (https://api.losant.com/#/definitions/flowErrors)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if flow version was not found (https://api.losant.com/#/definitions/error)
+    def errors(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("flowId is required") unless params.has_key?(:flowId)
+      raise ArgumentError.new("flowVersionId is required") unless params.has_key?(:flowVersionId)
+
+      query_params[:duration] = params[:duration] if params.has_key?(:duration)
+      query_params[:end] = params[:end] if params.has_key?(:end)
+      query_params[:limit] = params[:limit] if params.has_key?(:limit)
+      query_params[:sortDirection] = params[:sortDirection] if params.has_key?(:sortDirection)
+      query_params[:deviceId] = params[:deviceId] if params.has_key?(:deviceId)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/flows/#{params[:flowId]}/versions/#{params[:flowVersionId]}/errors"
+
+      @client.request(
+        method: :get,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
     # Retrieves information on a flow version
     #
     # Authentication:
@@ -153,7 +211,7 @@ module LosantRest
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if device was not found (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if flow version was not found (https://api.losant.com/#/definitions/error)
     def get_log_entries(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
@@ -228,6 +286,62 @@ module LosantRest
 
       @client.request(
         method: :patch,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
+    # Get statistics about workflow runs for this workflow version
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, flowVersion.*, or flowVersion.stats.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} flowId - ID associated with the flow
+    # *  {string} flowVersionId - Version ID or version name associated with the flow version
+    # *  {string} duration - Duration of time range in milliseconds
+    # *  {string} end - End of time range in milliseconds since epoch
+    # *  {string} resolution - Resolution in milliseconds
+    # *  {string} deviceId - For edge workflows, the device ID to return workflow stats for. When not included, will be aggregate for all device IDs.
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - Statistics for workflow runs (https://api.losant.com/#/definitions/flowStats)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if flow version was not found (https://api.losant.com/#/definitions/error)
+    def stats(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("flowId is required") unless params.has_key?(:flowId)
+      raise ArgumentError.new("flowVersionId is required") unless params.has_key?(:flowVersionId)
+
+      query_params[:duration] = params[:duration] if params.has_key?(:duration)
+      query_params[:end] = params[:end] if params.has_key?(:end)
+      query_params[:resolution] = params[:resolution] if params.has_key?(:resolution)
+      query_params[:deviceId] = params[:deviceId] if params.has_key?(:deviceId)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/flows/#{params[:flowId]}/versions/#{params[:flowVersionId]}/stats"
+
+      @client.request(
+        method: :get,
         path: path,
         query: query_params,
         headers: headers,
