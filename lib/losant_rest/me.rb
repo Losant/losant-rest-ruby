@@ -248,47 +248,6 @@ module LosantRest
         body: body)
     end
 
-    # Disconnects the user from Twitter
-    #
-    # Authentication:
-    # The client must be configured with a valid api
-    # access token to call this action. The token
-    # must include at least one of the following scopes:
-    # all.User, me.*, or me.disconnectTwitter.
-    #
-    # Parameters:
-    # *  {string} losantdomain - Domain scope of request (rarely needed)
-    # *  {boolean} _actions - Return resource actions in response
-    # *  {boolean} _links - Return resource link in response
-    # *  {boolean} _embedded - Return embedded resources in response
-    #
-    # Responses:
-    # *  200 - Updated user information (https://api.losant.com/#/definitions/me)
-    #
-    # Errors:
-    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    def disconnect_twitter(params = {})
-      params = Utils.symbolize_hash_keys(params)
-      query_params = { _actions: false, _links: true, _embedded: true }
-      headers = {}
-      body = nil
-
-
-      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
-      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
-      query_params[:_links] = params[:_links] if params.has_key?(:_links)
-      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
-
-      path = "/me/disconnectTwitter"
-
-      @client.request(
-        method: :patch,
-        path: path,
-        query: query_params,
-        headers: headers,
-        body: body)
-    end
-
     # Enables two factor auth for the current user
     #
     # Authentication:

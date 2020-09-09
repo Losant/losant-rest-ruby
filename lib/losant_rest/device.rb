@@ -192,8 +192,9 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceId - ID associated with the device
-    # *  {string} limit - Max command entries to return (ordered by time descending)
+    # *  {string} limit - Maximum number of command entries to return
     # *  {string} since - Look for command entries since this time (ms since epoch)
+    # *  {string} sortDirection - Direction to sort the command entries (by time). Accepted values are: asc, desc
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -216,6 +217,7 @@ module LosantRest
 
       query_params[:limit] = params[:limit] if params.has_key?(:limit)
       query_params[:since] = params[:since] if params.has_key?(:since)
+      query_params[:sortDirection] = params[:sortDirection] if params.has_key?(:sortDirection)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -294,8 +296,9 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceId - ID associated with the device
-    # *  {string} limit - Max log entries to return (ordered by time descending)
+    # *  {string} limit - Maximum number of log entries to return
     # *  {string} since - Look for log entries since this time (ms since epoch)
+    # *  {string} sortDirection - Direction to sort the log entries (by time). Accepted values are: asc, desc
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -318,6 +321,7 @@ module LosantRest
 
       query_params[:limit] = params[:limit] if params.has_key?(:limit)
       query_params[:since] = params[:since] if params.has_key?(:since)
+      query_params[:sortDirection] = params[:sortDirection] if params.has_key?(:sortDirection)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -344,8 +348,9 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceId - ID associated with the device
-    # *  {string} limit - Max state entries to return (ordered by time descending)
+    # *  {string} limit - Maximum number of state entries to return
     # *  {string} since - Look for state entries since this time (ms since epoch)
+    # *  {string} sortDirection - Direction to sort the state entries (by time). Accepted values are: asc, desc
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -368,6 +373,7 @@ module LosantRest
 
       query_params[:limit] = params[:limit] if params.has_key?(:limit)
       query_params[:since] = params[:since] if params.has_key?(:since)
+      query_params[:sortDirection] = params[:sortDirection] if params.has_key?(:sortDirection)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
