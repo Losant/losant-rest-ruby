@@ -31,6 +31,57 @@ module LosantRest
       @client = client
     end
 
+    # Gets the attribute names that match the given query. Maximum 1K returned.
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, devices.*, or devices.attributeNames.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {hash} query - Device filter JSON object (https://api.losant.com/#/definitions/advancedDeviceQuery)
+    # *  {hash} dataType - Filter the devices by the given attribute data type or types (https://api.losant.com/#/definitions/deviceAttributeDataTypeFilter)
+    # *  {string} startsWith - Filter attributes down to those that have names starting with the given string. Case insensitive.
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - The matching attribute names (https://api.losant.com/#/definitions/attributeNamesResponse)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
+    def attribute_names(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+
+      query_params[:query] = params[:query] if params.has_key?(:query)
+      query_params[:query] = JSON.dump(query_params[:query]) if query_params.has_key?(:query)
+      query_params[:dataType] = params[:dataType] if params.has_key?(:dataType)
+      query_params[:startsWith] = params[:startsWith] if params.has_key?(:startsWith)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/devices/attributeNames"
+
+      @client.request(
+        method: :get,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
     # Delete devices
     #
     # Authentication:
@@ -380,6 +431,107 @@ module LosantRest
 
       @client.request(
         method: :post,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
+    # Gets the unique tag keys for devices that match the given query. Maximum 1K returned.
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, devices.*, or devices.tagKeys.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {hash} query - Device filter JSON object (https://api.losant.com/#/definitions/advancedDeviceQuery)
+    # *  {string} startsWith - Filter keys down to those that start with the given string. Case insensitive.
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - The matching tag keys (https://api.losant.com/#/definitions/tagKeysResponse)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
+    def tag_keys(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+
+      query_params[:query] = params[:query] if params.has_key?(:query)
+      query_params[:query] = JSON.dump(query_params[:query]) if query_params.has_key?(:query)
+      query_params[:startsWith] = params[:startsWith] if params.has_key?(:startsWith)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/devices/tagKeys"
+
+      @client.request(
+        method: :get,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
+    # Gets the unique tag values for the given key for devices that match the given query. Maximum 1K returned.
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, devices.*, or devices.tagValues.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {hash} query - Device filter JSON object (https://api.losant.com/#/definitions/advancedDeviceQuery)
+    # *  {string} key - The tag key to get the values for
+    # *  {string} startsWith - Filter values down to those that start with the given string. Case insensitive.
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - The matching tag values (https://api.losant.com/#/definitions/tagValuesResponse)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
+    def tag_values(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("key is required") unless params.has_key?(:key)
+
+      query_params[:query] = params[:query] if params.has_key?(:query)
+      query_params[:query] = JSON.dump(query_params[:query]) if query_params.has_key?(:query)
+      query_params[:key] = params[:key] if params.has_key?(:key)
+      query_params[:startsWith] = params[:startsWith] if params.has_key?(:startsWith)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/devices/tagValues"
+
+      @client.request(
+        method: :get,
         path: path,
         query: query_params,
         headers: headers,
