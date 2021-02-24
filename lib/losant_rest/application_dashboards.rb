@@ -24,83 +24,40 @@ require "json"
 
 module LosantRest
 
-  # Class containing all the actions for the Webhook Resource
-  class Webhook
+  # Class containing all the actions for the Application Dashboards Resource
+  class ApplicationDashboards
 
     def initialize(client)
       @client = client
     end
 
-    # Deletes a webhook
+    # Returns all dashboards scoped to the given application.
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, webhook.*, or webhook.delete.
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, applicationDashboards.*, or applicationDashboards.get.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {string} webhookId - ID associated with the webhook
-    # *  {string} includeWorkflows - If the workflows that utilize this webhook should also be deleted.
+    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate
+    # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
+    # *  {string} page - Which page of results to return
+    # *  {string} perPage - How many items to return per page
+    # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name
+    # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - If webhook was successfully deleted (https://api.losant.com/#/definitions/success)
+    # *  200 - Collection of dashboards (https://api.losant.com/#/definitions/dashboards)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if webhook was not found (https://api.losant.com/#/definitions/error)
-    def delete(params = {})
-      params = Utils.symbolize_hash_keys(params)
-      query_params = { _actions: false, _links: true, _embedded: true }
-      headers = {}
-      body = nil
-
-      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
-      raise ArgumentError.new("webhookId is required") unless params.has_key?(:webhookId)
-
-      query_params[:includeWorkflows] = params[:includeWorkflows] if params.has_key?(:includeWorkflows)
-      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
-      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
-      query_params[:_links] = params[:_links] if params.has_key?(:_links)
-      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
-
-      path = "/applications/#{params[:applicationId]}/webhooks/#{params[:webhookId]}"
-
-      @client.request(
-        method: :delete,
-        path: path,
-        query: query_params,
-        headers: headers,
-        body: body)
-    end
-
-    # Retrieves information on a webhook
-    #
-    # Authentication:
-    # The client must be configured with a valid api
-    # access token to call this action. The token
-    # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, webhook.*, or webhook.get.
-    #
-    # Parameters:
-    # *  {string} applicationId - ID associated with the application
-    # *  {string} webhookId - ID associated with the webhook
-    # *  {string} losantdomain - Domain scope of request (rarely needed)
-    # *  {boolean} _actions - Return resource actions in response
-    # *  {boolean} _links - Return resource link in response
-    # *  {boolean} _embedded - Return embedded resources in response
-    #
-    # Responses:
-    # *  200 - Webhook information (https://api.losant.com/#/definitions/webhook)
-    #
-    # Errors:
-    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if webhook was not found (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
     def get(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
@@ -108,14 +65,19 @@ module LosantRest
       body = nil
 
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
-      raise ArgumentError.new("webhookId is required") unless params.has_key?(:webhookId)
 
+      query_params[:sortField] = params[:sortField] if params.has_key?(:sortField)
+      query_params[:sortDirection] = params[:sortDirection] if params.has_key?(:sortDirection)
+      query_params[:page] = params[:page] if params.has_key?(:page)
+      query_params[:perPage] = params[:perPage] if params.has_key?(:perPage)
+      query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
+      query_params[:filter] = params[:filter] if params.has_key?(:filter)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/applications/#{params[:applicationId]}/webhooks/#{params[:webhookId]}"
+      path = "/applications/#{params[:applicationId]}/dashboards"
 
       @client.request(
         method: :get,
@@ -125,49 +87,47 @@ module LosantRest
         body: body)
     end
 
-    # Updates information about a webhook
+    # Create a new dashboard
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, webhook.*, or webhook.patch.
+    # all.Application, all.Organization, all.User, applicationDashboards.*, or applicationDashboards.post.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {string} webhookId - ID associated with the webhook
-    # *  {hash} webhook - Object containing new properties of the webhook (https://api.losant.com/#/definitions/webhookPatch)
+    # *  {hash} dashboard - New dashboard information (https://api.losant.com/#/definitions/applicationDashboardPost)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Updated webhook information (https://api.losant.com/#/definitions/webhook)
+    # *  201 - Successfully created dashboard (https://api.losant.com/#/definitions/dashboard)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if webhook was not found (https://api.losant.com/#/definitions/error)
-    def patch(params = {})
+    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
+    def post(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
       headers = {}
       body = nil
 
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
-      raise ArgumentError.new("webhookId is required") unless params.has_key?(:webhookId)
-      raise ArgumentError.new("webhook is required") unless params.has_key?(:webhook)
+      raise ArgumentError.new("dashboard is required") unless params.has_key?(:dashboard)
 
-      body = params[:webhook] if params.has_key?(:webhook)
+      body = params[:dashboard] if params.has_key?(:dashboard)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/applications/#{params[:applicationId]}/webhooks/#{params[:webhookId]}"
+      path = "/applications/#{params[:applicationId]}/dashboards"
 
       @client.request(
-        method: :patch,
+        method: :post,
         path: path,
         query: query_params,
         headers: headers,

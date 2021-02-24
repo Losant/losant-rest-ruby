@@ -51,6 +51,7 @@ module LosantRest
     # *  {hash} triggerFilter - Array of triggers to filter by - always filters against default flow version. (https://api.losant.com/#/definitions/flowTriggerFilter)
     # *  {string} includeCustomNodes - If the result of the request should also include the details of any custom nodes referenced by the returned workflows
     # *  {hash} query - Workflow filter JSON object which overrides the filterField, filter, triggerFilter, and flowClass parameters. (https://api.losant.com/#/definitions/advancedFlowQuery)
+    # *  {string} allVersions - If the request should also return flows with matching versions. Only applicable for requests with an advanced query.
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -81,6 +82,7 @@ module LosantRest
       query_params[:includeCustomNodes] = params[:includeCustomNodes] if params.has_key?(:includeCustomNodes)
       query_params[:query] = params[:query] if params.has_key?(:query)
       query_params[:query] = JSON.dump(query_params[:query]) if query_params.has_key?(:query)
+      query_params[:allVersions] = params[:allVersions] if params.has_key?(:allVersions)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
