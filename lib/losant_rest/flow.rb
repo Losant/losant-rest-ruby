@@ -325,6 +325,52 @@ module LosantRest
         body: body)
     end
 
+    # Gets metadata about storage for this flow
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, flow.*, or flow.getStorageEntriesMetadata.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} flowId - ID associated with the flow
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - The meta data for the current storage entries (https://api.losant.com/#/definitions/flowStorageMetadata)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if flow was not found (https://api.losant.com/#/definitions/error)
+    def get_storage_entries_metadata(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("flowId is required") unless params.has_key?(:flowId)
+
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/flows/#{params[:flowId]}/storage-metadata"
+
+      @client.request(
+        method: :get,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
     # Updates information about a flow
     #
     # Authentication:
