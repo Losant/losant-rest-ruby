@@ -24,81 +24,39 @@ require "json"
 
 module LosantRest
 
-  # Class containing all the actions for the Instance Member Resource
-  class InstanceMember
+  # Class containing all the actions for the Instance Api Tokens Resource
+  class InstanceApiTokens
 
     def initialize(client)
       @client = client
     end
 
-    # Deletes an instance member
+    # Returns the API tokens for an instance
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Instance, all.User, instanceMember.*, or instanceMember.delete.
+    # all.Instance, all.Instance.read, all.User, all.User.read, instanceApiTokens.*, or instanceApiTokens.get.
     #
     # Parameters:
     # *  {string} instanceId - ID associated with the instance
-    # *  {string} userId - ID associated with the instance member
+    # *  {string} sortField - Field to sort the results by. Accepted values are: name, status, id, creationDate, lastUpdated, expirationDate
+    # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
+    # *  {string} page - Which page of results to return
+    # *  {string} perPage - How many items to return per page
+    # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name, status
+    # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - If member was successfully deleted (https://api.losant.com/#/definitions/success)
+    # *  200 - Collection of API tokens (https://api.losant.com/#/definitions/apiToken)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if instance or member was not found (https://api.losant.com/#/definitions/error)
-    def delete(params = {})
-      params = Utils.symbolize_hash_keys(params)
-      query_params = { _actions: false, _links: true, _embedded: true }
-      headers = {}
-      body = nil
-
-      raise ArgumentError.new("instanceId is required") unless params.has_key?(:instanceId)
-      raise ArgumentError.new("userId is required") unless params.has_key?(:userId)
-
-      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
-      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
-      query_params[:_links] = params[:_links] if params.has_key?(:_links)
-      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
-
-      path = "/instances/#{params[:instanceId]}/members/#{params[:userId]}"
-
-      @client.request(
-        method: :delete,
-        path: path,
-        query: query_params,
-        headers: headers,
-        body: body)
-    end
-
-    # Returns an instance member
-    #
-    # Authentication:
-    # The client must be configured with a valid api
-    # access token to call this action. The token
-    # must include at least one of the following scopes:
-    # all.Instance, all.Instance.read, all.User, all.User.read, instanceMember.*, or instanceMember.get.
-    #
-    # Parameters:
-    # *  {string} instanceId - ID associated with the instance
-    # *  {string} userId - ID associated with the instance member
-    # *  {string} losantdomain - Domain scope of request (rarely needed)
-    # *  {boolean} _actions - Return resource actions in response
-    # *  {boolean} _links - Return resource link in response
-    # *  {boolean} _embedded - Return embedded resources in response
-    #
-    # Responses:
-    # *  200 - A single instance member (https://api.losant.com/#/definitions/instanceMember)
-    #
-    # Errors:
-    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if instance or member was not found (https://api.losant.com/#/definitions/error)
     def get(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
@@ -106,14 +64,19 @@ module LosantRest
       body = nil
 
       raise ArgumentError.new("instanceId is required") unless params.has_key?(:instanceId)
-      raise ArgumentError.new("userId is required") unless params.has_key?(:userId)
 
+      query_params[:sortField] = params[:sortField] if params.has_key?(:sortField)
+      query_params[:sortDirection] = params[:sortDirection] if params.has_key?(:sortDirection)
+      query_params[:page] = params[:page] if params.has_key?(:page)
+      query_params[:perPage] = params[:perPage] if params.has_key?(:perPage)
+      query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
+      query_params[:filter] = params[:filter] if params.has_key?(:filter)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/instances/#{params[:instanceId]}/members/#{params[:userId]}"
+      path = "/instances/#{params[:instanceId]}/tokens"
 
       @client.request(
         method: :get,
@@ -123,49 +86,46 @@ module LosantRest
         body: body)
     end
 
-    # Modifies the role of an instance member
+    # Create a new API token for an instance
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Instance, all.User, instanceMember.*, or instanceMember.patch.
+    # all.Instance, all.User, instanceApiTokens.*, or instanceApiTokens.post.
     #
     # Parameters:
     # *  {string} instanceId - ID associated with the instance
-    # *  {string} userId - ID associated with the instance member
-    # *  {hash} member - Object containing new member info (https://api.losant.com/#/definitions/instanceMemberPatch)
+    # *  {hash} apiToken - API token information (https://api.losant.com/#/definitions/apiTokenPost)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - The modified instance member (https://api.losant.com/#/definitions/instanceMemberPatch)
+    # *  201 - The successfully created API token (https://api.losant.com/#/definitions/apiToken)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if instance or member was not found (https://api.losant.com/#/definitions/error)
-    def patch(params = {})
+    def post(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
       headers = {}
       body = nil
 
       raise ArgumentError.new("instanceId is required") unless params.has_key?(:instanceId)
-      raise ArgumentError.new("userId is required") unless params.has_key?(:userId)
-      raise ArgumentError.new("member is required") unless params.has_key?(:member)
+      raise ArgumentError.new("apiToken is required") unless params.has_key?(:apiToken)
 
-      body = params[:member] if params.has_key?(:member)
+      body = params[:apiToken] if params.has_key?(:apiToken)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/instances/#{params[:instanceId]}/members/#{params[:userId]}"
+      path = "/instances/#{params[:instanceId]}/tokens"
 
       @client.request(
-        method: :patch,
+        method: :post,
         path: path,
         query: query_params,
         headers: headers,

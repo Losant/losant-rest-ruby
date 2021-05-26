@@ -31,6 +31,56 @@ module LosantRest
       @client = client
     end
 
+    # Delete flow versions
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, flowVersions.*, or flowVersions.delete.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} flowId - ID associated with the flow
+    # *  {hash} options - Object containing flow version deletion options (https://api.losant.com/#/definitions/flowVersionsDeletePost)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - Object indicating number of flow versions deleted or failed (https://api.losant.com/#/definitions/bulkDeleteResponse)
+    # *  202 - If a job was enqueued for the flow versions to be deleted (https://api.losant.com/#/definitions/jobEnqueuedResult)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
+    def delete(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("flowId is required") unless params.has_key?(:flowId)
+      raise ArgumentError.new("options is required") unless params.has_key?(:options)
+
+      body = params[:options] if params.has_key?(:options)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/flows/#{params[:flowId]}/versions/delete"
+
+      @client.request(
+        method: :post,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
     # Returns the flow versions for a flow
     #
     # Authentication:

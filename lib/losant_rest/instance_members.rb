@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 #
-# Copyright (c) 2020 Losant IoT, Inc.
+# Copyright (c) 2021 Losant IoT, Inc.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -31,7 +31,7 @@ module LosantRest
       @client = client
     end
 
-    # Returns an instance member
+    # Returns a collection of instance members
     #
     # Authentication:
     # The client must be configured with a valid api

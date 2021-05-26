@@ -24,38 +24,35 @@ require "json"
 
 module LosantRest
 
-  # Class containing all the actions for the Applications Resource
-  class Applications
+  # Class containing all the actions for the User Api Tokens Resource
+  class UserApiTokens
 
     def initialize(client)
       @client = client
     end
 
-    # Returns the applications the current user has permission to see
+    # Returns the API tokens for a user
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Organization, all.Organization.read, all.User, all.User.cli, all.User.read, applications.*, or applications.get.
+    # all.User, all.User.read, userApiTokens.*, or userApiTokens.get.
     #
     # Parameters:
-    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate, ownerId, lastUpdated
+    # *  {string} sortField - Field to sort the results by. Accepted values are: name, status, id, creationDate, lastUpdated, expirationDate
     # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
     # *  {string} page - Which page of results to return
     # *  {string} perPage - How many items to return per page
-    # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name
+    # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name, status
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
-    # *  {string} orgId - If not provided, return all applications. If provided but blank, only return applications belonging to the current user. If provided and an id, only return applications belonging to the given organization id.
-    # *  {string} summaryExclude - Comma-separated list of summary fields to exclude from application summary
-    # *  {string} summaryInclude - Comma-separated list of summary fields to include in application summary
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Collection of applications (https://api.losant.com/#/definitions/applications)
+    # *  200 - Collection of API tokens (https://api.losant.com/#/definitions/apiToken)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
@@ -72,15 +69,12 @@ module LosantRest
       query_params[:perPage] = params[:perPage] if params.has_key?(:perPage)
       query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
       query_params[:filter] = params[:filter] if params.has_key?(:filter)
-      query_params[:orgId] = params[:orgId] if params.has_key?(:orgId)
-      query_params[:summaryExclude] = params[:summaryExclude] if params.has_key?(:summaryExclude)
-      query_params[:summaryInclude] = params[:summaryInclude] if params.has_key?(:summaryInclude)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/applications"
+      path = "/me/tokens"
 
       @client.request(
         method: :get,
@@ -90,25 +84,23 @@ module LosantRest
         body: body)
     end
 
-    # Create a new application
+    # Create a new API token for an user
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Organization, all.User, applications.*, or applications.post.
+    # all.User, userApiTokens.*, or userApiTokens.post.
     #
     # Parameters:
-    # *  {hash} application - New application information (https://api.losant.com/#/definitions/applicationPost)
-    # *  {string} summaryExclude - Comma-separated list of summary fields to exclude from application summary
-    # *  {string} summaryInclude - Comma-separated list of summary fields to include in application summary
+    # *  {hash} apiToken - API token information (https://api.losant.com/#/definitions/apiTokenPost)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  201 - Successfully created application (https://api.losant.com/#/definitions/application)
+    # *  201 - The successfully created API token (https://api.losant.com/#/definitions/apiToken)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
@@ -118,17 +110,15 @@ module LosantRest
       headers = {}
       body = nil
 
-      raise ArgumentError.new("application is required") unless params.has_key?(:application)
+      raise ArgumentError.new("apiToken is required") unless params.has_key?(:apiToken)
 
-      body = params[:application] if params.has_key?(:application)
-      query_params[:summaryExclude] = params[:summaryExclude] if params.has_key?(:summaryExclude)
-      query_params[:summaryInclude] = params[:summaryInclude] if params.has_key?(:summaryInclude)
+      body = params[:apiToken] if params.has_key?(:apiToken)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/applications"
+      path = "/me/tokens"
 
       @client.request(
         method: :post,

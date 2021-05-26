@@ -37,7 +37,7 @@ module LosantRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, experience.*, or experience.bootstrap.
+    # all.Application, all.Application.cli, all.Organization, all.User, all.User.cli, experience.*, or experience.bootstrap.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application

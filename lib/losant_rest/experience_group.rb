@@ -88,6 +88,8 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} experienceGroupId - ID associated with the experience group
+    # *  {string} includeDirectDeviceCount - Whether or not to return count of devices associated directly with this group
+    # *  {string} includeTotalDeviceCount - Whether or not to return count of devices associated with this group or any of its descendents
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -108,6 +110,8 @@ module LosantRest
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
       raise ArgumentError.new("experienceGroupId is required") unless params.has_key?(:experienceGroupId)
 
+      query_params[:includeDirectDeviceCount] = params[:includeDirectDeviceCount] if params.has_key?(:includeDirectDeviceCount)
+      query_params[:includeTotalDeviceCount] = params[:includeTotalDeviceCount] if params.has_key?(:includeTotalDeviceCount)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)

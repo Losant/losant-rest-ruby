@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 #
-# Copyright (c) 2020 Losant IoT, Inc.
+# Copyright (c) 2021 Losant IoT, Inc.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -171,6 +171,51 @@ module LosantRest
 
       @client.request(
         method: :get,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
+    # Updates information about an instance
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Instance, all.User, instance.*, or instance.patch.
+    #
+    # Parameters:
+    # *  {string} instanceId - ID associated with the instance
+    # *  {hash} instance - Updated instance information (https://api.losant.com/#/definitions/instancePatch)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - The updated instance object (https://api.losant.com/#/definitions/instance)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    def patch(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("instanceId is required") unless params.has_key?(:instanceId)
+
+      body = params[:instance] if params.has_key?(:instance)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/instances/#{params[:instanceId]}"
+
+      @client.request(
+        method: :patch,
         path: path,
         query: query_params,
         headers: headers,

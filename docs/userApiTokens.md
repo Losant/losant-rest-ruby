@@ -1,7 +1,7 @@
-# Experience Slugs Actions
+# User Api Tokens Actions
 
 Details on the various actions that can be performed on the
-Experience Slugs resource, including the expected
+User Api Tokens resource, including the expected
 parameters and the potential responses.
 
 ##### Contents
@@ -13,10 +13,10 @@ parameters and the potential responses.
 
 ## Get
 
-Returns the experience slugs for an application
+Returns the API tokens for a user
 
 ```ruby
-result = client.experience_slugs.get(applicationId: my_application_id)
+result = client.user_api_tokens.get(optional_params)
 
 puts result
 ```
@@ -24,38 +24,40 @@ puts result
 #### Authentication
 The client must be configured with a valid api access token to call this
 action. The token must include at least one of the following scopes:
-all.Application, all.Application.cli, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.cli, all.User.read, experienceSlugs.*, or experienceSlugs.get.
+all.User, all.User.read, userApiTokens.*, or userApiTokens.get.
 
 #### Available Parameters
 
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
-| applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
+| sortField | string | N | Field to sort the results by. Accepted values are: name, status, id, creationDate, lastUpdated, expirationDate | name | name |
+| sortDirection | string | N | Direction to sort the results by. Accepted values are: asc, desc | asc | asc |
+| page | string | N | Which page of results to return | 0 | 0 |
+| perPage | string | N | How many items to return per page | 100 | 10 |
+| filterField | string | N | Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name, status |  | key |
+| filter | string | N | Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering. |  | my*token |
 | losantdomain | string | N | Domain scope of request (rarely needed) |  | example.com |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 200 | [Experience Slugs](_schemas.md#experience-slugs) | Collection of experience slugs |
+| 200 | [API Token](_schemas.md#api-token) | Collection of API tokens |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [Error](_schemas.md#error) | Error if malformed request |
-| 404 | [Error](_schemas.md#error) | Error if application was not found |
 
 <br/>
 
 ## Post
 
-Create a new experience slug for an application
+Create a new API token for an user
 
 ```ruby
-result = client.experience_slugs.post(
-  applicationId: my_application_id,
-  experienceSlug: my_experience_slug)
+result = client.user_api_tokens.post(apiToken: my_api_token)
 
 puts result
 ```
@@ -63,25 +65,23 @@ puts result
 #### Authentication
 The client must be configured with a valid api access token to call this
 action. The token must include at least one of the following scopes:
-all.Application, all.Organization, all.User, experienceSlugs.*, or experienceSlugs.post.
+all.User, userApiTokens.*, or userApiTokens.post.
 
 #### Available Parameters
 
 | Name | Type | Required | Description | Default | Example |
 | ---- | ---- | -------- | ----------- | ------- | ------- |
-| applicationId | string | Y | ID associated with the application |  | 575ec8687ae143cd83dc4a97 |
-| experienceSlug | [Experience Slug Post](_schemas.md#experience-slug-post) | Y | New experience slug information |  | [Experience Slug Post Example](_schemas.md#experience-slug-post-example) |
+| apiToken | [API Token Post](_schemas.md#api-token-post) | Y | API token information |  | [API Token Post Example](_schemas.md#api-token-post-example) |
 | losantdomain | string | N | Domain scope of request (rarely needed) |  | example.com |
 
 #### Successful Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
-| 201 | [Experience Slug](_schemas.md#experience-slug) | Successfully created experience slug |
+| 201 | [API Token](_schemas.md#api-token) | The successfully created API token |
 
 #### Error Responses
 
 | Code | Type | Description |
 | ---- | ---- | ----------- |
 | 400 | [Error](_schemas.md#error) | Error if malformed request |
-| 404 | [Error](_schemas.md#error) | Error if application was not found |
