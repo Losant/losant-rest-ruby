@@ -47,7 +47,6 @@ module LosantRest
     # *  {string} perPage - How many items to return per page
     # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
-    # *  {string} summaryExclude - Comma-separated list of summary fields to exclude from org summaries
     # *  {string} summaryInclude - Comma-separated list of summary fields to include in org summary
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
@@ -73,7 +72,6 @@ module LosantRest
       query_params[:perPage] = params[:perPage] if params.has_key?(:perPage)
       query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
       query_params[:filter] = params[:filter] if params.has_key?(:filter)
-      query_params[:summaryExclude] = params[:summaryExclude] if params.has_key?(:summaryExclude)
       query_params[:summaryInclude] = params[:summaryInclude] if params.has_key?(:summaryInclude)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
@@ -100,6 +98,7 @@ module LosantRest
     #
     # Parameters:
     # *  {string} instanceId - ID associated with the instance
+    # *  {string} summaryInclude - Comma-separated list of summary fields to include in org summary
     # *  {hash} orgConfig - Object containing configurations for the new organization (https://api.losant.com/#/definitions/instanceOrgPost)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
@@ -119,6 +118,7 @@ module LosantRest
 
       raise ArgumentError.new("instanceId is required") unless params.has_key?(:instanceId)
 
+      query_params[:summaryInclude] = params[:summaryInclude] if params.has_key?(:summaryInclude)
       body = params[:orgConfig] if params.has_key?(:orgConfig)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)

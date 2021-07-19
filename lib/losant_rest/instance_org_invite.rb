@@ -24,35 +24,36 @@ require "json"
 
 module LosantRest
 
-  # Class containing all the actions for the Instance Org Resource
-  class InstanceOrg
+  # Class containing all the actions for the Instance Org Invite Resource
+  class InstanceOrgInvite
 
     def initialize(client)
       @client = client
     end
 
-    # Deletes an organization
+    # Revokes an instance org invitation
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Instance, all.User, instanceOrg.*, or instanceOrg.delete.
+    # all.Instance, all.User, instanceOrgInvite.*, or instanceOrgInvite.delete.
     #
     # Parameters:
     # *  {string} instanceId - ID associated with the instance
     # *  {string} orgId - ID associated with the organization
+    # *  {string} inviteId - ID associated with the organization invite
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - If organization was successfully deleted (https://api.losant.com/#/definitions/success)
+    # *  200 - If an invite was successfully deleted (https://api.losant.com/#/definitions/success)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if organization was not found (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if instance, organization or invite was not found (https://api.losant.com/#/definitions/error)
     def delete(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
@@ -61,13 +62,14 @@ module LosantRest
 
       raise ArgumentError.new("instanceId is required") unless params.has_key?(:instanceId)
       raise ArgumentError.new("orgId is required") unless params.has_key?(:orgId)
+      raise ArgumentError.new("inviteId is required") unless params.has_key?(:inviteId)
 
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/instances/#{params[:instanceId]}/orgs/#{params[:orgId]}"
+      path = "/instances/#{params[:instanceId]}/orgs/#{params[:orgId]}/invites/#{params[:inviteId]}"
 
       @client.request(
         method: :delete,
@@ -77,29 +79,29 @@ module LosantRest
         body: body)
     end
 
-    # Retrieves information on an organization
+    # Returns an organization invite
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Instance, all.Instance.read, all.User, all.User.read, instanceOrg.*, or instanceOrg.get.
+    # all.Instance, all.Instance.read, all.User, all.User.read, instanceOrgInvite.*, or instanceOrgInvite.get.
     #
     # Parameters:
     # *  {string} instanceId - ID associated with the instance
     # *  {string} orgId - ID associated with the organization
-    # *  {string} summaryInclude - Comma-separated list of summary fields to include in org summary
+    # *  {string} inviteId - ID associated with the organization invite
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - A single organization (https://api.losant.com/#/definitions/instanceOrg)
+    # *  200 - A single organization invite (https://api.losant.com/#/definitions/orgInvite)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if organization was not found (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if instance, organization, or invite was not found (https://api.losant.com/#/definitions/error)
     def get(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
@@ -108,14 +110,14 @@ module LosantRest
 
       raise ArgumentError.new("instanceId is required") unless params.has_key?(:instanceId)
       raise ArgumentError.new("orgId is required") unless params.has_key?(:orgId)
+      raise ArgumentError.new("inviteId is required") unless params.has_key?(:inviteId)
 
-      query_params[:summaryInclude] = params[:summaryInclude] if params.has_key?(:summaryInclude)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/instances/#{params[:instanceId]}/orgs/#{params[:orgId]}"
+      path = "/instances/#{params[:instanceId]}/orgs/#{params[:orgId]}/invites/#{params[:inviteId]}"
 
       @client.request(
         method: :get,
@@ -125,31 +127,31 @@ module LosantRest
         body: body)
     end
 
-    # Updates information about an organization
+    # Resend an organization invite with modified role info
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Instance, all.User, instanceOrg.*, or instanceOrg.patch.
+    # all.Instance, all.User, instanceOrgInvite.*, or instanceOrgInvite.resendInvite.
     #
     # Parameters:
     # *  {string} instanceId - ID associated with the instance
     # *  {string} orgId - ID associated with the organization
-    # *  {string} summaryInclude - Comma-separated list of summary fields to include in org summary
-    # *  {hash} organization - Object containing new organization properties (https://api.losant.com/#/definitions/instanceOrgPatch)
+    # *  {string} inviteId - ID associated with the organization invite
+    # *  {hash} roleInfo - Object containing updated role info (https://api.losant.com/#/definitions/orgRoleInfo)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Updated organization information (https://api.losant.com/#/definitions/instanceOrg)
+    # *  201 - The new org invite (https://api.losant.com/#/definitions/orgInvite)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if organization was not found (https://api.losant.com/#/definitions/error)
-    def patch(params = {})
+    # *  404 - Error if instance, organization, or invite was not found (https://api.losant.com/#/definitions/error)
+    def resend_invite(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
       headers = {}
@@ -157,19 +159,19 @@ module LosantRest
 
       raise ArgumentError.new("instanceId is required") unless params.has_key?(:instanceId)
       raise ArgumentError.new("orgId is required") unless params.has_key?(:orgId)
-      raise ArgumentError.new("organization is required") unless params.has_key?(:organization)
+      raise ArgumentError.new("inviteId is required") unless params.has_key?(:inviteId)
+      raise ArgumentError.new("roleInfo is required") unless params.has_key?(:roleInfo)
 
-      query_params[:summaryInclude] = params[:summaryInclude] if params.has_key?(:summaryInclude)
-      body = params[:organization] if params.has_key?(:organization)
+      body = params[:roleInfo] if params.has_key?(:roleInfo)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/instances/#{params[:instanceId]}/orgs/#{params[:orgId]}"
+      path = "/instances/#{params[:instanceId]}/orgs/#{params[:orgId]}/invites/#{params[:inviteId]}"
 
       @client.request(
-        method: :patch,
+        method: :post,
         path: path,
         query: query_params,
         headers: headers,

@@ -27,7 +27,7 @@ module LosantRest
   #
   # User API for accessing Losant data
   #
-  # Built For Version 1.20.1
+  # Built For Version 1.21.0
   class Client
     attr_accessor :auth_token, :url
 
@@ -146,6 +146,10 @@ module LosantRest
 
     def devices
       @devices ||= Devices.new(self)
+    end
+
+    def edge_deployment
+      @edge_deployment ||= EdgeDeployment.new(self)
     end
 
     def edge_deployments
@@ -268,6 +272,14 @@ module LosantRest
       @instance_org ||= InstanceOrg.new(self)
     end
 
+    def instance_org_invite
+      @instance_org_invite ||= InstanceOrgInvite.new(self)
+    end
+
+    def instance_org_invites
+      @instance_org_invites ||= InstanceOrgInvites.new(self)
+    end
+
     def instance_org_member
       @instance_org_member ||= InstanceOrgMember.new(self)
     end
@@ -338,7 +350,7 @@ module LosantRest
 
       headers["Accept"]         = "application/json"
       headers["Content-Type"]   = "application/json"
-      headers["Accept-Version"] = "^1.20.1"
+      headers["Accept-Version"] = "^1.21.0"
       headers["Authorization"]  = "Bearer #{self.auth_token}" if self.auth_token
       path = self.url + options.fetch(:path, "")
 
