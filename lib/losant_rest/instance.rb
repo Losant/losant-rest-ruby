@@ -205,6 +205,7 @@ module LosantRest
       body = nil
 
       raise ArgumentError.new("instanceId is required") unless params.has_key?(:instanceId)
+      raise ArgumentError.new("instance is required") unless params.has_key?(:instance)
 
       body = params[:instance] if params.has_key?(:instance)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
