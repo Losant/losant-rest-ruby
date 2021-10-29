@@ -24,45 +24,87 @@ require "json"
 
 module LosantRest
 
-  # Class containing all the actions for the Flows Resource
-  class Flows
+  # Class containing all the actions for the Embedded Deployments Resource
+  class EmbeddedDeployments
 
     def initialize(client)
       @client = client
     end
 
-    # Returns the flows for an application
+    # Request an export of the compiled WASM files for a current deployment
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, flows.*, or flows.get.
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, embeddedDeployments.*, or embeddedDeployments.export.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate, lastUpdated
-    # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
-    # *  {string} page - Which page of results to return
-    # *  {string} perPage - How many items to return per page
-    # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name
-    # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
-    # *  {string} flowClass - Filter the workflows by the given flow class. Accepted values are: edge, embedded, cloud, customNode, experience
-    # *  {hash} triggerFilter - Array of triggers to filter by - always filters against default flow version. (https://api.losant.com/#/definitions/flowTriggerFilter)
-    # *  {string} includeCustomNodes - If the result of the request should also include the details of any custom nodes referenced by the returned workflows
-    # *  {hash} query - Workflow filter JSON object which overrides the filterField, filter, triggerFilter, and flowClass parameters. (https://api.losant.com/#/definitions/advancedFlowQuery)
-    # *  {string} allVersions - If the request should also return flows with matching versions. Only applicable for requests with an advanced query.
+    # *  {hash} options - Export options for embedded deployment (https://api.losant.com/#/definitions/embeddedDeploymentExport)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Collection of flows (https://api.losant.com/#/definitions/flows)
+    # *  200 - If generation of export was successfully started (https://api.losant.com/#/definitions/success)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if deployment was not found (https://api.losant.com/#/definitions/error)
+    def export(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+
+      body = params[:options] if params.has_key?(:options)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/embedded/deployments/export"
+
+      @client.request(
+        method: :post,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
+    # Returns the embedded deployments for an application
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, embeddedDeployments.*, or embeddedDeployments.get.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} sortField - Field to sort the results by. Accepted values are: id, creationDate, lastUpdated
+    # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
+    # *  {string} page - Which page of results to return
+    # *  {string} perPage - How many items to return per page
+    # *  {string} deviceId - Filter deployments to the given Device ID
+    # *  {string} version - Filter deployments to the given Workflow Version (matches against both current and desired)
+    # *  {string} flowId - Filter deployments to the given Workflow ID
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - Collection of embedded deployments (https://api.losant.com/#/definitions/embeddedDeployments)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if application or device was not found (https://api.losant.com/#/definitions/error)
     def get(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
@@ -75,88 +117,15 @@ module LosantRest
       query_params[:sortDirection] = params[:sortDirection] if params.has_key?(:sortDirection)
       query_params[:page] = params[:page] if params.has_key?(:page)
       query_params[:perPage] = params[:perPage] if params.has_key?(:perPage)
-      query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
-      query_params[:filter] = params[:filter] if params.has_key?(:filter)
-      query_params[:flowClass] = params[:flowClass] if params.has_key?(:flowClass)
-      query_params[:triggerFilter] = params[:triggerFilter] if params.has_key?(:triggerFilter)
-      query_params[:includeCustomNodes] = params[:includeCustomNodes] if params.has_key?(:includeCustomNodes)
-      query_params[:query] = params[:query] if params.has_key?(:query)
-      query_params[:query] = JSON.dump(query_params[:query]) if query_params.has_key?(:query)
-      query_params[:allVersions] = params[:allVersions] if params.has_key?(:allVersions)
-      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
-      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
-      query_params[:_links] = params[:_links] if params.has_key?(:_links)
-      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
-
-      path = "/applications/#{params[:applicationId]}/flows"
-
-      @client.request(
-        method: :get,
-        path: path,
-        query: query_params,
-        headers: headers,
-        body: body)
-    end
-
-    # Returns the flows by version for an application
-    #
-    # Authentication:
-    # The client must be configured with a valid api
-    # access token to call this action. The token
-    # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, flows.*, or flows.getByVersion.
-    #
-    # Parameters:
-    # *  {string} applicationId - ID associated with the application
-    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate, lastUpdated
-    # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
-    # *  {string} page - Which page of results to return
-    # *  {string} perPage - How many items to return per page
-    # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name
-    # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
-    # *  {string} flowClass - Filter the workflows by the given flow class. Accepted values are: edge, embedded, cloud, customNode, experience
-    # *  {string} version - Return the workflow versions for the given version.
-    # *  {hash} triggerFilter - Array of triggers to filter by - always filters against default flow version. (https://api.losant.com/#/definitions/flowTriggerFilter)
-    # *  {string} includeCustomNodes - If the result of the request should also include the details of any custom nodes referenced by the returned workflows
-    # *  {hash} query - Workflow filter JSON object which overrides the filterField, filter, triggerFilter, and flowClass parameters. (https://api.losant.com/#/definitions/advancedFlowByVersionQuery)
-    # *  {string} losantdomain - Domain scope of request (rarely needed)
-    # *  {boolean} _actions - Return resource actions in response
-    # *  {boolean} _links - Return resource link in response
-    # *  {boolean} _embedded - Return embedded resources in response
-    #
-    # Responses:
-    # *  200 - Collection of flow versions (https://api.losant.com/#/definitions/flowVersions)
-    #
-    # Errors:
-    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
-    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
-    def get_by_version(params = {})
-      params = Utils.symbolize_hash_keys(params)
-      query_params = { _actions: false, _links: true, _embedded: true }
-      headers = {}
-      body = nil
-
-      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
-      raise ArgumentError.new("version is required") unless params.has_key?(:version)
-
-      query_params[:sortField] = params[:sortField] if params.has_key?(:sortField)
-      query_params[:sortDirection] = params[:sortDirection] if params.has_key?(:sortDirection)
-      query_params[:page] = params[:page] if params.has_key?(:page)
-      query_params[:perPage] = params[:perPage] if params.has_key?(:perPage)
-      query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
-      query_params[:filter] = params[:filter] if params.has_key?(:filter)
-      query_params[:flowClass] = params[:flowClass] if params.has_key?(:flowClass)
+      query_params[:deviceId] = params[:deviceId] if params.has_key?(:deviceId)
       query_params[:version] = params[:version] if params.has_key?(:version)
-      query_params[:triggerFilter] = params[:triggerFilter] if params.has_key?(:triggerFilter)
-      query_params[:includeCustomNodes] = params[:includeCustomNodes] if params.has_key?(:includeCustomNodes)
-      query_params[:query] = params[:query] if params.has_key?(:query)
-      query_params[:query] = JSON.dump(query_params[:query]) if query_params.has_key?(:query)
+      query_params[:flowId] = params[:flowId] if params.has_key?(:flowId)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/applications/#{params[:applicationId]}/flows/version"
+      path = "/applications/#{params[:applicationId]}/embedded/deployments"
 
       @client.request(
         method: :get,
@@ -166,44 +135,44 @@ module LosantRest
         body: body)
     end
 
-    # Import a set of flows and flow versions
+    # Deploy an embedded workflow version to one or more embedded devices. Version can be blank, if removal is desired.
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, flows.*, or flows.import.
+    # all.Application, all.Organization, all.User, embeddedDeployments.*, or embeddedDeployments.release.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {hash} importData - New flow and flow version information (https://api.losant.com/#/definitions/flowsImportPost)
+    # *  {hash} deployment - Deployment release information (https://api.losant.com/#/definitions/embeddedDeploymentRelease)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  201 - Successfully imported workflows (https://api.losant.com/#/definitions/flowsImportResult)
+    # *  201 - If deployment release has been initiated successfully (https://api.losant.com/#/definitions/success)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
-    def import(params = {})
+    def release(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
       headers = {}
       body = nil
 
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
-      raise ArgumentError.new("importData is required") unless params.has_key?(:importData)
+      raise ArgumentError.new("deployment is required") unless params.has_key?(:deployment)
 
-      body = params[:importData] if params.has_key?(:importData)
+      body = params[:deployment] if params.has_key?(:deployment)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/applications/#{params[:applicationId]}/flows/import"
+      path = "/applications/#{params[:applicationId]}/embedded/deployments/release"
 
       @client.request(
         method: :post,
@@ -213,46 +182,91 @@ module LosantRest
         body: body)
     end
 
-    # Create a new flow for an application
+    # Remove all embedded deployments from a device, remove all embedded deployments of a workflow, or remove a specific workflow from a specific device
     #
     # Authentication:
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, flows.*, or flows.post.
+    # all.Application, all.Organization, all.User, embeddedDeployments.*, or embeddedDeployments.remove.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {hash} flow - New flow information (https://api.losant.com/#/definitions/flowPost)
-    # *  {string} includeCustomNodes - If the result of the request should also include the details of any custom nodes referenced by the returned workflows
+    # *  {hash} deployment - Deployment removal information (https://api.losant.com/#/definitions/embeddedDeploymentRemove)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  201 - Successfully created flow (https://api.losant.com/#/definitions/flow)
+    # *  201 - If deployment removal has been initiated successfully (https://api.losant.com/#/definitions/success)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
     # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
-    def post(params = {})
+    def remove(params = {})
       params = Utils.symbolize_hash_keys(params)
       query_params = { _actions: false, _links: true, _embedded: true }
       headers = {}
       body = nil
 
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
-      raise ArgumentError.new("flow is required") unless params.has_key?(:flow)
+      raise ArgumentError.new("deployment is required") unless params.has_key?(:deployment)
 
-      body = params[:flow] if params.has_key?(:flow)
-      query_params[:includeCustomNodes] = params[:includeCustomNodes] if params.has_key?(:includeCustomNodes)
+      body = params[:deployment] if params.has_key?(:deployment)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
-      path = "/applications/#{params[:applicationId]}/flows"
+      path = "/applications/#{params[:applicationId]}/embedded/deployments/remove"
+
+      @client.request(
+        method: :post,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
+    # Replace deployments of an embedded workflow version with a new version. New version can be blank, if removal is desired.
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, embeddedDeployments.*, or embeddedDeployments.replace.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {hash} deployment - Deployment replacement information (https://api.losant.com/#/definitions/embeddedDeploymentReplace)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  201 - If deployment replacement has been initiated successfully (https://api.losant.com/#/definitions/success)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
+    def replace(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("deployment is required") unless params.has_key?(:deployment)
+
+      body = params[:deployment] if params.has_key?(:deployment)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/embedded/deployments/replace"
 
       @client.request(
         method: :post,
