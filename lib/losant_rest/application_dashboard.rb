@@ -172,5 +172,54 @@ module LosantRest
         body: body)
     end
 
+    # Sends a snapshot of a dashboard
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, applicationDashboard.*, or applicationDashboard.sendReport.
+    #
+    # Parameters:
+    # *  {string} dashboardId - ID of the associated dashboard
+    # *  {string} applicationId - ID of the associated application
+    # *  {hash} reportConfig - Object containing report options (https://api.losant.com/#/definitions/dashboardSendReport)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - Send dashboard report (https://api.losant.com/#/definitions/success)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if dashboard was not found (https://api.losant.com/#/definitions/error)
+    def send_report(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("dashboardId is required") unless params.has_key?(:dashboardId)
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("reportConfig is required") unless params.has_key?(:reportConfig)
+
+      body = params[:reportConfig] if params.has_key?(:reportConfig)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/dashboards/#{params[:dashboardId]}"
+
+      @client.request(
+        method: :post,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
   end
 end
