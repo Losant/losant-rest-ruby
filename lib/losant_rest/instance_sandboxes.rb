@@ -41,6 +41,8 @@ module LosantRest
     #
     # Parameters:
     # *  {string} instanceId - ID associated with the instance
+    # *  {string} summaryExclude - Comma-separated list of summary fields to exclude from user summary
+    # *  {string} summaryInclude - Comma-separated list of summary fields to include in user summary
     # *  {string} sortField - Field to sort the results by. Accepted values are: firstName, lastName, email, id, creationDate, lastSuccessfulLogin, lastFailedLogin, failedLoginCount, lastUpdated
     # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
     # *  {string} startingAfterId - Exclusive ID from which to begin querying
@@ -67,6 +69,8 @@ module LosantRest
 
       raise ArgumentError.new("instanceId is required") unless params.has_key?(:instanceId)
 
+      query_params[:summaryExclude] = params[:summaryExclude] if params.has_key?(:summaryExclude)
+      query_params[:summaryInclude] = params[:summaryInclude] if params.has_key?(:summaryInclude)
       query_params[:sortField] = params[:sortField] if params.has_key?(:sortField)
       query_params[:sortDirection] = params[:sortDirection] if params.has_key?(:sortDirection)
       query_params[:startingAfterId] = params[:startingAfterId] if params.has_key?(:startingAfterId)
