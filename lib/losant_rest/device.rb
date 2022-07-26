@@ -145,6 +145,8 @@ module LosantRest
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceId - ID associated with the device
     # *  {string} excludeConnectionInfo - If set, do not return connection info
+    # *  {string} tagsAsObject - Return tags as an object map instead of an array.
+    # *  {string} attributesAsObject - Return attributes as an object map instead of an array.
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -166,6 +168,8 @@ module LosantRest
       raise ArgumentError.new("deviceId is required") unless params.has_key?(:deviceId)
 
       query_params[:excludeConnectionInfo] = params[:excludeConnectionInfo] if params.has_key?(:excludeConnectionInfo)
+      query_params[:tagsAsObject] = params[:tagsAsObject] if params.has_key?(:tagsAsObject)
+      query_params[:attributesAsObject] = params[:attributesAsObject] if params.has_key?(:attributesAsObject)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -401,6 +405,8 @@ module LosantRest
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceId - ID associated with the device
     # *  {hash} device - Object containing new properties of the device (https://api.losant.com/#/definitions/devicePatch)
+    # *  {string} tagsAsObject - Return tags as an object map instead of an array.
+    # *  {string} attributesAsObject - Return attributes as an object map instead of an array.
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -423,6 +429,8 @@ module LosantRest
       raise ArgumentError.new("device is required") unless params.has_key?(:device)
 
       body = params[:device] if params.has_key?(:device)
+      query_params[:tagsAsObject] = params[:tagsAsObject] if params.has_key?(:tagsAsObject)
+      query_params[:attributesAsObject] = params[:attributesAsObject] if params.has_key?(:attributesAsObject)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)

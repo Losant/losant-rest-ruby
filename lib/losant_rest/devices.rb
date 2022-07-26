@@ -250,6 +250,8 @@ module LosantRest
     # *  {string} excludeConnectionInfo - If set, do not return connection info
     # *  {string} parentId - Filter devices as children of a given system id
     # *  {hash} query - Device filter JSON object which overrides the filterField, filter, deviceClass, tagFilter, and parentId parameters. (https://api.losant.com/#/definitions/advancedDeviceQuery)
+    # *  {string} tagsAsObject - Return tags as an object map instead of an array.
+    # *  {string} attributesAsObject - Return attributes as an object map instead of an array.
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -281,6 +283,8 @@ module LosantRest
       query_params[:parentId] = params[:parentId] if params.has_key?(:parentId)
       query_params[:query] = params[:query] if params.has_key?(:query)
       query_params[:query] = JSON.dump(query_params[:query]) if query_params.has_key?(:query)
+      query_params[:tagsAsObject] = params[:tagsAsObject] if params.has_key?(:tagsAsObject)
+      query_params[:attributesAsObject] = params[:attributesAsObject] if params.has_key?(:attributesAsObject)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -401,6 +405,8 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {hash} device - New device information (https://api.losant.com/#/definitions/devicePost)
+    # *  {string} tagsAsObject - Return tags as an object map instead of an array.
+    # *  {string} attributesAsObject - Return attributes as an object map instead of an array.
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -422,6 +428,8 @@ module LosantRest
       raise ArgumentError.new("device is required") unless params.has_key?(:device)
 
       body = params[:device] if params.has_key?(:device)
+      query_params[:tagsAsObject] = params[:tagsAsObject] if params.has_key?(:tagsAsObject)
+      query_params[:attributesAsObject] = params[:attributesAsObject] if params.has_key?(:attributesAsObject)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
