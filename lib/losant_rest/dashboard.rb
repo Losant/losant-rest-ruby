@@ -221,6 +221,8 @@ module LosantRest
     # *  {string} dashboardId - ID of the associated dashboard
     # *  {hash} ctx - The context object to validate (https://api.losant.com/#/definitions/dashboardContextInstance)
     # *  {string} password - Password for password-protected dashboards
+    # *  {string} duration - Duration of data to fetch in milliseconds
+    # *  {string} resolution - Resolution in milliseconds
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -243,6 +245,8 @@ module LosantRest
 
       body = params[:ctx] if params.has_key?(:ctx)
       query_params[:password] = params[:password] if params.has_key?(:password)
+      query_params[:duration] = params[:duration] if params.has_key?(:duration)
+      query_params[:resolution] = params[:resolution] if params.has_key?(:resolution)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
