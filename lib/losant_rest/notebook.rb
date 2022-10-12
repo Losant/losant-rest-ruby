@@ -31,6 +31,55 @@ module LosantRest
       @client = client
     end
 
+    # Marks a specific notebook execution for cancellation
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, notebook.*, or notebook.execute.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} notebookId - ID associated with the notebook
+    # *  {undefined} executionId - The ID of the execution to cancel
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - If the execution was successfully marked for cancellation (https://api.losant.com/#/definitions/success)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if execution was not found (https://api.losant.com/#/definitions/error)
+    def cancel_execution(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("notebookId is required") unless params.has_key?(:notebookId)
+      raise ArgumentError.new("executionId is required") unless params.has_key?(:executionId)
+
+      query_params[:executionId] = params[:executionId] if params.has_key?(:executionId)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/notebooks/#{params[:notebookId]}/cancelExecution"
+
+      @client.request(
+        method: :post,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
     # Deletes a notebook
     #
     # Authentication:
@@ -289,7 +338,7 @@ module LosantRest
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - If export request was accepted and successfully queued (https://api.losant.com/#/definitions/success)
+    # *  200 - If export request was accepted and successfully queued (https://api.losant.com/#/definitions/successWithJobId)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)

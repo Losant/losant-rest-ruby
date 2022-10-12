@@ -138,6 +138,8 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceRecipeId - ID associated with the device recipe
+    # *  {string} tagsAsObject - Return tags as an object map instead of an array
+    # *  {string} attributesAsObject - Return attributes as an object map instead of an array
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -158,6 +160,8 @@ module LosantRest
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
       raise ArgumentError.new("deviceRecipeId is required") unless params.has_key?(:deviceRecipeId)
 
+      query_params[:tagsAsObject] = params[:tagsAsObject] if params.has_key?(:tagsAsObject)
+      query_params[:attributesAsObject] = params[:attributesAsObject] if params.has_key?(:attributesAsObject)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -185,6 +189,8 @@ module LosantRest
     # *  {string} applicationId - ID associated with the application
     # *  {string} deviceRecipeId - ID associated with the device recipe
     # *  {hash} deviceRecipe - Object containing new properties of the device recipe (https://api.losant.com/#/definitions/deviceRecipePatch)
+    # *  {string} tagsAsObject - Return tags as an object map instead of an array
+    # *  {string} attributesAsObject - Return attributes as an object map instead of an array
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -207,6 +213,8 @@ module LosantRest
       raise ArgumentError.new("deviceRecipe is required") unless params.has_key?(:deviceRecipe)
 
       body = params[:deviceRecipe] if params.has_key?(:deviceRecipe)
+      query_params[:tagsAsObject] = params[:tagsAsObject] if params.has_key?(:tagsAsObject)
+      query_params[:attributesAsObject] = params[:attributesAsObject] if params.has_key?(:attributesAsObject)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)

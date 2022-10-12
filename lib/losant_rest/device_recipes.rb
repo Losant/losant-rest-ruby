@@ -47,6 +47,8 @@ module LosantRest
     # *  {string} perPage - How many items to return per page
     # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
+    # *  {string} tagsAsObject - Return tags as an object map instead of an array
+    # *  {string} attributesAsObject - Return attributes as an object map instead of an array
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -72,6 +74,8 @@ module LosantRest
       query_params[:perPage] = params[:perPage] if params.has_key?(:perPage)
       query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
       query_params[:filter] = params[:filter] if params.has_key?(:filter)
+      query_params[:tagsAsObject] = params[:tagsAsObject] if params.has_key?(:tagsAsObject)
+      query_params[:attributesAsObject] = params[:attributesAsObject] if params.has_key?(:attributesAsObject)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -98,6 +102,8 @@ module LosantRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {hash} deviceRecipe - New device recipe information (https://api.losant.com/#/definitions/deviceRecipePost)
+    # *  {string} tagsAsObject - Return tags as an object map instead of an array
+    # *  {string} attributesAsObject - Return attributes as an object map instead of an array
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -119,6 +125,8 @@ module LosantRest
       raise ArgumentError.new("deviceRecipe is required") unless params.has_key?(:deviceRecipe)
 
       body = params[:deviceRecipe] if params.has_key?(:deviceRecipe)
+      query_params[:tagsAsObject] = params[:tagsAsObject] if params.has_key?(:tagsAsObject)
+      query_params[:attributesAsObject] = params[:attributesAsObject] if params.has_key?(:attributesAsObject)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)

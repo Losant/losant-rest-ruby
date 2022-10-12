@@ -99,7 +99,7 @@ module LosantRest
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - If request was successfully queued (https://api.losant.com/#/definitions/success)
+    # *  200 - If request was successfully queued (https://api.losant.com/#/definitions/successWithJobId)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
