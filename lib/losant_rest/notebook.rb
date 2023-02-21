@@ -338,7 +338,7 @@ module LosantRest
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - If export request was accepted and successfully queued (https://api.losant.com/#/definitions/successWithJobId)
+    # *  202 - If export request was accepted and successfully queued (https://api.losant.com/#/definitions/jobEnqueuedResult)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
