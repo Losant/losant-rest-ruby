@@ -496,6 +496,58 @@ module LosantRest
         body: body)
     end
 
+    # Returns payload counts per resolution in the time range specified for this device
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, device.*, or device.payloadCountsBreakdown.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} deviceId - ID associated with the device
+    # *  {string} start - Start of range for payload count query (ms since epoch)
+    # *  {string} end - End of range for payload count query (ms since epoch)
+    # *  {string} resolution - Resolution in milliseconds. Accepted values are: 86400000, 3600000
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - Sum of payload counts by date (https://api.losant.com/#/definitions/payloadCountsBreakdown)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if device was not found (https://api.losant.com/#/definitions/error)
+    def payload_counts_breakdown(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("deviceId is required") unless params.has_key?(:deviceId)
+
+      query_params[:start] = params[:start] if params.has_key?(:start)
+      query_params[:end] = params[:end] if params.has_key?(:end)
+      query_params[:resolution] = params[:resolution] if params.has_key?(:resolution)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/devices/#{params[:deviceId]}/payloadCountsBreakdown"
+
+      @client.request(
+        method: :get,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
     # Removes all device data for the specified time range. Defaults to all data.
     #
     # Authentication:

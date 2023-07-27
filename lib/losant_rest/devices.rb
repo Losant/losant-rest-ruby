@@ -300,6 +300,67 @@ module LosantRest
         body: body)
     end
 
+    # Retrieve the composite last complete state of the matching devices
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Device, all.Device.read, all.Organization, all.Organization.read, all.User, all.User.read, devices.*, or devices.getCompositeState.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {string} start - Start of time range to look at to build composite state
+    # *  {string} end - End of time range to look at to build composite state
+    # *  {string} attributes - Comma-separated list of attributes to include. When not provided, returns all attributes.
+    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate, lastUpdated, connectionStatus
+    # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
+    # *  {string} page - Which page of results to return
+    # *  {string} perPage - How many items to return per page
+    # *  {hash} query - Device advanced query JSON object (https://api.losant.com/#/definitions/advancedDeviceQuery)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - Collection of composite last state of the devices (https://api.losant.com/#/definitions/compositeDevicesState)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
+    def get_composite_state(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+
+      query_params[:start] = params[:start] if params.has_key?(:start)
+      query_params[:end] = params[:end] if params.has_key?(:end)
+      query_params[:attributes] = params[:attributes] if params.has_key?(:attributes)
+      query_params[:sortField] = params[:sortField] if params.has_key?(:sortField)
+      query_params[:sortDirection] = params[:sortDirection] if params.has_key?(:sortDirection)
+      query_params[:page] = params[:page] if params.has_key?(:page)
+      query_params[:perPage] = params[:perPage] if params.has_key?(:perPage)
+      query_params[:query] = params[:query] if params.has_key?(:query)
+      query_params[:query] = JSON.dump(query_params[:query]) if query_params.has_key?(:query)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/devices/compositeState"
+
+      @client.request(
+        method: :get,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
     # Update the fields of one or more devices
     #
     # Authentication:

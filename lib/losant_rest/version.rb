@@ -21,5 +21,5 @@
 # SOFTWARE.
 
 module LosantRest
-  VERSION = "1.17.5"
+  VERSION = "1.18.0"
 end
