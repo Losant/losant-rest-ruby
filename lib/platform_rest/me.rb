@@ -208,7 +208,7 @@ module PlatformRest
         body: body)
     end
 
-    # Disables two factor auth for the current user
+    # Disables multi-factor authentication for the current user
     #
     # Authentication:
     # The client must be configured with a valid api
@@ -217,7 +217,7 @@ module PlatformRest
     # all.User, me.*, or me.disableTwoFactorAuth.
     #
     # Parameters:
-    # *  {hash} data - Object containing two factor auth properties (https://api.losant.com/#/definitions/disableTwoFactorAuth)
+    # *  {hash} data - Object containing multi-factor authentication properties (https://api.losant.com/#/definitions/multiFactorAuthDisable)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -293,7 +293,7 @@ module PlatformRest
         body: body)
     end
 
-    # Enables two factor auth for the current user
+    # Enables multi-factor authentication for the current user
     #
     # Authentication:
     # The client must be configured with a valid api
@@ -302,7 +302,7 @@ module PlatformRest
     # all.User, me.*, or me.enableTwoFactorAuth.
     #
     # Parameters:
-    # *  {hash} data - Object containing two factor auth properties (https://api.losant.com/#/definitions/enableTwoFactorAuth)
+    # *  {hash} data - Object containing multi-factor authentication properties (https://api.losant.com/#/definitions/multiFactorAuthEnable)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -383,7 +383,7 @@ module PlatformRest
         body: body)
     end
 
-    # Returns the two factor auth key for a user
+    # Returns the multi-factor authentication key for the current user
     #
     # Authentication:
     # The client must be configured with a valid api
@@ -398,7 +398,7 @@ module PlatformRest
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Updated user information (https://api.losant.com/#/definitions/twoFactorAuthInfo)
+    # *  200 - Multi-factor authentication info (https://api.losant.com/#/definitions/multiFactorAuthInfo)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
