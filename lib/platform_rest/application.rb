@@ -542,6 +542,54 @@ module PlatformRest
         body: body)
     end
 
+    # Retrieves information on application import logs
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, application.*, or application.importLogs.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID of the associated application
+    # *  {string} limit - Max log entries to return (ordered by time descending)
+    # *  {string} since - Look for log entries since this time (ms since epoch)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - Application log objects (https://api.losant.com/#/definitions/applicationImportExecutions)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
+    def import_logs(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+
+      query_params[:limit] = params[:limit] if params.has_key?(:limit)
+      query_params[:since] = params[:since] if params.has_key?(:since)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/importLogs"
+
+      @client.request(
+        method: :get,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
     # Publishes the given message to the given MQTT topic
     #
     # Authentication:
