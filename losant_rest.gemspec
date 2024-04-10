@@ -1,5 +1,5 @@
 $LOAD_PATH.push(File.expand_path("../lib", __FILE__))
-require "losant_rest/version"
+require "platform_rest/version"
 
 Gem::Specification.new do |gem|
   gem.name          = "losant_rest"
