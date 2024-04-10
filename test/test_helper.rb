@@ -5,7 +5,7 @@ require "minitest/autorun"
 require "minitest/spec"
 require "minitest/mock"
 require "webmock/minitest"
-require "losant_rest"
+require "platform_rest"
 
 class MiniTest::Test
   def setup
