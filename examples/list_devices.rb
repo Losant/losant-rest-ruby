@@ -1,6 +1,6 @@
 require "losant_rest"
 
-client = LosantRest::Client.new(auth_token: "my_token")
+client = PlatformRest::Client.new(auth_token: "my_token")
 result = client.devices.get(applicationId: "myAppId")
 
 puts result

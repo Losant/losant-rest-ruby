@@ -11,7 +11,7 @@ class BasicTest < MiniTest::Test
         to_return(body: '{ "userId": "theUserId", "token": "an auth token string"}',
           status: 200, headers: { "Content-Type" => "application/json" });
 
-      client = LosantRest::Client.new
+      client = PlatformRest::Client.new
 
       response = client.auth.authenticate_user(credentials: {
         email: "myemail@myemail.com",
@@ -27,7 +27,7 @@ class BasicTest < MiniTest::Test
         to_return(body: '{ "count": 0, "items": [] }',
           status: 200, headers: { "Content-Type" => "application/json" });
 
-      client = LosantRest::Client.new(auth_token: "my token")
+      client = PlatformRest::Client.new(auth_token: "my token")
 
       response = client.applications.get
       assert_equal response, { "count" => 0, "items" => [] }
@@ -40,7 +40,7 @@ class BasicTest < MiniTest::Test
         to_return(body: '{ "count": 0, "items": [] }',
           status: 200, headers: { "Content-Type" => "application/json" });
 
-      client = LosantRest::Client.new(auth_token: "my token")
+      client = PlatformRest::Client.new(auth_token: "my token")
 
       response = client.devices.get(applicationId: "appId", tagFilter: [
         { key: "key2" },
@@ -57,7 +57,7 @@ class BasicTest < MiniTest::Test
         to_return(body: '{ "count": 0, "items": [] }',
           status: 200, headers: { "Content-Type" => "application/json" });
 
-      client = LosantRest::Client.new(auth_token: "my token")
+      client = PlatformRest::Client.new(auth_token: "my token")
 
       response = client.events.get(applicationId: "appId", query: {
         :"$and" => [ { level: "info" }, { state: "new" }]
@@ -72,9 +72,9 @@ class BasicTest < MiniTest::Test
         to_return(body: '{ "count": 0, "items": [] }',
           status: 200, headers: { "Content-Type" => "application/json" });
 
-      LosantRest.client.auth_token = "my token"
+      PlatformRest.client.auth_token = "my token"
 
-      response = LosantRest.applications.get
+      response = PlatformRest.applications.get
       assert_equal response, { "count" => 0, "items" => [] }
     end
 

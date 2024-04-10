@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split("\n")
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.require_paths = ["lib"]
-  gem.version       = LosantRest::VERSION
+  gem.version       = PlatformRest::VERSION
   gem.licenses      = ["MIT"]
 
   gem.required_ruby_version = ">= 2.1"

@@ -25,17 +25,17 @@ Below is a high-level example of using the Losant Ruby REST API client to authen
 ```ruby
 require "losant_rest"
 
-response = LosantRest.auth.authenticate_device(credentials: {
+response = PlatformRest.auth.authenticate_device(credentials: {
   deviceId: "my-device-id",
   key: "my-app-access-key",
   secret: "my-app-access-secret"
 })
 
-LosantRest.auth_token = response["token"]
+PlatformRest.auth_token = response["token"]
 app_id = response["applicationId"]
 
 state = { data: { temperature: AnalogSensor.read } }
-response = LosantRest.device.send_state(deviceId: "my-device-id",
+response = PlatformRest.device.send_state(deviceId: "my-device-id",
   applicationId: app_id, deviceState: state)
 
 puts response
@@ -46,13 +46,13 @@ puts response
 
 ## API Documentation
 
-### LosantRest
+### PlatformRest
 
-LosantRest is the wrapping module, but it also acts as a singleton [Client](#losantrestclient) instance. So if you only need a single client instance, you do not need to instantiate one yourself - the LosantRest module will act exactly like an instance of LosantRest::Client.
+PlatformRest is the wrapping module, but it also acts as a singleton [Client](#PlatformRestclient) instance. So if you only need a single client instance, you do not need to instantiate one yourself - the PlatformRest module will act exactly like an instance of PlatformRest::Client.
 
 <br/>
 
-### LosantRest::Client
+### PlatformRest::Client
 
 A client is a single api instance. By default, it is unauthenticated, but can
 be given an access token to perform authenticated requests.
@@ -60,7 +60,7 @@ be given an access token to perform authenticated requests.
 #### Initializer
 
 ```ruby
-LosantRest::Client.new(auth_token: nil, url: "https://api.losant.com")
+PlatformRest::Client.new(auth_token: nil, url: "https://api.losant.com")
 ```
 
 The ``Client()`` initializer takes the following arguments:
@@ -232,7 +232,7 @@ Each of the following is a method on the client object, and returns a wrapper fo
 
 <br/>
 
-### LosantRest::ResponseError
+### PlatformRest::ResponseError
 
 When the Losant API returns a unsuccessful response, an instance of ResponseError is thrown.
 

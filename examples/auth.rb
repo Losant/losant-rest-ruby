@@ -1,6 +1,6 @@
 require "losant_rest"
 
-client = LosantRest::Client.new
+client = PlatformRest::Client.new
 
 user_response = client.auth.authenticate_user(credentials: {
   email: "example@losant.com",
