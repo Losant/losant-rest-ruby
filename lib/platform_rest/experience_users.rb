@@ -49,6 +49,7 @@ module PlatformRest
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
     # *  {string} experienceGroupId - Filter users to those only in the specified group, special experienceGroupIds of 'any' which will give users who are in at least one group and 'none' will give you users who are not in any groups.
     # *  {string} includeAncestorGroups - If set will include members from ancestors of the specified experienceGroupId
+    # *  {hash} query - Experience user filter JSON object which overrides all other filter params. (https://api.losant.com/#/definitions/advancedExperienceUserQuery)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -76,6 +77,8 @@ module PlatformRest
       query_params[:filter] = params[:filter] if params.has_key?(:filter)
       query_params[:experienceGroupId] = params[:experienceGroupId] if params.has_key?(:experienceGroupId)
       query_params[:includeAncestorGroups] = params[:includeAncestorGroups] if params.has_key?(:includeAncestorGroups)
+      query_params[:query] = params[:query] if params.has_key?(:query)
+      query_params[:query] = JSON.dump(query_params[:query]) if query_params.has_key?(:query)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
