@@ -21,7 +21,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
     - name: Set up Ruby ${{ matrix.ruby }}
-      uses: ruby/setup-ruby@v1
+      uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
       with:
         ruby-version: ${{ matrix.ruby }}
     - name: Install dependencies
