@@ -48,6 +48,7 @@ module PlatformRest
     # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: name
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
     # *  {string} summaryInclude - Comma-separated list of summary fields to include in org summary
+    # *  {hash} query - Organization filter JSON object which overrides all other filter params. (https://api.losant.com/#/definitions/advancedInstanceOrgQuery)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -73,6 +74,8 @@ module PlatformRest
       query_params[:filterField] = params[:filterField] if params.has_key?(:filterField)
       query_params[:filter] = params[:filter] if params.has_key?(:filter)
       query_params[:summaryInclude] = params[:summaryInclude] if params.has_key?(:summaryInclude)
+      query_params[:query] = params[:query] if params.has_key?(:query)
+      query_params[:query] = JSON.dump(query_params[:query]) if query_params.has_key?(:query)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
