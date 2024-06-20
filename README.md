@@ -23,7 +23,7 @@ gem install losant_rest
 Below is a high-level example of using the Losant Ruby REST API client to authenticate against the Losant Platform and report state for a device.
 
 ```ruby
-require "losant_rest"
+require "platform_rest"
 
 response = PlatformRest.auth.authenticate_device(credentials: {
   deviceId: "my-device-id",
