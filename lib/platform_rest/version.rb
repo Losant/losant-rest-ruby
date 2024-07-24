@@ -21,5 +21,5 @@
 # SOFTWARE.
 
 module PlatformRest
-  VERSION = "1.19.8"
+  VERSION = "1.19.9"
 end
