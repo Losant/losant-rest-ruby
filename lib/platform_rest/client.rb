@@ -27,7 +27,7 @@ module PlatformRest
   #
   # User API for accessing platform data
   #
-  # Built For Version 1.26.11
+  # Built For Version 1.27.0
   class Client
     attr_accessor :auth_token, :url
 
@@ -300,6 +300,14 @@ module PlatformRest
       @instance_members ||= InstanceMembers.new(self)
     end
 
+    def instance_notification_rule
+      @instance_notification_rule ||= InstanceNotificationRule.new(self)
+    end
+
+    def instance_notification_rules
+      @instance_notification_rules ||= InstanceNotificationRules.new(self)
+    end
+
     def instance_org
       @instance_org ||= InstanceOrg.new(self)
     end
@@ -398,7 +406,7 @@ module PlatformRest
 
       headers["Accept"]         = "application/json"
       headers["Content-Type"]   = "application/json"
-      headers["Accept-Version"] = "^1.26.11"
+      headers["Accept-Version"] = "^1.27.0"
       headers["Authorization"]  = "Bearer #{self.auth_token}" if self.auth_token
       path = self.url + options.fetch(:path, "")
 
