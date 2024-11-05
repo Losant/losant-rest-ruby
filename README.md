@@ -4,7 +4,7 @@
 
 The [Losant](https://www.losant.com) REST API client provides a simple way to use the comprehensive Losant API. You can authenticate either as a Losant device or with your user account, and have access to all the functionality of the Losant platform.
 
-This client works with Ruby 2.1 and higher. It uses [HTTParty](https://github.com/jnunemaker/httparty) under the covers for the actual HTTP communication.
+This client works with Ruby 2.3 and higher. It uses [HTTParty](https://github.com/jnunemaker/httparty) under the covers for the actual HTTP communication.
 
 <br/>
 
