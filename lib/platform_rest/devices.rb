@@ -92,7 +92,7 @@ module PlatformRest
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {hash} options - Object containing device query and email (https://api.losant.com/#/definitions/devicesDeletePost)
+    # *  {hash} options - Object containing device deletion options (https://api.losant.com/#/definitions/devicesDeleteOrRestorePost)
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -239,7 +239,7 @@ module PlatformRest
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate, lastUpdated, connectionStatus
+    # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate, lastUpdated, connectionStatus, deletedAt
     # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
     # *  {string} page - Which page of results to return
     # *  {string} perPage - How many items to return per page
@@ -252,6 +252,7 @@ module PlatformRest
     # *  {hash} query - Device filter JSON object which overrides the filterField, filter, deviceClass, tagFilter, and parentId parameters. (https://api.losant.com/#/definitions/advancedDeviceQuery)
     # *  {string} tagsAsObject - Return tags as an object map instead of an array
     # *  {string} attributesAsObject - Return attributes as an object map instead of an array
+    # *  {string} queryDeleted - If true, endpoint will return recently deleted devices instead
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -285,6 +286,7 @@ module PlatformRest
       query_params[:query] = JSON.dump(query_params[:query]) if query_params.has_key?(:query)
       query_params[:tagsAsObject] = params[:tagsAsObject] if params.has_key?(:tagsAsObject)
       query_params[:attributesAsObject] = params[:attributesAsObject] if params.has_key?(:attributesAsObject)
+      query_params[:queryDeleted] = params[:queryDeleted] if params.has_key?(:queryDeleted)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
@@ -544,6 +546,54 @@ module PlatformRest
       query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
 
       path = "/applications/#{params[:applicationId]}/devices/removeData"
+
+      @client.request(
+        method: :post,
+        path: path,
+        query: query_params,
+        headers: headers,
+        body: body)
+    end
+
+    # Restore deleted devices
+    #
+    # Authentication:
+    # The client must be configured with a valid api
+    # access token to call this action. The token
+    # must include at least one of the following scopes:
+    # all.Application, all.Organization, all.User, devices.*, or devices.restore.
+    #
+    # Parameters:
+    # *  {string} applicationId - ID associated with the application
+    # *  {hash} options - Object containing device restoration options (https://api.losant.com/#/definitions/devicesDeleteOrRestorePost)
+    # *  {string} losantdomain - Domain scope of request (rarely needed)
+    # *  {boolean} _actions - Return resource actions in response
+    # *  {boolean} _links - Return resource link in response
+    # *  {boolean} _embedded - Return embedded resources in response
+    #
+    # Responses:
+    # *  200 - Object indicating number of devices restored or failed (https://api.losant.com/#/definitions/bulkRestoreResponse)
+    # *  202 - If a job was enqueued for the devices to be restored (https://api.losant.com/#/definitions/jobEnqueuedResult)
+    #
+    # Errors:
+    # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
+    # *  404 - Error if application was not found (https://api.losant.com/#/definitions/error)
+    def restore(params = {})
+      params = Utils.symbolize_hash_keys(params)
+      query_params = { _actions: false, _links: true, _embedded: true }
+      headers = {}
+      body = nil
+
+      raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
+      raise ArgumentError.new("options is required") unless params.has_key?(:options)
+
+      body = params[:options] if params.has_key?(:options)
+      headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
+      query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
+      query_params[:_links] = params[:_links] if params.has_key?(:_links)
+      query_params[:_embedded] = params[:_embedded] if params.has_key?(:_embedded)
+
+      path = "/applications/#{params[:applicationId]}/devices/restore"
 
       @client.request(
         method: :post,

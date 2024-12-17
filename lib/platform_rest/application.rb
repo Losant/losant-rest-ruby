@@ -748,6 +748,7 @@ module PlatformRest
     # *  {string} applicationId - ID of the associated application
     # *  {string} start - Start of range for payload count query (ms since epoch)
     # *  {string} end - End of range for payload count query (ms since epoch)
+    # *  {string} asBytes - If the resulting stats should be returned as bytes
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -769,6 +770,7 @@ module PlatformRest
 
       query_params[:start] = params[:start] if params.has_key?(:start)
       query_params[:end] = params[:end] if params.has_key?(:end)
+      query_params[:asBytes] = params[:asBytes] if params.has_key?(:asBytes)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
