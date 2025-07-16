@@ -42,6 +42,8 @@ module PlatformRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {hash} query - Query to apply to filter the events (https://api.losant.com/#/definitions/advancedEventQuery)
+    # *  {string} email - Email address to send job complete notification to. Defaults to current user's email.
+    # *  {string} callbackUrl - Callback URL to call with delete result
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -49,6 +51,7 @@ module PlatformRest
     #
     # Responses:
     # *  200 - If request successfully deletes a set of Events (https://api.losant.com/#/definitions/eventsDeleted)
+    # *  202 - If a bulk delete job has been enqueued (https://api.losant.com/#/definitions/jobEnqueuedResult)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
@@ -62,6 +65,8 @@ module PlatformRest
       raise ArgumentError.new("applicationId is required") unless params.has_key?(:applicationId)
 
       body = params[:query] if params.has_key?(:query)
+      query_params[:email] = params[:email] if params.has_key?(:email)
+      query_params[:callbackUrl] = params[:callbackUrl] if params.has_key?(:callbackUrl)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)

@@ -72,6 +72,14 @@ module PlatformRest
       @application_dashboards ||= ApplicationDashboards.new(self)
     end
 
+    def application_job_log
+      @application_job_log ||= ApplicationJobLog.new(self)
+    end
+
+    def application_job_logs
+      @application_job_logs ||= ApplicationJobLogs.new(self)
+    end
+
     def application_key
       @application_key ||= ApplicationKey.new(self)
     end
