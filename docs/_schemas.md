@@ -67736,13 +67736,20 @@ Schema for an array of node IDs to exclude from debug output
 ```json
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "array",
-  "maxItems": 50,
-  "items": {
-    "type": "string",
-    "maxLength": 48,
-    "minLength": 1
-  }
+  "oneOf": [
+    {
+      "type": "array",
+      "maxItems": 50,
+      "items": {
+        "type": "string",
+        "maxLength": 48,
+        "minLength": 1
+      }
+    },
+    {
+      "type": "string"
+    }
+  ]
 }
 ```
 ### <a name="debug-exclude-node-ids-example"></a> Example
@@ -67765,19 +67772,26 @@ Schema for user debug levels
 ```json
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "array",
-  "maxItems": 6,
-  "items": {
-    "type": "string",
-    "enum": [
-      "all",
-      "none",
-      "verbose",
-      "info",
-      "warn",
-      "error"
-    ]
-  }
+  "oneOf": [
+    {
+      "type": "array",
+      "maxItems": 6,
+      "items": {
+        "type": "string",
+        "enum": [
+          "all",
+          "none",
+          "verbose",
+          "info",
+          "warn",
+          "error"
+        ]
+      }
+    },
+    {
+      "type": "string"
+    }
+  ]
 }
 ```
 ### <a name="debug-levels-example"></a> Example
@@ -164993,7 +165007,8 @@ Schema for a single Notebook
       "enum": [
         "v1",
         "v2",
-        "v3"
+        "v3",
+        "v4"
       ]
     },
     "inputs": {
@@ -165857,7 +165872,8 @@ Schema for a set of Notebook execution logs
         "enum": [
           "v1",
           "v2",
-          "v3"
+          "v3",
+          "v4"
         ]
       },
       "applicationId": {
@@ -166775,7 +166791,8 @@ Schema for the body of a Notebook modification request
       "enum": [
         "v1",
         "v2",
-        "v3"
+        "v3",
+        "v4"
       ]
     }
   },
@@ -166817,7 +166834,8 @@ Schema for the body of an Notebook creation request
       "enum": [
         "v1",
         "v2",
-        "v3"
+        "v3",
+        "v4"
       ]
     },
     "inputs": {
@@ -167518,7 +167536,8 @@ Schema for a collection of Notebooks
             "enum": [
               "v1",
               "v2",
-              "v3"
+              "v3",
+              "v4"
             ]
           },
           "inputs": {
