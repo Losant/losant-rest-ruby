@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 #
-# Copyright (c) 2024 Losant IoT, Inc.
+# Copyright (c) 2026 SUSE
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@ module PlatformRest
   #
   # User API for accessing platform data
   #
-  # Built For Version 1.29.2
+  # Built For Version 1.29.3
   class Client
     attr_accessor :auth_token, :url
 
@@ -430,7 +430,7 @@ module PlatformRest
 
       headers["Accept"]         = "application/json"
       headers["Content-Type"]   = "application/json"
-      headers["Accept-Version"] = "^1.29.2"
+      headers["Accept-Version"] = "^1.29.3"
       headers["Authorization"]  = "Bearer #{self.auth_token}" if self.auth_token
       path = self.url + options.fetch(:path, "")
 

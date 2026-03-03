@@ -1761,6 +1761,9 @@ Schema for advanced application key queries
                       "maxLength": 255
                     },
                     {
+                      "type": "null"
+                    },
+                    {
                       "type": "object",
                       "properties": {
                         "$in": {
@@ -1801,6 +1804,9 @@ Schema for advanced application key queries
                     {
                       "type": "string",
                       "maxLength": 255
+                    },
+                    {
+                      "type": "null"
                     },
                     {
                       "type": "object",
@@ -1850,6 +1856,9 @@ Schema for advanced application key queries
                     {
                       "type": "string",
                       "maxLength": 255
+                    },
+                    {
+                      "type": "null"
                     },
                     {
                       "type": "object",
@@ -1907,6 +1916,9 @@ Schema for advanced application key queries
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -1947,6 +1959,9 @@ Schema for advanced application key queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -1996,6 +2011,9 @@ Schema for advanced application key queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -2059,6 +2077,9 @@ Schema for advanced application key queries
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -2099,6 +2120,9 @@ Schema for advanced application key queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -2150,6 +2174,9 @@ Schema for advanced application key queries
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -2199,6 +2226,109 @@ Schema for advanced application key queries
       ]
     },
     "key": {
+      "oneOf": [
+        {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "$eq": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "$ne": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "$gt": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "$lt": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "$gte": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "$lte": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "$startsWith": {
+              "type": "string",
+              "minLength": 1
+            },
+            "$endsWith": {
+              "type": "string",
+              "minLength": 1
+            },
+            "$contains": {
+              "type": "string",
+              "minLength": 1
+            },
+            "$ci": {
+              "type": "boolean"
+            },
+            "$in": {
+              "type": "array",
+              "maxItems": 100,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean"
+                ]
+              }
+            },
+            "$nin": {
+              "type": "array",
+              "maxItems": 100,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "name": {
       "oneOf": [
         {
           "type": [
@@ -2611,6 +2741,212 @@ Schema for advanced application key queries
       ]
     },
     "subTopics": {
+      "oneOf": [
+        {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "$eq": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "$ne": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "$gt": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "$lt": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "$gte": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "$lte": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "$startsWith": {
+              "type": "string",
+              "minLength": 1
+            },
+            "$endsWith": {
+              "type": "string",
+              "minLength": 1
+            },
+            "$contains": {
+              "type": "string",
+              "minLength": 1
+            },
+            "$ci": {
+              "type": "boolean"
+            },
+            "$in": {
+              "type": "array",
+              "maxItems": 100,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean"
+                ]
+              }
+            },
+            "$nin": {
+              "type": "array",
+              "maxItems": 100,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "addressFilterType": {
+      "oneOf": [
+        {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "$eq": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "$ne": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "$gt": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "$lt": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "$gte": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "$lte": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            },
+            "$startsWith": {
+              "type": "string",
+              "minLength": 1
+            },
+            "$endsWith": {
+              "type": "string",
+              "minLength": 1
+            },
+            "$contains": {
+              "type": "string",
+              "minLength": 1
+            },
+            "$ci": {
+              "type": "boolean"
+            },
+            "$in": {
+              "type": "array",
+              "maxItems": 100,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean"
+                ]
+              }
+            },
+            "$nin": {
+              "type": "array",
+              "maxItems": 100,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "addresses": {
       "oneOf": [
         {
           "type": [
@@ -4032,6 +4368,9 @@ Schema for advanced device queries
                       "maxLength": 255
                     },
                     {
+                      "type": "null"
+                    },
+                    {
                       "type": "object",
                       "properties": {
                         "$in": {
@@ -4072,6 +4411,9 @@ Schema for advanced device queries
                     {
                       "type": "string",
                       "maxLength": 255
+                    },
+                    {
+                      "type": "null"
                     },
                     {
                       "type": "object",
@@ -4121,6 +4463,9 @@ Schema for advanced device queries
                     {
                       "type": "string",
                       "maxLength": 255
+                    },
+                    {
+                      "type": "null"
                     },
                     {
                       "type": "object",
@@ -4178,6 +4523,9 @@ Schema for advanced device queries
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -4218,6 +4566,9 @@ Schema for advanced device queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -4267,6 +4618,9 @@ Schema for advanced device queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -4330,6 +4684,9 @@ Schema for advanced device queries
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -4370,6 +4727,9 @@ Schema for advanced device queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -4419,6 +4779,9 @@ Schema for advanced device queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -5984,6 +6347,9 @@ Schema for advanced event queries
                       "maxLength": 255
                     },
                     {
+                      "type": "null"
+                    },
+                    {
                       "type": "object",
                       "properties": {
                         "$in": {
@@ -6024,6 +6390,9 @@ Schema for advanced event queries
                     {
                       "type": "string",
                       "maxLength": 255
+                    },
+                    {
+                      "type": "null"
                     },
                     {
                       "type": "object",
@@ -6073,6 +6442,9 @@ Schema for advanced event queries
                     {
                       "type": "string",
                       "maxLength": 255
+                    },
+                    {
+                      "type": "null"
                     },
                     {
                       "type": "object",
@@ -6130,6 +6502,9 @@ Schema for advanced event queries
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -6170,6 +6545,9 @@ Schema for advanced event queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -6219,6 +6597,9 @@ Schema for advanced event queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -6282,6 +6663,9 @@ Schema for advanced event queries
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -6322,6 +6706,9 @@ Schema for advanced event queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -6371,6 +6758,9 @@ Schema for advanced event queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -7114,6 +7504,9 @@ Schema for advanced experience group queries
                       "maxLength": 255
                     },
                     {
+                      "type": "null"
+                    },
+                    {
                       "type": "object",
                       "properties": {
                         "$in": {
@@ -7154,6 +7547,9 @@ Schema for advanced experience group queries
                     {
                       "type": "string",
                       "maxLength": 255
+                    },
+                    {
+                      "type": "null"
                     },
                     {
                       "type": "object",
@@ -7203,6 +7599,9 @@ Schema for advanced experience group queries
                     {
                       "type": "string",
                       "maxLength": 255
+                    },
+                    {
+                      "type": "null"
                     },
                     {
                       "type": "object",
@@ -7260,6 +7659,9 @@ Schema for advanced experience group queries
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -7300,6 +7702,9 @@ Schema for advanced experience group queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -7349,6 +7754,9 @@ Schema for advanced experience group queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -7412,6 +7820,9 @@ Schema for advanced experience group queries
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -7452,6 +7863,9 @@ Schema for advanced experience group queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -7501,6 +7915,9 @@ Schema for advanced experience group queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -8648,6 +9065,9 @@ Schema for advanced experience user queries
                       "maxLength": 255
                     },
                     {
+                      "type": "null"
+                    },
+                    {
                       "type": "object",
                       "properties": {
                         "$in": {
@@ -8688,6 +9108,9 @@ Schema for advanced experience user queries
                     {
                       "type": "string",
                       "maxLength": 255
+                    },
+                    {
+                      "type": "null"
                     },
                     {
                       "type": "object",
@@ -8737,6 +9160,9 @@ Schema for advanced experience user queries
                     {
                       "type": "string",
                       "maxLength": 255
+                    },
+                    {
+                      "type": "null"
                     },
                     {
                       "type": "object",
@@ -8794,6 +9220,9 @@ Schema for advanced experience user queries
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -8834,6 +9263,9 @@ Schema for advanced experience user queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -8883,6 +9315,9 @@ Schema for advanced experience user queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -8946,6 +9381,9 @@ Schema for advanced experience user queries
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -8986,6 +9424,9 @@ Schema for advanced experience user queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -9035,6 +9476,9 @@ Schema for advanced experience user queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -13142,6 +13586,9 @@ Schema for advanced instance organization queries
                       "maxLength": 255
                     },
                     {
+                      "type": "null"
+                    },
+                    {
                       "type": "object",
                       "properties": {
                         "$in": {
@@ -13182,6 +13629,9 @@ Schema for advanced instance organization queries
                     {
                       "type": "string",
                       "maxLength": 255
+                    },
+                    {
+                      "type": "null"
                     },
                     {
                       "type": "object",
@@ -13231,6 +13681,9 @@ Schema for advanced instance organization queries
                     {
                       "type": "string",
                       "maxLength": 255
+                    },
+                    {
+                      "type": "null"
                     },
                     {
                       "type": "object",
@@ -13288,6 +13741,9 @@ Schema for advanced instance organization queries
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -13328,6 +13784,9 @@ Schema for advanced instance organization queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -13377,6 +13836,9 @@ Schema for advanced instance organization queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -13440,6 +13902,9 @@ Schema for advanced instance organization queries
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -13480,6 +13945,9 @@ Schema for advanced instance organization queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -13529,6 +13997,9 @@ Schema for advanced instance organization queries
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -24716,9 +25187,33 @@ Schema for a single Application Key
       "type": "string",
       "format": "date-time"
     },
+    "createdById": {
+      "type": "string",
+      "pattern": "^[A-Fa-f\\d]{24}$"
+    },
+    "createdByType": {
+      "type": "string",
+      "enum": [
+        "flow",
+        "user",
+        "apiToken"
+      ]
+    },
     "lastUpdated": {
       "type": "string",
       "format": "date-time"
+    },
+    "lastUpdatedById": {
+      "type": "string",
+      "pattern": "^[A-Fa-f\\d]{24}$"
+    },
+    "lastUpdatedByType": {
+      "type": "string",
+      "enum": [
+        "flow",
+        "user",
+        "apiToken"
+      ]
     },
     "key": {
       "type": "string"
@@ -24757,6 +25252,11 @@ Schema for a single Application Key
       },
       "maxItems": 100
     },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
     "description": {
       "type": "string",
       "maxLength": 32767
@@ -24793,6 +25293,22 @@ Schema for a single Application Key
         "type": "string",
         "minLength": 1,
         "maxLength": 1024
+      }
+    },
+    "addressFilterType": {
+      "type": "string",
+      "enum": [
+        "all",
+        "whitelist",
+        "blacklist"
+      ]
+    },
+    "addresses": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "string",
+        "maxLength": 48
       }
     }
   }
@@ -24836,6 +25352,18 @@ Schema for the body of an Application Key modification request
         "inactive"
       ]
     },
+    "name": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
     "description": {
       "type": "string",
       "maxLength": 32767
@@ -24872,6 +25400,22 @@ Schema for the body of an Application Key modification request
         "type": "string",
         "minLength": 1,
         "maxLength": 1024
+      }
+    },
+    "addressFilterType": {
+      "type": "string",
+      "enum": [
+        "all",
+        "whitelist",
+        "blacklist"
+      ]
+    },
+    "addresses": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "string",
+        "maxLength": 48
       }
     }
   },
@@ -24927,6 +25471,11 @@ Schema for the body of an Application Key creation request
       },
       "maxItems": 100
     },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
     "description": {
       "type": "string",
       "maxLength": 32767
@@ -24963,6 +25512,22 @@ Schema for the body of an Application Key creation request
         "type": "string",
         "minLength": 1,
         "maxLength": 1024
+      }
+    },
+    "addressFilterType": {
+      "type": "string",
+      "enum": [
+        "all",
+        "whitelist",
+        "blacklist"
+      ]
+    },
+    "addresses": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "string",
+        "maxLength": 48
       }
     }
   },
@@ -25009,9 +25574,33 @@ Schema for a response of Application Key creation
       "type": "string",
       "format": "date-time"
     },
+    "createdById": {
+      "type": "string",
+      "pattern": "^[A-Fa-f\\d]{24}$"
+    },
+    "createdByType": {
+      "type": "string",
+      "enum": [
+        "flow",
+        "user",
+        "apiToken"
+      ]
+    },
     "lastUpdated": {
       "type": "string",
       "format": "date-time"
+    },
+    "lastUpdatedById": {
+      "type": "string",
+      "pattern": "^[A-Fa-f\\d]{24}$"
+    },
+    "lastUpdatedByType": {
+      "type": "string",
+      "enum": [
+        "flow",
+        "user",
+        "apiToken"
+      ]
     },
     "key": {
       "type": "string"
@@ -25053,6 +25642,11 @@ Schema for a response of Application Key creation
       },
       "maxItems": 100
     },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
     "description": {
       "type": "string",
       "maxLength": 32767
@@ -25089,6 +25683,22 @@ Schema for a response of Application Key creation
         "type": "string",
         "minLength": 1,
         "maxLength": 1024
+      }
+    },
+    "addressFilterType": {
+      "type": "string",
+      "enum": [
+        "all",
+        "whitelist",
+        "blacklist"
+      ]
+    },
+    "addresses": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "string",
+        "maxLength": 48
       }
     }
   }
@@ -25149,9 +25759,33 @@ Schema for a collection of Application Keys
             "type": "string",
             "format": "date-time"
           },
+          "createdById": {
+            "type": "string",
+            "pattern": "^[A-Fa-f\\d]{24}$"
+          },
+          "createdByType": {
+            "type": "string",
+            "enum": [
+              "flow",
+              "user",
+              "apiToken"
+            ]
+          },
           "lastUpdated": {
             "type": "string",
             "format": "date-time"
+          },
+          "lastUpdatedById": {
+            "type": "string",
+            "pattern": "^[A-Fa-f\\d]{24}$"
+          },
+          "lastUpdatedByType": {
+            "type": "string",
+            "enum": [
+              "flow",
+              "user",
+              "apiToken"
+            ]
           },
           "key": {
             "type": "string"
@@ -25190,6 +25824,11 @@ Schema for a collection of Application Keys
             },
             "maxItems": 100
           },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
           "description": {
             "type": "string",
             "maxLength": 32767
@@ -25226,6 +25865,22 @@ Schema for a collection of Application Keys
               "type": "string",
               "minLength": 1,
               "maxLength": 1024
+            }
+          },
+          "addressFilterType": {
+            "type": "string",
+            "enum": [
+              "all",
+              "whitelist",
+              "blacklist"
+            ]
+          },
+          "addresses": {
+            "type": "array",
+            "maxItems": 100,
+            "items": {
+              "type": "string",
+              "maxLength": 48
             }
           }
         }
@@ -28514,7 +29169,8 @@ Schema for a single Credential
         "mongodb",
         "mailgun",
         "snowflake",
-        "git"
+        "git",
+        "datadog"
       ]
     },
     "awsConfig": {
@@ -28776,7 +29432,19 @@ Schema for a single Credential
       "required": [
         "type",
         "cloneUrl"
-      ]
+      ],
+      "additionalProperties": false
+    },
+    "datadogConfig": {
+      "type": "object",
+      "properties": {
+        "site": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false,
@@ -38640,6 +39308,21 @@ Schema for a Credential update request
         }
       },
       "additionalProperties": false
+    },
+    "datadogConfig": {
+      "type": "object",
+      "properties": {
+        "secretValue": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "site": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false
@@ -38698,7 +39381,8 @@ Schema for a Credential creation request
         "mongodb",
         "mailgun",
         "snowflake",
-        "git"
+        "git",
+        "datadog"
       ]
     },
     "awsConfig": {
@@ -39074,6 +39758,24 @@ Schema for a Credential creation request
           ]
         }
       ]
+    },
+    "datadogConfig": {
+      "type": "object",
+      "properties": {
+        "secretValue": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "site": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "secretValue"
+      ]
     }
   },
   "additionalProperties": false,
@@ -39185,7 +39887,8 @@ Schema for a collection of Credentials
               "mongodb",
               "mailgun",
               "snowflake",
-              "git"
+              "git",
+              "datadog"
             ]
           },
           "awsConfig": {
@@ -39447,7 +40150,19 @@ Schema for a collection of Credentials
             "required": [
               "type",
               "cloneUrl"
-            ]
+            ],
+            "additionalProperties": false
+          },
+          "datadogConfig": {
+            "type": "object",
+            "properties": {
+              "site": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128
+              }
+            },
+            "additionalProperties": false
           }
         },
         "additionalProperties": false,
@@ -73255,6 +73970,9 @@ Schema for exporting the data for multiple devices
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -73295,6 +74013,9 @@ Schema for exporting the data for multiple devices
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -73344,6 +74065,9 @@ Schema for exporting the data for multiple devices
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -73401,6 +74125,9 @@ Schema for exporting the data for multiple devices
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -73441,6 +74168,9 @@ Schema for exporting the data for multiple devices
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -73490,6 +74220,9 @@ Schema for exporting the data for multiple devices
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -73553,6 +74286,9 @@ Schema for exporting the data for multiple devices
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -73593,6 +74329,9 @@ Schema for exporting the data for multiple devices
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -73642,6 +74381,9 @@ Schema for exporting the data for multiple devices
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -75369,6 +76111,9 @@ Schema for the body of a bulk device deletion or restoration request
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -75409,6 +76154,9 @@ Schema for the body of a bulk device deletion or restoration request
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -75458,6 +76206,9 @@ Schema for the body of a bulk device deletion or restoration request
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -75515,6 +76266,9 @@ Schema for the body of a bulk device deletion or restoration request
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -75555,6 +76309,9 @@ Schema for the body of a bulk device deletion or restoration request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -75604,6 +76361,9 @@ Schema for the body of a bulk device deletion or restoration request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -75667,6 +76427,9 @@ Schema for the body of a bulk device deletion or restoration request
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -75707,6 +76470,9 @@ Schema for the body of a bulk device deletion or restoration request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -75756,6 +76522,9 @@ Schema for the body of a bulk device deletion or restoration request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -77458,6 +78227,9 @@ Schema for the body of a device payload count export request
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -77498,6 +78270,9 @@ Schema for the body of a device payload count export request
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -77547,6 +78322,9 @@ Schema for the body of a device payload count export request
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -77604,6 +78382,9 @@ Schema for the body of a device payload count export request
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -77644,6 +78425,9 @@ Schema for the body of a device payload count export request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -77693,6 +78477,9 @@ Schema for the body of a device payload count export request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -77756,6 +78543,9 @@ Schema for the body of a device payload count export request
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -77796,6 +78586,9 @@ Schema for the body of a device payload count export request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -77845,6 +78638,9 @@ Schema for the body of a device payload count export request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -79541,6 +80337,9 @@ Schema for the body of a device metadata export request
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -79581,6 +80380,9 @@ Schema for the body of a device metadata export request
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -79630,6 +80432,9 @@ Schema for the body of a device metadata export request
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -79687,6 +80492,9 @@ Schema for the body of a device metadata export request
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -79727,6 +80535,9 @@ Schema for the body of a device metadata export request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -79776,6 +80587,9 @@ Schema for the body of a device metadata export request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -79839,6 +80653,9 @@ Schema for the body of a device metadata export request
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -79879,6 +80696,9 @@ Schema for the body of a device metadata export request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -79928,6 +80748,9 @@ Schema for the body of a device metadata export request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -81871,6 +82694,9 @@ Schema for the body of a Devices modification request
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -81911,6 +82737,9 @@ Schema for the body of a Devices modification request
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -81960,6 +82789,9 @@ Schema for the body of a Devices modification request
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -82017,6 +82849,9 @@ Schema for the body of a Devices modification request
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -82057,6 +82892,9 @@ Schema for the body of a Devices modification request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -82106,6 +82944,9 @@ Schema for the body of a Devices modification request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -82169,6 +83010,9 @@ Schema for the body of a Devices modification request
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -82209,6 +83053,9 @@ Schema for the body of a Devices modification request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -82258,6 +83105,9 @@ Schema for the body of a Devices modification request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -84762,6 +85612,9 @@ Schema for the body of a bulk data removal request
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -84802,6 +85655,9 @@ Schema for the body of a bulk data removal request
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -84851,6 +85707,9 @@ Schema for the body of a bulk data removal request
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -84908,6 +85767,9 @@ Schema for the body of a bulk data removal request
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -84948,6 +85810,9 @@ Schema for the body of a bulk data removal request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -84997,6 +85862,9 @@ Schema for the body of a bulk data removal request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -85060,6 +85928,9 @@ Schema for the body of a bulk data removal request
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -85100,6 +85971,9 @@ Schema for the body of a bulk data removal request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -85149,6 +86023,9 @@ Schema for the body of a bulk data removal request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -87128,6 +88005,9 @@ Schema for a single Event
       "minLength": 1,
       "maxLength": 255
     },
+    "disableTagChangeTracking": {
+      "type": "boolean"
+    },
     "eventTags": {
       "type": "object",
       "patternProperties": {
@@ -87140,6 +88020,7 @@ Schema for a single Event
       "additionalProperties": false
     },
     "updates": {
+      "maxItems": 100,
       "type": "array",
       "items": {
         "type": "object",
@@ -87483,6 +88364,9 @@ Schema for an event plus a count of new events
           "minLength": 1,
           "maxLength": 255
         },
+        "disableTagChangeTracking": {
+          "type": "boolean"
+        },
         "eventTags": {
           "type": "object",
           "patternProperties": {
@@ -87495,6 +88379,7 @@ Schema for an event plus a count of new events
           "additionalProperties": false
         },
         "updates": {
+          "maxItems": 100,
           "type": "array",
           "items": {
             "type": "object",
@@ -87753,6 +88638,10 @@ Schema for the body of an Event creation request
           ]
         }
       ]
+    },
+    "disableTagChangeTracking": {
+      "type": "boolean",
+      "default": false
     }
   },
   "required": [
@@ -87925,6 +88814,9 @@ Schema for a collection of Events
             "minLength": 1,
             "maxLength": 255
           },
+          "disableTagChangeTracking": {
+            "type": "boolean"
+          },
           "eventTags": {
             "type": "object",
             "patternProperties": {
@@ -87937,6 +88829,7 @@ Schema for a collection of Events
             "additionalProperties": false
           },
           "updates": {
+            "maxItems": 100,
             "type": "array",
             "items": {
               "type": "object",
@@ -89399,6 +90292,9 @@ Export options for events
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -89439,6 +90335,9 @@ Export options for events
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -89488,6 +90387,9 @@ Export options for events
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -89545,6 +90447,9 @@ Export options for events
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -89585,6 +90490,9 @@ Export options for events
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -89634,6 +90542,9 @@ Export options for events
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -89697,6 +90608,9 @@ Export options for events
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -89737,6 +90651,9 @@ Export options for events
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -89786,6 +90703,9 @@ Export options for events
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -89846,6 +90766,10 @@ Export options for events
         "json"
       ],
       "default": "csv"
+    },
+    "excludeUpdates": {
+      "type": "boolean",
+      "default": false
     }
   },
   "additionalProperties": false
@@ -89867,7 +90791,8 @@ Export options for events
         "level": "info"
       }
     ]
-  }
+  },
+  "excludeUpdates": true
 }
 ```
 
@@ -161170,6 +162095,9 @@ Schema for the body of a last value query request
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -161210,6 +162138,9 @@ Schema for the body of a last value query request
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -161259,6 +162190,9 @@ Schema for the body of a last value query request
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -161316,6 +162250,9 @@ Schema for the body of a last value query request
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -161356,6 +162293,9 @@ Schema for the body of a last value query request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -161405,6 +162345,9 @@ Schema for the body of a last value query request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -161468,6 +162411,9 @@ Schema for the body of a last value query request
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -161508,6 +162454,9 @@ Schema for the body of a last value query request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -161557,6 +162506,9 @@ Schema for the body of a last value query request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -164056,6 +165008,9 @@ Schema for the body of a request to send a command to multiple Devices
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -164096,6 +165051,9 @@ Schema for the body of a request to send a command to multiple Devices
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -164145,6 +165103,9 @@ Schema for the body of a request to send a command to multiple Devices
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -164202,6 +165163,9 @@ Schema for the body of a request to send a command to multiple Devices
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -164242,6 +165206,9 @@ Schema for the body of a request to send a command to multiple Devices
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -164291,6 +165258,9 @@ Schema for the body of a request to send a command to multiple Devices
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -164354,6 +165324,9 @@ Schema for the body of a request to send a command to multiple Devices
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -164394,6 +165367,9 @@ Schema for the body of a request to send a command to multiple Devices
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -164443,6 +165419,9 @@ Schema for the body of a request to send a command to multiple Devices
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -165415,6 +166394,45 @@ Schema for a single Notebook
               "inputType",
               "fileName",
               "sourceUrl"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "inputType": {
+                "type": "string",
+                "enum": [
+                  "applicationFile"
+                ]
+              },
+              "fileName": {
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(?!\\.{1,2}$)[0-9a-zA-Z_.-]{1,255}$"
+                  },
+                  {
+                    "type": "string",
+                    "minLength": 4,
+                    "maxLength": 255,
+                    "pattern": ".*{{.+}}.*"
+                  }
+                ]
+              },
+              "filePath": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "private": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "inputType",
+              "fileName",
+              "filePath"
             ],
             "additionalProperties": false
           }
@@ -166571,6 +167589,45 @@ Schema for the body of a Notebook modification request
               "sourceUrl"
             ],
             "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "inputType": {
+                "type": "string",
+                "enum": [
+                  "applicationFile"
+                ]
+              },
+              "fileName": {
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(?!\\.{1,2}$)[0-9a-zA-Z_.-]{1,255}$"
+                  },
+                  {
+                    "type": "string",
+                    "minLength": 4,
+                    "maxLength": 255,
+                    "pattern": ".*{{.+}}.*"
+                  }
+                ]
+              },
+              "filePath": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "private": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "inputType",
+              "fileName",
+              "filePath"
+            ],
+            "additionalProperties": false
           }
         ]
       }
@@ -167242,6 +168299,45 @@ Schema for the body of an Notebook creation request
               "inputType",
               "fileName",
               "sourceUrl"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "inputType": {
+                "type": "string",
+                "enum": [
+                  "applicationFile"
+                ]
+              },
+              "fileName": {
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^(?!\\.{1,2}$)[0-9a-zA-Z_.-]{1,255}$"
+                  },
+                  {
+                    "type": "string",
+                    "minLength": 4,
+                    "maxLength": 255,
+                    "pattern": ".*{{.+}}.*"
+                  }
+                ]
+              },
+              "filePath": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "private": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "inputType",
+              "fileName",
+              "filePath"
             ],
             "additionalProperties": false
           }
@@ -167944,6 +169040,45 @@ Schema for a collection of Notebooks
                     "inputType",
                     "fileName",
                     "sourceUrl"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "inputType": {
+                      "type": "string",
+                      "enum": [
+                        "applicationFile"
+                      ]
+                    },
+                    "fileName": {
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "pattern": "^(?!\\.{1,2}$)[0-9a-zA-Z_.-]{1,255}$"
+                        },
+                        {
+                          "type": "string",
+                          "minLength": 4,
+                          "maxLength": 255,
+                          "pattern": ".*{{.+}}.*"
+                        }
+                      ]
+                    },
+                    "filePath": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 2048
+                    },
+                    "private": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "inputType",
+                    "fileName",
+                    "filePath"
                   ],
                   "additionalProperties": false
                 }
@@ -176937,6 +178072,9 @@ Schema for the body of a time series query request
                           "maxLength": 255
                         },
                         {
+                          "type": "null"
+                        },
+                        {
                           "type": "object",
                           "properties": {
                             "$in": {
@@ -176977,6 +178115,9 @@ Schema for the body of a time series query request
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -177026,6 +178167,9 @@ Schema for the body of a time series query request
                         {
                           "type": "string",
                           "maxLength": 255
+                        },
+                        {
+                          "type": "null"
                         },
                         {
                           "type": "object",
@@ -177083,6 +178227,9 @@ Schema for the body of a time series query request
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -177123,6 +178270,9 @@ Schema for the body of a time series query request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -177172,6 +178322,9 @@ Schema for the body of a time series query request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -177235,6 +178388,9 @@ Schema for the body of a time series query request
                               "maxLength": 255
                             },
                             {
+                              "type": "null"
+                            },
+                            {
                               "type": "object",
                               "properties": {
                                 "$in": {
@@ -177275,6 +178431,9 @@ Schema for the body of a time series query request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",
@@ -177324,6 +178483,9 @@ Schema for the body of a time series query request
                             {
                               "type": "string",
                               "maxLength": 255
+                            },
+                            {
+                              "type": "null"
                             },
                             {
                               "type": "object",

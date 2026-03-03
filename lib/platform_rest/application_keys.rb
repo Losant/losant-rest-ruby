@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 #
-# Copyright (c) 2024 Losant IoT, Inc.
+# Copyright (c) 2026 SUSE
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -41,11 +41,11 @@ module PlatformRest
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
-    # *  {string} sortField - Field to sort the results by. Accepted values are: key, status, id, creationDate, lastUpdated
+    # *  {string} sortField - Field to sort the results by. Accepted values are: key, status, id, creationDate, lastUpdated, name
     # *  {string} sortDirection - Direction to sort the results by. Accepted values are: asc, desc
     # *  {string} page - Which page of results to return
     # *  {string} perPage - How many items to return per page
-    # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: key, status
+    # *  {string} filterField - Field to filter the results by. Blank or not provided means no filtering. Accepted values are: key, status, name
     # *  {string} filter - Filter to apply against the filtered field. Supports globbing. Blank or not provided means no filtering.
     # *  {hash} query - Application key filter JSON object which overrides the filterField and filter parameters. (https://api.losant.com/#/definitions/advancedApplicationKeyQuery)
     # *  {string} losantdomain - Domain scope of request (rarely needed)

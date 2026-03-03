@@ -377,6 +377,6 @@ When the Losant API returns a unsuccessful response, an instance of ResponseErro
 
 *****
 
-Copyright (c) 2024 Losant IoT, Inc
+Copyright (c) 2026 SUSE
 
 <https://www.losant.com>
