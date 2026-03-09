@@ -20,6 +20,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "httparty", "~> 0.24.2"
 
   gem.add_development_dependency "minitest", "~> 6.0.1"
+  gem.add_development_dependency "minitest-mock", "~> 5.27"
   gem.add_development_dependency "rake", "~> 13"
   gem.add_development_dependency "webmock", "~> 3.26.1"
 end
