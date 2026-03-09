@@ -15,11 +15,11 @@ Gem::Specification.new do |gem|
   gem.version       = PlatformRest::VERSION
   gem.licenses      = ["MIT"]
 
-  gem.required_ruby_version = ">= 2.3"
+  gem.required_ruby_version = ">= 3.2"
 
-  gem.add_dependency "httparty", "~> 0.21.0"
+  gem.add_dependency "httparty", "~> 0.24.2"
 
-  gem.add_development_dependency "minitest", "~> 5.9"
-  gem.add_development_dependency "rake", "~> 12"
-  gem.add_development_dependency "webmock", "~> 2.3"
+  gem.add_development_dependency "minitest", "~> 6.0.1"
+  gem.add_development_dependency "rake", "~> 13"
+  gem.add_development_dependency "webmock", "~> 3.26.1"
 end

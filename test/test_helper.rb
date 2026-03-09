@@ -1,6 +1,7 @@
 require "rubygems"
 
 gem "minitest"
+require "minitest"
 require "minitest/autorun"
 require "minitest/spec"
 require "minitest/mock"
