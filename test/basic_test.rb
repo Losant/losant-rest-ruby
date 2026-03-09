@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + "/test_helper")
 
-class BasicTest < MiniTest::Test
+class BasicTest < Minitest::Test
   describe "test basic functionality" do
 
     it "should correctly make an auth call" do
