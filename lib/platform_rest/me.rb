@@ -37,7 +37,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, me.*, or me.addRecentItem.
+    # all.User, all.User.bounded, me.*, me.addRecentItem, only.User, or only.User.bounded.
     #
     # Parameters:
     # *  {hash} data - Object containing recent item info (https://api.losant.com/#/definitions/recentItem)
@@ -81,7 +81,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, me.*, or me.changePassword.
+    # all.User, me.*, me.changePassword, or only.User.
     #
     # Parameters:
     # *  {hash} data - Object containing the password change info (https://api.losant.com/#/definitions/changePassword)
@@ -125,7 +125,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, me.*, or me.delete.
+    # all.User, me.*, me.delete, or only.User.
     #
     # Parameters:
     # *  {hash} credentials - User authentication credentials (https://api.losant.com/#/definitions/userCredentials)
@@ -169,7 +169,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, all.User.read, me.*, or me.deviceCounts.
+    # all.User, all.User.bounded, all.User.read, me.*, me.deviceCounts, only.User, only.User.bounded, or only.User.read.
     #
     # Parameters:
     # *  {string} start - Start of range for device count query (ms since epoch)
@@ -214,7 +214,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, me.*, or me.disableTwoFactorAuth.
+    # all.User, me.*, me.disableTwoFactorAuth, or only.User.
     #
     # Parameters:
     # *  {hash} data - Object containing multi-factor authentication properties (https://api.losant.com/#/definitions/multiFactorAuthDisable)
@@ -264,7 +264,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, me.*, or me.disconnectGithub.
+    # all.User, me.*, me.disconnectGithub, or only.User.
     #
     # Parameters:
     # *  {string} includeRecent - Should the user include recent app/dashboard info
@@ -311,7 +311,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, me.*, or me.enableTwoFactorAuth.
+    # all.User, me.*, me.enableTwoFactorAuth, or only.User.
     #
     # Parameters:
     # *  {hash} data - Object containing multi-factor authentication properties (https://api.losant.com/#/definitions/multiFactorAuthEnable)
@@ -361,7 +361,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, all.User.read, me.*, or me.fetchRecentItems.
+    # all.User, all.User.bounded, all.User.read, me.*, me.fetchRecentItems, only.User, only.User.bounded, or only.User.read.
     #
     # Parameters:
     # *  {string} parentId - Parent id of the recent list
@@ -407,7 +407,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, me.*, or me.generateTwoFactorAuth.
+    # all.User, me.*, me.generateTwoFactorAuth, or only.User.
     #
     # Parameters:
     # *  {string} losantdomain - Domain scope of request (rarely needed)
@@ -448,7 +448,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, all.User.read, me.*, or me.get.
+    # all.User, all.User.bounded, all.User.read, me.*, me.get, only.User, only.User.bounded, or only.User.read.
     #
     # Parameters:
     # *  {string} includeRecent - Should the user include recent app/dashboard info
@@ -494,7 +494,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, all.User.read, me.*, or me.invite.
+    # all.User, all.User.bounded, all.User.read, me.*, me.invite, only.User, only.User.bounded, or only.User.read.
     #
     # Parameters:
     # *  {string} inviteId - ID associated with the invitation
@@ -538,7 +538,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, all.User.read, me.*, or me.invites.
+    # all.User, all.User.bounded, all.User.read, me.*, me.invites, only.User, only.User.bounded, or only.User.read.
     #
     # Parameters:
     # *  {string} losantdomain - Domain scope of request (rarely needed)
@@ -579,7 +579,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, all.User.read, me.*, or me.notebookMinuteCounts.
+    # all.User, all.User.bounded, all.User.read, me.*, me.notebookMinuteCounts, only.User, only.User.bounded, or only.User.read.
     #
     # Parameters:
     # *  {string} start - Start of range for notebook execution query (ms since epoch)
@@ -624,7 +624,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, me.*, or me.patch.
+    # all.User, me.*, me.patch, or only.User.
     #
     # Parameters:
     # *  {hash} user - Object containing new user properties (https://api.losant.com/#/definitions/mePatch)
@@ -674,7 +674,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, all.User.read, me.*, or me.payloadCounts.
+    # all.User, all.User.bounded, all.User.read, me.*, me.payloadCounts, only.User, only.User.bounded, or only.User.read.
     #
     # Parameters:
     # *  {string} start - Start of range for payload count query (ms since epoch)
@@ -721,7 +721,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, all.User.read, me.*, or me.payloadCountsBreakdown.
+    # all.User, all.User.bounded, all.User.read, me.*, me.payloadCountsBreakdown, only.User, only.User.bounded, or only.User.read.
     #
     # Parameters:
     # *  {string} start - Start of range for payload count query (ms since epoch)
@@ -772,7 +772,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, or me.*.
+    # all.User, me.*, me.refreshToken, or only.User.
     #
     # Parameters:
     # *  {string} losantdomain - Domain scope of request (rarely needed)
@@ -814,7 +814,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, me.*, or me.respondToInvite.
+    # all.User, me.*, me.respondToInvite, or only.User.
     #
     # Parameters:
     # *  {string} inviteId - ID associated with the invitation
@@ -862,7 +862,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, me.*, or me.transferResources.
+    # all.User, me.*, me.transferResources, or only.User.
     #
     # Parameters:
     # *  {hash} transfer - Object containing properties of the transfer (https://api.losant.com/#/definitions/resourceTransfer)
@@ -906,7 +906,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, me.*, or me.verifyEmail.
+    # all.User, me.*, me.verifyEmail, or only.User.
     #
     # Parameters:
     # *  {string} losantdomain - Domain scope of request (rarely needed)

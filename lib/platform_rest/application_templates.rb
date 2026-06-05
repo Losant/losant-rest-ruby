@@ -37,7 +37,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, all.User.read, applicationTemplates.*, or applicationTemplates.get.
+    # all.User, all.User.bounded, all.User.read, applicationTemplates.*, applicationTemplates.get, only.User, only.User.bounded, or only.User.read.
     #
     # Parameters:
     # *  {string} sortField - Field to sort the results by. Accepted values are: name, id, creationDate, lastUpdated
@@ -94,7 +94,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, all.User.read, applicationTemplates.*, or applicationTemplates.getCategories.
+    # all.User, all.User.bounded, all.User.read, applicationTemplates.*, applicationTemplates.getCategories, only.User, only.User.bounded, or only.User.read.
     #
     # Parameters:
     # *  {string} baseId - ID of the category to begin from
@@ -137,7 +137,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, all.User.read, applicationTemplates.*, or applicationTemplates.getUniqueKeywords.
+    # all.User, all.User.bounded, all.User.read, applicationTemplates.*, applicationTemplates.getUniqueKeywords, only.User, only.User.bounded, or only.User.read.
     #
     # Parameters:
     # *  {string} losantdomain - Domain scope of request (rarely needed)

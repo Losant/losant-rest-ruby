@@ -37,7 +37,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Instance, all.Instance.read, all.User, all.User.read, instanceOrgs.*, or instanceOrgs.get.
+    # all.Instance, all.Instance.bounded, all.Instance.read, all.User, all.User.bounded, all.User.read, instanceOrgs.*, or instanceOrgs.get.
     #
     # Parameters:
     # *  {string} instanceId - ID associated with the instance
@@ -97,7 +97,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Instance, all.User, instanceOrgs.*, or instanceOrgs.post.
+    # all.Instance, all.Instance.bounded, all.User, all.User.bounded, instanceOrgs.*, or instanceOrgs.post.
     #
     # Parameters:
     # *  {string} instanceId - ID associated with the instance

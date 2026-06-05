@@ -37,7 +37,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Instance, all.User, instanceNotificationRule.*, or instanceNotificationRule.delete.
+    # all.Instance, all.Instance.bounded, all.User, all.User.bounded, instanceNotificationRule.*, or instanceNotificationRule.delete.
     #
     # Parameters:
     # *  {string} instanceId - ID associated with the instance
@@ -83,7 +83,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Instance, all.User, instanceNotificationRule.*, or instanceNotificationRule.evaluate.
+    # all.Instance, all.Instance.bounded, all.User, all.User.bounded, instanceNotificationRule.*, or instanceNotificationRule.evaluate.
     #
     # Parameters:
     # *  {string} instanceId - ID associated with the instance
@@ -132,7 +132,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Instance, all.Instance.read, all.User, all.User.read, instanceNotificationRule.*, or instanceNotificationRule.get.
+    # all.Instance, all.Instance.bounded, all.Instance.read, all.User, all.User.bounded, all.User.read, instanceNotificationRule.*, or instanceNotificationRule.get.
     #
     # Parameters:
     # *  {string} instanceId - ID associated with the instance
@@ -178,7 +178,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Instance, all.User, instanceNotificationRule.*, or instanceNotificationRule.logs.
+    # all.Instance, all.Instance.bounded, all.User, all.User.bounded, instanceNotificationRule.*, or instanceNotificationRule.logs.
     #
     # Parameters:
     # *  {string} instanceId - ID associated with the instance
@@ -228,7 +228,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Instance, all.User, instanceNotificationRule.*, or instanceNotificationRule.patch.
+    # all.Instance, all.Instance.bounded, all.User, all.User.bounded, instanceNotificationRule.*, or instanceNotificationRule.patch.
     #
     # Parameters:
     # *  {string} instanceId - ID associated with the instance

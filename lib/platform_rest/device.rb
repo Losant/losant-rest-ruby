@@ -37,7 +37,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, device.*, or device.delete.
+    # all.Application, all.Application.bounded, all.Organization, all.Organization.bounded, all.User, all.User.bounded, device.*, or device.delete.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -83,7 +83,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, device.*, or device.export.
+    # all.Application, all.Application.bounded, all.Application.read, all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, device.*, or device.export.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -141,7 +141,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Device, all.Device.read, all.Organization, all.Organization.read, all.User, all.User.read, device.*, or device.get.
+    # all.Application, all.Application.bounded, all.Application.read, all.Device, all.Device.read, all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, device.*, or device.get.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -193,7 +193,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Device, all.Device.read, all.Organization, all.Organization.read, all.User, all.User.read, device.*, or device.getCommand.
+    # all.Application, all.Application.bounded, all.Application.read, all.Device, all.Device.read, all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, device.*, or device.getCommand.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -251,7 +251,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Device, all.Device.read, all.Organization, all.Organization.read, all.User, all.User.read, device.*, or device.getCompositeState.
+    # all.Application, all.Application.bounded, all.Application.read, all.Device, all.Device.read, all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, device.*, or device.getCompositeState.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -303,7 +303,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Device, all.Device.read, all.Organization, all.Organization.read, all.User, all.User.read, device.*, or device.getLogEntries.
+    # all.Application, all.Application.bounded, all.Application.read, all.Device, all.Device.read, all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, device.*, or device.getLogEntries.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -361,7 +361,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Device, all.Device.read, all.Organization, all.Organization.read, all.User, all.User.read, device.*, or device.getState.
+    # all.Application, all.Application.bounded, all.Application.read, all.Device, all.Device.read, all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, device.*, or device.getState.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -419,7 +419,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, device.*, or device.patch.
+    # all.Application, all.Application.bounded, all.Organization, all.Organization.bounded, all.User, all.User.bounded, device.*, or device.patch.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -472,7 +472,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, device.*, or device.payloadCounts.
+    # all.Application, all.Application.bounded, all.Application.read, all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, device.*, or device.payloadCounts.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -522,7 +522,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, device.*, or device.payloadCountsBreakdown.
+    # all.Application, all.Application.bounded, all.Application.read, all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, device.*, or device.payloadCountsBreakdown.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -574,7 +574,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, device.*, or device.removeData.
+    # all.Application, all.Application.bounded, all.Organization, all.Organization.bounded, all.User, all.User.bounded, device.*, or device.removeData.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -624,7 +624,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Device, all.Organization, all.User, device.*, or device.sendCommand.
+    # all.Application, all.Application.bounded, all.Device, all.Organization, all.Organization.bounded, all.User, all.User.bounded, device.*, or device.sendCommand.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -673,7 +673,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Device, all.Organization, all.User, device.*, or device.sendState.
+    # all.Application, all.Application.bounded, all.Device, all.Organization, all.Organization.bounded, all.User, all.User.bounded, device.*, or device.sendState.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -722,7 +722,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Device, all.Organization, all.User, device.*, or device.setConnectionStatus.
+    # all.Application, all.Application.bounded, all.Device, all.Organization, all.Organization.bounded, all.User, all.User.bounded, device.*, or device.setConnectionStatus.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application

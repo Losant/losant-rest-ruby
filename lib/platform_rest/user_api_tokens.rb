@@ -37,7 +37,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, all.User.read, userApiTokens.*, or userApiTokens.get.
+    # all.User, all.User.bounded, all.User.read, only.User, only.User.bounded, only.User.read, userApiTokens.*, or userApiTokens.get.
     #
     # Parameters:
     # *  {string} sortField - Field to sort the results by. Accepted values are: name, status, id, creationDate, lastUpdated, expirationDate
@@ -90,7 +90,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.User, userApiTokens.*, or userApiTokens.post.
+    # all.User, only.User, userApiTokens.*, or userApiTokens.post.
     #
     # Parameters:
     # *  {hash} apiToken - API token information (https://api.losant.com/#/definitions/apiTokenPost)

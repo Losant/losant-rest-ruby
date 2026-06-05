@@ -37,7 +37,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, notebook.*, or notebook.execute.
+    # all.Application, all.Application.bounded, all.Organization, all.Organization.bounded, all.User, all.User.bounded, notebook.*, or notebook.execute.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -86,7 +86,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, notebook.*, or notebook.delete.
+    # all.Application, all.Application.bounded, all.Organization, all.Organization.bounded, all.User, all.User.bounded, notebook.*, or notebook.delete.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -132,7 +132,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, notebook.*, or notebook.execute.
+    # all.Application, all.Application.bounded, all.Organization, all.Organization.bounded, all.User, all.User.bounded, notebook.*, or notebook.execute.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -181,7 +181,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, notebook.*, or notebook.get.
+    # all.Application, all.Application.bounded, all.Application.read, all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, notebook.*, or notebook.get.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -227,7 +227,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, notebook.*, or notebook.logs.
+    # all.Application, all.Application.bounded, all.Application.read, all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, notebook.*, or notebook.logs.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -277,7 +277,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, notebook.*, or notebook.notebookMinuteCounts.
+    # all.Application, all.Application.bounded, all.Application.read, all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, notebook.*, or notebook.notebookMinuteCounts.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -327,7 +327,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, notebook.*, or notebook.patch.
+    # all.Application, all.Application.bounded, all.Organization, all.Organization.bounded, all.User, all.User.bounded, notebook.*, or notebook.patch.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -376,7 +376,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, notebook.*, or notebook.requestInputDataExport.
+    # all.Application, all.Application.bounded, all.Application.read, all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, notebook.*, or notebook.requestInputDataExport.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application

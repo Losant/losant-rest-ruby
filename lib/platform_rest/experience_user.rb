@@ -37,7 +37,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, experienceUser.*, or experienceUser.delete.
+    # all.Application, all.Application.bounded, all.Organization, all.Organization.bounded, all.User, all.User.bounded, experienceUser.*, or experienceUser.delete.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -83,7 +83,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, experienceUser.*, or experienceUser.get.
+    # all.Application, all.Application.bounded, all.Application.read, all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, experienceUser.*, or experienceUser.get.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -129,7 +129,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, experienceUser.*, or experienceUser.patch.
+    # all.Application, all.Application.bounded, all.Organization, all.Organization.bounded, all.User, all.User.bounded, experienceUser.*, or experienceUser.patch.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application

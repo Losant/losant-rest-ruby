@@ -27,7 +27,7 @@ module PlatformRest
   #
   # User API for accessing platform data
   #
-  # Built For Version 1.29.4
+  # Built For Version 1.30.0
   class Client
     attr_accessor :auth_token, :url
 
@@ -416,6 +416,14 @@ module PlatformRest
       @user_api_tokens ||= UserApiTokens.new(self)
     end
 
+    def user_oauth_token
+      @user_oauth_token ||= UserOauthToken.new(self)
+    end
+
+    def user_oauth_tokens
+      @user_oauth_tokens ||= UserOauthTokens.new(self)
+    end
+
     def webhook
       @webhook ||= Webhook.new(self)
     end
@@ -430,7 +438,7 @@ module PlatformRest
 
       headers["Accept"]         = "application/json"
       headers["Content-Type"]   = "application/json"
-      headers["Accept-Version"] = "^1.29.4"
+      headers["Accept-Version"] = "^1.30.0"
       headers["Authorization"]  = "Bearer #{self.auth_token}" if self.auth_token
       path = self.url + options.fetch(:path, "")
 

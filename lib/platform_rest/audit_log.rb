@@ -37,7 +37,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Organization, all.Organization.read, all.User, all.User.read, auditLog.*, or auditLog.get.
+    # all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, auditLog.*, auditLog.get, only.Organization, only.Organization.bounded, or only.Organization.read.
     #
     # Parameters:
     # *  {string} orgId - ID associated with the organization

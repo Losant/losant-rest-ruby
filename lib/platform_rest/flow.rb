@@ -37,7 +37,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, flow.*, or flow.clearStorageEntries.
+    # all.Application, all.Application.bounded, all.Organization, all.Organization.bounded, all.User, all.User.bounded, flow.*, or flow.clearStorageEntries.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -83,7 +83,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, flow.*, or flow.delete.
+    # all.Application, all.Application.bounded, all.Organization, all.Organization.bounded, all.User, all.User.bounded, flow.*, or flow.delete.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -129,7 +129,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, flow.*, or flow.errors.
+    # all.Application, all.Application.bounded, all.Application.read, all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, flow.*, or flow.errors.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -187,7 +187,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, flow.*, or flow.get.
+    # all.Application, all.Application.bounded, all.Application.read, all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, flow.*, or flow.get.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -235,7 +235,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, flow.*, or flow.log.
+    # all.Application, all.Application.bounded, all.Application.read, all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, flow.*, or flow.log.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -285,7 +285,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, flow.*, or flow.getStorageEntries.
+    # all.Application, all.Application.bounded, all.Application.read, all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, flow.*, or flow.getStorageEntries.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -331,7 +331,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, flow.*, or flow.getStorageEntriesMetadata.
+    # all.Application, all.Application.bounded, all.Application.read, all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, flow.*, or flow.getStorageEntriesMetadata.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -377,7 +377,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, flow.*, or flow.patch.
+    # all.Application, all.Application.bounded, all.Organization, all.Organization.bounded, all.User, all.User.bounded, flow.*, or flow.patch.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -428,7 +428,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, flow.*, or flow.pressVirtualButton.
+    # all.Application, all.Application.bounded, all.Organization, all.Organization.bounded, all.User, all.User.bounded, flow.*, or flow.pressVirtualButton.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -477,7 +477,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Organization, all.User, flow.*, or flow.setStorageEntry.
+    # all.Application, all.Application.bounded, all.Organization, all.Organization.bounded, all.User, all.User.bounded, flow.*, or flow.setStorageEntry.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
@@ -526,7 +526,7 @@ module PlatformRest
     # The client must be configured with a valid api
     # access token to call this action. The token
     # must include at least one of the following scopes:
-    # all.Application, all.Application.read, all.Organization, all.Organization.read, all.User, all.User.read, flow.*, or flow.stats.
+    # all.Application, all.Application.bounded, all.Application.read, all.Organization, all.Organization.bounded, all.Organization.read, all.User, all.User.bounded, all.User.read, flow.*, or flow.stats.
     #
     # Parameters:
     # *  {string} applicationId - ID associated with the application
