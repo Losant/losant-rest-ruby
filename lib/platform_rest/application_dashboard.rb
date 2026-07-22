@@ -141,7 +141,7 @@ module PlatformRest
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Update dashboard information (https://api.losant.com/#/definitions/dashboard)
+    # *  200 - Updated dashboard information (https://api.losant.com/#/definitions/dashboard)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)

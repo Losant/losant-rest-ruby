@@ -187,7 +187,7 @@ module PlatformRest
         body: body)
     end
 
-    # Retrieve the last known commands(s) sent to the device
+    # Retrieve the last known command(s) sent to the device
     #
     # Authentication:
     # The client must be configured with a valid api

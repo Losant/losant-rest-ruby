@@ -141,7 +141,7 @@ module PlatformRest
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - The modified instance member (https://api.losant.com/#/definitions/instanceMemberPatch)
+    # *  200 - The modified instance member (https://api.losant.com/#/definitions/instanceMember)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)

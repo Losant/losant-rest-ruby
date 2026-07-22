@@ -215,7 +215,7 @@ all.User, me.*, me.disableTwoFactorAuth, or only.User.
 
 ## Disconnect Github
 
-Disconnects the user from Github
+Disconnects the user from GitHub
 
 ```ruby
 result = client.me.disconnect_github(optional_params)

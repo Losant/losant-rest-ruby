@@ -53,7 +53,7 @@ module PlatformRest
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Collection of API tokens (https://api.losant.com/#/definitions/apiToken)
+    # *  200 - Collection of API tokens (https://api.losant.com/#/definitions/apiTokens)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)

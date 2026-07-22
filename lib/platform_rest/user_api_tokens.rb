@@ -52,7 +52,7 @@ module PlatformRest
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - Collection of API tokens (https://api.losant.com/#/definitions/apiToken)
+    # *  200 - Collection of API tokens (https://api.losant.com/#/definitions/apiTokens)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)
@@ -84,7 +84,7 @@ module PlatformRest
         body: body)
     end
 
-    # Create a new API token for an user
+    # Create a new API token for a user
     #
     # Authentication:
     # The client must be configured with a valid api

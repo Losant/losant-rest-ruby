@@ -109,7 +109,7 @@ module PlatformRest
     # *  {boolean} _embedded - Return embedded resources in response
     #
     # Responses:
-    # *  200 - The newly created organization (https://api.losant.com/#/definitions/org)
+    # *  201 - The newly created organization (https://api.losant.com/#/definitions/instanceOrg)
     #
     # Errors:
     # *  400 - Error if malformed request (https://api.losant.com/#/definitions/error)

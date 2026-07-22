@@ -42,7 +42,7 @@ module PlatformRest
     # Parameters:
     # *  {string} applicationId - ID associated with the application
     # *  {string} notebookId - ID associated with the notebook
-    # *  {undefined} executionId - The ID of the execution to cancel
+    # *  {string} executionId - The ID of the execution to cancel
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
