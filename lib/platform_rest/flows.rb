@@ -269,6 +269,7 @@ module PlatformRest
     # *  {string} applicationId - ID associated with the application
     # *  {hash} flow - New flow information (https://api.losant.com/#/definitions/flowPost)
     # *  {string} includeCustomNodes - If the result of the request should also include the details of any custom nodes referenced by the returned workflows
+    # *  {string} strictValidation - When true, perform stricter validation on node and trigger configuration
     # *  {string} losantdomain - Domain scope of request (rarely needed)
     # *  {boolean} _actions - Return resource actions in response
     # *  {boolean} _links - Return resource link in response
@@ -291,6 +292,7 @@ module PlatformRest
 
       body = params[:flow] if params.has_key?(:flow)
       query_params[:includeCustomNodes] = params[:includeCustomNodes] if params.has_key?(:includeCustomNodes)
+      query_params[:strictValidation] = params[:strictValidation] if params.has_key?(:strictValidation)
       headers[:losantdomain] = params[:losantdomain] if params.has_key?(:losantdomain)
       query_params[:_actions] = params[:_actions] if params.has_key?(:_actions)
       query_params[:_links] = params[:_links] if params.has_key?(:_links)
